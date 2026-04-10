@@ -149,7 +149,7 @@ function NavButton({ item }: { item: NavItem }) {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-[100] border-b border-border bg-page">
+    <header className="sticky top-0 z-[100] bg-page">
       <div className="container">
         <div className="flex h-16 items-center justify-between gap-6">
 

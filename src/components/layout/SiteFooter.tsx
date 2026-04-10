@@ -113,7 +113,7 @@ function SocialIcon({
 function FooterBottomBar() {
   return (
     // More top/bottom padding + gap between the two text lines
-    <div className="bg-bg-inset py-14">
+    <div className="py-14">
       <div className="mx-auto flex w-full max-w-footer flex-col items-start justify-between gap-4 px-8 sm:flex-row sm:items-center">
         <div className="flex min-w-0 flex-col gap-5">
           {/* Privacy / legal links */}
@@ -187,7 +187,7 @@ function FooterBottomBar() {
 
 export function Footer() {
   return (
-    <footer className="bg-bg-subtle">
+    <footer className="bg-bg-inset">
       <div className="pb-6 pt-[72px]">
         <div className="mx-auto w-full max-w-footer px-8">
           <div className="grid grid-cols-1 items-start gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-6 xl:gap-x-8">
