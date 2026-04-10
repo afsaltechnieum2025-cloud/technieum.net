@@ -1,7 +1,7 @@
 export function TopBar() {
   return (
     <div className="flex min-h-13 items-center bg-brand">
-      <div className="container flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 text-center text-sm text-white max-xs:text-xs">
+      <div className="container flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 text-center text-sm text-surface-popover max-xs:text-xs">
         <span>
           <strong className="font-bold">Download our Latest Industry Report</strong>
           {' '}– Continuous Offensive Security Outlook 2026

@@ -174,7 +174,7 @@ export function Header() {
           {/* CTA */}
           <a
             href="#"
-            className="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full border border-brand-strong bg-brand-strong px-5 py-2 text-sm font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-95"
+            className="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full border border-brand-strong bg-brand-strong px-5 py-2 text-sm font-bold tracking-wide text-surface-popover no-underline transition-colors hover:bg-brand-soft active:scale-95"
           >
             Contact Us
             <ArrowRight />
