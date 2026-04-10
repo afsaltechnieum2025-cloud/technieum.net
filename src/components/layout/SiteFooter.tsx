@@ -57,7 +57,11 @@ const linkClass =
   'block text-[15px] leading-snug text-footer-link no-underline transition-colors duration-150 hover:text-heading'
 
 const sectionTitleClass =
-  'mb-6 text-[22px] font-bold leading-tight tracking-tight text-heading'
+  'mb-6 text-[18px] font-bold leading-tight tracking-tight text-heading'
+
+/** Equal-width columns on large screens; stacks / 2-col grid below lg */
+const footerColClass =
+  'flex min-w-0 flex-col lg:flex-1 lg:basis-0 lg:min-w-0'
 
 function ColLinks({ items }: { items: { label: string; to: string }[] }) {
   return (
@@ -83,7 +87,7 @@ const legalLinks = [
 ] as const
 
 const legalLinkClass =
-  'text-brand-strong no-underline transition-opacity hover:opacity-80 hover:underline'
+  'font-semibold text-brand-strong no-underline transition-opacity hover:opacity-80 hover:underline'
 
 // Bigger icons: h-6 w-6 instead of h-5 w-5
 const iconClass = 'h-6 w-6 text-heading'
@@ -141,7 +145,7 @@ function FooterBottomBar() {
         </div>
 
         {/* Social icons — bigger (h-6 w-6) and slightly more spaced */}
-        <ul className="m-0 flex list-none flex-row items-center gap-6 p-0 sm:shrink-0">
+        <ul className="m-0 flex list-none flex-row items-center gap-10 p-0 sm:shrink-0">
           <li>
             <SocialIcon href="#" label="Technieum on LinkedIn">
               <svg className={iconClass} viewBox="0 0 24 24" aria-hidden fill="currentColor">
@@ -190,9 +194,9 @@ export function Footer() {
     <footer className="bg-bg-inset">
       <div className="pb-6 pt-[72px]">
         <div className="mx-auto w-full max-w-footer px-8">
-          <div className="grid grid-cols-1 items-start gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5 lg:gap-x-6 xl:gap-x-8">
+          <div className="grid w-full grid-cols-1 items-start gap-y-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:flex lg:flex-row lg:gap-x-8 lg:gap-y-0 xl:gap-x-10">
             {/* Col 1 — logo only */}
-            <div className="flex min-w-0 flex-col">
+            <div className={footerColClass}>
               <a href="/" aria-label="Technieum home" className="inline-flex self-start pb-8">
                 <img
                   src={technieumLogo}
@@ -204,7 +208,7 @@ export function Footer() {
               </a>
             </div>
 
-            <div className="flex min-w-0 flex-col">
+            <div className={footerColClass}>
               <h3 className={sectionTitleClass}>
                 Technieum Guard
                 <br />
@@ -213,17 +217,17 @@ export function Footer() {
               <ColLinks items={platformLinks} />
             </div>
 
-            <div className="flex min-w-0 flex-col">
+            <div className={footerColClass}>
               <h3 className={sectionTitleClass}>Professional Services</h3>
               <ColLinks items={servicesLinks} />
             </div>
 
-            <div className="flex min-w-0 flex-col">
+            <div className={footerColClass}>
               <h3 className={sectionTitleClass}>Use Cases</h3>
               <ColLinks items={useCasesLinks} />
             </div>
 
-            <div className="flex min-w-0 flex-col">
+            <div className={`${footerColClass} sm:col-span-2`}>
               <h3 className={sectionTitleClass}>Company</h3>
               <ColLinks items={companyLinks} />
             </div>
