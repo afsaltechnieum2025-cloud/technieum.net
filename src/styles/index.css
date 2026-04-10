@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand */
+  --color-brand: #e85d04;
+  --color-brand-strong: #c2410c;
+  --color-brand-soft: #9a3412;
+
+  /* Surfaces */
+  --color-page: #030303;
+  --color-bg-subtle: #0a0a0a;
+  --color-bg-inset: #000000;
+  --color-panel: #111111;
+  --color-panel-hover: #181818;
+  --color-surface-popover: #ffffff;
+
+  /* Text */
+  --color-muted: #a1a1aa;
+  --color-heading: #fafafa;
+  /* Muted text on light surfaces (e.g. mega menu links) */
+  --color-on-light-muted: #6b7280;
+  /* Footer column links (slightly soft white) */
+  --color-footer-link: rgb(255 255 255 / 0.72);
+
+  /* Borders */
+  --color-border: #27272a;
+  --color-border-strong: #3f3f46;
+
+  /* Shadows */
+  --shadow-md:
+    rgb(0 0 0 / 0.5) 0 12px 24px -4px,
+    rgb(0 0 0 / 0.35) 0 8px 16px -6px;
+  --shadow-dropdown: 0 8px 32px rgb(0 0 0 / 0.18);
+
+  /* Typography */
+  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
+
+  /* Layout */
+  --max-width-container: 1200px;
+  --max-width-footer: 1280px;
+
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+}
+
+@layer base {
+  :root {
+    @apply scheme-dark bg-page font-sans text-muted antialiased;
+    @apply text-base leading-[145%] tracking-[0.18px];
+    @apply [font-synthesis:none] [text-rendering:optimizeLegibility];
+  }
+
+  body {
+    @apply m-0;
+  }
+
+  #root {
+    @apply box-border min-h-svh w-full max-w-none;
+  }
+
+  h1,
+  h2 {
+    @apply font-sans font-medium text-heading;
+  }
+
+  h1 {
+    @apply mt-0 mb-[0.5em] text-[56px] tracking-[-1.68px] max-lg:text-4xl;
+  }
+
+  h2 {
+    @apply mt-0 mb-2 text-2xl leading-[118%] tracking-[-0.24px] max-lg:text-xl;
+  }
+
+  p {
+    @apply m-0;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto box-border w-full max-w-container px-6;
+  }
+}
