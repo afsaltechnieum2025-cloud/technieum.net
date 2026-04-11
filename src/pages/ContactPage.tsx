@@ -4,7 +4,7 @@ import { CONTACT_SALES, SALES_PITCH_PDF } from '../data/salesPitchSite'
 export function ContactPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="relative overflow-hidden border-b border-border bg-bg-inset px-6 py-14 md:py-20">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10 max-w-3xl">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
@@ -31,7 +31,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section className="px-6 py-14 md:py-20">
+      <section className="section-zz-b px-6 py-14 md:py-20">
         <div className="container grid gap-8 md:grid-cols-2">
           <div className="rounded-xl border border-border bg-panel/30 p-8">
             <h2 className="mb-2 text-lg font-semibold text-heading">{CONTACT_SALES.offensive.role}</h2>

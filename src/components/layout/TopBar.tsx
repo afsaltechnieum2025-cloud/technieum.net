@@ -2,7 +2,7 @@ import { SALES_PITCH_PDF } from '../../data/salesPitchSite'
 
 export function TopBar() {
   return (
-    <div className="technieum-topbar-glow flex min-h-13 items-center border-b border-black/20 bg-brand">
+    <div className="technieum-topbar-glow flex min-h-13 items-center bg-brand">
       <div className="container relative z-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 text-center text-sm text-white max-xs:text-xs">
         <span>
           <strong className="font-bold">Confidential sales pitch</strong>

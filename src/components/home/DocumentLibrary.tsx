@@ -81,15 +81,21 @@ function DocCard({
   )
 }
 
-export function DocumentLibrary() {
+type DocumentLibraryProps = {
+  /** Zigzag color wash: matches home section rhythm when embedded */
+  zigzag?: 'a' | 'b'
+}
+
+export function DocumentLibrary({ zigzag = 'a' }: DocumentLibraryProps) {
   const [activeId, setActiveId] = useState<ProductDocId>(PRODUCT_DOCUMENTS[0].id)
   const active = PRODUCT_DOCUMENTS.find((p) => p.id === activeId) ?? PRODUCT_DOCUMENTS[0]
   const href = pdfUrl(active.pdfFile)
+  const zzClass = zigzag === 'b' ? 'section-zz-b' : 'section-zz-a'
 
   return (
     <section
       id="platform-documentation"
-      className="border-t border-border bg-panel/20 px-6 py-16 md:py-24"
+      className={`${zzClass} bg-panel/20 px-6 py-16 md:py-24`}
       aria-labelledby="doc-library-heading"
     >
       <div className="container">
@@ -119,7 +125,7 @@ export function DocumentLibrary() {
         <div
           role="tablist"
           aria-label="Product documentation detail"
-          className="mb-6 flex flex-wrap gap-2 border-b border-border pb-4"
+          className="mb-6 flex flex-wrap gap-2 pb-4"
         >
           {PRODUCT_DOCUMENTS.map((doc) => (
             <button
@@ -147,7 +153,7 @@ export function DocumentLibrary() {
           aria-labelledby={`tab-${active.id}`}
           className="rounded-xl border border-border bg-page p-6 md:p-10"
         >
-          <div className="mb-8 flex flex-col gap-4 border-b border-border pb-8 md:flex-row md:items-start md:justify-between">
+          <div className="mb-8 flex flex-col gap-4 pb-8 md:flex-row md:items-start md:justify-between">
             <div>
               <h3 className="text-2xl font-medium text-heading md:text-3xl">{active.name}</h3>
               <p className="text-sm font-medium text-brand">{active.subtitle}</p>

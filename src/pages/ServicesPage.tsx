@@ -6,7 +6,7 @@ const SERVICE_SECTION_IDS = ['infra', 'app', 'ai', 'social'] as const
 export function ServicesPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="relative overflow-hidden border-b border-border bg-bg-inset px-6 py-14 md:py-20">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
@@ -45,14 +45,14 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="px-6 py-14 md:py-20">
+      <section className="section-zz-b px-6 py-14 md:py-20">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2">
             {SERVICE_GROUPS.map((group, index) => (
               <section
                 key={group.heading}
                 id={SERVICE_SECTION_IDS[index]}
-                className="scroll-mt-28 rounded-xl border border-border bg-panel/30 p-6 md:p-8"
+                className={`scroll-mt-28 rounded-xl border border-border bg-panel/30 p-6 md:p-8 ${index % 2 === 0 ? 'section-zz-a' : 'section-zz-b'}`}
               >
                 <h2 className="mb-6 text-xl font-semibold text-heading">{group.heading}</h2>
                 <ul className="m-0 space-y-3 p-0 list-none">
@@ -69,14 +69,14 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-bg-inset px-6 py-14 md:py-16">
+      <section className="section-zz-a bg-bg-inset px-6 py-14 md:py-16">
         <div className="container max-w-4xl">
           <h2 className="mb-4 text-2xl font-medium text-heading">Standards and certifications</h2>
           <p className="m-0 text-base leading-relaxed text-muted">{STANDARDS_STRIP}</p>
         </div>
       </section>
 
-      <section className="px-6 py-14 md:py-16">
+      <section className="section-zz-b px-6 py-14 md:py-16">
         <div className="container flex flex-col items-start justify-between gap-8 rounded-2xl border border-border bg-panel/20 p-8 md:flex-row md:items-center md:p-10">
           <div>
             <h2 className="mb-2 text-xl font-medium text-heading">Scope your next program</h2>

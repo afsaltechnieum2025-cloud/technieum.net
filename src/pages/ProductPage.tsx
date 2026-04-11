@@ -17,7 +17,7 @@ export function ProductPage() {
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="relative overflow-hidden border-b border-border bg-bg-inset px-6 py-14 md:py-20">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
@@ -94,7 +94,7 @@ export function ProductPage() {
         </div>
       </section>
 
-      <section className="px-6 py-14 md:py-20">
+      <section className="section-zz-b px-6 py-14 md:py-20">
         <div className="container">
           <h2 className="mb-10 text-2xl font-medium text-heading md:text-3xl">Why teams lead with {doc.name}</h2>
           <ul className="grid gap-6 md:grid-cols-3">
@@ -111,7 +111,7 @@ export function ProductPage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-panel/20 px-6 py-14 md:py-20">
+      <section className="section-zz-a bg-panel/20 px-6 py-14 md:py-20">
         <div className="container max-w-4xl">
           <h2 className="mb-10 text-2xl font-medium text-heading md:text-3xl">Engagement depth</h2>
           {pitch.deepDive.map((block) => (
@@ -127,7 +127,7 @@ export function ProductPage() {
         </div>
       </section>
 
-      <section className="px-6 py-14 md:py-20">
+      <section className="section-zz-b px-6 py-14 md:py-20">
         <div className="container">
           <div className="rounded-2xl border border-border bg-bg-inset p-8 md:p-10">
             <h2 className="mb-4 text-xl font-medium text-heading">OffSec Management Portal fit</h2>
@@ -151,7 +151,7 @@ export function ProductPage() {
         </div>
       </section>
 
-      <section className="border-t border-border px-6 py-12">
+      <section className="section-zz-a px-6 py-12">
         <div className="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="m-0 text-sm text-muted">
             Technical detail for {doc.name}: open the PDF above or use the documentation library on the home page.

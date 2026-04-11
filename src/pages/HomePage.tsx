@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
+import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
 import { DocumentLibrary } from '../components/home/DocumentLibrary'
 import { PRODUCT_DOCUMENTS, productPath, type ProductDocId } from '../data/productDocuments'
 import {
   CONTACT_SALES,
-  DIFFERENTIATORS,
   HOME_HERO,
   OFFENSIVE_WORKFLOW,
   OFFSEC_PORTAL,
@@ -47,7 +47,7 @@ export function HomePage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-bg-inset px-6 py-16 md:py-24 lg:py-28">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-16 md:py-24 lg:py-28">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <p className="text-shimmer-brand mb-4 text-sm font-semibold tracking-wide">{HOME_HERO.eyebrow}</p>
@@ -81,7 +81,7 @@ export function HomePage() {
       </section>
 
       {/* Why Technieum */}
-      <section className="border-b border-border px-6 py-16 md:py-20" aria-labelledby="why-heading">
+      <section className="section-zz-b px-6 py-16 md:py-20" aria-labelledby="why-heading">
         <div className="container">
           <h2 id="why-heading" className="mb-4 text-center text-2xl font-medium text-heading md:text-3xl">
             Why Technieum
@@ -104,10 +104,12 @@ export function HomePage() {
         </div>
       </section>
 
+      <CustomersBelievedSection />
+
       {/* Suite pillars */}
       <section
         id="platform-suite"
-        className="border-b border-border bg-panel/20 px-6 py-16 md:py-20"
+        className="section-zz-b bg-panel/20 px-6 py-16 md:py-20"
         aria-labelledby="suite-heading"
       >
         <div className="container">
@@ -154,7 +156,7 @@ export function HomePage() {
       </section>
 
       {/* OffSec portal */}
-      <section className="border-b border-border px-6 py-16 md:py-20" aria-labelledby="portal-heading">
+      <section className="section-zz-a px-6 py-16 md:py-20" aria-labelledby="portal-heading">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
@@ -180,7 +182,7 @@ export function HomePage() {
       </section>
 
       {/* Workflow */}
-      <section className="border-b border-border bg-bg-inset px-6 py-16 md:py-20" aria-labelledby="workflow-heading">
+      <section className="section-zz-b bg-bg-inset px-6 py-16 md:py-20" aria-labelledby="workflow-heading">
         <div className="container">
           <h2 id="workflow-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
             {OFFENSIVE_WORKFLOW.title}
@@ -208,7 +210,7 @@ export function HomePage() {
       </section>
 
       {/* Project cycle */}
-      <section className="border-b border-border px-6 py-16 md:py-20" aria-labelledby="cycle-heading">
+      <section className="section-zz-a px-6 py-16 md:py-20" aria-labelledby="cycle-heading">
         <div className="container">
           <h2 id="cycle-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
             {PROJECT_CYCLE.title}
@@ -230,38 +232,8 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Differentiators table */}
-      <section className="border-b border-border bg-bg-inset px-6 py-16 md:py-20" aria-labelledby="diff-heading">
-        <div className="container">
-          <h2 id="diff-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
-            {DIFFERENTIATORS.title}
-          </h2>
-          <p className="mb-10 max-w-3xl text-muted">{DIFFERENTIATORS.subtitle}</p>
-          <div className="overflow-x-auto rounded-xl border border-border">
-            <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-              <thead>
-                <tr className="border-b border-border bg-page">
-                  <th className="px-4 py-3 font-semibold text-heading">Dimension</th>
-                  <th className="px-4 py-3 font-semibold text-muted">Conventional vendors</th>
-                  <th className="px-4 py-3 font-semibold text-brand">Technieum</th>
-                </tr>
-              </thead>
-              <tbody>
-                {DIFFERENTIATORS.rows.map((row) => (
-                  <tr key={row.dimension} className="border-b border-border bg-panel/20 last:border-0">
-                    <td className="px-4 py-4 font-medium text-heading">{row.dimension}</td>
-                    <td className="px-4 py-4 text-muted">{row.conventional}</td>
-                    <td className="px-4 py-4 text-muted">{row.technieum}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       {/* Product snapshot */}
-      <section className="px-6 py-16 md:py-20" aria-labelledby="products-heading">
+      <section className="section-zz-b px-6 py-16 md:py-20" aria-labelledby="products-heading">
         <div className="container">
           <h2 id="products-heading" className="mb-4 text-2xl font-medium text-heading md:text-3xl">
             Capabilities at a glance
@@ -287,10 +259,10 @@ export function HomePage() {
         </div>
       </section>
 
-      <DocumentLibrary />
+      <DocumentLibrary zigzag="a" />
 
       {/* CTA */}
-      <section className="border-t border-border bg-bg-inset px-6 py-14 md:py-16">
+      <section className="section-zz-b bg-bg-inset px-6 py-14 md:py-16">
         <div className="container flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="max-w-xl">
             <h2 className="mb-3 text-xl font-medium text-heading md:text-2xl">

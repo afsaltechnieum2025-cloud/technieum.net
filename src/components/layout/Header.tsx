@@ -59,7 +59,7 @@ const NAV_ITEMS: NavItemType[] = [
           { label: 'Sales pitch (PDF)', href: SALES_PITCH_PDF, external: true },
           { label: 'Platform documentation', to: '/#platform-documentation' },
           { label: 'Why Technieum', to: '/#why-heading' },
-          { label: 'Vendor comparison', to: '/#diff-heading' },
+          { label: 'Our customers', to: '/#customers-believed' },
         ],
       },
     ],
@@ -204,7 +204,7 @@ function NavButton({ item }: { item: NavItemType }) {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-[100] border-b border-border bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80">
+    <header className="sticky top-0 z-[100] bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80">
       <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
         <div className="flex h-[4.5rem] items-center justify-between gap-6">
 

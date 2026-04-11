@@ -23,10 +23,10 @@ const servicesLinks = [
 
 const useCasesLinks = [
   { label: 'Why Technieum', to: '/#why-heading' },
+  { label: 'Our customers', to: '/#customers-believed' },
   { label: 'OffSec Management Portal', to: '/#portal-heading' },
   { label: 'Offensive workflow', to: '/#workflow-heading' },
   { label: 'Project lifecycle', to: '/#cycle-heading' },
-  { label: 'Vendor comparison', to: '/#diff-heading' },
   { label: 'Sales pitch (PDF)', to: '/salespitch/Technieum_Sales_Pitch_Dark.pdf' },
 ]
 

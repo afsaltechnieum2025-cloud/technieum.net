@@ -156,54 +156,6 @@ export const PROJECT_CYCLE = {
   ],
 } as const
 
-export const DIFFERENTIATORS = {
-  title: 'Conventional vendors versus Technieum',
-  subtitle: 'How we stack up across the dimensions buyers care about',
-  rows: [
-    {
-      dimension: 'Coverage',
-      conventional: 'Siloed: web or network or cloud in isolation.',
-      technieum: '360 degrees: SAST plus SCA plus ASM plus AD plus AI or LLM every project.',
-    },
-    {
-      dimension: 'Business logic and attack intel',
-      conventional: 'Generic OWASP-style checklists; limited attack intel.',
-      technieum:
-        'Full logic extraction and target-specific attack playbooks; 15,000+ disclosed reports via ToIP RAG search.',
-    },
-    {
-      dimension: 'Tooling',
-      conventional: 'Commercial scanners only.',
-      technieum: 'Six proprietary AI platforms plus commercial tools where they add value.',
-    },
-    {
-      dimension: 'AI and LLM testing',
-      conventional: 'Not offered or basic.',
-      technieum: 'Dedicated LLM Attack Suite with 1,005+ prompts across OWASP LLM categories.',
-    },
-    {
-      dimension: 'Validation',
-      conventional: 'Automated results and false positives.',
-      technieum: 'Human-validated findings with a zero false positives commitment.',
-    },
-    {
-      dimension: 'Deliverables',
-      conventional: 'Static PDF, limited tracking.',
-      technieum: 'Live portal, test cases, playbook docs, and structured retest workflow.',
-    },
-    {
-      dimension: 'Remediation',
-      conventional: 'Generic fix suggestions.',
-      technieum: 'AI-powered, accurate, context-aware guidance.',
-    },
-    {
-      dimension: 'Delivery',
-      conventional: 'Delays and scope creep are common.',
-      technieum: 'Milestone-driven, daily updates, on-time delivery guarantee.',
-    },
-  ],
-} as const
-
 export const SERVICE_GROUPS = [
   {
     heading: 'Infrastructure and network',
