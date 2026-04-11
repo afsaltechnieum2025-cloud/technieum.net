@@ -4,51 +4,36 @@ import technieumLogo from '../../assets/technieum-logo.png'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const platformLinks = [
-  { label: 'Continuous Threat Exposure Management', to: '#' },
-  { label: 'Attack Surface Management', to: '#' },
-  { label: 'Vulnerability Management', to: '#' },
-  { label: 'Cyber Threat Intelligence', to: '#' },
-  { label: 'Continuous Penetration Testing', to: '#' },
-  { label: 'Breach and Attack Simulation', to: '#' },
+  { label: 'TOIP (intelligence portal)', to: '/platform/toip' },
+  { label: 'Technieum-X (ASM)', to: '/platform/technieum-x' },
+  { label: 'LLM Attack Suite', to: '/platform/llm-suite' },
+  { label: 'AI-SAST and AI-SCA', to: '/platform/ai-sast' },
+  { label: 'AD Suite', to: '/platform/ad-suite' },
+  { label: 'Technical PDF library', to: '/#platform-documentation' },
 ]
 
 const servicesLinks = [
-  { label: 'AI/ML Penetration Testing', to: '#' },
-  { label: 'Application Penetration Testing', to: '#' },
-  { label: 'Assumed Breached Exercise', to: '#' },
-  { label: 'Attack Path Mapping', to: '#' },
-  { label: 'Automotive Penetration Testing', to: '#' },
-  { label: 'CI/CD Security Engagement', to: '#' },
-  { label: 'Cloud Penetration Testing', to: '#' },
-  { label: 'IoT Penetration Testing', to: '#' },
-  { label: 'Network Penetration Testing', to: '#' },
-  { label: 'NIST CSF Benchmark', to: '#' },
-  { label: 'Purple Team', to: '#' },
-  { label: 'Red Team', to: '#' },
+  { label: 'Services portfolio', to: '/services' },
+  { label: 'Infrastructure and network', to: '/services#infra' },
+  { label: 'Application security', to: '/services#app' },
+  { label: 'AI and emerging technology', to: '/services#ai' },
+  { label: 'Social engineering', to: '/services#social' },
+  { label: 'Contact sales', to: '/contact' },
 ]
 
 const useCasesLinks = [
-  { label: 'Bug Bounty Cost Reduction', to: '#' },
-  { label: 'FDA Testing and Monitoring', to: '#' },
-  { label: 'Mergers and Acquisitions', to: '#' },
-  { label: 'Ransomware Prevention', to: '#' },
-  { label: 'Rogue IT Identification', to: '#' },
-  { label: 'Tool and Vendor Consolidation', to: '#' },
-  { label: 'Vendor Risk Management', to: '#' },
+  { label: 'Why Technieum', to: '/#why-heading' },
+  { label: 'OffSec Management Portal', to: '/#portal-heading' },
+  { label: 'Offensive workflow', to: '/#workflow-heading' },
+  { label: 'Project lifecycle', to: '/#cycle-heading' },
+  { label: 'Vendor comparison', to: '/#diff-heading' },
+  { label: 'Sales pitch (PDF)', to: '/salespitch/Technieum_Sales_Pitch_Dark.pdf' },
 ]
 
 const companyLinks = [
-  { label: 'About Us', to: '#' },
-  { label: 'Leadership Team', to: '#' },
-  { label: 'Press Releases', to: '#' },
-  { label: 'In the News', to: '#' },
-  { label: 'Contact Us', to: '/contact' },
-  { label: 'Resource Library', to: '#' },
-  { label: 'Security Blog', to: '#' },
-  { label: 'People Ops Blog', to: '#' },
-  { label: 'Careers', to: '#' },
-  { label: 'Culture', to: '#' },
-  { label: 'Survival Kit', to: '#' },
+  { label: 'Home overview', to: '/' },
+  { label: 'Contact', to: '/contact' },
+  { label: 'Services', to: '/services' },
 ]
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -209,11 +194,7 @@ export function Footer() {
             </div>
 
             <div className={footerColClass}>
-              <h3 className={sectionTitleClass}>
-                Technieum Guard
-                <br />
-                Platform
-              </h3>
+              <h3 className={sectionTitleClass}>Platforms</h3>
               <ColLinks items={platformLinks} />
             </div>
 
@@ -223,7 +204,7 @@ export function Footer() {
             </div>
 
             <div className={footerColClass}>
-              <h3 className={sectionTitleClass}>Use Cases</h3>
+              <h3 className={sectionTitleClass}>Overview</h3>
               <ColLinks items={useCasesLinks} />
             </div>
 

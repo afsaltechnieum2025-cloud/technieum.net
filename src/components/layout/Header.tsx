@@ -1,25 +1,36 @@
 import { useState, useRef, useEffect } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import { BrandLogo } from '../BrandLogo'
+import { productPath } from '../../data/productDocuments'
+import { SALES_PITCH_PDF } from '../../data/salesPitchSite'
 
-// ─── Nav data ────────────────────────────────────────────────────────────────
+type SubItem = { label: string; to?: string; href?: string; external?: boolean }
 
-type SubItem = { label: string; href: string; active?: boolean }
 type Column = { heading: string; items: SubItem[] }
+
 type NavItemType = { label: string; columns: Column[] }
 
 const NAV_ITEMS: NavItemType[] = [
   {
-    label: 'Platform',
+    label: 'Platforms',
     columns: [
       {
-        heading: 'Technieum Guard Platform',
+        heading: 'Proprietary platforms',
         items: [
-          { label: 'Adversarial Exposure Validation', href: '#' },
-          { label: 'Attack Surface Management', href: '#' },
-          { label: 'Continuous Penetration Testing', href: '#' },
-          { label: 'Continuous Threat Exposure Management', href: '#' },
-          { label: 'Cyber Threat Intelligence', href: '#' },
-          { label: 'Unified Vulnerability Management', href: '#' },
+          { label: 'TOIP (OffSec intelligence)', to: productPath('toip') },
+          { label: 'Technieum-X (ASM)', to: productPath('asm') },
+          { label: 'LLM Attack Suite', to: productPath('llm') },
+          { label: 'AI-SAST and AI-SCA', to: productPath('sast') },
+          { label: 'AD Suite', to: productPath('ad') },
+          { label: 'Technical PDF library', to: '/#platform-documentation' },
+        ],
+      },
+      {
+        heading: 'How we deliver',
+        items: [
+          { label: 'OffSec Management Portal', to: '/#portal-heading' },
+          { label: 'Offensive workflow', to: '/#workflow-heading' },
+          { label: 'Project lifecycle', to: '/#cycle-heading' },
         ],
       },
     ],
@@ -28,112 +39,44 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Services',
     columns: [
       {
-        heading: 'Penetration Testing Services',
+        heading: 'Offensive services',
         items: [
-          { label: 'LLM Penetration Testing', href: '#' },
-          { label: 'Application Penetration Testing', href: '#' },
-          { label: 'Automotive Penetration Testing', href: '#' },
-          { label: 'Cloud Penetration Testing', href: '#' },
-          { label: 'IoT Penetration Testing', href: '#' },
-          { label: 'Network Penetration Testing', href: '#' },
-        ],
-      },
-      {
-        heading: 'Advanced Offensive Security',
-        items: [
-          { label: 'Assumed Breached', href: '#', active: true },
-          { label: 'Attack Path Mapping', href: '#' },
-          { label: 'CI/CD Attack Chains', href: '#' },
-          { label: 'Purple Team', href: '#' },
-          { label: 'Red Team', href: '#' },
-        ],
-      },
-      {
-        heading: 'Continuous Offensive Security',
-        items: [
-          { label: 'Adversarial Exposure Validation', href: '#' },
-          { label: 'Attack Surface Management', href: '#' },
-          { label: 'Continuous Penetration Testing', href: '#' },
-          { label: 'Continuous Threat Exposure Management', href: '#' },
-          { label: 'Cyber Threat Intelligence', href: '#' },
-          { label: 'Unified Vulnerability Management', href: '#' },
+          { label: 'Services portfolio overview', to: '/services' },
+          { label: 'Infrastructure and network testing', to: '/services#infra' },
+          { label: 'Application security testing', to: '/services#app' },
+          { label: 'AI and emerging technology', to: '/services#ai' },
+          { label: 'Social engineering and assurance', to: '/services#social' },
         ],
       },
     ],
   },
   {
-    label: 'Why Technieum',
+    label: 'Resources',
     columns: [
       {
-        heading: 'Customer Case Studies',
+        heading: 'Downloads and library',
         items: [
-          { label: '21st Century Fox', href: '#' },
-          { label: 'Cushman & Wakefield', href: '#' },
-          { label: 'Bookings Holdings', href: '#' },
-          { label: 'Nielsen', href: '#' },
-          { label: 'OpenTable', href: '#' },
-          { label: 'Priceline', href: '#' },
-          { label: 'Samsung', href: '#' },
-          { label: 'X', href: '#' },
-          { label: 'Zoom', href: '#' },
-          { label: 'See All Customers', href: '#' },
-        ],
-      },
-      {
-        heading: 'Resources',
-        items: [
-          { label: 'Security Blog', href: '#' },
-          { label: 'Resource Library', href: '#' },
-          { label: 'Security 101', href: '#' },
-          { label: 'Labs', href: '#' },
-          { label: 'GitHub', href: '#' },
-          { label: 'MITRE ATT&CK', href: '#' },
-          { label: 'Speaking and Events', href: '#' },
-          { label: 'Warlocks', href: '#' },
-        ],
-      },
-      {
-        heading: 'Use Cases',
-        items: [
-          { label: 'ASM for Healthcare', href: '#' },
-          { label: 'Bug Bounty Cost Reduction', href: '#' },
-          { label: 'FDA Testing and Monitoring', href: '#' },
-          { label: 'Mergers and Acquisitions', href: '#' },
-          { label: 'Ransomware Prevention', href: '#' },
-          { label: 'Rogue IT Identification', href: '#' },
-          { label: 'Tool and Vendor Consolidation', href: '#' },
-          { label: 'Vendor Risk Management', href: '#' },
+          { label: 'Sales pitch (PDF)', href: SALES_PITCH_PDF, external: true },
+          { label: 'Platform documentation', to: '/#platform-documentation' },
+          { label: 'Why Technieum', to: '/#why-heading' },
+          { label: 'Vendor comparison', to: '/#diff-heading' },
         ],
       },
     ],
   },
   {
-    label: 'About',
+    label: 'Company',
     columns: [
       {
-        heading: 'About Technieum',
+        heading: 'Technieum',
         items: [
-          { label: 'Overview', href: '#' },
-          { label: 'In the News', href: '#' },
-          { label: 'Press Releases', href: '#' },
-          { label: 'Contact Us', href: '#' },
-        ],
-      },
-      {
-        heading: 'Join Technieum',
-        items: [
-          { label: 'Culture', href: '#' },
-          { label: 'People Ops Blog', href: '#' },
-          { label: 'New Hire Survival Guide', href: '#' },
-          { label: 'Tech Challenges', href: '#' },
-          { label: 'Job Postings', href: '#' },
+          { label: 'Overview', to: '/' },
+          { label: 'Contact', to: '/contact' },
         ],
       },
     ],
   },
 ]
-
-// ─── Icons ────────────────────────────────────────────────────────────────────
 
 function ChevronDown({ open }: { open: boolean }) {
   return (
@@ -158,41 +101,60 @@ function ArrowRight() {
   )
 }
 
-// ─── Dropdown ─────────────────────────────────────────────────────────────────
+function SubNavLink({ item, onClose }: { item: SubItem; onClose: () => void }) {
+  const className =
+    'block py-2 text-[15px] font-normal leading-snug no-underline transition-colors duration-150 text-zinc-400 hover:text-brand'
+
+  if (item.href) {
+    return (
+      <a
+        href={item.href}
+        {...(item.external ? { download: true, target: '_blank', rel: 'noopener noreferrer' } : {})}
+        role="menuitem"
+        onClick={onClose}
+        className={className}
+      >
+        {item.label}
+      </a>
+    )
+  }
+  if (item.to) {
+    return (
+      <NavLink
+        to={item.to}
+        role="menuitem"
+        onClick={onClose}
+        className={({ isActive }) =>
+          `${className}${isActive ? ' text-brand' : ''}`
+        }
+      >
+        {item.label}
+      </NavLink>
+    )
+  }
+  return null
+}
 
 function NavDropdown({ item, onClose }: { item: NavItemType; onClose: () => void }) {
   const colCount = item.columns.length
   const panelWidth =
-    colCount === 3 ? 'w-[min(100vw-2rem,46rem)]' :
-    colCount === 2 ? 'w-[min(100vw-2rem,31rem)]' :
-    'w-[min(100vw-2rem,18rem)]'
+    colCount >= 2 ? 'w-[min(100vw-2rem,40rem)]' : 'w-[min(100vw-2rem,20rem)]'
 
   return (
     <div
       role="menu"
-      className={`absolute left-0 top-full z-50 ${panelWidth} overflow-hidden rounded-b-lg bg-surface-popover shadow-dropdown`}
+      className={`absolute left-0 top-full z-50 ${panelWidth} overflow-hidden rounded-b-lg border border-border bg-bg-inset shadow-dropdown`}
     >
       <div className={`flex ${colCount > 1 ? 'divide-x divide-border' : ''}`}>
         {item.columns.map((col) => (
           <div key={col.heading} className="flex-1 px-5 py-5">
-            <p className="m-0 mb-4 text-[15px] font-bold leading-tight text-brand-strong">
+            <p className="m-0 mb-4 text-[13px] font-bold uppercase tracking-wider text-zinc-500">
               {col.heading}
             </p>
             <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
               {col.items.map((sub) => (
                 <li key={sub.label}>
-                  <a
-                    href={sub.href}
-                    role="menuitem"
-                    onClick={onClose}
-                    className={`block py-2 text-[15px] font-normal leading-snug no-underline transition-colors duration-150 ${
-                      sub.active
-                        ? 'text-brand-strong'
-                        : 'text-on-light-muted hover:text-brand-strong'
-                    }`}
-                  >
-                    {sub.label}
-                  </a>
+                  <SubNavLink item={sub} onClose={onClose} />
                 </li>
               ))}
             </ul>
@@ -202,8 +164,6 @@ function NavDropdown({ item, onClose }: { item: NavItemType; onClose: () => void
     </div>
   )
 }
-
-// ─── Nav button ───────────────────────────────────────────────────────────────
 
 function NavButton({ item }: { item: NavItemType }) {
   const [open, setOpen] = useState(false)
@@ -231,7 +191,7 @@ function NavButton({ item }: { item: NavItemType }) {
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
-        className="flex cursor-pointer items-center gap-2 border-0 bg-transparent px-3 py-2 text-[16px] font-semibold text-white transition-colors hover:text-white/80 focus-visible:outline-none"
+        className="flex cursor-pointer items-center gap-2 border-0 bg-transparent px-3 py-2 text-[15px] font-semibold text-zinc-200 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-md"
       >
         {item.label}
         <ChevronDown open={open} />
@@ -242,40 +202,38 @@ function NavButton({ item }: { item: NavItemType }) {
   )
 }
 
-// ─── Header ───────────────────────────────────────────────────────────────────
-
 export function Header() {
   return (
-    <header className="sticky top-0 z-[100] bg-page">
-      <div className="mx-auto w-full max-w-[1440px] px-10">
-        <div className="flex h-20 items-center justify-between gap-8">
+    <header className="sticky top-0 z-[100] border-b border-border bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80">
+      <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
+        <div className="flex h-[4.5rem] items-center justify-between gap-6">
 
-          {/* Logo */}
-          <a href="/" aria-label="Technieum home" className="inline-flex shrink-0 items-center no-underline">
+          <Link to="/" aria-label="Technieum home" className="inline-flex shrink-0 items-center no-underline">
             <BrandLogo className="block h-10 w-auto" height={40} />
-          </a>
+          </Link>
 
-          {/* Nav */}
-          <nav aria-label="Main navigation" className="hidden items-center gap-2 lg:flex">
+          <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
             {NAV_ITEMS.map((item) => (
               <NavButton key={item.label} item={item} />
             ))}
             <a
-              href="#"
-              className="px-3 py-2 text-[16px] font-semibold text-white no-underline transition-colors hover:text-white/80"
+              href={SALES_PITCH_PDF}
+              download
+              className="px-3 py-2 text-[15px] font-semibold text-zinc-200 no-underline transition-colors hover:text-white"
             >
-              Try Community Edition
+              Sales pitch (PDF)
             </a>
           </nav>
 
-          {/* CTA */}
-          <a
-            href="#"
-            className="inline-flex shrink-0 cursor-pointer items-center gap-2 rounded-full border border-brand-strong bg-brand-strong px-6 py-2.5 text-[15px] font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-95"
-          >
-            Contact Us
-            <ArrowRight />
-          </a>
+          <div className="flex shrink-0 items-center gap-3">
+            <Link
+              to="/contact"
+              className="btn-brand-lively inline-flex cursor-pointer items-center gap-2 rounded-full border border-brand-strong bg-brand-strong px-5 py-2.5 text-[14px] font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.98] md:px-6"
+            >
+              Contact us
+              <ArrowRight />
+            </Link>
+          </div>
 
         </div>
       </div>
