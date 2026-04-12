@@ -621,6 +621,81 @@
   animation: master-offsec-hub-pulse 3.2s ease-in-out infinite;
 }
 
+/* --- Contact page hero visual (brand orbit) --- */
+@keyframes contact-hero-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes contact-hero-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.88;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes contact-hero-ring-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(232 93 4 / 0), 0 0 28px rgb(232 93 4 / 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgb(232 93 4 / 0.2), 0 0 44px rgb(232 93 4 / 0.28);
+  }
+}
+
+@keyframes contact-spark-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.contact-hero-visual {
+  isolation: isolate;
+}
+
+.contact-hero-visual__glow {
+  animation: contact-hero-glow-breathe 6.2s ease-in-out infinite;
+}
+
+.contact-hero-visual__ring--outer {
+  animation: contact-hero-orbit 52s linear infinite;
+}
+
+.contact-hero-visual__ring--mid {
+  animation: contact-hero-orbit 38s linear infinite reverse;
+}
+
+.contact-hero-visual__ring--inner {
+  animation: contact-hero-ring-pulse 3.8s ease-in-out infinite;
+}
+
+.contact-hero-visual__core {
+  animation: contact-hero-ring-pulse 3.8s ease-in-out infinite;
+  animation-delay: -0.55s;
+}
+
+.contact-hero-visual__spark--a {
+  animation: contact-spark-twinkle 2.9s ease-in-out infinite;
+}
+
+.contact-hero-visual__spark--b {
+  animation: contact-spark-twinkle 3.5s ease-in-out infinite;
+  animation-delay: -1.1s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-color-drift::before,
   .hero-color-drift::after,
@@ -711,5 +786,26 @@
   .master-offsec-node,
   .master-offsec-hub {
     animation: none !important;
+  }
+
+  .contact-hero-visual__glow,
+  .contact-hero-visual__ring--outer,
+  .contact-hero-visual__ring--mid,
+  .contact-hero-visual__ring--inner,
+  .contact-hero-visual__core,
+  .contact-hero-visual__spark--a,
+  .contact-hero-visual__spark--b {
+    animation: none !important;
+  }
+
+  .contact-hero-visual__glow {
+    opacity: 0.55;
+    transform: none;
+  }
+
+  .contact-hero-visual__spark--a,
+  .contact-hero-visual__spark--b {
+    opacity: 0.75;
+    transform: none;
   }
 }

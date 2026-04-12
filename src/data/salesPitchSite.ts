@@ -185,3 +185,32 @@ export const CONTACT_SALES = {
   companyLine: 'Technieum Technologies LLC, P.O. Box 22908, Dubai, UAE. WWW.TECHNIEUM.COM',
   tagline: 'AI as a force multiplier, not a replacement. Human in the loop at every layer, every finding, every engagement.',
 } as const
+
+/** Contact page hero and value props (industry-standard intake narrative). */
+export const CONTACT_PAGE = {
+  eyebrow: 'Contact',
+  headline: "Let's scope your next offensive security program",
+  lead:
+    'From red-team objectives and cloud attack-surface reviews to application and AI testing under one delivery model, we help you move from question to plan quickly.',
+  subLead:
+    'Technical programs route to offensive leadership. Commercial, procurement, and alliance topics go to our partnerships desk.',
+  pillars: [
+    {
+      title: 'Structured technical intake',
+      body:
+        'Share goals, environments, and constraints. We map streams, tooling overlap, and reporting so procurement and engineering see the same plan.',
+    },
+    {
+      title: 'Confidential by default',
+      body:
+        'Operate under NDA when you need it. Scoping stays with named stakeholders; we do not circulate details beyond your engagement team.',
+    },
+    {
+      title: 'Clear next steps',
+      body:
+        'Expect a short acknowledgment, clarifying questions where useful, and proposed call times. Formal proposals or SOW drafts follow alignment on scope.',
+    },
+  ],
+  responseLine: 'We aim to respond within one business day (Gulf timezone).',
+  ctaSecondary: 'Browse services',
+} as const
