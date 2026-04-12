@@ -578,6 +578,49 @@
   z-index: 1;
 }
 
+/* --- Master Offsec program diagram (GIF-style motion) --- */
+@keyframes master-offsec-dash-flow {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+@keyframes master-offsec-node-pulse {
+  0%,
+  100% {
+    stroke: rgb(63 63 70);
+  }
+  50% {
+    stroke: rgb(232 93 4 / 0.55);
+  }
+}
+
+@keyframes master-offsec-hub-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.master-offsec-dash {
+  animation: master-offsec-dash-flow 1.85s linear infinite;
+}
+
+.master-offsec-dash-slow {
+  animation: master-offsec-dash-flow 2.8s linear infinite;
+}
+
+.master-offsec-node {
+  animation: master-offsec-node-pulse 4.5s ease-in-out infinite;
+}
+
+.master-offsec-hub {
+  animation: master-offsec-hub-pulse 3.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-color-drift::before,
   .hero-color-drift::after,
@@ -660,6 +703,13 @@
   .services-hero-spine-flow,
   .services-hero-path-flow,
   .services-hero-pill {
+    animation: none !important;
+  }
+
+  .master-offsec-dash,
+  .master-offsec-dash-slow,
+  .master-offsec-node,
+  .master-offsec-hub {
     animation: none !important;
   }
 }

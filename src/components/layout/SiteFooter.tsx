@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import technieumLogo from '../../assets/technieum-logo.png'
-import { SERVICE_TOPICS, serviceTopicAnchorPath } from '../../data/serviceDocuments'
+import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -15,7 +15,7 @@ const capabilityLinks = [
 
 const servicesLinks = [
   { label: 'Technieum services', to: '/services' },
-  ...SERVICE_TOPICS.map((t) => ({ label: t.title, to: serviceTopicAnchorPath(t.slug) })),
+  ...SERVICE_TOPICS.map((t) => ({ label: t.title, to: serviceTopicNavHref(t) })),
   { label: 'Contact sales', to: '/contact' },
 ]
 

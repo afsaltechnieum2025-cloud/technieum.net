@@ -1,3 +1,5 @@
+import { MASTER_OFFSEC_PATH } from './masterOffsecPageContent'
+
 const FOLDER = '/servicedocumentfolder'
 
 export type ServiceTopic = {
@@ -5,6 +7,8 @@ export type ServiceTopic = {
   title: string
   summary: string
   pdfFile?: string
+  /** When set, services grid links here instead of opening the PDF directly. */
+  detailPath?: string
 }
 
 /**
@@ -17,6 +21,7 @@ export const SERVICE_TOPICS: readonly ServiceTopic[] = [
     title: 'Technieum master Offsec',
     summary:
       'End-to-end offensive programs: how we plan, execute, and report across streams with portal visibility, validated findings, and one coherent delivery rhythm.',
+    detailPath: MASTER_OFFSEC_PATH,
   },
   {
     slug: 'technieum-infrastructure-network',
@@ -75,4 +80,8 @@ export function serviceTopicPdfHref(topic: ServiceTopic): string {
 
 export function serviceTopicAnchorPath(slug: string): string {
   return `/services#${slug}`
+}
+
+export function serviceTopicNavHref(topic: ServiceTopic): string {
+  return topic.detailPath ?? serviceTopicAnchorPath(topic.slug)
 }

@@ -20,8 +20,8 @@ export function ServicesPage() {
                 Technieum offensive security offerings
               </h1>
               <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-                The PDF briefs on this page describe how we scope, deliver, and report for each line. Use them for internal
-                sharing; detailed scoping stays on a call with your team.
+                Most tiles open the PDF datasheet. Technieum master Offsec opens a full program hub with workflow visuals
+                and delivery detail. Use the briefs for internal sharing; formal scoping stays on a call with your team.
               </p>
               <div className="flex flex-wrap justify-start gap-3">
                 <a
@@ -57,8 +57,8 @@ export function ServicesPage() {
               one delivery standard, sheets you can hand to risk and procurement.
             </p>
             <p className="mb-6 max-w-3xl text-sm leading-snug text-muted md:text-base">
-              Each tile opens the live datasheet (scope, methodology, roles, deliverables). Skim the summary here; the
-              document is the source of truth.
+              Open a tile for the live PDF or, for Master Offsec, the interactive program page. Skim the summary here; the
+              PDF remains the contract-grade reference where applicable.
             </p>
 
             <div
@@ -85,46 +85,63 @@ export function ServicesPage() {
             {SERVICE_TOPICS.map((topic, index) => {
               const pdf = serviceTopicPdfHref(topic)
               const n = String(index + 1).padStart(2, '0')
+              const cardClass =
+                'services-category-card group relative flex h-full min-h-0 flex-col overflow-hidden no-underline outline-none transition-[transform,box-shadow] duration-200 hover:-translate-y-px hover:shadow-[0_20px_48px_-22px_rgba(232,93,4,0.18)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page'
+              const body = (
+                <>
+                  <span
+                    className="absolute bottom-0 left-0 top-0 w-0.5 bg-gradient-to-b from-brand via-brand/70 to-brand/30 opacity-80 transition-[width,opacity] duration-200 group-hover:w-1 group-hover:opacity-100"
+                    aria-hidden
+                  />
+                  <div className="services-category-card-inner flex h-full min-h-[11.5rem] flex-col pl-3.5 pr-4 pb-4 pt-4 md:min-h-[12rem] md:pl-4 md:pr-5 md:pb-4 md:pt-4">
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <span className="font-mono text-[10px] font-semibold tabular-nums tracking-widest text-brand/85 md:text-[11px]">
+                        {n}
+                      </span>
+                      <span className="rounded-full border border-border/80 bg-black/30 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
+                        {topic.detailPath ? 'Program hub' : 'Datasheet'}
+                      </span>
+                    </div>
+                    <h3 className="mb-1.5 text-[15px] font-bold leading-snug tracking-tight text-heading transition-colors group-hover:text-brand md:text-base">
+                      {topic.title}
+                    </h3>
+                    <p className="mb-0 flex-1 text-[13px] leading-snug text-muted md:text-sm">{topic.summary}</p>
+                    <div className="mt-3 flex items-center gap-1.5 border-t border-border/50 pt-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-brand/90 transition-transform duration-200 group-hover:translate-x-0.5 md:text-xs">
+                      <span>{topic.detailPath ? 'Open hub' : 'Scope pack'}</span>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
+                        <path
+                          d="M3 7h7M8 3l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </>
+              )
               return (
                 <li key={topic.slug} id={topic.slug} className="scroll-mt-28">
-                  <a
-                    href={pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="services-category-card group relative flex h-full min-h-0 flex-col overflow-hidden no-underline outline-none transition-[transform,box-shadow] duration-200 hover:-translate-y-px hover:shadow-[0_20px_48px_-22px_rgba(232,93,4,0.18)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page"
-                    aria-label={`${topic.title}: open datasheet PDF in new tab`}
-                  >
-                    <span
-                      className="absolute bottom-0 left-0 top-0 w-0.5 bg-gradient-to-b from-brand via-brand/70 to-brand/30 opacity-80 transition-[width,opacity] duration-200 group-hover:w-1 group-hover:opacity-100"
-                      aria-hidden
-                    />
-                    <div className="services-category-card-inner flex h-full min-h-[11.5rem] flex-col pl-3.5 pr-4 pb-4 pt-4 md:min-h-[12rem] md:pl-4 md:pr-5 md:pb-4 md:pt-4">
-                      <div className="mb-2 flex items-center justify-between gap-2">
-                        <span className="font-mono text-[10px] font-semibold tabular-nums tracking-widest text-brand/85 md:text-[11px]">
-                          {n}
-                        </span>
-                        <span className="rounded-full border border-border/80 bg-black/30 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
-                          Datasheet
-                        </span>
-                      </div>
-                      <h3 className="mb-1.5 text-[15px] font-bold leading-snug tracking-tight text-heading transition-colors group-hover:text-brand md:text-base">
-                        {topic.title}
-                      </h3>
-                      <p className="mb-0 flex-1 text-[13px] leading-snug text-muted md:text-sm">{topic.summary}</p>
-                      <div className="mt-3 flex items-center gap-1.5 border-t border-border/50 pt-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-brand/90 transition-transform duration-200 group-hover:translate-x-0.5 md:text-xs">
-                        <span>Scope pack</span>
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
-                          <path
-                            d="M3 7h7M8 3l4 4-4 4"
-                            stroke="currentColor"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </a>
+                  {topic.detailPath ? (
+                    <Link
+                      to={topic.detailPath}
+                      className={cardClass}
+                      aria-label={`${topic.title}: open program overview`}
+                    >
+                      {body}
+                    </Link>
+                  ) : (
+                    <a
+                      href={pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cardClass}
+                      aria-label={`${topic.title}: open datasheet PDF in new tab`}
+                    >
+                      {body}
+                    </a>
+                  )}
                 </li>
               )
             })}
