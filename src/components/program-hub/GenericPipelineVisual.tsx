@@ -54,15 +54,10 @@ export function GenericPipelineVisual({ nodes, ariaLabel }: Props) {
 
   return (
     <div
-      className="master-offsec-visual-wrap relative mx-auto w-full max-w-[min(100%,520px)] rounded-2xl border border-border-strong/60 bg-[#070707] shadow-[0_24px_64px_-28px_rgb(0,0,0,0.85)]"
+      className="master-offsec-visual-wrap relative mx-auto w-full max-w-[min(100%,520px)]"
       role="img"
       aria-label={ariaLabel}
     >
-      <div
-        className={`pointer-events-none absolute inset-0 overflow-hidden rounded-2xl opacity-[0.07] ${motion ? 'hero-cyber-scan' : ''}`}
-        aria-hidden
-      />
-
       <svg
         viewBox="0 -20 520 268"
         preserveAspectRatio="xMidYMid meet"

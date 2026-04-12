@@ -39,14 +39,10 @@ export function MasterOffsecProgramVisual() {
 
   return (
     <div
-      className="master-offsec-visual-wrap relative mx-auto w-full max-w-[min(100%,480px)] rounded-2xl border border-border-strong/60 bg-[#070707] shadow-[0_24px_64px_-28px_rgb(0,0,0,0.85)]"
+      className="master-offsec-visual-wrap relative mx-auto w-full max-w-[min(100%,480px)]"
       role="img"
       aria-label="Animated diagram: ToIP intelligence hub connects five parallel testing streams into the OffSec Management Portal."
     >
-      <div
-        className={`pointer-events-none absolute inset-0 overflow-hidden rounded-2xl opacity-[0.07] ${motion ? 'hero-cyber-scan' : ''}`}
-        aria-hidden
-      />
 
       <svg
         viewBox="0 -36 440 342"

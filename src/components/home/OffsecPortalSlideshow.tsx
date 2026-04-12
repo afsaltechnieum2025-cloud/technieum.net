@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useId, useState, type KeyboardEvent } from 'react'
-import type { OffsecPortalSlide } from '../../data/offsecPortalSlides'
+export type HomeScreenshotSlide = { src: string; alt: string }
 
 function useReducedMotion() {
   const [reduce, setReduce] = useState(
@@ -15,12 +15,20 @@ function useReducedMotion() {
 }
 
 type Props = {
-  slides: OffsecPortalSlide[]
+  slides: readonly HomeScreenshotSlide[]
+  /** Window chrome label (defaults to OffSec Management Portal). */
+  chromeTitle?: string
+  /** Accessible name for the carousel region. */
+  regionAriaLabel?: string
 }
 
 const AUTO_MS = 6000
 
-export function OffsecPortalSlideshow({ slides }: Props) {
+export function OffsecPortalSlideshow({
+  slides,
+  chromeTitle = 'OffSec Management Portal',
+  regionAriaLabel = 'OffSec Management Portal product screenshots',
+}: Props) {
   const reduceMotion = useReducedMotion()
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -62,7 +70,7 @@ export function OffsecPortalSlideshow({ slides }: Props) {
       id={regionId}
       role="region"
       aria-roledescription="carousel"
-      aria-label="OffSec Management Portal product screenshots"
+      aria-label={regionAriaLabel}
       tabIndex={0}
       onKeyDown={onRegionKeyDown}
       className="flex w-full flex-col outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page"
@@ -80,9 +88,7 @@ export function OffsecPortalSlideshow({ slides }: Props) {
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
           </span>
-          <span className="flex-1 text-center text-[11px] font-medium tracking-wide text-muted">
-            OffSec Management Portal
-          </span>
+          <span className="flex-1 text-center text-[11px] font-medium tracking-wide text-muted">{chromeTitle}</span>
           <span className="w-14 shrink-0" aria-hidden />
         </div>
 

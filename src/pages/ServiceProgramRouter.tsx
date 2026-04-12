@@ -14,5 +14,5 @@ export function ServiceProgramRouter() {
   const config = getProgramHubConfig(programSlug)
   if (!config) return <Navigate to="/services" replace />
 
-  return <GenericServiceProgramPage slug={programSlug} config={config} />
+  return <GenericServiceProgramPage config={config} />
 }

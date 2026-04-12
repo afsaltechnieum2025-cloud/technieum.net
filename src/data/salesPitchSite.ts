@@ -50,6 +50,18 @@ export const WHY_TECHNIEUM = [
   },
 ] as const
 
+export const HOME_TOIP = {
+  title: 'TOIP (Technieum Offsec Intelligence Portal)',
+  subtitle: 'RAG-backed vulnerability intelligence at query speed',
+  intro:
+    'ToIP is the research layer behind Technieum engagements: curated disclosure narratives, retrieval-augmented answers with citations, and operator-style playbooks so testers align cases to what broke in the field.',
+  bullets: [
+    'Semantic search across 15,000+ real-world disclosed vulnerabilities with grounded citations.',
+    'Attack playbooks with payloads, bypass notes, and chain logic drawn from disclosed cases.',
+    'Supports scoping and validation workflows; intelligence rolls forward into the OffSec Management Portal.',
+  ],
+} as const
+
 export const OFFSEC_PORTAL = {
   title: 'OffSec Management Portal',
   subtitle: 'Central command for multi-stream testing',

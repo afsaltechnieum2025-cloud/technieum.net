@@ -1,18 +1,13 @@
 import { Link } from 'react-router-dom'
 import { GenericPipelineVisual } from '../components/program-hub/GenericPipelineVisual'
 import type { ProgramHubConfig } from '../data/programHubRegistry'
-import { SERVICE_TOPICS, serviceTopicPdfHref } from '../data/serviceDocuments'
 import { OFFSEC_PORTAL, PROJECT_CYCLE, SALES_PITCH_PDF } from '../data/salesPitchSite'
 
 type Props = {
-  slug: string
   config: ProgramHubConfig
 }
 
-export function GenericServiceProgramPage({ slug, config }: Props) {
-  const topic = SERVICE_TOPICS.find((t) => t.slug === slug)
-  const datasheetHref = topic ? serviceTopicPdfHref(topic) : '#'
-
+export function GenericServiceProgramPage({ config }: Props) {
   return (
     <main id="main-content" className="flex flex-col bg-page">
       <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
@@ -31,18 +26,11 @@ export function GenericServiceProgramPage({ slug, config }: Props) {
                   to="/contact"
                   className="btn-brand-lively inline-flex items-center justify-center rounded-full border border-brand-strong bg-brand-strong px-6 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft md:px-7 md:text-sm"
                 >
-                  {config.primaryCtaLabel}
+                  Scope a program
                 </Link>
-                <a
-                  href={datasheetHref}
-                  download
-                  className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-7 md:text-sm"
-                >
-                  Datasheet (PDF)
-                </a>
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-border-strong md:px-7 md:text-sm"
+                  className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-7 md:text-sm"
                 >
                   All services
                 </Link>

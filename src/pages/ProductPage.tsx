@@ -1,6 +1,15 @@
+import type { ReactNode } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
+import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
 import { getProductByRouteSlug } from '../data/productDocuments'
 import { PRODUCT_PITCH_PAGES } from '../data/productPitchPages'
+import {
+  getProductScreenshotSlides,
+  productHasScreenshotFolder,
+  PRODUCT_SCREENSHOT_CHROME,
+} from '../data/productScreenshots'
+import { HOME_TOIP } from '../data/salesPitchSite'
+
 function pdfHref(file: string) {
   return `/docs/${encodeURIComponent(file)}`
 }
@@ -12,6 +21,60 @@ export function ProductPage() {
 
   const pitch = PRODUCT_PITCH_PAGES[doc.id]
   const pdf = pdfHref(doc.pdfFile)
+
+  const screenshotSlides = getProductScreenshotSlides(doc.id)
+
+  let screenshotTour: ReactNode = null
+  if (productHasScreenshotFolder(doc.id)) {
+    const shotId = doc.id
+    if (screenshotSlides.length > 0) {
+      const chrome = PRODUCT_SCREENSHOT_CHROME[shotId]
+      const copy =
+        doc.id === 'toip'
+          ? {
+              title: HOME_TOIP.title,
+              subtitle: HOME_TOIP.subtitle,
+              intro: HOME_TOIP.intro,
+              bullets: HOME_TOIP.bullets,
+            }
+          : {
+              title: doc.name,
+              subtitle: doc.subtitle,
+              intro: pitch.elevator,
+              bullets: pitch.pillars.map((p) => p.body),
+            }
+      screenshotTour = (
+        <section className="section-zz-b px-6 py-14 md:py-20" aria-labelledby={`${doc.id}-screenshots-heading`}>
+          <div className="container">
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+              <div>
+                <h2 id={`${doc.id}-screenshots-heading`} className="mb-3 text-2xl font-medium text-heading md:text-3xl">
+                  {copy.title}
+                </h2>
+                <p className="mb-6 text-lg text-brand">{copy.subtitle}</p>
+                <p className="mb-8 text-sm leading-relaxed text-muted lg:mb-0">{copy.intro}</p>
+                <ul className="m-0 mt-8 list-none space-y-4 p-0 lg:mt-10">
+                  {copy.bullets.map((b) => (
+                    <li key={b} className="flex gap-3 text-sm text-muted">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" aria-hidden />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="lg:sticky lg:top-28">
+                <OffsecPortalSlideshow
+                  slides={screenshotSlides}
+                  chromeTitle={chrome.chromeTitle}
+                  regionAriaLabel={chrome.regionAriaLabel}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )
+    }
+  }
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
@@ -56,6 +119,8 @@ export function ProductPage() {
           </div>
         </div>
       </section>
+
+      {screenshotTour}
 
       <section className="section-zz-b px-6 py-14 md:py-20">
         <div className="container">

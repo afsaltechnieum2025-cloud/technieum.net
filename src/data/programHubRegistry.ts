@@ -11,7 +11,6 @@ export type ProgramHubVisualNode = { t1: string; t2: string }
 
 export type ProgramHubConfig = {
   visualAriaLabel: string
-  primaryCtaLabel: string
   hero: { eyebrow: string; title: string; lead: string; sub: string }
   pillars: readonly { id: string; title: string; accent: string; body: string }[]
   outcomes: readonly { title: string; body: string }[]
@@ -22,7 +21,6 @@ export type ProgramHubConfig = {
 const APPLICATION_SECURITY: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: web and thick client, API, mobile, and code assurance streams consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Scope application testing',
   hero: {
     eyebrow: 'Application security',
     title: 'Technieum application security',
@@ -95,7 +93,6 @@ const APPLICATION_SECURITY: ProgramHubConfig = {
 const CLOUD_SECURITY: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: IAM, workloads, pipeline, and secrets streams consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Scope cloud security',
   hero: {
     eyebrow: 'Cloud and platform',
     title: 'Technieum cloud security',
@@ -168,7 +165,6 @@ const CLOUD_SECURITY: ProgramHubConfig = {
 const AI_SECURITY: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: model endpoints, tools and MCP, prompt testing, and governance hooks consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Scope AI security testing',
   hero: {
     eyebrow: 'AI and LLM',
     title: 'Technieum AI security',
@@ -241,7 +237,6 @@ const AI_SECURITY: ProgramHubConfig = {
 const THREAT_SIMULATIONS: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: red team, purple team, tabletop, and BAS streams consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Plan a simulation',
   hero: {
     eyebrow: 'Threat simulations',
     title: 'Technieum threat simulations',
@@ -314,7 +309,6 @@ const THREAT_SIMULATIONS: ProgramHubConfig = {
 const ICS_OT: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: safety scope, OT segmentation, protocols, and IT-OT bridge consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Scope OT assessment',
   hero: {
     eyebrow: 'ICS and OT',
     title: 'Technieum ICS OT Security',
@@ -387,7 +381,6 @@ const ICS_OT: ProgramHubConfig = {
 const SECURITY_CONSULTING: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: strategy, architecture, program design, and compliance narrative consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Start a consulting engagement',
   hero: {
     eyebrow: 'Security consulting',
     title: 'Technieum Security consulting',
@@ -460,7 +453,6 @@ const SECURITY_CONSULTING: ProgramHubConfig = {
 const WFH_SECURITY: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: remote identity, endpoints, collaboration, and phishing resilience consolidating in the OffSec Management Portal.',
-  primaryCtaLabel: 'Scope workforce security',
   hero: {
     eyebrow: 'Workforce and remote',
     title: 'Technieum WFH security',
