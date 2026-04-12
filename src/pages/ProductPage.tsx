@@ -178,20 +178,6 @@ export function ProductPage() {
           </div>
         </div>
       </section>
-
-      <section className="section-zz-a px-6 py-12">
-        <div className="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="m-0 text-sm text-muted">
-            Technical detail for {doc.name}: open the PDF above or browse all capabilities on the home page.
-          </p>
-          <Link
-            to="/"
-            className="text-sm font-semibold text-brand no-underline hover:underline"
-          >
-            Back to overview
-          </Link>
-        </div>
-      </section>
     </main>
   )
 }

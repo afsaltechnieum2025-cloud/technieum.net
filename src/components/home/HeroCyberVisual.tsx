@@ -31,15 +31,10 @@ export function HeroCyberVisual() {
 
   return (
     <div
-      className="relative flex min-h-[220px] w-full items-center justify-center overflow-hidden rounded-2xl border border-border-strong/50 bg-[linear-gradient(165deg,color-mix(in_oklab,var(--color-panel)_92%,black)_0%,#050505_45%,color-mix(in_oklab,var(--color-panel)_88%,black)_100%)] shadow-[0_24px_64px_-28px_rgb(0,0,0,0.85)] lg:min-h-[20rem] xl:min-h-[24rem]"
+      className="relative flex min-h-[220px] w-full items-center justify-center lg:min-h-[20rem] xl:min-h-[24rem]"
       role="img"
       aria-label="Abstract diagram: intelligence, attack surface, AI tooling, human validation, and OffSec portal connected to a central operations core."
     >
-      <div
-        className={`pointer-events-none absolute inset-0 opacity-[0.07] ${motion ? 'hero-cyber-scan' : ''}`}
-        aria-hidden
-      />
-
       <svg
         viewBox="0 0 560 420"
         className="relative z-[1] h-auto w-full max-w-[min(100%,520px)] px-2 py-4"
@@ -60,7 +55,7 @@ export function HeroCyberVisual() {
           </radialGradient>
         </defs>
 
-        <g stroke="rgb(63 63 70)" strokeOpacity="0.35" strokeWidth="0.5">
+        <g stroke="rgb(63 63 70)" strokeOpacity="0.22" strokeWidth="0.5">
           {Array.from({ length: 12 }, (_, i) => (
             <line key={`v-${i}`} x1={48 + i * 42} y1="36" x2={48 + i * 42} y2="384" />
           ))}
@@ -106,7 +101,7 @@ export function HeroCyberVisual() {
           strokeOpacity="0.45"
           className={motion ? 'hero-cyber-hub-ring' : ''}
         />
-        <circle cx={cx} cy={cy} r={28} fill="rgb(10 10 10)" stroke="rgb(232 93 4)" strokeOpacity="0.5" strokeWidth="1.25" />
+        <circle cx={cx} cy={cy} r={28} fill="rgb(24 24 27 / 0.75)" stroke="rgb(232 93 4)" strokeOpacity="0.55" strokeWidth="1.25" />
         <text
           x={cx}
           y={cy - 4}
@@ -132,9 +127,9 @@ export function HeroCyberVisual() {
               cx={n.x}
               cy={n.y}
               r={34}
-              fill="rgb(10 10 10 / 0.92)"
+              fill="rgb(24 24 27 / 0.72)"
               stroke="rgb(232 93 4)"
-              strokeOpacity={motion ? 0.45 : 0.3}
+              strokeOpacity={motion ? 0.5 : 0.35}
               strokeWidth="1"
               className={motion && i % 2 === 0 ? 'hero-cyber-node-glow' : ''}
               style={motion ? { animationDelay: `${i * 0.5}s` } : undefined}
@@ -160,11 +155,6 @@ export function HeroCyberVisual() {
           </g>
         ))}
 
-        <path
-          d="M44 44h32v4H48v28h-4V44zm468 0h-32v4h28v28h4V44zM44 376h4v28h28v4H44v-32zm468 0v32h-32v-4h28v-28h4z"
-          fill="rgb(232 93 4)"
-          fillOpacity="0.2"
-        />
       </svg>
 
       <p className="sr-only">

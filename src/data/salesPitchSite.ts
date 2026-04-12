@@ -3,13 +3,20 @@
 export const SALES_PITCH_PDF = '/salespitch/Technieum_Sales_Pitch_Dark.pdf'
 
 export const HOME_HERO = {
-  eyebrow: 'Offensive security services',
-  title: '360 coverage, human-validated results, AI at every layer.',
+  eyebrow: 'Offensive security',
+  title: '360 coverage. Human-validated. AI where it actually helps.',
   lead:
-    'Technieum delivers expert-led offensive security backed by in-house tooling: from agentic reconnaissance and RAG-backed intelligence to LLM red teaming, AD path analysis, ASM, and AI-validated static analysis. One engagement can span SAST, SCA, ASM, Active Directory, and AI or LLM testing, cross-correlated in a single program.',
+    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, ToIP-backed intelligence, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against.',
   sublead:
-    'Milestone-driven delivery with daily updates, weekly reviews, and immediate escalation for critical findings. AI accelerates discovery; human experts validate every finding so you act on real risk.',
+    'Milestone delivery, daily visibility, and fast escalation on criticals. AI speeds recon and triage; senior testers sign off on what hits your backlog so you prioritize real risk, not scanner noise.',
+  proofPoints: [
+    'Findings validated by operators, not checklists alone',
+    'OffSec Management Portal for scoring, retest, and audit trails',
+    'In-house ASM, ToIP, LLM suite, AD framework, and AI SAST',
+  ],
+  primaryCta: { label: 'Talk to our team', to: '/contact' as const },
   secondaryCta: { label: 'Download sales pitch (PDF)', href: SALES_PITCH_PDF },
+  tertiaryCta: { label: 'Explore services', to: '/services' as const },
 } as const
 
 export const WHY_TECHNIEUM = [
