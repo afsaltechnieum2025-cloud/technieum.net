@@ -1,8 +1,6 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { getProductByRouteSlug } from '../data/productDocuments'
 import { PRODUCT_PITCH_PAGES } from '../data/productPitchPages'
-import { SALES_PITCH_PDF } from '../data/salesPitchSite'
-
 function pdfHref(file: string) {
   return `/docs/${encodeURIComponent(file)}`
 }
@@ -20,28 +18,6 @@ export function ProductPage() {
       <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
-            <ol className="m-0 flex flex-wrap items-center gap-2 p-0 list-none">
-              <li>
-                <Link to="/" className="text-brand no-underline hover:underline">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden className="text-border-strong">
-                /
-              </li>
-              <li>
-                <Link to="/#services-glance-heading" className="text-brand no-underline hover:underline">
-                  Capabilities
-                </Link>
-              </li>
-              <li aria-hidden className="text-border-strong">
-                /
-              </li>
-              <li className="text-heading">{doc.name}</li>
-            </ol>
-          </nav>
-
           <p className="text-shimmer-brand mb-3 text-sm font-semibold tracking-wide">{pitch.heroEyebrow}</p>
           <h1 className="mb-6 max-w-4xl text-3xl font-medium tracking-tight text-heading md:text-4xl lg:text-5xl">
             {pitch.heroTitle}
@@ -77,19 +53,6 @@ export function ProductPage() {
             >
               Download PDF
             </a>
-            <a
-              href={SALES_PITCH_PDF}
-              download
-              className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-border-strong"
-            >
-              Download sales pitch
-            </a>
-            <Link
-              to="/#services-glance-heading"
-              className="inline-flex items-center justify-center rounded-full border border-border bg-transparent px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
-            >
-              Services at a glance
-            </Link>
           </div>
         </div>
       </section>

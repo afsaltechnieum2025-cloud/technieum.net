@@ -121,80 +121,41 @@ export const PROJECT_CYCLE = {
   ],
 } as const
 
-export const SERVICE_GROUPS = [
-  {
-    heading: 'Infrastructure and network',
-    items: [
-      'External infrastructure testing (ASM)',
-      'Internal network penetration testing',
-      'External network penetration testing',
-      'Active Directory security audit',
-      'Wireless network security testing',
-      'Build and configuration review',
-      'Vulnerability assessment',
-    ],
-  },
-  {
-    heading: 'Application security',
-    items: [
-      'Web application penetration testing',
-      'API penetration testing (REST, GraphQL, SOAP)',
-      'Mobile application penetration testing',
-      'Thick client penetration testing',
-      'Source code review (AI SAST)',
-      'Software composition analysis (AI SCA)',
-      'Architecture security review',
-    ],
-  },
-  {
-    heading: 'AI and emerging technology',
-    items: [
-      'AI and LLM penetration testing',
-      'MCP (Model Context Protocol) testing',
-      'Threat modelling (AI-enhanced)',
-      'AI-powered remediation guidance',
-    ],
-  },
-  {
-    heading: 'Social engineering and assurance',
-    items: [
-      'Phishing impact testing (including MFA bypass scenarios)',
-      'End-to-end remediation guidance',
-      'Retesting and validation',
-    ],
-  },
-  {
-    heading: 'Cloud and DevSecOps',
-    items: [
-      'Cloud penetration testing (multi-cloud)',
-      'Container and Kubernetes security assessment',
-      'CI/CD pipeline and supply chain security review',
-      'Secrets management and IAM configuration review',
-    ],
-  },
-  {
-    heading: 'Program-level engagements',
-    items: [
-      'Red team and assumed-breach simulation',
-      'Purple team collaborative exercises',
-      'Incident response tabletop facilitation',
-      'Breach and attack simulation (BAS) program support',
-    ],
-  },
-] as const
-
-/** Section anchors on /services; order must match SERVICE_GROUPS. */
-export const SERVICE_GROUP_SECTION_IDS = [
-  'infra',
-  'app',
-  'ai',
-  'social',
-  'cloud-devsecops',
-  'program-exercises',
-] as const
-
 export const STANDARDS_STRIP =
   'Aligned to OWASP Top 10, OWASP API Top 10, OWASP LLM Top 10, PTES, NIST, NIST AI RMF, CIS, and common certification bodies. Team certifications include OSCP, OSEP, CRT, CRTP, ISO 9001:2015, ISO 27001:2022, eWPTX, eCPPT, CEH, and related credentials.'
+
+/** Services page: standards showcase (structured chips + copy). */
+export const STANDARDS_SHOWCASE = {
+  eyebrow: 'Credibility you can cite',
+  title: 'Standards and certifications that hold up in the room',
+  lead:
+    'Frameworks your risk committee already knows, mapped to how we actually test. Credentials on the team, not just a logo strip.',
+  frameworksLabel: 'Frameworks and methodologies',
+  frameworks: [
+    'OWASP Top 10',
+    'OWASP API Top 10',
+    'OWASP LLM Top 10',
+    'PTES',
+    'NIST',
+    'NIST AI RMF',
+    'CIS',
+    'Common certification bodies',
+  ],
+  teamLabel: 'Team certifications',
+  teamCerts: [
+    'OSCP',
+    'OSEP',
+    'CRT',
+    'CRTP',
+    'ISO 9001:2015',
+    'ISO 27001:2022',
+    'eWPTX',
+    'eCPPT',
+    'CEH',
+  ],
+  closing:
+    'Whether you need board-ready language or deep technical traceability, delivery stays aligned from kickoff through report.',
+} as const
 
 export const CONTACT_SALES = {
   offensive: {

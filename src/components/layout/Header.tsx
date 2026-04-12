@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { BrandLogo } from '../BrandLogo'
 import { productPath } from '../../data/productDocuments'
+import { SERVICE_TOPICS, serviceTopicAnchorPath } from '../../data/serviceDocuments'
 import { SALES_PITCH_PDF } from '../../data/salesPitchSite'
 
 type SubItem = { label: string; to?: string; href?: string; external?: boolean }
@@ -39,15 +40,15 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Services',
     columns: [
       {
-        items: [
-          { label: 'Services portfolio overview', to: '/services' },
-          { label: 'Infrastructure and network testing', to: '/services#infra' },
-          { label: 'Application security testing', to: '/services#app' },
-          { label: 'AI and emerging technology', to: '/services#ai' },
-          { label: 'Social engineering and assurance', to: '/services#social' },
-          { label: 'Cloud and DevSecOps', to: '/services#cloud-devsecops' },
-          { label: 'Program-level engagements', to: '/services#program-exercises' },
-        ],
+        heading: 'Overview',
+        items: [{ label: 'Technieum services', to: '/services' }],
+      },
+      {
+        heading: 'PDF briefs',
+        items: SERVICE_TOPICS.map((t) => ({
+          label: t.title,
+          to: serviceTopicAnchorPath(t.slug),
+        })),
       },
     ],
   },

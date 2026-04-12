@@ -508,6 +508,76 @@
   animation: hero-cyber-scan-move 7s ease-in-out infinite;
 }
 
+/* --- Services page hero visual --- */
+
+@keyframes services-hero-spine-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.services-hero-spine-flow {
+  stroke-dasharray: 8 12;
+  animation: services-hero-spine-flow 2.2s linear infinite;
+}
+
+@keyframes services-hero-path-flow {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+.services-hero-path-flow {
+  stroke-dasharray: 3 9;
+  animation: services-hero-path-flow 1.25s linear infinite;
+}
+
+@keyframes services-hero-pill-glow {
+  0%,
+  100% {
+    stroke-opacity: 0.32;
+  }
+  50% {
+    stroke-opacity: 0.82;
+  }
+}
+
+.services-hero-pill {
+  animation: services-hero-pill-glow 4.2s ease-in-out infinite;
+}
+
+/* --- Services catalog category cards (radial glow, SOC-style) --- */
+
+.services-catalog-section {
+  background: var(--color-page);
+}
+
+.services-category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-border-strong) 88%, transparent);
+  background: #0a0a0a;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.045),
+    0 22px 50px -26px rgb(0 0 0 / 0.75);
+}
+
+.services-category-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 92% 58% at 50% -10%, rgb(232 93 4 / 0.17), transparent 56%),
+    radial-gradient(ellipse 70% 46% at 94% 98%, rgb(194 65 12 / 0.11), transparent 58%);
+}
+
+.services-category-card-inner {
+  position: relative;
+  z-index: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-color-drift::before,
   .hero-color-drift::after,
@@ -585,5 +655,11 @@
   .hero-cyber-scan {
     transform: none;
     opacity: 0.04;
+  }
+
+  .services-hero-spine-flow,
+  .services-hero-path-flow,
+  .services-hero-pill {
+    animation: none !important;
   }
 }

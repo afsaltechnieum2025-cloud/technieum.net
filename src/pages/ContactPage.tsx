@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { CONTACT_SALES, SALES_PITCH_PDF } from '../data/salesPitchSite'
 
 export function ContactPage() {
@@ -7,15 +6,6 @@ export function ContactPage() {
       <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10 max-w-3xl">
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted">
-            <Link to="/" className="text-brand no-underline hover:underline">
-              Home
-            </Link>
-            <span className="mx-2 text-border-strong" aria-hidden>
-              /
-            </span>
-            <span className="text-heading">Contact</span>
-          </nav>
           <h1 className="mb-4 text-3xl font-medium tracking-tight text-heading md:text-4xl">Contact Technieum</h1>
           <p className="mb-6 text-lg leading-relaxed text-muted">
             {CONTACT_SALES.tagline}
