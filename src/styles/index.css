@@ -319,6 +319,119 @@
   }
 }
 
+/* Offensive workflow diagram — dashed “flow” lines (GIF-like, theme colors) */
+@keyframes offensive-workflow-dash-slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 14px 0;
+  }
+}
+
+.offensive-workflow-dash {
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(232 93 4 / 0.55) 0,
+    rgb(232 93 4 / 0.55) 7px,
+    rgb(63 63 70 / 0.45) 7px,
+    rgb(63 63 70 / 0.45) 14px
+  );
+  background-size: 14px 2px;
+  animation: offensive-workflow-dash-slide 0.72s linear infinite;
+}
+
+.offensive-workflow-dash--muted {
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(113 113 122 / 0.45) 0,
+    rgb(113 113 122 / 0.45) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  background-size: 12px 2px;
+  animation: offensive-workflow-dash-slide 0.88s linear infinite;
+}
+
+.offensive-workflow-dash--cyan {
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(34 211 238 / 0.5) 0,
+    rgb(34 211 238 / 0.5) 7px,
+    rgb(63 63 70 / 0.45) 7px,
+    rgb(63 63 70 / 0.45) 14px
+  );
+  background-size: 14px 2px;
+  animation: offensive-workflow-dash-slide 0.72s linear infinite;
+}
+
+.offensive-workflow-dash--success {
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgb(74 222 128 / 0.45) 0,
+    rgb(74 222 128 / 0.45) 7px,
+    rgb(63 63 70 / 0.45) 7px,
+    rgb(63 63 70 / 0.45) 14px
+  );
+  background-size: 14px 2px;
+  animation: offensive-workflow-dash-slide 0.8s linear infinite;
+}
+
+.offensive-workflow-node-pulse {
+  animation: technieum-pulse-glow 2.8s ease-in-out infinite;
+}
+
+@keyframes offensive-workflow-cyan-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(34 211 238 / 0.22);
+  }
+  50% {
+    box-shadow: 0 0 16px 2px rgb(34 211 238 / 0.18);
+  }
+}
+
+.offensive-workflow-node-pulse-cyan {
+  animation: offensive-workflow-cyan-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes project-cycle-ring-flow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+.project-cycle-outer-ring {
+  stroke-dasharray: 10 8;
+  animation: project-cycle-ring-flow 4s linear infinite;
+}
+
+@keyframes project-cycle-node-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgb(232 93 4 / 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgb(232 93 4 / 0.55));
+  }
+}
+
+.project-cycle-node-active {
+  animation: project-cycle-node-glow 2.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-color-drift::before,
   .hero-color-drift::after,
@@ -357,5 +470,31 @@
 
   .customers-marquee-track {
     animation: none !important;
+  }
+
+  .offensive-workflow-dash,
+  .offensive-workflow-dash--muted,
+  .offensive-workflow-dash--cyan,
+  .offensive-workflow-dash--success,
+  .offensive-workflow-node-pulse,
+  .offensive-workflow-node-pulse-cyan {
+    animation: none !important;
+  }
+
+  .offensive-workflow-dash,
+  .offensive-workflow-dash--muted,
+  .offensive-workflow-dash--cyan,
+  .offensive-workflow-dash--success {
+    background: rgb(63 63 70 / 0.55);
+  }
+
+  .project-cycle-outer-ring,
+  .project-cycle-node-active {
+    animation: none !important;
+  }
+
+  .project-cycle-outer-ring {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
   }
 }

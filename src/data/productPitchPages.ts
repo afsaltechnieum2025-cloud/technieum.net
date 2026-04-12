@@ -49,14 +49,14 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
         title: 'How ToIP shows up on engagements',
         paragraphs: [
           'During scoping and testing, analysts use ToIP to align test cases to real disclosure patterns: same classes of flaws, same bypass families, same chain logic that showed up in production incidents.',
-          'The platform complements automated scanning by explaining why a finding matters, how others exploited similar conditions, and which payloads or sequences are most relevant to your stack.',
+          'ToIP complements automated scanning by explaining why a finding matters, how others exploited similar conditions, and which payloads or sequences are most relevant to your stack.',
         ],
       },
       {
         title: 'Trust and evidence',
         paragraphs: [
           'Retrieval-augmented generation keeps answers anchored to the corpus you can cite in reports. That discipline matters when legal, compliance, or customer security teams scrutinize recommendations.',
-          'For a full technical breakdown of pipelines, sources, and export formats, use the downloadable technical overview in the documentation library.',
+          'For a full technical breakdown of pipelines, sources, and export formats, use the downloadable technical overview PDF from this page or the home overview cards.',
         ],
       },
     ],

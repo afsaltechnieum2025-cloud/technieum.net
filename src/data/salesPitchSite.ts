@@ -3,13 +3,12 @@
 export const SALES_PITCH_PDF = '/salespitch/Technieum_Sales_Pitch_Dark.pdf'
 
 export const HOME_HERO = {
-  eyebrow: 'Offensive security services | March 2026 positioning',
+  eyebrow: 'Offensive security services',
   title: '360 coverage, human-validated results, AI at every layer.',
   lead:
-    'Technieum delivers proprietary platforms and expert-led offensive security: from agentic reconnaissance and RAG-backed intelligence to LLM red teaming, AD path analysis, ASM, and AI-validated static analysis. One engagement can span SAST, SCA, ASM, Active Directory, and AI or LLM testing, cross-correlated in a single program.',
+    'Technieum delivers expert-led offensive security backed by in-house tooling: from agentic reconnaissance and RAG-backed intelligence to LLM red teaming, AD path analysis, ASM, and AI-validated static analysis. One engagement can span SAST, SCA, ASM, Active Directory, and AI or LLM testing, cross-correlated in a single program.',
   sublead:
     'Milestone-driven delivery with daily updates, weekly reviews, and immediate escalation for critical findings. AI accelerates discovery; human experts validate every finding so you act on real risk.',
-  primaryCta: { label: 'Explore platforms', to: '/#platform-suite' },
   secondaryCta: { label: 'Download sales pitch (PDF)', href: SALES_PITCH_PDF },
 } as const
 
@@ -35,7 +34,7 @@ export const WHY_TECHNIEUM = [
       'Dedicated researchers hunting zero-days and publishing CVEs. Research feeds directly into tooling and every client engagement.',
   },
   {
-    title: 'Six proprietary AI platforms',
+    title: 'Six proprietary AI capabilities',
     body:
       'ToIP, LLM Attack Suite, AD Suite, AI-based ASM, AI SAST, and AI SCA, built in-house and orchestrated alongside commercial tools where needed.',
   },
@@ -55,7 +54,7 @@ export const OFFSEC_PORTAL = {
   title: 'OffSec Management Portal',
   subtitle: 'Central command for multi-stream testing',
   bullets: [
-    'Unifies all proprietary platforms: shared intelligence, consistent scoring, and one operational picture.',
+    'Unifies every delivery stream: shared intelligence, consistent scoring, and one operational picture.',
     'Multi-tester collaboration with role-appropriate views and workflow.',
     'CVSS scoring, CWE mapping, one-click reporting, and real-time dashboards.',
     'Retest tracking and evidence trails from first finding through closure.',
@@ -65,93 +64,59 @@ export const OFFSEC_PORTAL = {
 
 export const OFFENSIVE_WORKFLOW = {
   title: 'The Technieum offensive workflow',
-  subtitle: 'Parallel workstreams. One unified pipeline.',
+  subtitle: 'Five parallel lanes. One portal.',
   intro:
-    'Five converging intelligence pipelines are centrally managed in the OffSec Management Portal. Manual and automated techniques combine per workstream until findings are validated and ready for client action.',
-  workstreams: [
-    {
-      name: 'Attack surface and ASM intel',
-      detail:
-        'Subdomains, APIs, technology stack fingerprinting, and ASM or SAST-driven surface discovery feed surface-specific playbooks.',
-    },
-    {
-      name: 'SAST intel',
-      detail:
-        'Findings such as injection and XSS classes roll into exploit-matched and target-specific playbooks with business logic context.',
-    },
-    {
-      name: 'LLM and AI security',
-      detail:
-        'Endpoint discovery, exhaustive and target-specific prompt testing, logic extraction for auth, authorization, and transactions.',
-    },
-    {
-      name: 'ToIP intelligence engine',
-      detail:
-        '15,000+ curated reports, RAG semantic search, curated templates, and escalation paths from intel to validated findings.',
-    },
-    {
-      name: 'Nuclei and scanner correlation',
-      detail:
-        'Template-backed validation aligned with ASM and portal tracking for consistent retest and evidence.',
-    },
-  ],
-  footer:
-    'Centralized tracking, real-time client dashboards, findings management, and retest workflow tie the streams together.',
+    'Intel, scanners, and LLM testing feed shared ToIP intelligence, then validated findings roll into the OffSec Management Portal.',
 } as const
 
 export const PROJECT_CYCLE = {
   title: 'The Technieum project cycle',
   subtitle: 'From onboarding to delivery',
   intro:
-    'Structured, milestone-driven delivery with daily updates and instant critical escalation. No unnecessary delays.',
+    'Milestone-driven delivery with daily visibility, weekly reviews when you need them, and instant escalation for critical findings. No black-box engagements.',
+  diagramEyebrow: 'Animated overview',
+  // diagramCaption:
+  //   'The ring walks through all eight phases in order. Hover this overview or any step card to pause and explore.',
   phases: [
     {
       step: '1',
       title: 'Scoping and planning',
-      body:
-        'Define objectives, rules of engagement, and target scope. Formal test plan with a dedicated project manager and lead penetration tester.',
+      body: 'Objectives, ROE, scope, formal plan. PM plus lead pentester.',
     },
     {
       step: '2',
       title: 'Automated reconnaissance',
-      body:
-        'Agentic AI deploys 100+ tools: subdomain discovery, DNS resolution, web probing, and initial vulnerability scanning.',
+      body: '100+ tools: subdomains, DNS, web probing, initial scanning.',
     },
     {
       step: '3',
       title: 'Intelligence integration',
-      body:
-        'ToIP frames attack scenarios. AI SAST extracts business logic. ASM feeds surface-specific playbooks.',
+      body: 'ToIP scenarios, AI SAST logic, ASM playbooks.',
     },
     {
       step: '4',
       title: 'Collaborative testing',
-      body:
-        'Multi-tester parallel execution through the OffSec Portal. Daily updates and immediate escalation for critical findings.',
+      body: 'Parallel testers in OffSec Portal. Daily updates, criticals escalated fast.',
     },
     {
       step: '5',
       title: 'Deep vulnerability analysis',
-      body:
-        'Business logic exploitation, privilege escalation chains, and complex chaining. Every finding is validated before report.',
+      body: 'Business logic, priv-esc chains, chaining. Validated before report.',
     },
     {
       step: '6',
       title: 'Reporting and documentation',
-      body:
-        'Executive summary, technical report with CVSS and CWE, business logic test cases, playbook documentation, and proof-of-concept demonstrations.',
+      body: 'Exec summary, technical report (CVSS, CWE), playbooks, PoCs.',
     },
     {
       step: '7',
       title: 'AI-powered remediation',
-      body:
-        'Accurate, context-aware fix guidance tailored to your stack rather than generic suggestions.',
+      body: 'Stack-aware fix guidance, not generic advice.',
     },
     {
       step: '8',
       title: 'Retesting and validation',
-      body:
-        'Verify every remediation, confirm closure, update the live dashboard, and close with evidence-backed sign-off.',
+      body: 'Verify fixes, update dashboard, evidence-backed sign-off.',
     },
   ],
 } as const
@@ -198,6 +163,34 @@ export const SERVICE_GROUPS = [
       'Retesting and validation',
     ],
   },
+  {
+    heading: 'Cloud and DevSecOps',
+    items: [
+      'Cloud penetration testing (multi-cloud)',
+      'Container and Kubernetes security assessment',
+      'CI/CD pipeline and supply chain security review',
+      'Secrets management and IAM configuration review',
+    ],
+  },
+  {
+    heading: 'Program-level engagements',
+    items: [
+      'Red team and assumed-breach simulation',
+      'Purple team collaborative exercises',
+      'Incident response tabletop facilitation',
+      'Breach and attack simulation (BAS) program support',
+    ],
+  },
+] as const
+
+/** Section anchors on /services; order must match SERVICE_GROUPS. */
+export const SERVICE_GROUP_SECTION_IDS = [
+  'infra',
+  'app',
+  'ai',
+  'social',
+  'cloud-devsecops',
+  'program-exercises',
 ] as const
 
 export const STANDARDS_STRIP =

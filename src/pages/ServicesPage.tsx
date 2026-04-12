@@ -1,9 +1,25 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CONTACT_SALES, SALES_PITCH_PDF, SERVICE_GROUPS, STANDARDS_STRIP } from '../data/salesPitchSite'
-
-const SERVICE_SECTION_IDS = ['infra', 'app', 'ai', 'social'] as const
+import { serviceMethodologyPath, slugifyServiceLine } from '../data/serviceMethodologies'
+import {
+  CONTACT_SALES,
+  SALES_PITCH_PDF,
+  SERVICE_GROUPS,
+  SERVICE_GROUP_SECTION_IDS,
+  STANDARDS_STRIP,
+} from '../data/salesPitchSite'
 
 export function ServicesPage() {
+  const [categoryJump, setCategoryJump] = useState<string>('all')
+
+  function onCategoryChange(value: string) {
+    setCategoryJump(value)
+    if (value === 'all') return
+    window.requestAnimationFrame(() => {
+      document.getElementById(value)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
+  }
+
   return (
     <main id="main-content" className="flex flex-col bg-page">
       <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
@@ -23,9 +39,9 @@ export function ServicesPage() {
             Comprehensive offensive security services
           </h1>
           <p className="mb-6 max-w-3xl text-lg leading-relaxed text-muted md:text-xl">
-            Technieum maintains 18+ specialized service lines, each AI-enhanced and backed by proprietary platforms.
-            Engagements combine manual expertise with orchestrated automation so results stay accurate, timely, and
-            defensible.
+            Technieum maintains a broad catalog of offensive service lines, each AI-enhanced and backed by in-house
+            tooling. Select a category from the dropdown on this page, then open any line for a concise methodology
+            overview. Deeper scoping happens with your team on a call.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -47,19 +63,46 @@ export function ServicesPage() {
 
       <section className="section-zz-b px-6 py-14 md:py-20">
         <div className="container">
+          <div className="mb-10 max-w-lg">
+            <label htmlFor="service-category-select" className="mb-2 block text-sm font-medium text-heading">
+              Browse by category
+            </label>
+            <select
+              id="service-category-select"
+              value={categoryJump}
+              onChange={(e) => onCategoryChange(e.target.value)}
+              className="w-full rounded-lg border border-border bg-page px-4 py-2.5 text-sm text-heading shadow-sm focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand"
+            >
+              <option value="all">All categories</option>
+              {SERVICE_GROUPS.map((g, i) => (
+                <option key={SERVICE_GROUP_SECTION_IDS[i]} value={SERVICE_GROUP_SECTION_IDS[i]}>
+                  {g.heading}
+                </option>
+              ))}
+            </select>
+            <p className="mt-2 text-xs text-muted">
+              Choosing a category scrolls to that block. Every service line links to its own methodology page.
+            </p>
+          </div>
+
           <div className="grid gap-10 lg:grid-cols-2">
             {SERVICE_GROUPS.map((group, index) => (
               <section
                 key={group.heading}
-                id={SERVICE_SECTION_IDS[index]}
+                id={SERVICE_GROUP_SECTION_IDS[index]}
                 className={`scroll-mt-28 rounded-xl border border-border bg-panel/30 p-6 md:p-8 ${index % 2 === 0 ? 'section-zz-a' : 'section-zz-b'}`}
               >
                 <h2 className="mb-6 text-xl font-semibold text-heading">{group.heading}</h2>
                 <ul className="m-0 space-y-3 p-0 list-none">
                   {group.items.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm text-muted">
+                    <li key={item} className="flex gap-3 text-sm">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
-                      <span>{item}</span>
+                      <Link
+                        to={serviceMethodologyPath(slugifyServiceLine(item))}
+                        className="text-muted no-underline transition-colors hover:text-brand hover:underline"
+                      >
+                        {item}
+                      </Link>
                     </li>
                   ))}
                 </ul>

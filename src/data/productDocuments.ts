@@ -4,6 +4,8 @@ export type ProductDocument = {
   id: ProductDocId
   name: string
   subtitle: string
+  /** Short line for home "Services at a glance" cards */
+  glanceDescription: string
   pdfFile: string
   downloadName: string
   tagline: string
@@ -21,11 +23,13 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     id: 'toip',
     name: 'TOIP',
     subtitle: 'Technieum Offsec Intelligence Portal',
+    glanceDescription:
+      'Grounded answers from a large vulnerability corpus: citations, payloads, and scenarios your testers can run immediately.',
     pdfFile: 'TOIP.pdf',
     downloadName: 'Technieum-TOIP-Technical-Overview.pdf',
     tagline: 'Citation-backed vulnerability intelligence for offensive security teams.',
     summary:
-      'TOIP is an enterprise-grade, AI-augmented research platform for penetration testers and disclosure programmes. It combines a curated corpus of tens of thousands of real vulnerability reports with retrieval-augmented generation (RAG) so every answer is grounded in NVD, CISA KEV, Nuclei templates, PayloadsAllTheThings, and disclosed reports, with explicit citations, ready payloads, and attack scenarios drawn from real-world cases.',
+      'TOIP is an enterprise-grade, AI-augmented research capability for penetration testers and disclosure programmes. It combines a curated corpus of tens of thousands of real vulnerability reports with retrieval-augmented generation (RAG) so every answer is grounded in NVD, CISA KEV, Nuclei templates, PayloadsAllTheThings, and disclosed reports, with explicit citations, ready payloads, and attack scenarios drawn from real-world cases.',
     stats: [
       { value: '90,000+', label: 'Vulnerability reports (typical corpus)' },
       { value: '5', label: 'Parallel intelligence sources' },
@@ -55,7 +59,9 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
   {
     id: 'asm',
     name: 'Technieum-X',
-    subtitle: 'Attack Surface Management Platform',
+    subtitle: 'External attack surface management',
+    glanceDescription:
+      'Discovery through reporting across DNS, ports, CVEs, and attack paths, with dashboards and compliance-friendly evidence.',
     pdfFile: 'ASM.pdf',
     downloadName: 'Technieum-X-ASM-Overview-v2.pdf',
     tagline: 'One engine to discover, assess, and manage your external attack surface.',
@@ -90,12 +96,14 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
   {
     id: 'llm',
     name: 'LLM Suite',
-    subtitle: 'LLM Penetration Testing Platform',
+    subtitle: 'LLM red team testing',
+    glanceDescription:
+      'Recursive red-team loops against LLM APIs with twelve parallel vulnerability streams and exportable proof for each finding.',
     pdfFile: 'LLM.pdf',
     downloadName: 'Technieum-LLM-Suite-Technical-Overview.pdf',
     tagline: 'Adaptive, multi-stream red teaming for LLM endpoints, with evidence in every finding.',
     summary:
-      'Technieum LLM Suite is a web and API platform that runs twelve parallel vulnerability streams against your LLM application. An attacker agent uses a recursive loop (probe, escalate, refine, extract, pivot) guided by target responses, with SSRF-safe validation and early exit on critical findings. Every confirmed issue includes the literal response fragment that triggered detection.',
+      'Technieum LLM Suite is a web and API testing suite that runs twelve parallel vulnerability streams against your LLM application. An attacker agent uses a recursive loop (probe, escalate, refine, extract, pivot) guided by target responses, with SSRF-safe validation and early exit on critical findings. Every confirmed issue includes the literal response fragment that triggered detection.',
     stats: [
       { value: '12', label: 'Parallel vulnerability streams' },
       { value: 'SSE', label: 'Real-time attack dashboard' },
@@ -124,6 +132,8 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     id: 'sast',
     name: 'AI-SAST',
     subtitle: 'AI-Powered Static Application Security Testing',
+    glanceDescription:
+      'Seven agents merge SAST, secrets, dependencies, and AI validation into SARIF-ready priorities your developers can ship against.',
     pdfFile: 'SAST.pdf',
     downloadName: 'Technieum-AI-SAST-Product-Overview-v2.pdf',
     tagline: 'Six engines, graph-based taint analysis, and LLM validation: one prioritized backlog.',
@@ -157,6 +167,8 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     id: 'ad',
     name: 'AD Suite',
     subtitle: 'Active Directory Security Auditing Framework',
+    glanceDescription:
+      'Six hundred plus directory checks with weighted scoring, raw evidence, and exports mapped to MITRE, CIS, and STIG-style controls.',
     pdfFile: 'AD.pdf',
     downloadName: 'Technieum-AD-Suite-Technical-Overview.pdf',
     tagline: 'PowerShell-native, evidence-first Active Directory assessments, offline capable.',

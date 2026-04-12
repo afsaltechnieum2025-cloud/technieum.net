@@ -3,13 +3,13 @@ import technieumLogo from '../../assets/technieum-logo.png'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const platformLinks = [
+const capabilityLinks = [
   { label: 'TOIP (intelligence portal)', to: '/platform/toip' },
   { label: 'Technieum-X (ASM)', to: '/platform/technieum-x' },
   { label: 'LLM Attack Suite', to: '/platform/llm-suite' },
   { label: 'AI-SAST and AI-SCA', to: '/platform/ai-sast' },
   { label: 'AD Suite', to: '/platform/ad-suite' },
-  { label: 'Technical PDF library', to: '/#platform-documentation' },
+  { label: 'Capability overviews', to: '/#services-glance-heading' },
 ]
 
 const servicesLinks = [
@@ -18,6 +18,8 @@ const servicesLinks = [
   { label: 'Application security', to: '/services#app' },
   { label: 'AI and emerging technology', to: '/services#ai' },
   { label: 'Social engineering', to: '/services#social' },
+  { label: 'Cloud and DevSecOps', to: '/services#cloud-devsecops' },
+  { label: 'Program-level engagements', to: '/services#program-exercises' },
   { label: 'Contact sales', to: '/contact' },
 ]
 
@@ -194,8 +196,8 @@ export function Footer() {
             </div>
 
             <div className={footerColClass}>
-              <h3 className={sectionTitleClass}>Platforms</h3>
-              <ColLinks items={platformLinks} />
+              <h3 className={sectionTitleClass}>Capabilities</h3>
+              <ColLinks items={capabilityLinks} />
             </div>
 
             <div className={footerColClass}>

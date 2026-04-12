@@ -3,6 +3,7 @@ import { SiteLayout } from './components/layout/SiteLayout'
 import { ContactPage } from './pages/ContactPage'
 import { HomePage } from './pages/HomePage'
 import { ProductPage } from './pages/ProductPage'
+import { ServiceMethodologyPage } from './pages/ServiceMethodologyPage'
 import { ServicesPage } from './pages/ServicesPage'
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
           <Route index element={<HomePage />} />
           <Route path="platform/:slug" element={<ProductPage />} />
           <Route path="services" element={<ServicesPage />} />
+          <Route path="services/methodology/:slug" element={<ServiceMethodologyPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>

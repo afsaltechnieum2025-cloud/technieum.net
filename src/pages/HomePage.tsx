@@ -1,47 +1,21 @@
 import { Link } from 'react-router-dom'
+import { CapabilityLogo } from '../components/home/CapabilityLogo'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
-import { DocumentLibrary } from '../components/home/DocumentLibrary'
-import { PRODUCT_DOCUMENTS, productPath, type ProductDocId } from '../data/productDocuments'
+import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
+import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
+import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
+import { getOffsecPortalSlides } from '../data/offsecPortalSlides'
+import { PRODUCT_DOCUMENTS, productPath } from '../data/productDocuments'
 import {
   CONTACT_SALES,
   HOME_HERO,
   OFFENSIVE_WORKFLOW,
   OFFSEC_PORTAL,
-  PROJECT_CYCLE,
   SALES_PITCH_PDF,
   WHY_TECHNIEUM,
 } from '../data/salesPitchSite'
 
-const suitePillars: {
-  title: string
-  body: string
-  productId: ProductDocId
-}[] = [
-  {
-    title: 'Intelligence and research',
-    body:
-      'ToIP delivers RAG-backed answers across 15,000+ disclosed vulnerabilities so testers move from question to playbook with citations and payloads.',
-    productId: 'toip',
-  },
-  {
-    title: 'External attack surface',
-    body:
-      'Technieum-X orchestrates 100+ recon tools across disciplined phases, feeding the portal and surface-specific playbooks.',
-    productId: 'asm',
-  },
-  {
-    title: 'AI and application risk',
-    body:
-      'LLM Attack Suite runs 1,005+ prompts across OWASP LLM categories while AI SAST and AI SCA unify static and dependency risk.',
-    productId: 'llm',
-  },
-  {
-    title: 'Identity infrastructure',
-    body:
-      'AD Suite maps attack paths and privilege escalation with evidence-first PowerShell telemetry, offline capable.',
-    productId: 'ad',
-  },
-]
+const OFFSEC_PORTAL_SLIDES = getOffsecPortalSlides()
 
 export function HomePage() {
   return (
@@ -50,54 +24,76 @@ export function HomePage() {
       <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-16 md:py-24 lg:py-28">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
-          <p className="text-shimmer-brand mb-4 text-sm font-semibold tracking-wide">{HOME_HERO.eyebrow}</p>
-          <h1 className="mb-6 max-w-4xl text-4xl font-medium tracking-tight text-heading md:text-5xl lg:text-6xl">
-            {HOME_HERO.title}
-          </h1>
-          <p className="mb-6 max-w-3xl text-lg leading-relaxed text-muted md:text-xl">{HOME_HERO.lead}</p>
-          <p className="mb-10 max-w-3xl text-base leading-relaxed text-muted">{HOME_HERO.sublead}</p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              to={HOME_HERO.primaryCta.to}
-              className="btn-brand-lively inline-flex items-center justify-center rounded-full border border-brand-strong bg-brand-strong px-8 py-3 text-sm font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft"
-            >
-              {HOME_HERO.primaryCta.label}
-            </Link>
-            <a
-              href={HOME_HERO.secondaryCta.href}
-              download
-              className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
-            >
-              {HOME_HERO.secondaryCta.label}
-            </a>
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-border-strong"
-            >
-              Services portfolio
-            </Link>
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+            <div className="text-left">
+              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{HOME_HERO.eyebrow}</p>
+              <h1 className="mb-4 max-w-2xl text-2xl font-medium leading-snug tracking-tight text-heading sm:text-3xl lg:text-4xl">
+                {HOME_HERO.title}
+              </h1>
+              <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{HOME_HERO.lead}</p>
+              <p className="mb-8 max-w-2xl text-xs leading-relaxed text-muted md:text-sm">{HOME_HERO.sublead}</p>
+              <div className="flex flex-wrap justify-start gap-3">
+                <a
+                  href={HOME_HERO.secondaryCta.href}
+                  download
+                  className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-7 md:text-sm"
+                >
+                  {HOME_HERO.secondaryCta.label}
+                </a>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-border-strong md:px-7 md:text-sm"
+                >
+                  Services portfolio
+                </Link>
+              </div>
+            </div>
+
+            {/* Reserved for hero GIF / animation (e.g. ToIP workspace). Drop in <img> or <video> when asset is ready. */}
+            <div
+              className="relative flex min-h-[220px] w-full items-center justify-center rounded-2xl border border-dashed border-brand/35 bg-panel/25 lg:min-h-[20rem] xl:min-h-[24rem]"
+              aria-hidden="true"
+            />
           </div>
         </div>
       </section>
 
       {/* Why Technieum */}
-      <section className="section-zz-b px-6 py-16 md:py-20" aria-labelledby="why-heading">
+      <section className="section-zz-b px-6 py-10 md:py-12" aria-labelledby="why-heading">
         <div className="container">
-          <h2 id="why-heading" className="mb-4 text-center text-2xl font-medium text-heading md:text-3xl">
-            Why Technieum
-          </h2>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-muted">
-            In a market of identical vendors running identical scanners, Technieum delivers structural differentiation:
-            proprietary AI platforms, human validation, and 360-degree coverage per engagement.
-          </p>
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {WHY_TECHNIEUM.map((item) => (
+          <div className="mx-auto mb-7 max-w-2xl text-center md:mb-8">
+            {/* <p className="text-shimmer-brand mb-2 text-[11px] font-semibold uppercase tracking-wider md:text-xs">
+              Differentiation
+            </p> */}
+            <h2
+              id="why-heading"
+              className="mb-2 text-lg font-medium tracking-tight text-heading md:text-xl"
+            >
+              Why Technieum
+            </h2>
+            <p className="m-0 text-xs leading-relaxed text-muted md:text-sm">
+              Same scanners everywhere else. Here, in-house AI tooling, human validation, and 360-degree coverage per
+              engagement.
+            </p>
+          </div>
+          <ul className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2">
+            {WHY_TECHNIEUM.map((item, index) => (
               <li
                 key={item.title}
-                className="card-hover-glow rounded-xl border border-border bg-panel/25 p-6 md:p-7"
+                className="group rounded-lg border border-border/70 bg-panel/20 px-3.5 py-3 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-4 md:py-3.5"
               >
-                <h3 className="mb-3 text-lg font-semibold text-heading">{item.title}</h3>
-                <p className="m-0 text-sm leading-relaxed text-muted">{item.body}</p>
+                <div className="grid grid-cols-[auto_1fr] gap-x-2.5 gap-y-1">
+                  <span
+                    className="row-span-2 mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-brand/15 text-[10px] font-bold tabular-nums text-brand md:text-[11px]"
+                    aria-hidden
+                  >
+                    {index + 1}
+                  </span>
+                  <h3 className="min-w-0 text-sm font-semibold leading-snug text-heading">{item.title}</h3>
+                  <p className="min-w-0 text-[11px] leading-relaxed text-muted md:text-xs md:leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>
@@ -106,160 +102,110 @@ export function HomePage() {
 
       <CustomersBelievedSection />
 
-      {/* Suite pillars */}
-      <section
-        id="platform-suite"
-        className="section-zz-b bg-panel/20 px-6 py-16 md:py-20"
-        aria-labelledby="suite-heading"
-      >
-        <div className="container">
-          <h2 id="suite-heading" className="mb-4 text-center text-2xl font-medium text-heading md:text-3xl">
-            Proprietary platform ecosystem
-          </h2>
-          <p className="mx-auto mb-12 max-w-2xl text-center text-muted">
-            Platforms built in-house power every engagement. Open a dedicated sales narrative for each pillar or jump
-            straight to technical PDFs in the library below.
-          </p>
-          <ul className="grid gap-6 md:grid-cols-2">
-            {suitePillars.map((item) => (
-              <li
-                key={item.title}
-                className="card-hover-glow rounded-xl border border-border bg-bg-inset p-6 shadow-md md:p-8"
-              >
-                <h3 className="mb-3 text-lg font-semibold text-heading">{item.title}</h3>
-                <p className="mb-4 text-sm leading-relaxed text-muted">{item.body}</p>
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    to={productPath(item.productId)}
-                    className="text-sm font-semibold text-brand no-underline hover:underline"
-                  >
-                    View platform page
-                  </Link>
-                  <a
-                    href="#platform-documentation"
-                    className="text-sm font-semibold text-muted no-underline hover:text-brand hover:underline"
-                  >
-                    Technical PDFs
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted">
-            AI SAST and AI SCA are positioned together on the{' '}
-            <Link to={productPath('sast')} className="text-brand no-underline hover:underline">
-              AI-SAST platform page
-            </Link>
-            , matching how we deliver dependency and static analysis as one backlog.
-          </p>
-        </div>
-      </section>
-
       {/* OffSec portal */}
       <section className="section-zz-a px-6 py-16 md:py-20" aria-labelledby="portal-heading">
         <div className="container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div
+            className={`grid gap-10 lg:items-start ${OFFSEC_PORTAL_SLIDES.length > 0 ? 'lg:grid-cols-2' : ''}`}
+          >
             <div>
               <h2 id="portal-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
                 {OFFSEC_PORTAL.title}
               </h2>
               <p className="mb-6 text-lg text-brand">{OFFSEC_PORTAL.subtitle}</p>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="mb-8 text-sm leading-relaxed text-muted lg:mb-0">
                 The OffSec Management Portal is the coordination layer across testers, tooling, and reporting. It is
                 how Technieum sustains daily transparency without burying teams in email threads.
               </p>
+              <ul className="m-0 mt-8 space-y-4 p-0 list-none lg:mt-10">
+                {OFFSEC_PORTAL.bullets.map((b) => (
+                  <li key={b} className="flex gap-3 text-sm text-muted">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" aria-hidden />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="m-0 space-y-4 p-0 list-none">
-              {OFFSEC_PORTAL.bullets.map((b) => (
-                <li key={b} className="flex gap-3 text-sm text-muted">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" aria-hidden />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+            {OFFSEC_PORTAL_SLIDES.length > 0 ? (
+              <div className="lg:sticky lg:top-28">
+                <OffsecPortalSlideshow slides={OFFSEC_PORTAL_SLIDES} />
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
 
       {/* Workflow */}
-      <section className="section-zz-b bg-bg-inset px-6 py-16 md:py-20" aria-labelledby="workflow-heading">
+      <section
+        id="offensive-workflow"
+        className="section-zz-b bg-bg-inset px-6 py-10 md:py-14"
+        aria-labelledby="workflow-heading"
+      >
         <div className="container">
-          <h2 id="workflow-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
-            {OFFENSIVE_WORKFLOW.title}
-          </h2>
-          <p className="mb-2 text-lg text-brand">{OFFENSIVE_WORKFLOW.subtitle}</p>
-          <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted">{OFFENSIVE_WORKFLOW.intro}</p>
-          <ol className="m-0 grid gap-6 p-0 list-none md:grid-cols-2">
-            {OFFENSIVE_WORKFLOW.workstreams.map((ws, i) => (
-              <li
-                key={ws.name}
-                className="flex gap-4 rounded-xl border border-border bg-page p-5 md:p-6"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-strong text-sm font-bold text-white">
-                  {i + 1}
-                </span>
-                <div>
-                  <h3 className="mb-2 text-base font-semibold text-heading">{ws.name}</h3>
-                  <p className="m-0 text-sm leading-relaxed text-muted">{ws.detail}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-          <p className="mt-10 max-w-3xl text-sm text-muted">{OFFENSIVE_WORKFLOW.footer}</p>
-        </div>
-      </section>
+          <div className="mb-5 max-w-2xl md:mb-6">
+            <h2 id="workflow-heading" className="mb-2 text-xl font-medium text-heading md:text-2xl">
+              {OFFENSIVE_WORKFLOW.title}
+            </h2>
+            <p className="mb-2 text-sm font-medium text-brand md:text-base">{OFFENSIVE_WORKFLOW.subtitle}</p>
+            <p className="m-0 text-xs leading-relaxed text-muted md:text-sm">{OFFENSIVE_WORKFLOW.intro}</p>
+          </div>
 
-      {/* Project cycle */}
-      <section className="section-zz-a px-6 py-16 md:py-20" aria-labelledby="cycle-heading">
-        <div className="container">
-          <h2 id="cycle-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
-            {PROJECT_CYCLE.title}
-          </h2>
-          <p className="mb-2 text-lg text-brand">{PROJECT_CYCLE.subtitle}</p>
-          <p className="mb-12 max-w-3xl text-sm leading-relaxed text-muted">{PROJECT_CYCLE.intro}</p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {PROJECT_CYCLE.phases.map((ph) => (
-              <div
-                key={ph.step}
-                className="rounded-xl border border-border bg-panel/25 p-6"
-              >
-                <p className="mb-2 text-xs font-bold uppercase tracking-wider text-brand">Phase {ph.step}</p>
-                <h3 className="mb-3 text-lg font-semibold text-heading">{ph.title}</h3>
-                <p className="m-0 text-sm leading-relaxed text-muted">{ph.body}</p>
-              </div>
-            ))}
+          <div className="overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
+            <div className="min-w-[640px] md:min-w-0">
+              <OffensiveWorkflowVisual />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Product snapshot */}
-      <section className="section-zz-b px-6 py-16 md:py-20" aria-labelledby="products-heading">
+      <ProjectCycleSection />
+
+      {/* Capability snapshot */}
+      <section className="section-zz-b px-6 py-16 md:py-20" aria-labelledby="services-glance-heading">
         <div className="container">
-          <h2 id="products-heading" className="mb-4 text-2xl font-medium text-heading md:text-3xl">
-            Capabilities at a glance
+          <h2 id="services-glance-heading" className="mb-4 text-2xl font-medium text-heading md:text-3xl">
+            Services at a glance
           </h2>
-          <p className="mb-10 max-w-3xl text-muted">
-            {PRODUCT_DOCUMENTS.length} platform pillars with downloadable technical overviews. Each card links to a
-            full sales narrative and the same PDFs we share with clients under NDA.
+          <p className="mb-8 max-w-3xl text-sm text-muted md:mb-10 md:text-base">
+            {PRODUCT_DOCUMENTS.length} capability areas with technical PDFs on request. Hover a card for emphasis,
+            then open it for the full narrative, metrics, and deeper explanation. AI-SAST covers static analysis and
+            dependency risk (SCA) as one delivery backlog.
           </p>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PRODUCT_DOCUMENTS.map((p) => (
               <Link
                 key={p.id}
                 to={productPath(p.id)}
-                className="card-hover-glow block rounded-lg border border-border bg-panel/25 px-4 py-4 no-underline transition-colors hover:border-border-strong hover:bg-panel/40"
+                className="group flex h-full flex-col rounded-xl border border-border bg-panel/20 p-4 no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/50 hover:bg-panel/40 hover:shadow-[0_18px_48px_-18px_rgba(232,93,4,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page md:p-5"
               >
-                <p className="text-xs font-bold uppercase tracking-wide text-brand">{p.name}</p>
-                <p className="text-sm font-medium text-heading">{p.subtitle}</p>
-                <p className="mt-2 text-sm leading-snug text-muted">{p.tagline}</p>
-                <span className="mt-3 inline-block text-sm font-semibold text-brand">Open platform page</span>
+                <div className="flex gap-3.5">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-brand/30 bg-brand/[0.09] transition-colors group-hover:border-brand/55 group-hover:bg-brand/[0.14]">
+                    <CapabilityLogo id={p.id} className="h-10 w-10" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[11px] font-bold uppercase tracking-wide text-brand md:text-xs">{p.name}</p>
+                    <p className="mt-0.5 text-sm font-medium leading-snug text-heading">{p.subtitle}</p>
+                  </div>
+                </div>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{p.glanceDescription}</p>
+                <p className="mt-2 border-l-2 border-brand/40 pl-2.5 text-xs leading-snug text-muted/90">{p.tagline}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-transform duration-200 group-hover:translate-x-0.5">
+                  View full overview
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="mt-px shrink-0">
+                    <path
+                      d="M3 7h8M8 3l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
               </Link>
             ))}
           </div>
         </div>
       </section>
-
-      <DocumentLibrary zigzag="a" />
 
       {/* CTA */}
       <section className="section-zz-b bg-bg-inset px-6 py-14 md:py-16">

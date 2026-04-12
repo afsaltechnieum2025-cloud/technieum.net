@@ -31,8 +31,8 @@ export function ProductPage() {
                 /
               </li>
               <li>
-                <Link to="/#platform-suite" className="text-brand no-underline hover:underline">
-                  Platforms
+                <Link to="/#services-glance-heading" className="text-brand no-underline hover:underline">
+                  Capabilities
                 </Link>
               </li>
               <li aria-hidden className="text-border-strong">
@@ -85,10 +85,10 @@ export function ProductPage() {
               Download sales pitch
             </a>
             <Link
-              to="/#platform-documentation"
+              to="/#services-glance-heading"
               className="inline-flex items-center justify-center rounded-full border border-border bg-transparent px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
             >
-              Documentation library
+              Services at a glance
             </Link>
           </div>
         </div>
@@ -154,7 +154,7 @@ export function ProductPage() {
       <section className="section-zz-a px-6 py-12">
         <div className="container flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="m-0 text-sm text-muted">
-            Technical detail for {doc.name}: open the PDF above or use the documentation library on the home page.
+            Technical detail for {doc.name}: open the PDF above or browse all capabilities on the home page.
           </p>
           <Link
             to="/"

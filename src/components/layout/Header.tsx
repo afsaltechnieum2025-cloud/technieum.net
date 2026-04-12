@@ -6,23 +6,23 @@ import { SALES_PITCH_PDF } from '../../data/salesPitchSite'
 
 type SubItem = { label: string; to?: string; href?: string; external?: boolean }
 
-type Column = { heading: string; items: SubItem[] }
+type Column = { heading?: string; items: SubItem[] }
 
 type NavItemType = { label: string; columns: Column[] }
 
 const NAV_ITEMS: NavItemType[] = [
   {
-    label: 'Platforms',
+    label: 'Capabilities',
     columns: [
       {
-        heading: 'Proprietary platforms',
+        heading: 'In-house delivery stack',
         items: [
           { label: 'TOIP (OffSec intelligence)', to: productPath('toip') },
           { label: 'Technieum-X (ASM)', to: productPath('asm') },
           { label: 'LLM Attack Suite', to: productPath('llm') },
           { label: 'AI-SAST and AI-SCA', to: productPath('sast') },
           { label: 'AD Suite', to: productPath('ad') },
-          { label: 'Technical PDF library', to: '/#platform-documentation' },
+          { label: 'Capability overviews', to: '/#services-glance-heading' },
         ],
       },
       {
@@ -39,13 +39,14 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Services',
     columns: [
       {
-        heading: 'Offensive services',
         items: [
           { label: 'Services portfolio overview', to: '/services' },
           { label: 'Infrastructure and network testing', to: '/services#infra' },
           { label: 'Application security testing', to: '/services#app' },
           { label: 'AI and emerging technology', to: '/services#ai' },
           { label: 'Social engineering and assurance', to: '/services#social' },
+          { label: 'Cloud and DevSecOps', to: '/services#cloud-devsecops' },
+          { label: 'Program-level engagements', to: '/services#program-exercises' },
         ],
       },
     ],
@@ -54,10 +55,8 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Resources',
     columns: [
       {
-        heading: 'Downloads and library',
         items: [
           { label: 'Sales pitch (PDF)', href: SALES_PITCH_PDF, external: true },
-          { label: 'Platform documentation', to: '/#platform-documentation' },
           { label: 'Why Technieum', to: '/#why-heading' },
           { label: 'Our customers', to: '/#customers-believed' },
         ],
@@ -68,7 +67,6 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Company',
     columns: [
       {
-        heading: 'Technieum',
         items: [
           { label: 'Overview', to: '/' },
           { label: 'Contact', to: '/contact' },
@@ -146,11 +144,13 @@ function NavDropdown({ item, onClose }: { item: NavItemType; onClose: () => void
       className={`absolute left-0 top-full z-50 ${panelWidth} overflow-hidden rounded-b-lg border border-border bg-bg-inset shadow-dropdown`}
     >
       <div className={`flex ${colCount > 1 ? 'divide-x divide-border' : ''}`}>
-        {item.columns.map((col) => (
-          <div key={col.heading} className="flex-1 px-5 py-5">
-            <p className="m-0 mb-4 text-[13px] font-bold uppercase tracking-wider text-zinc-500">
-              {col.heading}
-            </p>
+        {item.columns.map((col, colIndex) => (
+          <div key={col.heading ?? `col-${colIndex}`} className="flex-1 px-5 py-5">
+            {col.heading ? (
+              <p className="m-0 mb-4 text-[13px] font-bold uppercase tracking-wider text-zinc-500">
+                {col.heading}
+              </p>
+            ) : null}
             <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
               {col.items.map((sub) => (
                 <li key={sub.label}>
