@@ -3,6 +3,7 @@ import { CapabilityLogo } from '../components/home/CapabilityLogo'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
 import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
 import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
+import { HeroCyberVisual } from '../components/home/HeroCyberVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
 import { getOffsecPortalSlides } from '../data/offsecPortalSlides'
 import { PRODUCT_DOCUMENTS, productPath } from '../data/productDocuments'
@@ -49,11 +50,7 @@ export function HomePage() {
               </div>
             </div>
 
-            {/* Reserved for hero GIF / animation (e.g. ToIP workspace). Drop in <img> or <video> when asset is ready. */}
-            <div
-              className="relative flex min-h-[220px] w-full items-center justify-center rounded-2xl border border-dashed border-brand/35 bg-panel/25 lg:min-h-[20rem] xl:min-h-[24rem]"
-              aria-hidden="true"
-            />
+            <HeroCyberVisual />
           </div>
         </div>
       </section>

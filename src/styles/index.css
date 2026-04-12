@@ -432,6 +432,82 @@
   animation: project-cycle-node-glow 2.2s ease-in-out infinite;
 }
 
+/* --- Hero cybersecurity visual (HomePage right rail) --- */
+
+@keyframes hero-cyber-path-flow {
+  to {
+    stroke-dashoffset: -44;
+  }
+}
+
+.hero-cyber-path-flow {
+  stroke-dasharray: 3 10;
+  animation: hero-cyber-path-flow 1.5s linear infinite;
+}
+
+@keyframes hero-cyber-hub-pulse {
+  0%,
+  100% {
+    stroke-opacity: 0.28;
+  }
+  50% {
+    stroke-opacity: 0.58;
+  }
+}
+
+.hero-cyber-hub-ring {
+  animation: hero-cyber-hub-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes hero-cyber-orbit-fade {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+.hero-cyber-orbit {
+  animation: hero-cyber-orbit-fade 5.5s ease-in-out infinite;
+}
+
+@keyframes hero-cyber-node-pulse {
+  0%,
+  100% {
+    stroke-opacity: 0.32;
+  }
+  50% {
+    stroke-opacity: 0.72;
+  }
+}
+
+.hero-cyber-node-glow {
+  animation: hero-cyber-node-pulse 2.9s ease-in-out infinite;
+}
+
+@keyframes hero-cyber-scan-move {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+.hero-cyber-scan {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgb(232 93 4 / 0.14) 42%,
+    rgb(232 93 4 / 0.05) 58%,
+    transparent 100%
+  );
+  background-size: 100% 35%;
+  animation: hero-cyber-scan-move 7s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-color-drift::before,
   .hero-color-drift::after,
@@ -496,5 +572,18 @@
   .project-cycle-outer-ring {
     stroke-dasharray: 1000;
     stroke-dashoffset: 0;
+  }
+
+  .hero-cyber-path-flow,
+  .hero-cyber-hub-ring,
+  .hero-cyber-orbit,
+  .hero-cyber-node-glow,
+  .hero-cyber-scan {
+    animation: none !important;
+  }
+
+  .hero-cyber-scan {
+    transform: none;
+    opacity: 0.04;
   }
 }
