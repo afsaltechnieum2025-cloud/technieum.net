@@ -22,7 +22,7 @@ const NAV_ITEMS: NavItemType[] = [
           { label: 'LLM Attack Suite', to: productPath('llm') },
           { label: 'AI-SAST and AI-SCA', to: productPath('sast') },
           { label: 'AD Suite', to: productPath('ad') },
-          { label: 'Capability overviews', to: '/#services-glance-heading' },
+          { label: 'Services at a glance', to: '/#services-glance-heading' },
         ],
       },
       {
@@ -56,7 +56,6 @@ const NAV_ITEMS: NavItemType[] = [
     columns: [
       {
         items: [
-          { label: 'Sales pitch (PDF)', href: SALES_PITCH_PDF, external: true },
           { label: 'Why Technieum', to: '/#why-heading' },
           { label: 'Our customers', to: '/#customers-believed' },
         ],
