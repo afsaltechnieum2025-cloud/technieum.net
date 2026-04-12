@@ -1,4 +1,4 @@
-import { MASTER_OFFSEC_PATH } from './masterOffsecPageContent'
+import { serviceProgramPath } from './programHubRegistry'
 
 const FOLDER = '/servicedocumentfolder'
 
@@ -21,55 +21,63 @@ export const SERVICE_TOPICS: readonly ServiceTopic[] = [
     title: 'Technieum master Offsec',
     summary:
       'End-to-end offensive programs: how we plan, execute, and report across streams with portal visibility, validated findings, and one coherent delivery rhythm.',
-    detailPath: MASTER_OFFSEC_PATH,
+    detailPath: serviceProgramPath('technieum-master-offsec'),
   },
   {
     slug: 'technieum-infrastructure-network',
     title: 'Technieum Infrastructure network',
     summary:
       'Perimeter and internal infrastructure testing, exposure and lateral-movement narratives, and hardening guidance aligned to how operators actually defend the estate.',
+    detailPath: serviceProgramPath('technieum-infrastructure-network'),
   },
   {
     slug: 'technieum-application-security',
     title: 'Technieum application security',
     summary:
       'Web, API, mobile, and related application testing with emphasis on real exploitability, business logic, and fixes your developers can ship.',
+    detailPath: serviceProgramPath('technieum-application-security'),
   },
   {
     slug: 'technieum-cloud-security',
     title: 'Technieum cloud security',
     summary:
       'Multi-cloud and hybrid reviews covering IAM, workloads, Kubernetes, pipelines, supply chain, and secrets, mapped to modern breakout and misconfiguration patterns.',
+    detailPath: serviceProgramPath('technieum-cloud-security'),
   },
   {
     slug: 'technieum-ai-security',
     title: 'Technieum AI security',
     summary:
       'LLM and AI-enabled systems: prompt and tool abuse, integration trust boundaries, and safe testing practices with remediation that fits your governance model.',
+    detailPath: serviceProgramPath('technieum-ai-security'),
   },
   {
     slug: 'technieum-threat-simulations',
     title: 'Technieum threat simulations',
     summary:
       'Red team, purple team, tabletops, and attack-simulation style exercises scoped to your objectives, detection goals, and board-ready outcomes.',
+    detailPath: serviceProgramPath('technieum-threat-simulations'),
   },
   {
     slug: 'technieum-ics-ot-security',
     title: 'Technieum ICS OT Security',
     summary:
       'Industrial and OT-focused assessments with safety-aware methods, segmentation and access review, and resilience priorities for control-system environments.',
+    detailPath: serviceProgramPath('technieum-ics-ot-security'),
   },
   {
     slug: 'technieum-security-consulting',
     title: 'Technieum Security consulting',
     summary:
       'Strategy, architecture, and program advisory so offensive investment, controls, and compliance narratives line up with how your organization actually operates.',
+    detailPath: serviceProgramPath('technieum-security-consulting'),
   },
   {
     slug: 'technieum-wfh-security',
     title: 'Technieum WFH security',
     summary:
       'Distributed workforce risk: identity and access for remote work, collaboration and endpoint posture, and phishing or social-engineering resilience at scale.',
+    detailPath: serviceProgramPath('technieum-wfh-security'),
   },
 ] as const
 

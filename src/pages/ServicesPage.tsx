@@ -20,8 +20,9 @@ export function ServicesPage() {
                 Technieum offensive security offerings
               </h1>
               <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-                Most tiles open the PDF datasheet. Technieum master Offsec opens a full program hub with workflow visuals
-                and delivery detail. Use the briefs for internal sharing; formal scoping stays on a call with your team.
+                Every service opens a program hub: coverage pillars, delivery rhythm, portal workflow, and a datasheet PDF
+                you can download. Master Offsec and Infrastructure network use tailored visuals; the rest share the pipeline
+                layout. Use the briefs for internal sharing; formal scoping stays on a call with your team.
               </p>
               <div className="flex flex-wrap justify-start gap-3">
                 <a
@@ -57,8 +58,8 @@ export function ServicesPage() {
               one delivery standard, sheets you can hand to risk and procurement.
             </p>
             <p className="mb-6 max-w-3xl text-sm leading-snug text-muted md:text-base">
-              Open a tile for the live PDF or, for Master Offsec, the interactive program page. Skim the summary here; the
-              PDF remains the contract-grade reference where applicable.
+              Open a tile for the program hub, then grab the PDF from the page when you need the contract-grade datasheet.
+              Skim the summary on the catalog; deep detail lives on each hub and in the PDF.
             </p>
 
             <div
