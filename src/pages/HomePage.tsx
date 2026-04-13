@@ -199,8 +199,8 @@ export function HomePage() {
                 </svg>
               </Link>
             </div>
-            <div className="flex min-w-0 w-full justify-center">
-              <div className="w-full max-w-[min(100%,460px)]">
+            <div className="flex min-w-0 w-full justify-center overflow-visible">
+              <div className="w-full max-w-[min(100%,460px)] overflow-visible">
                 <CapabilitiesHubVisual />
               </div>
             </div>
