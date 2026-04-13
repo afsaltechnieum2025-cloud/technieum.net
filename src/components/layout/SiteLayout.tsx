@@ -16,7 +16,9 @@ export function SiteLayout() {
       </a>
       <TopBar />
       <Header />
-      <Outlet />
+      <div className="min-w-0 w-full flex-1">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   )

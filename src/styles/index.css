@@ -58,7 +58,7 @@
   }
 
   #root {
-    @apply box-border min-h-svh w-full max-w-none overflow-x-hidden;
+    @apply box-border min-h-svh w-full max-w-none;
   }
 
   h1,
