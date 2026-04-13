@@ -11,7 +11,7 @@ import { OFFSEC_PORTAL, PROJECT_CYCLE, SALES_PITCH_PDF } from '../data/salesPitc
 export function InfrastructureNetworkPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-14 md:py-20">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-4 sm:px-6 py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
@@ -42,7 +42,7 @@ export function InfrastructureNetworkPage() {
         </div>
       </section>
 
-      <section className="section-zz-b px-6 py-12 md:py-16">
+      <section className="section-zz-b px-4 sm:px-6 py-12 md:py-16">
         <div className="container max-w-5xl">
           <h2 className="mb-3 text-xl font-semibold text-heading md:text-2xl">Coverage pillars</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">
@@ -68,7 +68,7 @@ export function InfrastructureNetworkPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset px-6 py-12 md:py-16">
+      <section className="section-zz-a bg-bg-inset px-4 sm:px-6 py-12 md:py-16">
         <div className="container max-w-5xl">
           <h2 className="mb-2 text-xl font-semibold text-heading md:text-2xl">{PROJECT_CYCLE.title}</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{PROJECT_CYCLE.intro}</p>
@@ -92,7 +92,7 @@ export function InfrastructureNetworkPage() {
         </div>
       </section>
 
-      <section className="section-zz-b px-6 py-12 md:py-16">
+      <section className="section-zz-b px-4 sm:px-6 py-12 md:py-16">
         <div className="container max-w-5xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
@@ -128,7 +128,7 @@ export function InfrastructureNetworkPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset px-6 py-12 md:py-16">
+      <section className="section-zz-a bg-bg-inset px-4 sm:px-6 py-12 md:py-16">
         <div className="container max-w-3xl">
           <h2 className="mb-6 text-xl font-semibold text-heading md:text-2xl">Typical deliverables</h2>
           <ul className="m-0 flex list-none flex-col gap-3 p-0">

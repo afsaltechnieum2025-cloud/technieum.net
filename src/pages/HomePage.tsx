@@ -22,7 +22,7 @@ export function HomePage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
       {/* Hero */}
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-6 py-16 md:py-24 lg:py-28">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-4 sm:px-6 py-16 md:py-24 lg:py-28">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
@@ -56,7 +56,7 @@ export function HomePage() {
       </section>
 
       {/* Why Technieum */}
-      <section className="section-zz-b px-6 py-10 md:py-12" aria-labelledby="why-heading">
+      <section className="section-zz-b px-4 sm:px-6 py-10 md:py-12" aria-labelledby="why-heading">
         <div className="container">
           <div className="mx-auto mb-7 max-w-2xl text-center md:mb-8">
             {/* <p className="text-shimmer-brand mb-2 text-[11px] font-semibold uppercase tracking-wider md:text-xs">
@@ -100,7 +100,7 @@ export function HomePage() {
       <CustomersBelievedSection />
 
       {/* OffSec portal */}
-      <section className="section-zz-a px-6 py-16 md:py-20" aria-labelledby="portal-heading">
+      <section className="section-zz-a px-4 sm:px-6 py-16 md:py-20" aria-labelledby="portal-heading">
         <div className="container">
           <div
             className={`grid gap-10 lg:items-start ${OFFSEC_PORTAL_SLIDES.length > 0 ? 'lg:grid-cols-2' : ''}`}
@@ -135,7 +135,7 @@ export function HomePage() {
       {/* Workflow */}
       <section
         id="offensive-workflow"
-        className="section-zz-b bg-bg-inset px-6 py-10 md:py-14"
+        className="section-zz-b bg-bg-inset px-4 sm:px-6 py-10 md:py-14"
         aria-labelledby="workflow-heading"
       >
         <div className="container">
@@ -158,7 +158,7 @@ export function HomePage() {
       <ProjectCycleSection />
 
       {/* Capability snapshot */}
-      <section className="section-zz-b px-6 py-16 md:py-20" aria-labelledby="services-glance-heading">
+      <section className="section-zz-b px-4 sm:px-6 py-16 md:py-20" aria-labelledby="services-glance-heading">
         <div className="container">
           <h2 id="services-glance-heading" className="mb-4 text-2xl font-medium text-heading md:text-3xl">
             Services at a glance
@@ -205,7 +205,7 @@ export function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="section-zz-b bg-bg-inset px-6 py-14 md:py-16">
+      <section className="section-zz-b bg-bg-inset px-4 sm:px-6 py-14 md:py-16">
         <div className="container flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div className="max-w-xl">
             <h2 className="mb-3 text-xl font-medium text-heading md:text-2xl">

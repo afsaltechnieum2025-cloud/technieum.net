@@ -202,14 +202,141 @@ function NavButton({ item }: { item: NavItemType }) {
   )
 }
 
+function IconMenu() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function IconClose() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function DrawerNavLink({ item, onClose }: { item: SubItem; onClose: () => void }) {
+  const className =
+    'block rounded-md py-2.5 pl-1 text-[15px] font-medium leading-snug text-zinc-300 no-underline transition-colors active:bg-white/5 hover:text-brand'
+
+  if (item.href) {
+    return (
+      <a
+        href={item.href}
+        {...(item.external ? { download: true, target: '_blank', rel: 'noopener noreferrer' } : {})}
+        onClick={onClose}
+        className={className}
+      >
+        {item.label}
+      </a>
+    )
+  }
+  if (item.to) {
+    return (
+      <NavLink
+        to={item.to}
+        onClick={onClose}
+        className={({ isActive }) => `${className}${isActive ? ' text-brand' : ''}`}
+      >
+        {item.label}
+      </NavLink>
+    )
+  }
+  return null
+}
+
+function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = prev
+    }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open, onClose])
+
+  if (!open) return null
+
+  return (
+    <>
+      <div
+        className="fixed inset-0 z-[110] cursor-pointer bg-black/65 backdrop-blur-[2px] lg:hidden"
+        aria-hidden="true"
+        onClick={onClose}
+      />
+      <div
+        id="mobile-nav-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
+        className="fixed inset-y-0 right-0 z-[111] flex w-[min(100vw,20rem)] flex-col border-l border-border bg-bg-inset shadow-2xl sm:w-[min(100vw,22rem)] lg:hidden"
+      >
+        <div className="flex h-14 shrink-0 items-center justify-between border-b border-border px-4">
+          <span className="text-sm font-semibold text-heading">Menu</span>
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={onClose}
+            className="flex h-10 w-10 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+          >
+            <IconClose />
+          </button>
+        </div>
+        <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4" aria-label="Main navigation">
+          {NAV_ITEMS.map((nav) => (
+            <div key={nav.label} className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0">
+              <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</p>
+              {nav.columns.map((col, colIndex) => (
+                <div key={col.heading ?? `mcol-${colIndex}`} className={colIndex > 0 ? 'mt-4' : ''}>
+                  {col.heading ? (
+                    <p className="mb-2 text-[12px] font-semibold text-zinc-600">{col.heading}</p>
+                  ) : null}
+                  <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                    {col.items.map((sub) => (
+                      <li key={sub.label}>
+                        <DrawerNavLink item={sub} onClose={onClose} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+          <a
+            href={SALES_PITCH_PDF}
+            download
+            onClick={onClose}
+            className="mt-2 block rounded-md border border-border-strong py-3 text-center text-[14px] font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
+          >
+            Sales pitch (PDF)
+          </a>
+        </nav>
+      </div>
+    </>
+  )
+}
+
 export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
   return (
     <header className="sticky top-0 z-[100] bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80">
-      <div className="mx-auto w-full max-w-[1440px] px-6 md:px-10">
-        <div className="flex h-[4.5rem] items-center justify-between gap-6">
-
-          <Link to="/" aria-label="Technieum home" className="inline-flex shrink-0 items-center no-underline">
-            <BrandLogo className="block h-10 w-auto" height={40} />
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10">
+        <div className="flex min-h-[4.5rem] items-center justify-between gap-3 py-2 sm:gap-4 md:gap-6 md:py-0">
+          <Link to="/" aria-label="Technieum home" className="inline-flex min-w-0 shrink-0 items-center no-underline">
+            <BrandLogo className="block h-9 w-auto sm:h-10" height={40} />
           </Link>
 
           <nav aria-label="Main navigation" className="hidden items-center gap-1 lg:flex">
@@ -225,18 +352,29 @@ export function Header() {
             </a>
           </nav>
 
-          <div className="flex shrink-0 items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-panel/40 text-zinc-200 transition-colors hover:border-border-strong hover:bg-panel hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 lg:hidden"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-drawer"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => setMobileOpen((o) => !o)}
+            >
+              {mobileOpen ? <IconClose /> : <IconMenu />}
+            </button>
             <Link
               to="/contact"
-              className="btn-brand-lively inline-flex cursor-pointer items-center gap-2 rounded-full border border-brand-strong bg-brand-strong px-5 py-2.5 text-[14px] font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.98] md:px-6"
+              className="btn-brand-lively inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-4 py-2 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.98] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm md:px-6"
             >
-              Contact us
+              <span className="max-[380px]:sr-only">Contact us</span>
+              <span className="hidden max-[380px]:inline">Contact</span>
               <ArrowRight />
             </Link>
           </div>
-
         </div>
       </div>
+      <MobileNavDrawer open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </header>
   )
 }

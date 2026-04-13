@@ -58,7 +58,7 @@
   }
 
   #root {
-    @apply box-border min-h-svh w-full max-w-none;
+    @apply box-border min-h-svh w-full max-w-none overflow-x-hidden;
   }
 
   h1,
@@ -81,7 +81,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto box-border w-full max-w-container px-6;
+    @apply mx-auto box-border w-full max-w-container px-4 sm:px-6 md:px-8;
   }
 
   /* --- Subtle brand motion (respect reduced motion below) --- */

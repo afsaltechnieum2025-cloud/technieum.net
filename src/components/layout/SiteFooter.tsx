@@ -101,7 +101,7 @@ function FooterBottomBar() {
   return (
     // More top/bottom padding + gap between the two text lines
     <div className="py-14">
-      <div className="mx-auto flex w-full max-w-footer flex-col items-start justify-between gap-4 px-8 sm:flex-row sm:items-center">
+      <div className="mx-auto flex w-full max-w-footer flex-col items-start justify-between gap-4 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
         <div className="flex min-w-0 flex-col gap-5">
           {/* Privacy / legal links */}
           <nav
@@ -176,7 +176,7 @@ export function Footer() {
   return (
     <footer className="bg-bg-inset">
       <div className="pb-6 pt-[72px]">
-        <div className="mx-auto w-full max-w-footer px-8">
+        <div className="mx-auto w-full max-w-footer px-4 sm:px-6 lg:px-8">
           <div className="grid w-full grid-cols-1 items-start gap-y-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:flex lg:flex-row lg:gap-x-8 lg:gap-y-0 xl:gap-x-10">
             {/* Col 1 — logo only */}
             <div className={footerColClass}>

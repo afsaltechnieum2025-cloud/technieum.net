@@ -109,7 +109,7 @@ export function CustomersBelievedSection() {
   return (
     <section
       id="customers-believed"
-      className="section-zz-a px-6 py-16 md:py-20"
+      className="section-zz-a px-4 sm:px-6 py-16 md:py-20"
       aria-labelledby="customers-believed-heading"
     >
       <div className="container">
