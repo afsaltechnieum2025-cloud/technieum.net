@@ -4,7 +4,7 @@ export const MASTER_OFFSEC_PATH = '/services/technieum-master-offsec' as const
 
 export const MASTER_OFFSEC_HERO = {
   eyebrow: 'Unified offensive program',
-  title: 'Technieum Master Offsec',
+  title: 'Master Offsec',
   lead:
     'One engagement model that orchestrates intelligence, parallel testing lanes, and the OffSec Management Portal so leadership sees one story and engineering gets evidence they can act on.',
   sub:

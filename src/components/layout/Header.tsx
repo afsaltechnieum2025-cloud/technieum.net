@@ -41,7 +41,7 @@ const NAV_ITEMS: NavItemType[] = [
     columns: [
       {
         heading: 'Overview',
-        items: [{ label: 'Technieum services', to: '/services' }],
+        items: [{ label: 'Services', to: '/services' }],
       },
       {
         heading: 'PDF briefs',

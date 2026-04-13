@@ -148,7 +148,7 @@ export function MasterOffsecPage() {
               to="/services"
               className="inline-flex items-center justify-center rounded-full border border-brand/50 bg-brand/10 px-5 py-2 text-xs font-bold tracking-wide text-brand no-underline transition-colors hover:bg-brand/15 md:text-sm"
             >
-              Back to Technieum services
+              Back to services
             </Link>
           </div>
         </div>

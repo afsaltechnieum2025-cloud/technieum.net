@@ -17,7 +17,7 @@ export function ServicesPage() {
             <div className="order-1 text-left lg:order-2">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">Services</p>
               <h1 className="heading-scale-hero mb-4 max-w-2xl">
-                Technieum offensive security offerings
+                Offensive security offerings
               </h1>
               <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
                 Every service opens a program hub: coverage pillars, delivery rhythm, portal workflow, and a datasheet PDF
@@ -51,7 +51,7 @@ export function ServicesPage() {
               id="service-topics-heading"
               className="mb-2 text-xl font-semibold tracking-tight text-heading md:text-2xl"
             >
-              Technieum services
+              Services
             </h2>
             <p className="mb-3 max-w-3xl text-sm font-medium leading-snug text-zinc-200 md:text-base">
               Offensive coverage from master programs through cloud, AI, OT, simulations, consulting, and WFH: one catalog,

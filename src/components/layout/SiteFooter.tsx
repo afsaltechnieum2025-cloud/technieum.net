@@ -14,7 +14,7 @@ const capabilityLinks = [
 ]
 
 const servicesLinks = [
-  { label: 'Technieum services', to: '/services' },
+  { label: 'Services', to: '/services' },
   ...SERVICE_TOPICS.map((t) => ({ label: t.title, to: serviceTopicNavHref(t) })),
   { label: 'Contact sales', to: '/contact' },
 ]

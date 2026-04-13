@@ -23,7 +23,7 @@ const APPLICATION_SECURITY: ProgramHubConfig = {
     'Diagram: web and thick client, API, mobile, and code assurance streams consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'Application security',
-    title: 'Technieum application security',
+    title: 'Application security',
     lead:
       'Browser, API, mobile, architecture, and code-level testing with exploitability you can defend in sprint planning and release gates.',
     sub:
@@ -95,7 +95,7 @@ const CLOUD_SECURITY: ProgramHubConfig = {
     'Diagram: IAM, workloads, pipeline, and secrets streams consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'Cloud and platform',
-    title: 'Technieum cloud security',
+    title: 'Cloud security',
     lead:
       'Multi-cloud and hybrid assessments that follow identity, workload, and pipeline trust the way cloud breakouts actually unfold.',
     sub:
@@ -167,7 +167,7 @@ const AI_SECURITY: ProgramHubConfig = {
     'Diagram: model endpoints, tools and MCP, prompt testing, and governance hooks consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'AI and LLM',
-    title: 'Technieum AI security',
+    title: 'AI security',
     lead:
       'LLM applications, agents, and integrations tested for prompt abuse, unsafe tool use, and data handling with probes staged under your governance rules.',
     sub:
@@ -239,7 +239,7 @@ const THREAT_SIMULATIONS: ProgramHubConfig = {
     'Diagram: red team, purple team, tabletop, and BAS streams consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'Threat simulations',
-    title: 'Technieum threat simulations',
+    title: 'Threat simulations',
     lead:
       'Red team, purple team, tabletops, and BAS-style programs scoped to objectives, detection goals, and leadership reporting you can reuse quarter to quarter.',
     sub:
@@ -311,7 +311,7 @@ const ICS_OT: ProgramHubConfig = {
     'Diagram: safety scope, OT segmentation, protocols, and IT-OT bridge consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'ICS and OT',
-    title: 'Technieum ICS OT Security',
+    title: 'ICS OT Security',
     lead:
       'Industrial assessments that respect safety and uptime while still surfacing segmentation, access, and protocol risks that matter to plant and enterprise teams.',
     sub:
@@ -383,7 +383,7 @@ const SECURITY_CONSULTING: ProgramHubConfig = {
     'Diagram: strategy, architecture, program design, and compliance narrative consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'Security consulting',
-    title: 'Technieum Security consulting',
+    title: 'Security consulting',
     lead:
       'Strategy, architecture, and program design that connect offensive investment to business risk, compliance asks, and how your teams actually operate.',
     sub:
@@ -455,7 +455,7 @@ const WFH_SECURITY: ProgramHubConfig = {
     'Diagram: remote identity, endpoints, collaboration, and phishing resilience consolidating in the OffSec Management Portal.',
   hero: {
     eyebrow: 'Workforce and remote',
-    title: 'Technieum WFH security',
+    title: 'WFH security',
     lead:
       'Distributed workforce assurance: identity and access for home offices, endpoint and collaboration posture, and phishing resilience at scale.',
     sub:

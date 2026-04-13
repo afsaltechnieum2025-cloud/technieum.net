@@ -4,7 +4,7 @@ export const INFRA_NETWORK_PATH = '/services/technieum-infrastructure-network' a
 
 export const INFRA_NETWORK_HERO = {
   eyebrow: 'Infrastructure and network',
-  title: 'Technieum Infrastructure network',
+  title: 'Infrastructure network',
   lead:
     'Perimeter-to-core offensive testing with attack-surface intelligence, controlled exploitation, and reporting your NOC and leadership can act on while keeping one thread from external exposure through internal blast radius.',
   sub:
