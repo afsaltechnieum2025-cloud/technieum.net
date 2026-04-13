@@ -42,8 +42,8 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* OffSec portal — directly after hero (360 coverage headline) */}
-      <section className="section-zz-a py-16 md:py-20" aria-labelledby="portal-heading">
+      {/* OffSec portal — tight top: hero already has bottom padding; avoid double vertical gap */}
+      <section className="section-zz-a pt-6 pb-16 md:pb-20" aria-labelledby="portal-heading">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div className="min-w-0 lg:sticky lg:top-28">
