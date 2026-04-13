@@ -1,9 +1,12 @@
 /// <reference types="vite/client" />
 
-const slideModules = import.meta.glob<string>('../../offsecportal/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  import: 'default',
-})
+const slideModules = import.meta.glob<string>(
+  '../../assets/product-screenshots/offsec-portal/*.{png,jpg,jpeg,webp}',
+  {
+    eager: true,
+    import: 'default',
+  },
+)
 
 function altFromPath(path: string): string {
   const file = path.split(/[/\\]/).pop() ?? 'screenshot'
@@ -14,7 +17,7 @@ function altFromPath(path: string): string {
 
 export type OffsecPortalSlide = { src: string; alt: string }
 
-/** Screenshots from technieum/offsecportal/ (bundled at build time). */
+/** Screenshots from assets/product-screenshots/offsec-portal/ (bundled at build time). */
 export function getOffsecPortalSlides(): OffsecPortalSlide[] {
   return Object.entries(slideModules)
     .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))

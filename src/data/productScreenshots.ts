@@ -2,24 +2,24 @@
 
 import type { ProductDocId } from './productDocuments'
 
-const toipModules = import.meta.glob<string>('../../TOIP/*.{png,jpg,jpeg,webp}', {
+/** Use literal glob strings so Vite can resolve them at build time. */
+const toipModules = import.meta.glob<string>('../../assets/product-screenshots/toip/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 })
-const asmModules = import.meta.glob<string>('../../ASM/*.{png,jpg,jpeg,webp}', {
+const asmModules = import.meta.glob<string>('../../assets/product-screenshots/asm/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 })
-const llmModules = import.meta.glob<string>('../../LLM/*.{png,jpg,jpeg,webp}', {
+const llmModules = import.meta.glob<string>('../../assets/product-screenshots/llm/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 })
-const sastModules = import.meta.glob<string>('../../SAST/*.{png,jpg,jpeg,webp}', {
+const sastModules = import.meta.glob<string>('../../assets/product-screenshots/sast/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 })
-/** AD Suite product screenshots (technieum/AD-suit/). */
-const adSuitModules = import.meta.glob<string>('../../AD-suit/*.{png,jpg,jpeg,webp}', {
+const adSuitModules = import.meta.glob<string>('../../assets/product-screenshots/ad-suite/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 })
@@ -58,7 +58,7 @@ const ALT_PREFIX: Record<keyof typeof SLIDE_MODULES, string> = {
   ad: 'AD Suite',
 }
 
-/** Bundled images from technieum/TOIP, ASM, LLM, SAST, AD-suit (build time). */
+/** Bundled images from assets/product-screenshots/{toip,asm,llm,sast,ad-suite} (build time). */
 export function getProductScreenshotSlides(id: ProductDocId): ProductScreenshotSlide[] {
   return slidesFrom(SLIDE_MODULES[id], ALT_PREFIX[id])
 }
