@@ -20,7 +20,6 @@ export const CUSTOMERS_MARQUEE: CustomerMarqueeEntry[] = [
   { id: 'difc', name: 'Dubai International Financial Centre', label: 'DIFC' },
   { id: 'khalifa-university', name: 'Khalifa University', label: 'Khalifa University' },
   { id: 'abu-dhabi-media', name: 'Abu Dhabi Media', label: 'Abu Dhabi Media' },
-  { id: 'smart-dubai', name: 'Smart Dubai', label: 'Smart Dubai' },
   { id: 'ded', name: 'Department of Economic Development', label: 'Dubai Economy' },
   { id: 'abu-dhabi-ports', name: 'Abu Dhabi Ports', label: 'Abu Dhabi Ports' },
   { id: 'gcaa', name: 'General Civil Aviation Authority', label: 'GCAA' },
