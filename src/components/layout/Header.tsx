@@ -333,7 +333,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-[100] overflow-visible bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80">
-      <div className="mx-auto w-full max-w-[1440px] overflow-visible px-4 sm:px-6 md:px-10">
+      <div className="container overflow-visible">
         <div className="flex min-h-[4.5rem] items-center justify-between gap-3 overflow-visible py-2 sm:gap-4 md:gap-6 md:py-0">
           <Link to="/" aria-label="Technieum home" className="inline-flex min-w-0 shrink-0 items-center no-underline">
             <BrandLogo className="block h-9 w-auto sm:h-10" height={40} />

@@ -38,9 +38,7 @@
   --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --font-mono: ui-monospace, Consolas, monospace;
 
-  /* Layout — match header inner width (max-w-[1440px]) so sections don’t look narrower than the nav */
-  --max-width-container: 1440px;
-  --max-width-footer: 1280px;
+  /* Layout — fluid width: horizontal inset only via .container padding (no max-width cap; avoids huge gutters on wide screens / live) */
 
   /* Breakpoints */
   --breakpoint-xs: 480px;
@@ -81,7 +79,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto box-border w-full max-w-container px-4 sm:px-6 md:px-10;
+    @apply mx-auto box-border w-full max-w-none px-4 sm:px-6 md:px-10;
   }
 
   /* --- Subtle brand motion (respect reduced motion below) --- */
