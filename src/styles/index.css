@@ -441,59 +441,72 @@
   animation: project-cycle-node-glow 2.2s ease-in-out infinite;
 }
 
-/* --- Hero cybersecurity visual (HomePage right rail) --- */
+/* --- Hero cybersecurity visual (HomePage right rail): calm, product-style motion --- */
 
-@keyframes hero-cyber-path-flow {
+@keyframes hero-cyber-orbit-spin {
   to {
-    stroke-dashoffset: -44;
+    transform: rotate(360deg);
   }
 }
 
-.hero-cyber-path-flow {
-  stroke-dasharray: 3 10;
-  animation: hero-cyber-path-flow 1.5s linear infinite;
+.hero-cyber-orbit-spin {
+  transform-origin: 0 0;
+  transform-box: fill-box;
+  animation: hero-cyber-orbit-spin 52s linear infinite;
+  will-change: transform;
+}
+
+@keyframes hero-cyber-link-flow {
+  to {
+    stroke-dashoffset: -72;
+  }
+}
+
+.hero-cyber-link-flow {
+  stroke-dasharray: 2 18;
+  animation: hero-cyber-link-flow 16s linear infinite;
 }
 
 @keyframes hero-cyber-hub-pulse {
   0%,
   100% {
-    stroke-opacity: 0.28;
+    stroke-opacity: 0.36;
   }
   50% {
-    stroke-opacity: 0.58;
+    stroke-opacity: 0.52;
   }
 }
 
 .hero-cyber-hub-ring {
-  animation: hero-cyber-hub-pulse 3.2s ease-in-out infinite;
+  animation: hero-cyber-hub-pulse 4.8s ease-in-out infinite;
 }
 
-@keyframes hero-cyber-orbit-fade {
+@keyframes hero-cyber-node-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-cyber-node-wrap {
+  animation: hero-cyber-node-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes hero-cyber-node-breathe {
   0%,
   100% {
-    opacity: 0.45;
+    stroke-opacity: 0.38;
   }
   50% {
-    opacity: 0.92;
+    stroke-opacity: 0.55;
   }
 }
 
-.hero-cyber-orbit {
-  animation: hero-cyber-orbit-fade 5.5s ease-in-out infinite;
-}
-
-@keyframes hero-cyber-node-pulse {
-  0%,
-  100% {
-    stroke-opacity: 0.32;
-  }
-  50% {
-    stroke-opacity: 0.72;
-  }
-}
-
-.hero-cyber-node-glow {
-  animation: hero-cyber-node-pulse 2.9s ease-in-out infinite;
+.hero-cyber-node-ring {
+  animation: hero-cyber-node-breathe 5.5s ease-in-out infinite;
 }
 
 @keyframes hero-cyber-scan-move {
@@ -772,12 +785,17 @@
     stroke-dashoffset: 0;
   }
 
-  .hero-cyber-path-flow,
+  .hero-cyber-orbit-spin,
+  .hero-cyber-link-flow,
   .hero-cyber-hub-ring,
-  .hero-cyber-orbit,
-  .hero-cyber-node-glow,
+  .hero-cyber-node-wrap,
+  .hero-cyber-node-ring,
   .hero-cyber-scan {
     animation: none !important;
+  }
+
+  .hero-cyber-node-wrap {
+    opacity: 1;
   }
 
   .hero-cyber-scan {

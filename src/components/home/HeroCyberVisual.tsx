@@ -64,15 +64,18 @@ export function HeroCyberVisual() {
           ))}
         </g>
 
-        <circle
-          cx={cx}
-          cy={cy}
-          r={138}
-          stroke="url(#hero-cyber-grad)"
-          strokeWidth="1"
-          strokeOpacity="0.9"
-          className={motion ? 'hero-cyber-orbit' : ''}
-        />
+        <g transform={`translate(${cx} ${cy})`}>
+          <g className={motion ? 'hero-cyber-orbit-spin' : ''}>
+            <circle
+              r={138}
+              cx={0}
+              cy={0}
+              stroke="url(#hero-cyber-grad)"
+              strokeWidth="1"
+              strokeOpacity="0.85"
+            />
+          </g>
+        </g>
         <circle cx={cx} cy={cy} r={118} stroke="rgb(232 93 4)" strokeOpacity="0.12" strokeWidth="0.75" />
         <circle cx={cx} cy={cy} r={98} stroke="rgb(39 39 42)" strokeWidth="0.5" />
 
@@ -84,10 +87,11 @@ export function HeroCyberVisual() {
             x2={n.x}
             y2={n.y}
             stroke="rgb(232 93 4)"
-            strokeOpacity="0.2"
+            strokeOpacity="0.32"
             strokeWidth="1"
-            className={motion ? 'hero-cyber-path-flow' : ''}
-            style={motion ? { animationDelay: `${i * 0.35}s` } : undefined}
+            strokeLinecap="round"
+            className={motion ? 'hero-cyber-link-flow' : ''}
+            style={motion ? { animationDelay: `${i * 1.2}s` } : undefined}
           />
         ))}
 
@@ -122,17 +126,21 @@ export function HeroCyberVisual() {
         </text>
 
         {NODES.map((n, i) => (
-          <g key={n.label}>
+          <g
+            key={n.label}
+            className={motion ? 'hero-cyber-node-wrap' : ''}
+            style={motion ? { animationDelay: `${i * 0.1}s` } : undefined}
+          >
             <circle
               cx={n.x}
               cy={n.y}
               r={34}
               fill="rgb(24 24 27 / 0.72)"
               stroke="rgb(232 93 4)"
-              strokeOpacity={motion ? 0.5 : 0.35}
+              strokeOpacity={motion ? 0.42 : 0.35}
               strokeWidth="1"
-              className={motion && i % 2 === 0 ? 'hero-cyber-node-glow' : ''}
-              style={motion ? { animationDelay: `${i * 0.5}s` } : undefined}
+              className={motion ? 'hero-cyber-node-ring' : ''}
+              style={motion ? { animationDelay: `${0.45 + i * 0.35}s` } : undefined}
             />
             <text
               x={n.x}
