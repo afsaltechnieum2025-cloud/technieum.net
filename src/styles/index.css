@@ -579,6 +579,53 @@
   animation: hero-cyber-scan-move 7s ease-in-out infinite;
 }
 
+/* Capabilities hub: “packet” runs along zigzag spoke (pathLength=1 on path) */
+@keyframes capabilities-hub-spoke-dash-travel {
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+
+.capabilities-hub-spoke-travel {
+  stroke-dasharray: 0.12 0.88;
+  stroke-dashoffset: 0;
+  animation: capabilities-hub-spoke-dash-travel 2.35s linear infinite;
+}
+
+/* --- OffSec portal home illustration (abstract SVG, not product screenshots) --- */
+@keyframes offsec-portal-illus-row-pulse {
+
+  0%,
+  100% {
+    stroke-opacity: 0.45;
+  }
+
+  50% {
+    stroke-opacity: 1;
+  }
+}
+
+.offsec-portal-illus-row-pulse {
+  animation: offsec-portal-illus-row-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes offsec-portal-illus-sheen-fade {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  45%,
+  55% {
+    opacity: 0.5;
+  }
+}
+
+.offsec-portal-illus-sheen {
+  animation: offsec-portal-illus-sheen-fade 5.5s ease-in-out infinite;
+}
+
 /* --- Services page hero visual --- */
 
 @keyframes services-hero-spine-flow {

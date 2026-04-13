@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
-import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
+import { OffsecPortalIllustration } from '../components/home/OffsecPortalIllustration'
 import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
 import { HeroCyberVisual } from '../components/home/HeroCyberVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
-import { getOffsecPortalSlides } from '../data/offsecPortalSlides'
 import {
   HOME_CAPABILITIES_HUB,
   HOME_HERO,
@@ -13,8 +12,6 @@ import {
   OFFSEC_PORTAL,
   WHY_TECHNIEUM,
 } from '../data/salesPitchSite'
-
-const OFFSEC_PORTAL_SLIDES = getOffsecPortalSlides()
 
 export function HomePage() {
   return (
@@ -93,9 +90,7 @@ export function HomePage() {
       {/* OffSec portal */}
       <section className="section-zz-a py-16 md:py-20" aria-labelledby="portal-heading">
         <div className="container">
-          <div
-            className={`grid gap-10 lg:items-start ${OFFSEC_PORTAL_SLIDES.length > 0 ? 'lg:grid-cols-2' : ''}`}
-          >
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div>
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
                 {OFFSEC_PORTAL.eyebrow}
@@ -118,11 +113,9 @@ export function HomePage() {
                 ))}
               </ul>
             </div>
-            {OFFSEC_PORTAL_SLIDES.length > 0 ? (
-              <div className="lg:sticky lg:top-28">
-                <OffsecPortalSlideshow slides={OFFSEC_PORTAL_SLIDES} />
-              </div>
-            ) : null}
+            <div className="lg:sticky lg:top-28">
+              <OffsecPortalIllustration />
+            </div>
           </div>
         </div>
       </section>
