@@ -32,16 +32,9 @@ export function HomePage() {
               <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{HOME_HERO.lead}</p>
               <p className="mb-8 max-w-2xl text-xs leading-relaxed text-muted md:text-sm">{HOME_HERO.sublead}</p>
               <div className="flex flex-wrap justify-start gap-3">
-                <a
-                  href={HOME_HERO.secondaryCta.href}
-                  download
-                  className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-7 md:text-sm"
-                >
-                  {HOME_HERO.secondaryCta.label}
-                </a>
                 <Link
                   to="/services"
-                  className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-border-strong md:px-7 md:text-sm"
+                  className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-brand hover:bg-brand/12 hover:text-brand hover:shadow-[0_0_28px_rgb(232_93_4/0.18)] md:px-7 md:text-sm"
                 >
                   Services portfolio
                 </Link>

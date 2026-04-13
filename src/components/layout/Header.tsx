@@ -3,7 +3,6 @@ import { Link, NavLink } from 'react-router-dom'
 import { BrandLogo } from '../BrandLogo'
 import { productPath } from '../../data/productDocuments'
 import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
-import { SALES_PITCH_PDF } from '../../data/salesPitchSite'
 
 type SubItem = { label: string; to?: string; href?: string; external?: boolean }
 
@@ -21,9 +20,8 @@ const NAV_ITEMS: NavItemType[] = [
           { label: 'TOIP (OffSec intelligence)', to: productPath('toip') },
           { label: 'Technieum-X (ASM)', to: productPath('asm') },
           { label: 'LLM Attack Suite', to: productPath('llm') },
-          { label: 'AI-SAST and AI-SCA', to: productPath('sast') },
+          { label: 'SAST and SCA', to: productPath('sast') },
           { label: 'AD Suite', to: productPath('ad') },
-          { label: 'Coverage hub', to: '/#capabilities-hub-heading' },
         ],
       },
       {
@@ -40,12 +38,12 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Services',
     columns: [
       {
-        heading: 'Overview',
+        heading: 'Service overview',
         items: [{ label: 'Services', to: '/services' }],
       },
       {
-        heading: 'PDF briefs',
-        items: SERVICE_TOPICS.map((t) => ({
+        heading: 'Professional services',
+        items: SERVICE_TOPICS.filter((t) => t.slug !== 'technieum-master-offsec').map((t) => ({
           label: t.title,
           to: serviceTopicNavHref(t),
         })),
@@ -314,14 +312,6 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
               ))}
             </div>
           ))}
-          <a
-            href={SALES_PITCH_PDF}
-            download
-            onClick={onClose}
-            className="mt-2 block rounded-md border border-border-strong py-3 text-center text-[0.875rem] font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
-          >
-            Sales pitch (PDF)
-          </a>
         </nav>
       </div>
     </>
@@ -346,13 +336,6 @@ export function Header() {
             {NAV_ITEMS.map((item) => (
               <NavButton key={item.label} item={item} />
             ))}
-            <a
-              href={SALES_PITCH_PDF}
-              download
-              className="px-3 py-2 text-[0.9375rem] font-semibold text-zinc-200 no-underline transition-colors hover:text-white"
-            >
-              Sales pitch (PDF)
-            </a>
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">

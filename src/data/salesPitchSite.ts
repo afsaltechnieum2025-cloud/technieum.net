@@ -15,7 +15,6 @@ export const HOME_HERO = {
     'In-house ASM, ToIP, LLM suite, AD framework, and AI SAST',
   ],
   primaryCta: { label: 'Talk to our team', to: '/contact' as const },
-  secondaryCta: { label: 'Download sales pitch (PDF)', href: SALES_PITCH_PDF },
   tertiaryCta: { label: 'Explore services', to: '/services' as const },
 } as const
 

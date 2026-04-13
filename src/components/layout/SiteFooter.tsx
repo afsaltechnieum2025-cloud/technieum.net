@@ -8,14 +8,15 @@ const capabilityLinks = [
   { label: 'TOIP (intelligence portal)', to: '/platform/toip' },
   { label: 'Technieum-X (ASM)', to: '/platform/technieum-x' },
   { label: 'LLM Attack Suite', to: '/platform/llm-suite' },
-  { label: 'AI-SAST and AI-SCA', to: '/platform/ai-sast' },
+  { label: 'SAST and SCA', to: '/platform/ai-sast' },
   { label: 'AD Suite', to: '/platform/ad-suite' },
-  { label: 'Coverage hub', to: '/#capabilities-hub-heading' },
 ]
 
 const servicesLinks = [
-  { label: 'Services', to: '/services' },
-  ...SERVICE_TOPICS.map((t) => ({ label: t.title, to: serviceTopicNavHref(t) })),
+  ...SERVICE_TOPICS.filter((t) => t.slug !== 'technieum-master-offsec').map((t) => ({
+    label: t.title,
+    to: serviceTopicNavHref(t),
+  })),
   { label: 'Contact sales', to: '/contact' },
 ]
 
@@ -25,14 +26,9 @@ const useCasesLinks = [
   { label: 'OffSec Management Portal', to: '/#portal-heading' },
   { label: 'Offensive Engine', to: '/#workflow-heading' },
   { label: 'Project lifecycle', to: '/#cycle-heading' },
-  { label: 'Sales pitch (PDF)', to: '/salespitch/Technieum_Sales_Pitch_Dark.pdf' },
 ]
 
-const companyLinks = [
-  { label: 'Home overview', to: '/' },
-  { label: 'Contact', to: '/contact' },
-  { label: 'Services', to: '/services' },
-]
+const companyLinks = [{ label: 'Contact', to: '/contact' }]
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
