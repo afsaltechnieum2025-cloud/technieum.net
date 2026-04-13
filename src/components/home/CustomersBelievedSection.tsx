@@ -15,7 +15,12 @@ function usePrefersReducedMotion() {
 }
 
 function logoCandidates(id: string): string[] {
-  return [`/images/customers/${id}.png`, `/images/customers/${id}.svg`, `/images/customers/${id}.webp`]
+  return [
+    `/images/customers/${id}.svg`,
+    `/images/customers/${id}.png`,
+    `/images/customers/${id}.jpg`,
+    `/images/customers/${id}.webp`,
+  ]
 }
 
 function CustomerChip({ customer }: { customer: CustomerMarqueeEntry }) {
@@ -35,15 +40,17 @@ function CustomerChip({ customer }: { customer: CustomerMarqueeEntry }) {
     )
   }
 
+  const rasterLogo = /\.(png|jpe?g|webp)(\?|$)/i.test(src)
+
   return (
     <div
-      className="flex h-[4.5rem] min-w-[10.5rem] max-w-[14rem] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white px-4 py-2 shadow-sm shadow-black/25"
+      className="flex h-[4.5rem] min-w-[10.5rem] max-w-[14rem] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-4 py-2 shadow-sm shadow-black/20"
       title={customer.name}
     >
       <img
         src={src}
         alt={customer.name}
-        className="max-h-10 w-auto max-w-full object-contain object-center"
+        className={`max-h-10 w-auto max-w-full object-contain object-center ${rasterLogo ? 'mix-blend-multiply' : ''}`}
         loading="lazy"
         decoding="async"
         onError={() => {

@@ -1,6 +1,6 @@
 /**
- * Marquee customers. Optional logo files: public/images/customers/<id>.png (or .svg)
- * If missing, the UI shows the display name on a chip.
+ * Marquee customers. Logos: public/images/customers/<id>.svg, .png, .jpg, or .webp (tried in that order).
+ * If none load, the UI shows the label text chip.
  */
 export type CustomerMarqueeEntry = {
   id: string
