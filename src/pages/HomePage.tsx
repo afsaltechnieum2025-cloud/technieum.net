@@ -55,39 +55,38 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Why Technieum */}
-      <section className="section-zz-b px-4 sm:px-6 py-10 md:py-12" aria-labelledby="why-heading">
+      {/* Why Technieum — type scale aligned with hero / major sections */}
+      <section className="section-zz-b px-4 sm:px-6 py-16 md:py-20" aria-labelledby="why-heading">
         <div className="container">
-          <div className="mx-auto mb-7 max-w-2xl text-center md:mb-8">
-            {/* <p className="text-shimmer-brand mb-2 text-[11px] font-semibold uppercase tracking-wider md:text-xs">
-              Differentiation
-            </p> */}
+          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <h2
               id="why-heading"
-              className="mb-2 text-lg font-medium tracking-tight text-heading md:text-xl"
+              className="mb-4 text-2xl font-medium leading-snug tracking-tight text-heading sm:text-3xl lg:text-4xl"
             >
               Why Technieum
             </h2>
-            <p className="m-0 text-xs leading-relaxed text-muted md:text-sm">
+            <p className="m-0 text-sm leading-relaxed text-muted md:text-base">
               Same scanners everywhere else. Here, in-house AI tooling, human validation, and 360-degree coverage per
               engagement.
             </p>
           </div>
-          <ul className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2">
+          <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
             {WHY_TECHNIEUM.map((item, index) => (
               <li
                 key={item.title}
-                className="group rounded-lg border border-border/70 bg-panel/20 px-3.5 py-3 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-4 md:py-3.5"
+                className="group rounded-lg border border-border/70 bg-panel/20 px-4 py-4 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-5 md:py-5"
               >
-                <div className="grid grid-cols-[auto_1fr] gap-x-2.5 gap-y-1">
+                <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5">
                   <span
-                    className="row-span-2 mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-brand/15 text-[10px] font-bold tabular-nums text-brand md:text-[11px]"
+                    className="row-span-2 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand/15 text-xs font-bold tabular-nums text-brand md:h-8 md:w-8 md:text-sm"
                     aria-hidden
                   >
                     {index + 1}
                   </span>
-                  <h3 className="min-w-0 text-sm font-semibold leading-snug text-heading">{item.title}</h3>
-                  <p className="min-w-0 text-[11px] leading-relaxed text-muted md:text-xs md:leading-relaxed">
+                  <h3 className="min-w-0 text-base font-semibold leading-snug text-heading md:text-lg">
+                    {item.title}
+                  </h3>
+                  <p className="min-w-0 text-sm leading-relaxed text-muted md:text-base md:leading-relaxed">
                     {item.body}
                   </p>
                 </div>
