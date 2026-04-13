@@ -46,10 +46,13 @@
 }
 
 @layer base {
-  /* Same CSS everywhere: reserve scrollbar width so content doesn’t shift vs overlay scrollbars (macOS vs Windows live). */
+  /* Stable layout + type across hosts/browsers: scrollbar width, no accidental mobile text zoom, 16px rem baseline */
   html {
     scrollbar-gutter: stable;
     overflow-x: clip;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   :root {

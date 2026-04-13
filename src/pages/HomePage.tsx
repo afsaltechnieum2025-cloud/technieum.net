@@ -55,9 +55,9 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Why Technieum — same max width as .container but no horizontal padding (section-only) */}
+      {/* Why Technieum — use .container like hero/portal so padding + max-width match everywhere (local vs live) */}
       <section className="section-zz-b w-full py-16 md:py-20" aria-labelledby="why-heading">
-        <div className="mx-auto box-border w-full min-w-0 max-w-site px-0">
+        <div className="container min-w-0">
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <h2 id="why-heading" className="heading-scale-hero mb-4">
               Why Technieum
