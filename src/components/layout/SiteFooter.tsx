@@ -21,7 +21,7 @@ const servicesLinks = [
 ]
 
 const useCasesLinks = [
-  { label: 'Why Technieum', to: '/#why-heading' },
+  { label: 'Why Technieum', to: '/why-technieum' },
   { label: 'Our customers', to: '/#customers-believed' },
   { label: 'OffSec Management Portal', to: '/#portal-heading' },
   { label: 'Offensive Engine', to: '/#workflow-heading' },

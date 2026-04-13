@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage'
 import { ProductPage } from './pages/ProductPage'
 import { ServiceProgramRouter } from './pages/ServiceProgramRouter'
 import { ServicesPage } from './pages/ServicesPage'
+import { WhyTechnieumPage } from './pages/WhyTechnieumPage'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="services/:programSlug" element={<ServiceProgramRouter />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="why-technieum" element={<WhyTechnieumPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

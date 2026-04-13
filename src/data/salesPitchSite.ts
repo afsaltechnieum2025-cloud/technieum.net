@@ -27,6 +27,14 @@ export const HOME_CAPABILITIES_HUB = {
   primaryCta: { label: 'Get started', to: '/contact' as const },
 } as const
 
+/** Standalone /why-technieum page (no longer on home). */
+export const WHY_TECHNIEUM_PAGE = {
+  eyebrow: 'Differentiators',
+  headline: 'Why Technieum',
+  lead:
+    'Same scanners elsewhere. Here: in-house AI tooling, human validation, and 360-degree coverage per engagement.',
+} as const
+
 export const WHY_TECHNIEUM = [
   {
     title: 'AI at every layer',
@@ -112,7 +120,7 @@ export const PROJECT_CYCLE = {
   subtitle: 'From onboarding to delivery',
   intro:
     'Milestone-driven delivery with daily visibility, weekly reviews when you need them, and instant escalation for critical findings. No black-box engagements.',
-  diagramEyebrow: 'Animated overview',
+  diagramEyebrow: '',
   phases: [
     {
       step: '1',

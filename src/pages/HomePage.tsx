@@ -10,7 +10,6 @@ import {
   HOME_HERO,
   OFFENSIVE_WORKFLOW,
   OFFSEC_PORTAL,
-  WHY_TECHNIEUM,
 } from '../data/salesPitchSite'
 
 export function HomePage() {
@@ -43,55 +42,14 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Why Technieum — use .container like hero/portal so padding + max-width match everywhere (local vs live) */}
-      <section className="section-zz-b w-full py-16 md:py-20" aria-labelledby="why-heading">
-        <div className="container min-w-0">
-          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
-            <h2 id="why-heading" className="heading-scale-hero mb-4">
-              Why Technieum
-            </h2>
-            <p className="m-0 text-sm leading-relaxed text-muted md:text-base">
-              Same scanners elsewhere. Here: in-house AI tooling, human validation, and 360-degree coverage per engagement.
-            </p>
-          </div>
-          <ul className="grid min-w-0 w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-            {WHY_TECHNIEUM.map((item, index) => {
-              const isLast = index === WHY_TECHNIEUM.length - 1
-              return (
-                <li
-                  key={item.title}
-                  className={`group rounded-lg border border-border/70 bg-panel/20 px-4 py-4 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-5 md:py-5 ${isLast ? 'lg:col-span-3' : ''}`}
-                >
-                  <div
-                    className={`grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 ${isLast ? 'lg:mx-auto lg:max-w-4xl' : ''}`}
-                  >
-                    <span
-                      className="row-span-2 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand/15 text-xs font-bold tabular-nums text-brand md:h-8 md:w-8 md:text-sm"
-                      aria-hidden
-                    >
-                      {index + 1}
-                    </span>
-                    <h3 className="min-w-0 text-sm font-medium leading-snug text-heading md:text-base">
-                      {item.title}
-                    </h3>
-                    <p className="min-w-0 text-sm leading-relaxed text-muted md:text-base md:leading-relaxed">
-                      {item.body}
-                    </p>
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      </section>
-
-      <CustomersBelievedSection />
-
-      {/* OffSec portal */}
+      {/* OffSec portal — directly after hero (360 coverage headline) */}
       <section className="section-zz-a py-16 md:py-20" aria-labelledby="portal-heading">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div>
+            <div className="min-w-0 lg:sticky lg:top-28">
+              <OffsecPortalIllustration />
+            </div>
+            <div className="min-w-0">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
                 {OFFSEC_PORTAL.eyebrow}
               </p>
@@ -112,9 +70,6 @@ export function HomePage() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="lg:sticky lg:top-28">
-              <OffsecPortalIllustration />
             </div>
           </div>
         </div>
@@ -193,6 +148,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      <CustomersBelievedSection />
     </main>
   )
 }

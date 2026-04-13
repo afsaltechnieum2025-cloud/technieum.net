@@ -8,14 +8,17 @@ type SubItem = { label: string; to?: string; href?: string; external?: boolean }
 
 type Column = { heading?: string; items: SubItem[] }
 
-type NavItemType = { label: string; columns: Column[] }
+type NavMenuItem = { kind: 'menu'; label: string; columns: Column[] }
+type NavLinkItem = { kind: 'link'; label: string; to: string }
+type NavItemType = NavMenuItem | NavLinkItem
 
 const NAV_ITEMS: NavItemType[] = [
   {
+    kind: 'menu',
     label: 'Capabilities',
     columns: [
       {
-        heading: 'In-house delivery stack',
+        heading: 'Technieum guard platform',
         items: [
           { label: 'TOIP (OffSec intelligence)', to: productPath('toip') },
           { label: 'Technieum-X (ASM)', to: productPath('asm') },
@@ -35,6 +38,7 @@ const NAV_ITEMS: NavItemType[] = [
     ],
   },
   {
+    kind: 'menu',
     label: 'Services',
     columns: [
       {
@@ -51,17 +55,21 @@ const NAV_ITEMS: NavItemType[] = [
     ],
   },
   {
+    kind: 'menu',
     label: 'Resources',
     columns: [
       {
-        items: [
-          { label: 'Why Technieum', to: '/#why-heading' },
-          { label: 'Our customers', to: '/#customers-believed' },
-        ],
+        items: [{ label: 'Our customers', to: '/#customers-believed' }],
       },
     ],
   },
   {
+    kind: 'link',
+    label: 'Why Technieum',
+    to: '/why-technieum',
+  },
+  {
+    kind: 'menu',
     label: 'Company',
     columns: [
       {
@@ -131,7 +139,7 @@ function SubNavLink({ item, onClose }: { item: SubItem; onClose: () => void }) {
   return null
 }
 
-function NavDropdown({ item, onClose }: { item: NavItemType; onClose: () => void }) {
+function NavDropdown({ item, onClose }: { item: NavMenuItem; onClose: () => void }) {
   const colCount = item.columns.length
   const panelWidth =
     colCount >= 2 ? 'w-[min(100vw-2rem,40rem)]' : 'w-[min(100vw-2rem,20rem)]'
@@ -163,7 +171,7 @@ function NavDropdown({ item, onClose }: { item: NavItemType; onClose: () => void
   )
 }
 
-function NavButton({ item }: { item: NavItemType }) {
+function NavButton({ item }: { item: NavMenuItem }) {
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -293,25 +301,34 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
           </button>
         </div>
         <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4" aria-label="Main navigation">
-          {NAV_ITEMS.map((nav) => (
-            <div key={nav.label} className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0">
-              <p className="mb-3 text-[0.6875rem] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</p>
-              {nav.columns.map((col, colIndex) => (
-                <div key={col.heading ?? `mcol-${colIndex}`} className={colIndex > 0 ? 'mt-4' : ''}>
-                  {col.heading ? (
-                    <p className="mb-2 text-[0.75rem] font-semibold text-zinc-600">{col.heading}</p>
-                  ) : null}
-                  <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                    {col.items.map((sub) => (
-                      <li key={sub.label}>
-                        <DrawerNavLink item={sub} onClose={onClose} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
+          {NAV_ITEMS.map((nav) =>
+            nav.kind === 'link' ? (
+              <div
+                key={nav.label}
+                className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0"
+              >
+                <DrawerNavLink item={{ label: nav.label, to: nav.to }} onClose={onClose} />
+              </div>
+            ) : (
+              <div key={nav.label} className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0">
+                <p className="mb-3 text-[0.6875rem] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</p>
+                {nav.columns.map((col, colIndex) => (
+                  <div key={col.heading ?? `mcol-${colIndex}`} className={colIndex > 0 ? 'mt-4' : ''}>
+                    {col.heading ? (
+                      <p className="mb-2 text-[0.75rem] font-semibold text-zinc-600">{col.heading}</p>
+                    ) : null}
+                    <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                      {col.items.map((sub) => (
+                        <li key={sub.label}>
+                          <DrawerNavLink item={sub} onClose={onClose} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ),
+          )}
         </nav>
       </div>
     </>
@@ -333,9 +350,23 @@ export function Header() {
             aria-label="Main navigation"
             className="hidden items-center gap-1 overflow-visible lg:flex"
           >
-            {NAV_ITEMS.map((item) => (
-              <NavButton key={item.label} item={item} />
-            ))}
+            {NAV_ITEMS.map((item) =>
+              item.kind === 'link' ? (
+                <NavLink
+                  key={item.label}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `rounded-md px-3 py-2 text-[0.9375rem] font-semibold no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 ${
+                      isActive ? 'text-brand' : 'text-zinc-200 hover:text-white'
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ) : (
+                <NavButton key={item.label} item={item} />
+              ),
+            )}
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
