@@ -7,7 +7,7 @@ import { TopBar } from './TopBar'
 /**
  * Layout contract:
  * - Top bar is full-bleed; section backgrounds stay full-bleed inside pages.
- * - Readable / nav width is capped by `.container` (theme: --max-width-site, default 1200px) + horizontal padding.
+ * - Horizontal inset is only `.container` (theme: --max-width-site + px-4 sm:px-6 md:px-10). Sections do not add extra px-4/sm:px-6 so local vs live padding matches.
  * Do not wrap `<Outlet />` in a max-width here — it would break full-width section backgrounds.
  */
 export function SiteLayout() {

@@ -5,7 +5,7 @@ import { CONTACT_PAGE, CONTACT_SALES, SALES_PITCH_PDF } from '../data/salesPitch
 export function ContactPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-4 sm:px-6 py-16 md:py-24">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-16 md:py-24">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_min(36%,320px)] lg:gap-16 xl:grid-cols-[1.05fr_340px]">
@@ -38,7 +38,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section className="section-zz-b px-4 sm:px-6 py-14 md:py-20" aria-labelledby="contact-why-heading">
+      <section className="section-zz-b py-14 md:py-20" aria-labelledby="contact-why-heading">
         <div className="container max-w-5xl">
           <h2 id="contact-why-heading" className="mb-2 text-xl font-medium text-heading md:text-2xl">
             What you can expect
@@ -67,7 +67,7 @@ export function ContactPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset px-4 sm:px-6 py-14 md:py-20" aria-labelledby="contact-direct-heading">
+      <section className="section-zz-a bg-bg-inset py-14 md:py-20" aria-labelledby="contact-direct-heading">
         <div className="container max-w-5xl">
           <h2 id="contact-direct-heading" className="mb-2 text-xl font-medium text-heading md:text-2xl">
             Reach the right desk

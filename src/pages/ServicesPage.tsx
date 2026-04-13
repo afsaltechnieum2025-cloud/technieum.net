@@ -6,7 +6,7 @@ import { CONTACT_SALES, SALES_PITCH_PDF, STANDARDS_SHOWCASE } from '../data/sale
 export function ServicesPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-4 sm:px-6 py-16 md:py-24 lg:py-28">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-16 md:py-24 lg:py-28">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
@@ -44,7 +44,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="services-catalog-section px-4 sm:px-6 py-12 md:py-16" aria-labelledby="service-topics-heading">
+      <section className="services-catalog-section py-12 md:py-16" aria-labelledby="service-topics-heading">
         <div className="container max-w-6xl">
           <div className="mb-6 md:mb-8">
             <h2
@@ -150,7 +150,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-zz-a px-4 sm:px-6 py-14 md:py-16">
+      <section className="section-zz-a py-14 md:py-16">
         <div className="container max-w-5xl">
           <h2 className="mb-4 max-w-3xl text-2xl font-medium leading-snug tracking-tight text-heading md:text-3xl">
             {STANDARDS_SHOWCASE.title}
@@ -194,7 +194,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-zz-b px-4 sm:px-6 py-14 md:py-16">
+      <section className="section-zz-b py-14 md:py-16">
         <div className="container flex flex-col items-start justify-between gap-8 rounded-2xl border border-border bg-panel/20 p-8 md:flex-row md:items-center md:p-10">
           <div>
             <h2 className="mb-2 text-xl font-medium text-heading">Scope your next program</h2>

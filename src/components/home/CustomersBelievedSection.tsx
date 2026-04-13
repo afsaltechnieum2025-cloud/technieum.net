@@ -227,7 +227,7 @@ export function CustomersBelievedSection() {
   return (
     <section
       id="customers-believed"
-      className="section-zz-a px-4 sm:px-6 py-16 md:py-24"
+      className="section-zz-a py-16 md:py-24"
       aria-labelledby="customers-believed-heading"
     >
       <div className="container">
@@ -245,7 +245,7 @@ export function CustomersBelievedSection() {
         </div>
       </div>
 
-      <div className="customers-marquee-group relative left-1/2 mt-10 w-screen max-w-[100vw] -translate-x-1/2 md:mt-14">
+      <div className="customers-marquee-group relative mt-10 w-full md:mt-14">
         <div className="border-y border-white/[0.06] bg-gradient-to-b from-white/[0.03] via-zinc-950/50 to-zinc-950/80">
           {reduceMotion ? (
             <div className="container py-10 md:py-12">

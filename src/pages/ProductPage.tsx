@@ -44,7 +44,7 @@ export function ProductPage() {
               bullets: pitch.pillars.map((p) => p.body),
             }
       screenshotTour = (
-        <section className="section-zz-b px-4 sm:px-6 py-14 md:py-20" aria-labelledby={`${doc.id}-screenshots-heading`}>
+        <section className="section-zz-b py-14 md:py-20" aria-labelledby={`${doc.id}-screenshots-heading`}>
           <div className="container">
             <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
               <div>
@@ -78,7 +78,7 @@ export function ProductPage() {
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset px-4 sm:px-6 py-14 md:py-20">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-14 md:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <p className="text-shimmer-brand mb-3 text-sm font-semibold tracking-wide">{pitch.heroEyebrow}</p>
@@ -122,7 +122,7 @@ export function ProductPage() {
 
       {screenshotTour}
 
-      <section className="section-zz-b px-4 sm:px-6 py-14 md:py-20">
+      <section className="section-zz-b py-14 md:py-20">
         <div className="container">
           <h2 className="mb-10 text-2xl font-medium text-heading md:text-3xl">Why teams lead with {doc.name}</h2>
           <ul className="grid gap-6 md:grid-cols-3">
@@ -139,7 +139,7 @@ export function ProductPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-panel/20 px-4 sm:px-6 py-14 md:py-20">
+      <section className="section-zz-a bg-panel/20 py-14 md:py-20">
         <div className="container max-w-4xl">
           <h2 className="mb-10 text-2xl font-medium text-heading md:text-3xl">Engagement depth</h2>
           {pitch.deepDive.map((block) => (
@@ -155,7 +155,7 @@ export function ProductPage() {
         </div>
       </section>
 
-      <section className="section-zz-b px-4 sm:px-6 py-14 md:py-20">
+      <section className="section-zz-b py-14 md:py-20">
         <div className="container">
           <div className="rounded-2xl border border-border bg-bg-inset p-8 md:p-10">
             <h2 className="mb-4 text-xl font-medium text-heading">OffSec Management Portal fit</h2>
