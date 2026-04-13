@@ -190,7 +190,6 @@ export const CONTACT_SALES = {
     phone: '+971-508995142',
   },
   companyLine: 'Technieum Technologies LLC, P.O. Box 22908, Dubai, UAE. WWW.TECHNIEUM.COM',
-  tagline: 'AI as a force multiplier, not a replacement. Human in the loop at every layer, every finding, every engagement.',
 } as const
 
 /** Contact page hero and value props (industry-standard intake narrative). */
