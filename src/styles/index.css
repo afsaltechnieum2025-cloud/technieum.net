@@ -220,9 +220,16 @@
   }
 
   /* Customer logo marquee */
+  .customers-marquee-row-outer {
+    contain: layout paint;
+  }
+
   .customers-marquee-fade {
     -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .customers-marquee-track {
@@ -230,6 +237,8 @@
     width: max-content;
     animation: customers-marquee-scroll linear infinite;
     will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .customers-marquee-track--reverse {
@@ -734,6 +743,7 @@
 
   .customers-marquee-track {
     animation: none !important;
+    will-change: auto;
   }
 
   .offensive-workflow-dash,

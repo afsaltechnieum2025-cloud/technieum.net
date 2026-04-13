@@ -23,16 +23,24 @@ function logoCandidates(id: string): string[] {
   ]
 }
 
-function CustomerChip({ customer }: { customer: CustomerMarqueeEntry }) {
+function CustomerChip({
+  customer,
+  variant = 'static',
+}: {
+  customer: CustomerMarqueeEntry
+  /** `marquee`: lighter paint, eager decode, no blend (GPU-friendly while scrolling). */
+  variant?: 'static' | 'marquee'
+}) {
   const [candidateIndex, setCandidateIndex] = useState(0)
   const [showText, setShowText] = useState(false)
   const candidates = logoCandidates(customer.id)
   const src = candidates[candidateIndex]
+  const isMarquee = variant === 'marquee'
 
   if (showText || candidateIndex >= candidates.length) {
     return (
       <div
-        className="flex h-[4.5rem] min-w-[10.5rem] max-w-[14rem] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-5 py-3 shadow-sm shadow-black/20"
+        className={`flex h-[4.5rem] min-w-[10.5rem] max-w-[14rem] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-5 py-3 ${isMarquee ? '' : 'shadow-sm shadow-black/20'}`}
         title={customer.name}
       >
         <span className="text-center text-xs font-semibold leading-snug tracking-tight text-heading">{customer.label}</span>
@@ -41,17 +49,18 @@ function CustomerChip({ customer }: { customer: CustomerMarqueeEntry }) {
   }
 
   const rasterLogo = /\.(png|jpe?g|webp)(\?|$)/i.test(src)
+  const blendRaster = rasterLogo && !isMarquee
 
   return (
     <div
-      className="flex h-[4.5rem] min-w-[10.5rem] max-w-[14rem] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-4 py-2 shadow-sm shadow-black/20"
+      className={`flex h-[4.5rem] min-w-[10.5rem] max-w-[14rem] shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-4 py-2 ${isMarquee ? '' : 'shadow-sm shadow-black/20'}`}
       title={customer.name}
     >
       <img
         src={src}
         alt={customer.name}
-        className={`max-h-10 w-auto max-w-full object-contain object-center ${rasterLogo ? 'mix-blend-multiply' : ''}`}
-        loading="lazy"
+        className={`max-h-10 w-auto max-w-full object-contain object-center ${blendRaster ? 'mix-blend-multiply' : ''}`}
+        loading={isMarquee ? 'eager' : 'lazy'}
         decoding="async"
         onError={() => {
           if (candidateIndex + 1 < candidates.length) {
@@ -87,7 +96,7 @@ function MarqueeTicker({
         style={{ animationDuration: `${durationSec}s` }}
       >
         {loop.map((c, i) => (
-          <CustomerChip key={`${c.id}-${i}`} customer={c} />
+          <CustomerChip key={`${c.id}-${i}`} customer={c} variant="marquee" />
         ))}
       </div>
     </div>
@@ -116,7 +125,7 @@ export function CustomersBelievedSection() {
         </p>
       </div>
 
-      <div className="customers-marquee-group relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 border-y border-white/[0.07] bg-black/45 py-1 shadow-inner shadow-black/40 backdrop-blur-sm">
+      <div className="customers-marquee-group relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 border-y border-white/[0.07] bg-black/55 py-1">
         {reduceMotion ? (
           <div className="container flex flex-wrap justify-center gap-4 py-8">
             {CUSTOMERS_MARQUEE.map((c) => (
