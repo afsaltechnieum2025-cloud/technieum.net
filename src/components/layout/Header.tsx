@@ -9,7 +9,7 @@ type SubItem = { label: string; to?: string; href?: string; external?: boolean }
 type Column = { heading?: string; items: SubItem[] }
 
 type NavMenuItem = { kind: 'menu'; label: string; columns: Column[] }
-type NavLinkItem = { kind: 'link'; label: string; to: string }
+type NavLinkItem = { kind: 'link'; label: string; to: string; accentBrand?: boolean }
 type NavItemType = NavMenuItem | NavLinkItem
 
 const NAV_ITEMS: NavItemType[] = [
@@ -67,6 +67,7 @@ const NAV_ITEMS: NavItemType[] = [
     kind: 'link',
     label: 'Why Technieum',
     to: '/why-technieum',
+    accentBrand: true,
   },
   {
     kind: 'menu',
@@ -224,9 +225,18 @@ function IconClose() {
   )
 }
 
-function DrawerNavLink({ item, onClose }: { item: SubItem; onClose: () => void }) {
-  const className =
-    'block rounded-md py-2.5 pl-1 text-[0.9375rem] font-medium leading-snug text-zinc-300 no-underline transition-colors active:bg-white/5 hover:text-brand'
+function DrawerNavLink({
+  item,
+  onClose,
+  accentBrand,
+}: {
+  item: SubItem
+  onClose: () => void
+  accentBrand?: boolean
+}) {
+  const className = accentBrand
+    ? 'block rounded-md py-2.5 pl-1 text-[0.9375rem] font-semibold leading-snug text-brand no-underline transition-colors active:bg-brand/15 hover:text-brand-strong'
+    : 'block rounded-md py-2.5 pl-1 text-[0.9375rem] font-medium leading-snug text-zinc-300 no-underline transition-colors active:bg-white/5 hover:text-brand'
 
   if (item.href) {
     return (
@@ -245,7 +255,9 @@ function DrawerNavLink({ item, onClose }: { item: SubItem; onClose: () => void }
       <NavLink
         to={item.to}
         onClick={onClose}
-        className={({ isActive }) => `${className}${isActive ? ' text-brand' : ''}`}
+        className={({ isActive }) =>
+          `${className}${!accentBrand && isActive ? ' text-brand' : ''}${accentBrand && isActive ? ' bg-brand/10' : ''}`
+        }
       >
         {item.label}
       </NavLink>
@@ -307,7 +319,11 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
                 key={nav.label}
                 className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0"
               >
-                <DrawerNavLink item={{ label: nav.label, to: nav.to }} onClose={onClose} />
+                <DrawerNavLink
+                  item={{ label: nav.label, to: nav.to }}
+                  accentBrand={nav.accentBrand}
+                  onClose={onClose}
+                />
               </div>
             ) : (
               <div key={nav.label} className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0">
@@ -355,11 +371,14 @@ export function Header() {
                 <NavLink
                   key={item.label}
                   to={item.to}
-                  className={({ isActive }) =>
-                    `rounded-md px-3 py-2 text-[0.9375rem] font-semibold no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 ${
-                      isActive ? 'text-brand' : 'text-zinc-200 hover:text-white'
-                    }`
-                  }
+                  className={({ isActive }) => {
+                    const base =
+                      'rounded-md px-3 py-2 text-[0.9375rem] font-semibold no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50'
+                    if (item.accentBrand) {
+                      return `${base} text-brand hover:text-brand-strong ${isActive ? 'bg-brand/10 ring-1 ring-brand/30' : ''}`
+                    }
+                    return `${base} ${isActive ? 'text-brand' : 'text-zinc-200 hover:text-white'}`
+                  }}
                 >
                   {item.label}
                 </NavLink>
