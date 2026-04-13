@@ -11,7 +11,7 @@ function IconX({ className }: { className?: string }) {
   )
 }
 
-export function TopBar() {
+export function TopBar({ onHidden }: { onHidden?: () => void }) {
   const [visible, setVisible] = useState(true)
   const [closing, setClosing] = useState(false)
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -27,33 +27,34 @@ export function TopBar() {
     closeTimerRef.current = setTimeout(() => {
       closeTimerRef.current = null
       setVisible(false)
+      onHidden?.()
     }, CLOSE_MS)
-  }, [])
+  }, [onHidden])
 
   if (!visible) return null
 
   return (
     <div
       className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-out motion-reduce:transition-none ${
-        closing ? 'pointer-events-none max-h-0 opacity-0' : 'max-h-32 opacity-100'
+        closing ? 'pointer-events-none max-h-0 opacity-0' : 'max-h-48 opacity-100'
       }`}
       aria-hidden={closing}
     >
       <div
-        className={`technieum-topbar-glow relative flex min-h-13 items-center bg-brand transition-transform duration-300 ease-out motion-reduce:transition-none ${
+        className={`technieum-topbar-glow relative flex min-h-13 items-center bg-brand pt-[env(safe-area-inset-top,0px)] transition-transform duration-300 ease-out motion-reduce:transition-none ${
           closing ? '-translate-y-2' : 'translate-y-0'
         }`}
       >
-        <div className="container relative z-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 pr-12 text-center text-sm text-white max-xs:pr-11 max-xs:text-xs sm:pr-14">
-          <span className="max-w-[min(100%,36rem)] leading-snug sm:max-w-none">
-            <strong className="font-bold"></strong>
+        <div className="container relative z-10 flex flex-col items-stretch justify-center gap-2 py-2.5 pl-3 pr-11 text-center text-xs text-white xs:flex-row xs:flex-wrap xs:items-center xs:gap-x-3 xs:gap-y-2 xs:py-3 xs:pl-0 xs:pr-12 xs:text-sm sm:pr-14">
+          <span className="min-w-0 flex-1 leading-snug xs:flex-none xs:max-w-[min(100%,36rem)] sm:max-w-none">
+            <strong className="font-bold">Executive briefing</strong>
             {' '}
-            <span className="text-white/95">Offensive security programs & delivery model (PDF)</span>
+            <span className="text-white/95">— offensive security programs & delivery model (PDF)</span>
           </span>
           <a
             href={SALES_PITCH_PDF}
             download
-            className="inline-flex shrink-0 items-center rounded-full border-0 bg-white px-5 py-1.5 text-sm font-bold tracking-wide text-brand no-underline whitespace-nowrap transition-opacity hover:opacity-90 max-xs:px-3.5 max-xs:py-1.5 max-xs:text-xs"
+            className="inline-flex shrink-0 items-center justify-center rounded-full border-0 bg-white px-4 py-1.5 text-xs font-bold tracking-wide text-brand no-underline whitespace-nowrap transition-opacity hover:opacity-90 xs:px-5 xs:text-sm"
           >
             Download PDF
           </a>

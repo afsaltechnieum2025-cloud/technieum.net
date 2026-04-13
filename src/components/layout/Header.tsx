@@ -91,7 +91,7 @@ function ChevronDown({ open }: { open: boolean }) {
       viewBox="0 0 14 14"
       fill="none"
       aria-hidden="true"
-      className={`transition-transform duration-200 ease-out ${open ? 'rotate-180' : ''}`}
+      className={`motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out ${open ? 'rotate-180' : ''}`}
     >
       <path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -266,7 +266,68 @@ function DrawerNavLink({
   return null
 }
 
+function mobileNavPanelId(label: string) {
+  return `mnav-panel-${label.replace(/\s+/g, '-').toLowerCase()}`
+}
+
+function MobileDrawerMenuSection({
+  nav,
+  expanded,
+  onToggle,
+  onClose,
+}: {
+  nav: NavMenuItem
+  expanded: boolean
+  onToggle: () => void
+  onClose: () => void
+}) {
+  const panelId = mobileNavPanelId(nav.label)
+  return (
+    <>
+      <button
+        type="button"
+        aria-expanded={expanded}
+        aria-controls={panelId}
+        onClick={onToggle}
+        className="flex w-full items-center justify-between gap-2 rounded-md py-1 text-left transition-colors hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+      >
+        <span className="text-[0.6875rem] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</span>
+        <span className="shrink-0 text-zinc-500">
+          <ChevronDown open={expanded} />
+        </span>
+      </button>
+      <div
+        id={panelId}
+        role="region"
+        aria-label={nav.label}
+        className={`grid min-h-0 motion-safe:transition-[grid-template-rows] motion-safe:duration-300 motion-safe:ease-out ${expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="pt-2.5">
+            {nav.columns.map((col, colIndex) => (
+              <div key={col.heading ?? `mcol-${colIndex}`} className={colIndex > 0 ? 'mt-3.5' : ''}>
+                {col.heading ? (
+                  <p className="mb-1.5 text-[0.75rem] font-semibold text-zinc-600">{col.heading}</p>
+                ) : null}
+                <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
+                  {col.items.map((sub) => (
+                    <li key={sub.label}>
+                      <DrawerNavLink item={sub} onClose={onClose} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
 function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({})
+
   useEffect(() => {
     if (!open) return
     const prev = document.body.style.overflow
@@ -274,6 +335,10 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
     return () => {
       document.body.style.overflow = prev
     }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) setExpandedSections({})
   }, [open])
 
   useEffect(() => {
@@ -299,7 +364,8 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
-        className="fixed inset-y-0 right-0 z-[111] flex w-[min(100vw,20rem)] flex-col border-l border-border bg-bg-inset shadow-2xl sm:w-[min(100vw,22rem)] lg:hidden"
+        className="fixed inset-y-0 right-0 z-[111] flex h-[100dvh] max-h-[100dvh] w-[min(100vw,20rem)] flex-col border-l border-border bg-bg-inset shadow-2xl sm:w-[min(100vw,22rem)] lg:hidden"
+        style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
       >
         <div className="flex h-14 shrink-0 items-center justify-between border-b border-border px-4">
           <span className="text-sm font-semibold text-heading">Menu</span>
@@ -307,17 +373,20 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
             type="button"
             aria-label="Close menu"
             onClick={onClose}
-            className="flex h-10 w-10 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md text-zinc-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
           >
             <IconClose />
           </button>
         </div>
-        <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4" aria-label="Main navigation">
+        <nav
+          className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain px-4 py-3 [-webkit-overflow-scrolling:touch]"
+          aria-label="Main navigation"
+        >
           {NAV_ITEMS.map((nav) =>
             nav.kind === 'link' ? (
               <div
                 key={nav.label}
-                className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0"
+                className="mb-5 border-b border-border/60 pb-5 last:mb-0 last:border-b-0 last:pb-0"
               >
                 <DrawerNavLink
                   item={{ label: nav.label, to: nav.to }}
@@ -326,40 +395,55 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
                 />
               </div>
             ) : (
-              <div key={nav.label} className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0">
-                <p className="mb-3 text-[0.6875rem] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</p>
-                {nav.columns.map((col, colIndex) => (
-                  <div key={col.heading ?? `mcol-${colIndex}`} className={colIndex > 0 ? 'mt-4' : ''}>
-                    {col.heading ? (
-                      <p className="mb-2 text-[0.75rem] font-semibold text-zinc-600">{col.heading}</p>
-                    ) : null}
-                    <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-                      {col.items.map((sub) => (
-                        <li key={sub.label}>
-                          <DrawerNavLink item={sub} onClose={onClose} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div key={nav.label} className="mb-5 border-b border-border/60 pb-5 last:mb-0 last:border-b-0 last:pb-0">
+                <MobileDrawerMenuSection
+                  nav={nav}
+                  expanded={!!expandedSections[nav.label]}
+                  onToggle={() =>
+                    setExpandedSections((prev) => ({ ...prev, [nav.label]: !prev[nav.label] }))
+                  }
+                  onClose={onClose}
+                />
               </div>
             ),
           )}
         </nav>
+        <div
+          className="shrink-0 border-t border-border bg-bg-inset px-4 pt-3"
+          style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom, 0px))' }}
+        >
+          <Link
+            to="/contact"
+            onClick={onClose}
+            className="btn-brand-lively flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-brand-strong bg-brand-strong px-4 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.99]"
+          >
+            <span>Contact us</span>
+            <ArrowRight />
+          </Link>
+        </div>
       </div>
     </>
   )
 }
 
-export function Header() {
+export function Header({ padSafeTop = false }: { padSafeTop?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-[100] overflow-visible bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80">
+    <header
+      className={`sticky top-0 z-[100] overflow-visible border-b border-white/[0.06] bg-bg-inset/95 backdrop-blur-md supports-[backdrop-filter]:bg-bg-inset/80 lg:border-b-0 ${padSafeTop ? 'pt-[env(safe-area-inset-top,0px)]' : ''}`}
+    >
       <div className="container overflow-visible">
-        <div className="flex min-h-[4.5rem] items-center justify-between gap-3 overflow-visible py-2 sm:gap-4 md:gap-6 md:py-0">
-          <Link to="/" aria-label="Technieum home" className="inline-flex min-w-0 shrink-0 items-center no-underline">
-            <BrandLogo className="block h-9 w-auto sm:h-10" height={40} />
+        <div className="flex min-h-[3.5rem] items-center justify-between gap-2 overflow-visible py-2 sm:min-h-[4.5rem] sm:gap-3 md:gap-6 md:py-0">
+          <Link
+            to="/"
+            aria-label="Technieum home"
+            className="inline-flex min-w-0 flex-1 items-center no-underline sm:flex-none"
+          >
+            <BrandLogo
+              className="block h-8 w-auto max-w-[9.5rem] object-contain object-left sm:h-9 sm:max-w-none md:h-10"
+              height={40}
+            />
           </Link>
 
           <nav
@@ -388,17 +472,7 @@ export function Header() {
             )}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <button
-              type="button"
-              className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-panel/40 text-zinc-200 transition-colors hover:border-border-strong hover:bg-panel hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 lg:hidden"
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-nav-drawer"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              onClick={() => setMobileOpen((o) => !o)}
-            >
-              {mobileOpen ? <IconClose /> : <IconMenu />}
-            </button>
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
             <Link
               to="/contact"
               className="btn-brand-lively hidden min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-4 py-2 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.98] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm md:px-6 lg:inline-flex"
@@ -406,6 +480,16 @@ export function Header() {
               <span>Contact us</span>
               <ArrowRight />
             </Link>
+            <button
+              type="button"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-panel/40 text-zinc-200 transition-colors hover:border-border-strong hover:bg-panel hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 lg:hidden"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-drawer"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              onClick={() => setMobileOpen((o) => !o)}
+            >
+              {mobileOpen ? <IconClose /> : <IconMenu />}
+            </button>
           </div>
         </div>
       </div>

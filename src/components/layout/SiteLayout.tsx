@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Footer } from './SiteFooter'
 import { Header } from './Header'
@@ -11,6 +12,9 @@ import { TopBar } from './TopBar'
  * Do not wrap `<Outlet />` in a max-width here — it would break full-width section backgrounds.
  */
 export function SiteLayout() {
+  const [topBarShown, setTopBarShown] = useState(true)
+  const onTopBarHidden = useCallback(() => setTopBarShown(false), [])
+
   return (
     <div className="flex min-h-svh flex-col bg-page text-muted">
       <ScrollToTop />
@@ -20,8 +24,8 @@ export function SiteLayout() {
       >
         Skip to main content
       </a>
-      <TopBar />
-      <Header />
+      <TopBar onHidden={onTopBarHidden} />
+      <Header padSafeTop={!topBarShown} />
       <div className="min-w-0 w-full flex-1">
         <Outlet />
       </div>
