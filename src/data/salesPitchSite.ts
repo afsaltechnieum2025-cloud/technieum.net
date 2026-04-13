@@ -19,6 +19,15 @@ export const HOME_HERO = {
   tertiaryCta: { label: 'Explore services', to: '/services' as const },
 } as const
 
+/** Home: two-column coverage hub (replaces old "services at a glance" grid). No "services" wording in the eyebrow. */
+export const HOME_CAPABILITIES_HUB = {
+  eyebrow: 'Offensive security coverage',
+  headline: 'Uncover Material Risk Before Adversaries Exploit It',
+  body:
+    'Technieum offensive engineers go beyond commodity scanning: in-house ASM, TOIP intelligence, LLM red teaming, AI-augmented SAST and SCA, and AD assessments validate and prioritize what actually matters across your attack surface.',
+  primaryCta: { label: 'Get started', to: '/contact' as const },
+} as const
+
 export const WHY_TECHNIEUM = [
   {
     title: 'AI at every layer',
@@ -91,10 +100,12 @@ export const OFFSEC_PORTAL = {
 } as const
 
 export const OFFENSIVE_WORKFLOW = {
-  title: 'The Technieum offensive workflow',
-  subtitle: 'Five parallel lanes. One portal.',
+  /** Section label (nav / outline); engine name */
+  title: 'The Technieum Offensive Engine',
+  eyebrow: 'Your All-in-One Continuous Offensive Security Platform',
+  meetHeadline: 'Meet the Technieum Offensive Engine',
   intro:
-    'Intel, scanners, and LLM testing feed shared ToIP intelligence, then validated findings roll into the OffSec Management Portal.',
+    'The Technieum Offensive Engine provides unified offensive coverage by combining attack surface management, vulnerability intelligence and AI-augmented testing, continuous penetration streams, breach and adversary simulation, and ToIP-backed exploit intelligence into a single coordinated program with portal-native scoring, reporting, and retest.',
 } as const
 
 export const PROJECT_CYCLE = {

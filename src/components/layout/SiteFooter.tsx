@@ -10,7 +10,7 @@ const capabilityLinks = [
   { label: 'LLM Attack Suite', to: '/platform/llm-suite' },
   { label: 'AI-SAST and AI-SCA', to: '/platform/ai-sast' },
   { label: 'AD Suite', to: '/platform/ad-suite' },
-  { label: 'Capability overviews', to: '/#services-glance-heading' },
+  { label: 'Coverage hub', to: '/#capabilities-hub-heading' },
 ]
 
 const servicesLinks = [
@@ -23,7 +23,7 @@ const useCasesLinks = [
   { label: 'Why Technieum', to: '/#why-heading' },
   { label: 'Our customers', to: '/#customers-believed' },
   { label: 'OffSec Management Portal', to: '/#portal-heading' },
-  { label: 'Offensive workflow', to: '/#workflow-heading' },
+  { label: 'Offensive Engine', to: '/#workflow-heading' },
   { label: 'Project lifecycle', to: '/#cycle-heading' },
   { label: 'Sales pitch (PDF)', to: '/salespitch/Technieum_Sales_Pitch_Dark.pdf' },
 ]

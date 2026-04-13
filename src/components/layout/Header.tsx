@@ -23,14 +23,14 @@ const NAV_ITEMS: NavItemType[] = [
           { label: 'LLM Attack Suite', to: productPath('llm') },
           { label: 'AI-SAST and AI-SCA', to: productPath('sast') },
           { label: 'AD Suite', to: productPath('ad') },
-          { label: 'Services at a glance', to: '/#services-glance-heading' },
+          { label: 'Coverage hub', to: '/#capabilities-hub-heading' },
         ],
       },
       {
         heading: 'How we deliver',
         items: [
           { label: 'OffSec Management Portal', to: '/#portal-heading' },
-          { label: 'Offensive workflow', to: '/#workflow-heading' },
+          { label: 'Offensive Engine', to: '/#workflow-heading' },
           { label: 'Project lifecycle', to: '/#cycle-heading' },
         ],
       },

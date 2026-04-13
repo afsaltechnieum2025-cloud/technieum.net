@@ -246,6 +246,12 @@
     z-index: 1;
   }
 
+  /* Zigzag sections default to overflow:hidden for gradients; use this when a child needs to paint outside (e.g. hub node labels). */
+  .section-zz-a.section-zz-allow-overflow,
+  .section-zz-b.section-zz-allow-overflow {
+    overflow: visible;
+  }
+
   /* Customer logo marquee */
   .customers-marquee-row-outer {
     contain: layout paint;

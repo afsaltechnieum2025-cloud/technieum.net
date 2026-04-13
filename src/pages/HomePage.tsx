@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
-import { CapabilityLogo } from '../components/home/CapabilityLogo'
+import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
 import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
 import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
 import { HeroCyberVisual } from '../components/home/HeroCyberVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
 import { getOffsecPortalSlides } from '../data/offsecPortalSlides'
-import { PRODUCT_DOCUMENTS, productPath } from '../data/productDocuments'
 import {
   CONTACT_SALES,
+  HOME_CAPABILITIES_HUB,
   HOME_HERO,
   OFFENSIVE_WORKFLOW,
   OFFSEC_PORTAL,
@@ -143,12 +143,16 @@ export function HomePage() {
         aria-labelledby="workflow-heading"
       >
         <div className="container">
-          <div className="mb-5 max-w-2xl md:mb-6">
-            <h2 id="workflow-heading" className="mb-2 text-xl font-medium text-heading md:text-2xl">
-              {OFFENSIVE_WORKFLOW.title}
+          <div className="mb-8 max-w-3xl md:mb-10">
+            <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
+              {OFFENSIVE_WORKFLOW.eyebrow}
+            </p>
+            <h2 id="workflow-heading" className="heading-scale-hero mb-5 text-pretty">
+              {OFFENSIVE_WORKFLOW.meetHeadline}
             </h2>
-            <p className="mb-2 text-sm font-medium text-brand md:text-base">{OFFENSIVE_WORKFLOW.subtitle}</p>
-            <p className="m-0 text-xs leading-relaxed text-muted md:text-sm">{OFFENSIVE_WORKFLOW.intro}</p>
+            <p className="m-0 text-pretty text-sm leading-relaxed text-muted md:text-base">
+              {OFFENSIVE_WORKFLOW.intro}
+            </p>
           </div>
 
           <div className="overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
@@ -161,49 +165,47 @@ export function HomePage() {
 
       <ProjectCycleSection />
 
-      {/* Capability snapshot */}
-      <section className="section-zz-b py-16 md:py-20" aria-labelledby="services-glance-heading">
+      {/* Coverage hub: copy + interactive capability diagram (TOIP, ASM, LLM, SAST, AD, Portal) */}
+      <section
+        className="section-zz-b section-zz-allow-overflow py-16 md:py-20"
+        aria-labelledby="capabilities-hub-heading"
+      >
         <div className="container">
-          <h2 id="services-glance-heading" className="mb-4 text-2xl font-medium text-heading md:text-3xl">
-            Services at a glance
-          </h2>
-          <p className="mb-8 max-w-3xl text-sm text-muted md:mb-10 md:text-base">
-            {PRODUCT_DOCUMENTS.length} capability areas with technical PDFs on request. Hover a card for emphasis,
-            then open it for the full narrative, metrics, and deeper explanation. AI-SAST covers static analysis and
-            dependency risk (SCA) as one delivery backlog.
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {PRODUCT_DOCUMENTS.map((p) => (
-              <Link
-                key={p.id}
-                to={productPath(p.id)}
-                className="group flex h-full flex-col rounded-xl border border-border bg-panel/20 p-4 no-underline shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand/50 hover:bg-panel/40 hover:shadow-[0_18px_48px_-18px_rgba(232,93,4,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page md:p-5"
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+            <div className="min-w-0">
+              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
+                {HOME_CAPABILITIES_HUB.eyebrow}
+              </p>
+              <h2
+                id="capabilities-hub-heading"
+                className="heading-scale-hero mb-5 max-w-xl text-pretty"
               >
-                <div className="flex gap-3.5">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-lg border border-brand/30 bg-brand/[0.09] transition-colors group-hover:border-brand/55 group-hover:bg-brand/[0.14]">
-                    <CapabilityLogo id={p.id} className="h-10 w-10" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[11px] font-bold uppercase tracking-wide text-brand md:text-xs">{p.name}</p>
-                    <p className="mt-0.5 text-sm font-medium leading-snug text-heading">{p.subtitle}</p>
-                  </div>
-                </div>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{p.glanceDescription}</p>
-                <p className="mt-2 border-l-2 border-brand/40 pl-2.5 text-xs leading-snug text-muted/90">{p.tagline}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand transition-transform duration-200 group-hover:translate-x-0.5">
-                  View full overview
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="mt-px shrink-0">
-                    <path
-                      d="M3 7h8M8 3l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
+                {HOME_CAPABILITIES_HUB.headline}
+              </h2>
+              <p className="mb-8 max-w-xl text-pretty text-sm leading-relaxed text-muted md:text-base">
+                {HOME_CAPABILITIES_HUB.body}
+              </p>
+              <Link
+                to={HOME_CAPABILITIES_HUB.primaryCta.to}
+                className="btn-brand-lively inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-6 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft sm:gap-2 sm:px-7 sm:py-3 sm:text-sm"
+              >
+                {HOME_CAPABILITIES_HUB.primaryCta.label}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
+                  <path
+                    d="M3 7h8M8 3l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </Link>
-            ))}
+            </div>
+            <div className="flex min-w-0 w-full justify-center">
+              <div className="w-full max-w-[min(100%,460px)]">
+                <CapabilitiesHubVisual />
+              </div>
+            </div>
           </div>
         </div>
       </section>
