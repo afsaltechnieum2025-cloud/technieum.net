@@ -55,9 +55,9 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* Why Technieum — type scale aligned with hero / major sections */}
-      <section className="section-zz-b px-4 sm:px-6 py-16 md:py-20" aria-labelledby="why-heading">
-        <div className="container">
+      {/* Why Technieum — horizontal inset only from .container (avoid double px with section) */}
+      <section className="section-zz-b w-full py-16 md:py-20" aria-labelledby="why-heading">
+        <div className="container min-w-0">
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <h2
               id="why-heading"
@@ -70,13 +70,17 @@ export function HomePage() {
               engagement.
             </p>
           </div>
-          <ul className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
-            {WHY_TECHNIEUM.map((item, index) => (
+          <ul className="grid min-w-0 w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+            {WHY_TECHNIEUM.map((item, index) => {
+              const isLast = index === WHY_TECHNIEUM.length - 1
+              return (
               <li
                 key={item.title}
-                className="group rounded-lg border border-border/70 bg-panel/20 px-4 py-4 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-5 md:py-5"
+                className={`group rounded-lg border border-border/70 bg-panel/20 px-4 py-4 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-5 md:py-5 ${isLast ? 'lg:col-span-3' : ''}`}
               >
-                <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5">
+                <div
+                  className={`grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 ${isLast ? 'lg:mx-auto lg:max-w-4xl' : ''}`}
+                >
                   <span
                     className="row-span-2 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand/15 text-xs font-bold tabular-nums text-brand md:h-8 md:w-8 md:text-sm"
                     aria-hidden
@@ -91,7 +95,8 @@ export function HomePage() {
                   </p>
                 </div>
               </li>
-            ))}
+              )
+            })}
           </ul>
         </div>
       </section>
