@@ -4,6 +4,12 @@ import { Header } from './Header'
 import { ScrollToTop } from './ScrollToTop'
 import { TopBar } from './TopBar'
 
+/**
+ * Layout contract:
+ * - Top bar is full-bleed; section backgrounds stay full-bleed inside pages.
+ * - Readable / nav width is capped by `.container` (theme: --max-width-site, default 1200px) + horizontal padding.
+ * Do not wrap `<Outlet />` in a max-width here — it would break full-width section backgrounds.
+ */
 export function SiteLayout() {
   return (
     <div className="flex min-h-svh flex-col bg-page text-muted">
