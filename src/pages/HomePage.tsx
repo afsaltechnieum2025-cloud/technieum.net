@@ -28,7 +28,7 @@ export function HomePage() {
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <div className="text-left">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{HOME_HERO.eyebrow}</p>
-              <h1 className="mb-4 max-w-2xl text-2xl font-medium leading-snug tracking-tight text-heading sm:text-3xl lg:text-4xl">
+              <h1 className="heading-scale-hero mb-4 max-w-2xl">
                 {HOME_HERO.title}
               </h1>
               <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{HOME_HERO.lead}</p>
@@ -59,10 +59,7 @@ export function HomePage() {
       <section className="section-zz-b w-full py-16 md:py-20" aria-labelledby="why-heading">
         <div className="mx-auto box-border w-full min-w-0 max-w-site px-0">
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
-            <h2
-              id="why-heading"
-              className="mb-4 text-2xl font-medium leading-snug tracking-tight text-heading sm:text-3xl lg:text-4xl"
-            >
+            <h2 id="why-heading" className="heading-scale-hero mb-4">
               Why Technieum
             </h2>
             <p className="m-0 text-sm leading-relaxed text-muted md:text-base">
@@ -86,7 +83,7 @@ export function HomePage() {
                     >
                       {index + 1}
                     </span>
-                    <h3 className="min-w-0 text-base font-semibold leading-snug text-heading md:text-lg">
+                    <h3 className="min-w-0 text-base font-medium leading-snug text-heading md:text-lg">
                       {item.title}
                     </h3>
                     <p className="min-w-0 text-sm leading-relaxed text-muted md:text-base md:leading-relaxed">
