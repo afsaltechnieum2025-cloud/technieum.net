@@ -23,37 +23,37 @@ export const WHY_TECHNIEUM = [
   {
     title: 'AI at every layer',
     body:
-      'From agentic recon (100+ tools in the ASM stack) to RAG-based intelligence (15,000+ disclosed vulnerability reports in ToIP) to AI-assisted remediation guidance, AI amplifies every stage without replacing expert judgment.',
+      'Agentic recon, RAG-backed intel in ToIP, and AI-assisted remediation guidance. AI amplifies each stage; experts still decide.',
   },
   {
     title: 'Timely delivery',
     body:
-      'Milestone-driven engagements with daily updates, weekly reviews, and instant critical escalation. Structured communication reduces drift and keeps leadership informed.',
+      'Milestone-driven work, daily updates, weekly reviews, and fast critical escalation. Structured comms so leadership stays aligned.',
   },
   {
     title: 'Accurate, actionable remediation',
     body:
-      'Context-aware fix guidance tailored to your technology stack, not generic scanner output. Remediation that developers and operators can implement.',
+      'Fix guidance tailored to your stack, not generic scanner output. Written so developers and operators can ship changes.',
   },
   {
     title: 'In-house R and D',
     body:
-      'Dedicated researchers hunting zero-days and publishing CVEs. Research feeds directly into tooling and every client engagement.',
+      'Researchers hunting zero-days and publishing CVEs. That work feeds our tooling and every client engagement.',
   },
   {
     title: 'Six proprietary AI capabilities',
     body:
-      'ToIP, LLM Attack Suite, AD Suite, AI-based ASM, AI SAST, and AI SCA, built in-house and orchestrated alongside commercial tools where needed.',
+      'ToIP, LLM Attack Suite, AD Suite, AI ASM, AI SAST, and AI SCA, built here and run alongside commercial tools when needed.',
   },
   {
     title: '360 coverage per engagement',
     body:
-      'Every project can include SAST plus SCA plus ASM plus AD plus AI or LLM testing, cross-correlated. One engagement, complete visibility across the attack surface you define.',
+      'SAST, SCA, ASM, AD, and AI or LLM testing in one program, cross-correlated across the attack surface you define.',
   },
   {
     title: 'Zero false positives commitment',
     body:
-      'AI accelerates discovery; human experts validate every finding. You prioritize and remediate confirmed risk, not scanner noise.',
+      'AI speeds discovery; humans validate every finding. Your backlog stays focused on confirmed risk, not noise.',
   },
 ] as const
 

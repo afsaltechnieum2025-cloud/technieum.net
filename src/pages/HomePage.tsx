@@ -66,35 +66,34 @@ export function HomePage() {
               Why Technieum
             </h2>
             <p className="m-0 text-sm leading-relaxed text-muted md:text-base">
-              Same scanners everywhere else. Here, in-house AI tooling, human validation, and 360-degree coverage per
-              engagement.
+              Same scanners elsewhere. Here: in-house AI tooling, human validation, and 360-degree coverage per engagement.
             </p>
           </div>
           <ul className="grid min-w-0 w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
             {WHY_TECHNIEUM.map((item, index) => {
               const isLast = index === WHY_TECHNIEUM.length - 1
               return (
-              <li
-                key={item.title}
-                className={`group rounded-lg border border-border/70 bg-panel/20 px-4 py-4 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-5 md:py-5 ${isLast ? 'lg:col-span-3' : ''}`}
-              >
-                <div
-                  className={`grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 ${isLast ? 'lg:mx-auto lg:max-w-4xl' : ''}`}
+                <li
+                  key={item.title}
+                  className={`group rounded-lg border border-border/70 bg-panel/20 px-4 py-4 transition-colors hover:border-border-strong hover:bg-panel/35 md:px-5 md:py-5 ${isLast ? 'lg:col-span-3' : ''}`}
                 >
-                  <span
-                    className="row-span-2 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand/15 text-xs font-bold tabular-nums text-brand md:h-8 md:w-8 md:text-sm"
-                    aria-hidden
+                  <div
+                    className={`grid grid-cols-[auto_1fr] gap-x-3 gap-y-1.5 ${isLast ? 'lg:mx-auto lg:max-w-4xl' : ''}`}
                   >
-                    {index + 1}
-                  </span>
-                  <h3 className="min-w-0 text-base font-semibold leading-snug text-heading md:text-lg">
-                    {item.title}
-                  </h3>
-                  <p className="min-w-0 text-sm leading-relaxed text-muted md:text-base md:leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
-              </li>
+                    <span
+                      className="row-span-2 mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand/15 text-xs font-bold tabular-nums text-brand md:h-8 md:w-8 md:text-sm"
+                      aria-hidden
+                    >
+                      {index + 1}
+                    </span>
+                    <h3 className="min-w-0 text-base font-semibold leading-snug text-heading md:text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="min-w-0 text-sm leading-relaxed text-muted md:text-base md:leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                </li>
               )
             })}
           </ul>
