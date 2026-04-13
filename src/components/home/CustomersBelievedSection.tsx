@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { CUSTOMERS_MARQUEE, type CustomerMarqueeEntry } from '../../data/customers'
 
 function usePrefersReducedMotion() {
@@ -77,21 +77,145 @@ function CustomerLogoSlot({
   )
 }
 
-function MarqueeTicker({ durationSec }: { durationSec: number }) {
+function wrapOffset(x: number, w: number): number {
+  if (w <= 0) return x
+  let o = x
+  while (o >= w) o -= w
+  while (o < 0) o += w
+  return o
+}
+
+/**
+ * Auto-advances like a marquee when idle; click-drag or swipe moves the strip (infinite wrap on one duplicated loop).
+ */
+function InteractiveMarquee({ durationSec }: { durationSec: number }) {
+  const trackRef = useRef<HTMLDivElement>(null)
+  const loopWRef = useRef(0)
+  const offsetRef = useRef(0)
+  const draggingRef = useRef(false)
+  const hoverRef = useRef(false)
+  const dragLastXRef = useRef(0)
+  const lastTickRef = useRef<number | null>(null)
+  const rafRef = useRef(0)
+  const [grabbing, setGrabbing] = useState(false)
+
+  const applyTransform = useCallback(() => {
+    const t = trackRef.current
+    const w = loopWRef.current
+    if (!t) return
+    offsetRef.current = wrapOffset(offsetRef.current, w)
+    t.style.transform = `translate3d(${-offsetRef.current}px,0,0)`
+  }, [])
+
+  const measureLoop = useCallback(() => {
+    const t = trackRef.current
+    if (t && t.scrollWidth > 0) {
+      loopWRef.current = t.scrollWidth / 2
+      applyTransform()
+    }
+  }, [applyTransform])
+
+  useLayoutEffect(() => {
+    measureLoop()
+    const el = trackRef.current
+    if (!el) return
+    const ro = new ResizeObserver(() => measureLoop())
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [measureLoop])
+
+  useEffect(() => {
+    const tick = (ts: number) => {
+      rafRef.current = requestAnimationFrame(tick)
+      const w = loopWRef.current
+      if (w <= 0) {
+        lastTickRef.current = ts
+        return
+      }
+
+      if (!draggingRef.current && !hoverRef.current) {
+        if (lastTickRef.current != null) {
+          const dt = Math.min(ts - lastTickRef.current, 80)
+          const pxPerSec = w / durationSec
+          offsetRef.current += (pxPerSec * dt) / 1000
+          applyTransform()
+        }
+      }
+      lastTickRef.current = ts
+    }
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [durationSec, applyTransform])
+
+  const endDrag = useCallback(
+    (e: React.PointerEvent<HTMLDivElement>) => {
+      if (!draggingRef.current) return
+      draggingRef.current = false
+      setGrabbing(false)
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId)
+      } catch {
+        /* already released */
+      }
+      lastTickRef.current = null
+    },
+    [],
+  )
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return
+    e.preventDefault()
+    e.currentTarget.setPointerCapture(e.pointerId)
+    draggingRef.current = true
+    setGrabbing(true)
+    lastTickRef.current = null
+    dragLastXRef.current = e.clientX
+  }
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!draggingRef.current) return
+    const dx = e.clientX - dragLastXRef.current
+    dragLastXRef.current = e.clientX
+    offsetRef.current -= dx
+    applyTransform()
+  }
+
   const loop = [...CUSTOMERS_MARQUEE, ...CUSTOMERS_MARQUEE]
 
   return (
     <div
       className="customers-marquee-fade customers-marquee-row-outer overflow-hidden py-5 md:py-6"
       role="presentation"
+      onMouseEnter={() => {
+        hoverRef.current = true
+      }}
+      onMouseLeave={() => {
+        hoverRef.current = false
+        lastTickRef.current = null
+      }}
     >
       <div
-        className="customers-marquee-track items-center gap-10 md:gap-14 lg:gap-16"
-        style={{ animationDuration: `${durationSec}s` }}
+        className={`select-none ${grabbing ? 'cursor-grabbing' : 'cursor-grab'}`}
+        style={{ touchAction: 'pan-y' }}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+        onLostPointerCapture={() => {
+          draggingRef.current = false
+          setGrabbing(false)
+          lastTickRef.current = null
+        }}
       >
-        {loop.map((c, i) => (
-          <CustomerLogoSlot key={`${c.id}-${i}`} customer={c} variant="marquee" />
-        ))}
+        <div
+          ref={trackRef}
+          className="flex w-max items-center gap-10 will-change-transform md:gap-14 lg:gap-16"
+          aria-hidden
+        >
+          {loop.map((c, i) => (
+            <CustomerLogoSlot key={`${c.id}-${i}`} customer={c} variant="marquee" />
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -136,9 +260,10 @@ export function CustomersBelievedSection() {
           ) : (
             <>
               <p className="sr-only">
-                Scrolling strip of partner and customer organization logos; pauses when hovered.
+                Partner logos scroll automatically; drag or swipe horizontally to move the strip. Motion pauses when the
+                pointer rests over the strip.
               </p>
-              <MarqueeTicker durationSec={52} />
+              <InteractiveMarquee durationSec={52} />
             </>
           )}
         </div>
