@@ -106,13 +106,17 @@ export function HomePage() {
             className={`grid gap-10 lg:items-start ${OFFSEC_PORTAL_SLIDES.length > 0 ? 'lg:grid-cols-2' : ''}`}
           >
             <div>
-              <h2 id="portal-heading" className="mb-3 text-2xl font-medium text-heading md:text-3xl">
-                {OFFSEC_PORTAL.title}
+              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
+                {OFFSEC_PORTAL.eyebrow}
+              </p>
+              <h2
+                id="portal-heading"
+                className="heading-scale-hero mb-5 max-w-3xl text-pretty text-left"
+              >
+                {OFFSEC_PORTAL.headline}
               </h2>
-              <p className="mb-6 text-lg text-brand">{OFFSEC_PORTAL.subtitle}</p>
-              <p className="mb-8 text-sm leading-relaxed text-muted lg:mb-0">
-                The OffSec Management Portal is the coordination layer across testers, tooling, and reporting. It is
-                how Technieum sustains daily transparency without burying teams in email threads.
+              <p className="mb-8 max-w-3xl text-pretty text-sm leading-relaxed text-muted md:text-base lg:mb-0">
+                {OFFSEC_PORTAL.body}
               </p>
               <ul className="m-0 mt-8 space-y-4 p-0 list-none lg:mt-10">
                 {OFFSEC_PORTAL.bullets.map((b) => (

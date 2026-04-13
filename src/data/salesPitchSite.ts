@@ -71,7 +71,16 @@ export const HOME_TOIP = {
 
 export const OFFSEC_PORTAL = {
   title: 'OffSec Management Portal',
-  subtitle: 'Central command for multi-stream testing',
+  /** One-line label for compact blocks on service program pages */
+  tagline: 'Central command for multi-stream testing',
+  /** Home section: eyebrow (reference-style category line) */
+  eyebrow: 'An offensive security Engine',
+  /** Home section: primary headline (platform + what it combines + who operates it) */
+  headline:
+    'Technieum OffSec Management Portal',
+  /** Home section: outcome paragraph (reference-style "Together, they..." line) */
+  body:
+    'Together, they keep validated findings visible, scoring consistent, and remediation traceable so you close exploitable gaps before they spread across email threads and ad-hoc reports.',
   bullets: [
     'Unifies every delivery stream: shared intelligence, consistent scoring, and one operational picture.',
     'Multi-tester collaboration with role-appropriate views and workflow.',

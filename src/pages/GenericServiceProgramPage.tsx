@@ -96,7 +96,7 @@ export function GenericServiceProgramPage({ config }: Props) {
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
               <h2 className="mb-3 text-xl font-semibold text-heading md:text-2xl">{OFFSEC_PORTAL.title}</h2>
-              <p className="mb-5 text-sm font-medium text-zinc-300">{OFFSEC_PORTAL.subtitle}</p>
+              <p className="mb-5 text-sm font-medium text-zinc-300">{OFFSEC_PORTAL.tagline}</p>
               <ul className="m-0 flex list-none flex-col gap-3 p-0">
                 {OFFSEC_PORTAL.bullets.map((b) => (
                   <li key={b} className="flex gap-3 text-sm leading-relaxed text-muted">
