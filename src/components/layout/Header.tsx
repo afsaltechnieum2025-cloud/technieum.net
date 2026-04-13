@@ -368,10 +368,9 @@ export function Header() {
             </button>
             <Link
               to="/contact"
-              className="btn-brand-lively inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-4 py-2 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.98] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm md:px-6"
+              className="btn-brand-lively hidden min-h-11 cursor-pointer items-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-4 py-2 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft active:scale-[0.98] sm:gap-2 sm:px-5 sm:py-2.5 sm:text-sm md:px-6 lg:inline-flex"
             >
-              <span className="max-[380px]:sr-only">Contact us</span>
-              <span className="hidden max-[380px]:inline">Contact</span>
+              <span>Contact us</span>
               <ArrowRight />
             </Link>
           </div>
