@@ -11,10 +11,10 @@ export function ContactPage() {
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_min(36%,320px)] lg:gap-16 xl:grid-cols-[1.05fr_340px]">
             <div className="max-w-2xl">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{CONTACT_PAGE.eyebrow}</p>
-              <h1 className="mb-4 text-2xl font-medium leading-snug tracking-tight text-heading sm:text-3xl md:text-4xl lg:text-[2.35rem] lg:leading-tight">
+              <h1 className="heading-scale-hero mb-4 max-w-2xl">
                 {CONTACT_PAGE.headline}
               </h1>
-              <p className="mb-3 text-base font-medium leading-relaxed text-zinc-200 md:text-lg">{CONTACT_PAGE.lead}</p>
+              <p className="mb-3 text-sm font-medium leading-relaxed text-zinc-200 md:text-base">{CONTACT_PAGE.lead}</p>
               <p className="mb-2 text-sm leading-relaxed text-muted md:text-base">{CONTACT_PAGE.subLead}</p>
               <p className="mb-8 text-xs font-medium text-brand/90 md:text-sm">{CONTACT_PAGE.responseLine}</p>
               <div className="flex flex-wrap gap-3">
@@ -40,7 +40,7 @@ export function ContactPage() {
 
       <section className="section-zz-b py-14 md:py-20" aria-labelledby="contact-why-heading">
         <div className="container max-w-5xl">
-          <h2 id="contact-why-heading" className="mb-2 text-xl font-medium text-heading md:text-2xl">
+          <h2 id="contact-why-heading" className="mb-2 text-lg font-medium text-heading md:text-xl">
             What you can expect
           </h2>
           <p className="mb-10 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
@@ -59,7 +59,7 @@ export function ContactPage() {
                 >
                   {i + 1}
                 </span>
-                <h3 className="mb-2 text-base font-semibold text-heading">{p.title}</h3>
+                <h3 className="mb-2 text-sm font-semibold text-heading">{p.title}</h3>
                 <p className="m-0 text-sm leading-relaxed text-muted">{p.body}</p>
               </li>
             ))}
@@ -69,7 +69,7 @@ export function ContactPage() {
 
       <section className="section-zz-a bg-bg-inset py-14 md:py-20" aria-labelledby="contact-direct-heading">
         <div className="container max-w-5xl">
-          <h2 id="contact-direct-heading" className="mb-2 text-xl font-medium text-heading md:text-2xl">
+          <h2 id="contact-direct-heading" className="mb-2 text-lg font-medium text-heading md:text-xl">
             Reach the right desk
           </h2>
           <p className="mb-10 max-w-2xl text-sm text-muted md:text-base">
@@ -77,8 +77,8 @@ export function ContactPage() {
           </p>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="card-hover-glow rounded-xl border border-border bg-panel/30 p-8 md:p-9">
-              <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.14em] text-brand">{CONTACT_SALES.offensive.role}</p>
-              <p className="mb-5 text-lg font-semibold text-heading">{CONTACT_SALES.offensive.name}</p>
+              <p className="mb-1 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-brand">{CONTACT_SALES.offensive.role}</p>
+              <p className="mb-5 text-base font-semibold text-heading">{CONTACT_SALES.offensive.name}</p>
               <p className="mb-2 text-sm">
                 <a
                   href={`mailto:${CONTACT_SALES.offensive.email}`}
@@ -97,8 +97,8 @@ export function ContactPage() {
               </p>
             </div>
             <div className="card-hover-glow rounded-xl border border-border bg-panel/30 p-8 md:p-9">
-              <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.14em] text-brand">{CONTACT_SALES.commercial.role}</p>
-              <p className="mb-5 text-lg font-semibold text-heading">{CONTACT_SALES.commercial.name}</p>
+              <p className="mb-1 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-brand">{CONTACT_SALES.commercial.role}</p>
+              <p className="mb-5 text-base font-semibold text-heading">{CONTACT_SALES.commercial.name}</p>
               <p className="mb-2 text-sm">
                 <a
                   href={`mailto:${CONTACT_SALES.commercial.email}`}

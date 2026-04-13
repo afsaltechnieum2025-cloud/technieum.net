@@ -66,10 +66,10 @@ function Node({
     <div
       className={`min-w-0 flex-1 rounded-md border px-1.5 py-1.5 text-center ${tones[tone]} ${pulseCls}`}
     >
-      <p className="text-[10px] font-semibold leading-[1.2] text-heading">{title}</p>
+      <p className="text-[0.625rem] font-semibold leading-[1.2] text-heading">{title}</p>
       {sub ? (
         <p
-          className={`mt-0.5 text-[9px] leading-[1.25] ${tone === 'success' ? 'text-emerald-200/75' : 'text-muted'}`}
+          className={`mt-0.5 text-[0.5625rem] leading-[1.25] ${tone === 'success' ? 'text-emerald-200/75' : 'text-muted'}`}
         >
           {sub}
         </p>
@@ -81,7 +81,7 @@ function Node({
 function Lane({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="w-full min-w-0">
-      <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-brand md:text-[10px]">{label}</p>
+      <p className="mb-1 text-[0.5625rem] font-bold uppercase tracking-[0.14em] text-brand md:text-[0.625rem]">{label}</p>
       <div className="flex items-stretch">{children}</div>
     </div>
   )
@@ -150,10 +150,10 @@ export function OffensiveWorkflowVisual() {
       </div>
 
       <div className="mt-3 rounded-lg border border-brand/35 bg-[color-mix(in_oklab,var(--color-brand)_10%,black)] px-3 py-2.5 text-center md:mt-4">
-        <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand md:text-[11px]">
+        <p className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
           OffSec Management Portal
         </p>
-        <p className="mt-1 text-[9px] leading-snug text-muted md:text-[10px]">
+        <p className="mt-1 text-[0.5625rem] leading-snug text-muted md:text-[0.625rem]">
           Centralized tracking, live client dashboards, findings management, retest workflow
         </p>
       </div>

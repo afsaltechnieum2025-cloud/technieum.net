@@ -16,7 +16,7 @@ export function ServicesPage() {
 
             <div className="order-1 text-left lg:order-2">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">Services</p>
-              <h1 className="mb-4 max-w-2xl text-2xl font-medium leading-snug tracking-tight text-heading sm:text-3xl lg:text-4xl">
+              <h1 className="heading-scale-hero mb-4 max-w-2xl">
                 Technieum offensive security offerings
               </h1>
               <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
@@ -49,11 +49,11 @@ export function ServicesPage() {
           <div className="mb-6 md:mb-8">
             <h2
               id="service-topics-heading"
-              className="mb-2 text-2xl font-semibold tracking-tight text-heading md:text-3xl"
+              className="mb-2 text-xl font-semibold tracking-tight text-heading md:text-2xl"
             >
               Technieum services
             </h2>
-            <p className="mb-3 max-w-3xl text-base font-medium leading-snug text-zinc-200 md:text-lg">
+            <p className="mb-3 max-w-3xl text-sm font-medium leading-snug text-zinc-200 md:text-base">
               Offensive coverage from master programs through cloud, AI, OT, simulations, consulting, and WFH: one catalog,
               one delivery standard, sheets you can hand to risk and procurement.
             </p>
@@ -75,8 +75,8 @@ export function ServicesPage() {
                   key={row.k}
                   className={`min-w-0 sm:px-4 ${i === 0 ? 'sm:pl-0' : ''} ${i === 2 ? 'sm:pr-0' : ''}`}
                 >
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-brand">{row.k}</p>
-                  <p className="m-0 text-xs leading-snug text-zinc-400 md:text-[13px]">{row.v}</p>
+                  <p className="mb-1 text-[0.625rem] font-bold uppercase tracking-[0.12em] text-brand">{row.k}</p>
+                  <p className="m-0 text-xs leading-snug text-zinc-400 md:text-[0.8125rem]">{row.v}</p>
                 </div>
               ))}
             </div>
@@ -96,18 +96,18 @@ export function ServicesPage() {
                   />
                   <div className="services-category-card-inner flex h-full min-h-[11.5rem] flex-col pl-3.5 pr-4 pb-4 pt-4 md:min-h-[12rem] md:pl-4 md:pr-5 md:pb-4 md:pt-4">
                     <div className="mb-2 flex items-center justify-between gap-2">
-                      <span className="font-mono text-[10px] font-semibold tabular-nums tracking-widest text-brand/85 md:text-[11px]">
+                      <span className="font-mono text-[0.625rem] font-semibold tabular-nums tracking-widest text-brand/85 md:text-[0.6875rem]">
                         {n}
                       </span>
-                      <span className="rounded-full border border-border/80 bg-black/30 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-muted">
+                      <span className="rounded-full border border-border/80 bg-black/30 px-2 py-0.5 text-[0.5625rem] font-semibold uppercase tracking-wider text-muted">
                         {topic.detailPath ? 'Program hub' : 'Datasheet'}
                       </span>
                     </div>
-                    <h3 className="mb-1.5 text-[15px] font-bold leading-snug tracking-tight text-heading transition-colors group-hover:text-brand md:text-base">
+                    <h3 className="mb-1.5 text-[0.9375rem] font-bold leading-snug tracking-tight text-heading transition-colors group-hover:text-brand md:text-base">
                       {topic.title}
                     </h3>
-                    <p className="mb-0 flex-1 text-[13px] leading-snug text-muted md:text-sm">{topic.summary}</p>
-                    <div className="mt-3 flex items-center gap-1.5 border-t border-border/50 pt-2.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-brand/90 transition-transform duration-200 group-hover:translate-x-0.5 md:text-xs">
+                    <p className="mb-0 flex-1 text-[0.8125rem] leading-snug text-muted md:text-sm">{topic.summary}</p>
+                    <div className="mt-3 flex items-center gap-1.5 border-t border-border/50 pt-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-brand/90 transition-transform duration-200 group-hover:translate-x-0.5 md:text-xs">
                       <span>{topic.detailPath ? 'Open hub' : 'Scope pack'}</span>
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
                         <path
@@ -152,7 +152,7 @@ export function ServicesPage() {
 
       <section className="section-zz-a py-14 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-4 max-w-3xl text-2xl font-medium leading-snug tracking-tight text-heading md:text-3xl">
+          <h2 className="mb-4 max-w-3xl text-xl font-medium leading-snug tracking-tight text-heading md:text-2xl">
             {STANDARDS_SHOWCASE.title}
           </h2>
           <p className="mb-10 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{STANDARDS_SHOWCASE.lead}</p>
@@ -166,7 +166,7 @@ export function ServicesPage() {
               <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
                 {STANDARDS_SHOWCASE.frameworks.map((item) => (
                   <li key={item}>
-                    <span className="inline-flex items-center rounded-full border border-border/80 bg-panel/25 px-3.5 py-1.5 text-xs font-medium text-heading md:text-[13px]">
+                    <span className="inline-flex items-center rounded-full border border-border/80 bg-panel/25 px-3.5 py-1.5 text-xs font-medium text-heading md:text-[0.8125rem]">
                       {item}
                     </span>
                   </li>
@@ -181,7 +181,7 @@ export function ServicesPage() {
               <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
                 {STANDARDS_SHOWCASE.teamCerts.map((item) => (
                   <li key={item}>
-                    <span className="inline-flex items-center rounded-full border border-border/80 bg-panel/25 px-3.5 py-1.5 text-xs font-medium text-heading md:text-[13px]">
+                    <span className="inline-flex items-center rounded-full border border-border/80 bg-panel/25 px-3.5 py-1.5 text-xs font-medium text-heading md:text-[0.8125rem]">
                       {item}
                     </span>
                   </li>
@@ -197,7 +197,7 @@ export function ServicesPage() {
       <section className="section-zz-b py-14 md:py-16">
         <div className="container flex flex-col items-start justify-between gap-8 rounded-2xl border border-border bg-panel/20 p-8 md:flex-row md:items-center md:p-10">
           <div>
-            <h2 className="mb-2 text-xl font-medium text-heading">Scope your next program</h2>
+            <h2 className="mb-2 text-lg font-medium text-heading">Scope your next program</h2>
             <p className="m-0 max-w-xl text-sm text-muted">
               Reach {CONTACT_SALES.offensive.name} for technical scoping or {CONTACT_SALES.commercial.name} for
               commercial and alliance questions.

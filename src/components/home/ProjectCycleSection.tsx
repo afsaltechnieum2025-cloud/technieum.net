@@ -183,20 +183,17 @@ export function ProjectCycleSection() {
             role="region"
             aria-label="Project cycle animation"
           >
-            <p className="mb-3 text-center text-[10px] font-bold uppercase tracking-[0.18em] text-brand md:text-[11px]">
+            <p className="mb-3 text-center text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
               {PROJECT_CYCLE.diagramEyebrow}
             </p>
             <ProjectCycleDiagram activeIndex={activeIndex} motion={motion} />
-            <p className="mx-auto mt-4 max-w-sm text-center text-[11px] leading-relaxed text-muted md:max-w-xs md:text-xs md:leading-relaxed">
-              {PROJECT_CYCLE.diagramCaption}
-            </p>
           </div>
 
           <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center lg:mx-0 lg:max-w-none lg:justify-self-center">
             <header className="mb-6 w-full text-center lg:mb-8">
               <h2
                 id="cycle-heading"
-                className="mb-1.5 text-lg font-medium tracking-tight text-heading md:text-xl"
+                className="mb-1.5 text-base font-medium tracking-tight text-heading md:text-lg"
               >
                 {PROJECT_CYCLE.title}
               </h2>
@@ -220,7 +217,7 @@ export function ProjectCycleSection() {
                   >
                     <div className="grid grid-cols-[auto_1fr] items-start gap-x-2.5 gap-y-0.5">
                       <span
-                        className={`row-span-2 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded text-[9px] font-bold tabular-nums md:h-6 md:w-6 md:text-[10px] ${
+                        className={`row-span-2 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded text-[0.5625rem] font-bold tabular-nums md:h-6 md:w-6 md:text-[0.625rem] ${
                           active
                             ? 'bg-brand text-white'
                             : 'bg-brand/15 text-brand group-hover:bg-brand/25'
@@ -229,10 +226,10 @@ export function ProjectCycleSection() {
                       >
                         {ph.step}
                       </span>
-                      <h3 className="min-w-0 text-left text-[13px] font-semibold leading-snug text-heading md:text-sm">
+                      <h3 className="min-w-0 text-left text-[0.8125rem] font-semibold leading-snug text-heading md:text-sm">
                         {ph.title}
                       </h3>
-                      <p className="min-w-0 text-left text-[10px] leading-relaxed text-muted md:text-[11px] md:leading-snug">
+                      <p className="min-w-0 text-left text-[0.625rem] leading-relaxed text-muted md:text-[0.6875rem] md:leading-snug">
                         {ph.body}
                       </p>
                     </div>

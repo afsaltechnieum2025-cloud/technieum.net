@@ -101,7 +101,7 @@ function ArrowRight() {
 
 function SubNavLink({ item, onClose }: { item: SubItem; onClose: () => void }) {
   const className =
-    'block py-2 text-[15px] font-normal leading-snug no-underline transition-colors duration-150 text-zinc-400 hover:text-brand'
+    'block py-2 text-[0.9375rem] font-normal leading-snug no-underline transition-colors duration-150 text-zinc-400 hover:text-brand'
 
   if (item.href) {
     return (
@@ -147,7 +147,7 @@ function NavDropdown({ item, onClose }: { item: NavItemType; onClose: () => void
         {item.columns.map((col, colIndex) => (
           <div key={col.heading ?? `col-${colIndex}`} className="flex-1 px-5 py-5">
             {col.heading ? (
-              <p className="m-0 mb-4 text-[13px] font-bold uppercase tracking-wider text-zinc-500">
+              <p className="m-0 mb-4 text-[0.8125rem] font-bold uppercase tracking-wider text-zinc-500">
                 {col.heading}
               </p>
             ) : null}
@@ -191,7 +191,7 @@ function NavButton({ item }: { item: NavItemType }) {
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
-        className="flex cursor-pointer items-center gap-2 border-0 bg-transparent px-3 py-2 text-[15px] font-semibold text-zinc-200 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-md"
+        className="flex cursor-pointer items-center gap-2 border-0 bg-transparent px-3 py-2 text-[0.9375rem] font-semibold text-zinc-200 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-md"
       >
         {item.label}
         <ChevronDown open={open} />
@@ -220,7 +220,7 @@ function IconClose() {
 
 function DrawerNavLink({ item, onClose }: { item: SubItem; onClose: () => void }) {
   const className =
-    'block rounded-md py-2.5 pl-1 text-[15px] font-medium leading-snug text-zinc-300 no-underline transition-colors active:bg-white/5 hover:text-brand'
+    'block rounded-md py-2.5 pl-1 text-[0.9375rem] font-medium leading-snug text-zinc-300 no-underline transition-colors active:bg-white/5 hover:text-brand'
 
   if (item.href) {
     return (
@@ -297,11 +297,11 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
         <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4" aria-label="Main navigation">
           {NAV_ITEMS.map((nav) => (
             <div key={nav.label} className="mb-6 border-b border-border/60 pb-6 last:mb-0 last:border-b-0 last:pb-0">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</p>
+              <p className="mb-3 text-[0.6875rem] font-bold uppercase tracking-wider text-zinc-500">{nav.label}</p>
               {nav.columns.map((col, colIndex) => (
                 <div key={col.heading ?? `mcol-${colIndex}`} className={colIndex > 0 ? 'mt-4' : ''}>
                   {col.heading ? (
-                    <p className="mb-2 text-[12px] font-semibold text-zinc-600">{col.heading}</p>
+                    <p className="mb-2 text-[0.75rem] font-semibold text-zinc-600">{col.heading}</p>
                   ) : null}
                   <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
                     {col.items.map((sub) => (
@@ -318,7 +318,7 @@ function MobileNavDrawer({ open, onClose }: { open: boolean; onClose: () => void
             href={SALES_PITCH_PDF}
             download
             onClick={onClose}
-            className="mt-2 block rounded-md border border-border-strong py-3 text-center text-[14px] font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
+            className="mt-2 block rounded-md border border-border-strong py-3 text-center text-[0.875rem] font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand"
           >
             Sales pitch (PDF)
           </a>
@@ -349,7 +349,7 @@ export function Header() {
             <a
               href={SALES_PITCH_PDF}
               download
-              className="px-3 py-2 text-[15px] font-semibold text-zinc-200 no-underline transition-colors hover:text-white"
+              className="px-3 py-2 text-[0.9375rem] font-semibold text-zinc-200 no-underline transition-colors hover:text-white"
             >
               Sales pitch (PDF)
             </a>

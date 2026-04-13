@@ -54,7 +54,8 @@
   html {
     overflow-x: clip;
     overflow-y: scroll;
-    font-size: 100%;
+    /* 14px root: consistent smaller scale site-wide (all rem-based Tailwind type follows this) */
+    font-size: 87.5%;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
@@ -79,11 +80,11 @@
   }
 
   h1 {
-    @apply mt-0 mb-[0.5em] text-[56px] tracking-[-1.68px] max-lg:text-4xl;
+    @apply mt-0 mb-[0.5em] text-[3rem] tracking-tight max-lg:text-3xl;
   }
 
   h2 {
-    @apply mt-0 mb-2 text-2xl leading-[118%] tracking-[-0.24px] max-lg:text-xl;
+    @apply mt-0 mb-2 text-xl leading-[118%] tracking-[-0.02em] max-lg:text-lg;
   }
 
   p {
@@ -116,7 +117,7 @@
   /* Same scale as home hero headline ("360 coverage..."); overrides base h1/h2 font sizes */
   h1.heading-scale-hero,
   h2.heading-scale-hero {
-    @apply font-medium leading-snug tracking-tight text-heading text-2xl sm:text-3xl lg:text-4xl;
+    @apply font-medium leading-snug tracking-tight text-heading text-xl sm:text-2xl lg:text-3xl;
   }
 
   /* --- Subtle brand motion (respect reduced motion below) --- */

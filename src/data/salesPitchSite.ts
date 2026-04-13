@@ -114,8 +114,6 @@ export const PROJECT_CYCLE = {
   intro:
     'Milestone-driven delivery with daily visibility, weekly reviews when you need them, and instant escalation for critical findings. No black-box engagements.',
   diagramEyebrow: 'Animated overview',
-  diagramCaption:
-    'The ring walks through all eight phases in order. Hover this overview or any step card to pause and explore.',
   phases: [
     {
       step: '1',

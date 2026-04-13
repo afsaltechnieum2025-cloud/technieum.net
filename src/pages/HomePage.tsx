@@ -7,12 +7,10 @@ import { HeroCyberVisual } from '../components/home/HeroCyberVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
 import { getOffsecPortalSlides } from '../data/offsecPortalSlides'
 import {
-  CONTACT_SALES,
   HOME_CAPABILITIES_HUB,
   HOME_HERO,
   OFFENSIVE_WORKFLOW,
   OFFSEC_PORTAL,
-  SALES_PITCH_PDF,
   WHY_TECHNIEUM,
 } from '../data/salesPitchSite'
 
@@ -83,7 +81,7 @@ export function HomePage() {
                     >
                       {index + 1}
                     </span>
-                    <h3 className="min-w-0 text-base font-medium leading-snug text-heading md:text-lg">
+                    <h3 className="min-w-0 text-sm font-medium leading-snug text-heading md:text-base">
                       {item.title}
                     </h3>
                     <p className="min-w-0 text-sm leading-relaxed text-muted md:text-base md:leading-relaxed">
@@ -206,36 +204,6 @@ export function HomePage() {
                 <CapabilitiesHubVisual />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section-zz-b bg-bg-inset py-14 md:py-16">
-        <div className="container flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          <div className="max-w-xl">
-            <h2 className="mb-3 text-xl font-medium text-heading md:text-2xl">
-              Ready for milestone-driven offensive security?
-            </h2>
-            <p className="text-sm leading-relaxed text-muted">
-              Contact {CONTACT_SALES.offensive.name} for technical programs or {CONTACT_SALES.commercial.name} for
-              commercial discussions. Download the latest sales pitch for stakeholder circulation.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="btn-brand-lively inline-flex shrink-0 items-center justify-center rounded-full border border-brand bg-brand px-8 py-3 text-sm font-bold tracking-wide text-white no-underline transition-opacity hover:opacity-90"
-            >
-              Contact us
-            </Link>
-            <a
-              href={SALES_PITCH_PDF}
-              download
-              className="inline-flex shrink-0 items-center justify-center rounded-full border border-border-strong px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand"
-            >
-              Download sales pitch
-            </a>
           </div>
         </div>
       </section>

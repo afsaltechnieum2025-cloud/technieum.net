@@ -47,7 +47,7 @@ function CustomerLogoSlot({
     return (
       <div className={slotClass} title={customer.name}>
         <div className={logoPadClass}>
-          <span className="max-w-full px-0.5 text-center text-[10px] font-semibold uppercase leading-tight tracking-wide text-zinc-800 sm:text-[11px]">
+          <span className="max-w-full px-0.5 text-center text-[0.625rem] font-semibold uppercase leading-tight tracking-wide text-zinc-800 sm:text-[0.6875rem]">
             {customer.label}
           </span>
         </div>
@@ -234,7 +234,7 @@ export function CustomersBelievedSection() {
         <div className="mx-auto max-w-3xl text-center">
           <h2
             id="customers-believed-heading"
-            className="mb-4 text-xl font-semibold tracking-tight text-heading sm:text-2xl md:text-3xl md:leading-snug"
+            className="mb-4 text-lg font-semibold tracking-tight text-heading sm:text-xl md:text-2xl md:leading-snug"
           >
             Customers Who Believed In Us
           </h2>

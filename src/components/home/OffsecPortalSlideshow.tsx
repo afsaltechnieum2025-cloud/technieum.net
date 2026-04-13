@@ -88,7 +88,7 @@ export function OffsecPortalSlideshow({
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
             <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
           </span>
-          <span className="flex-1 text-center text-[11px] font-medium tracking-wide text-muted">{chromeTitle}</span>
+          <span className="flex-1 text-center text-[0.6875rem] font-medium tracking-wide text-muted">{chromeTitle}</span>
           <span className="w-14 shrink-0" aria-hidden />
         </div>
 
@@ -145,7 +145,7 @@ export function OffsecPortalSlideshow({
               />
             ))}
           </div>
-          <p className="w-full text-center text-[11px] text-muted md:w-auto md:text-left">
+          <p className="w-full text-center text-[0.6875rem] text-muted md:w-auto md:text-left">
             {index + 1} / {count}
             {!reduceMotion && !paused ? ' (auto-advancing)' : null}
             {paused ? ' (paused)' : null}

@@ -37,10 +37,10 @@ const companyLinks = [
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const linkClass =
-  'block text-[15px] leading-snug text-footer-link no-underline transition-colors duration-150 hover:text-heading'
+  'block text-[0.9375rem] leading-snug text-footer-link no-underline transition-colors duration-150 hover:text-heading'
 
 const sectionTitleClass =
-  'mb-6 text-[18px] font-bold leading-tight tracking-tight text-heading'
+  'mb-6 text-[1.125rem] font-bold leading-tight tracking-tight text-heading'
 
 /** Equal-width columns on large screens; stacks / 2-col grid below lg */
 const footerColClass =

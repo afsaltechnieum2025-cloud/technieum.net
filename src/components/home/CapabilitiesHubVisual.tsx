@@ -213,7 +213,7 @@ export function CapabilitiesHubVisual() {
           <span className="flex h-[3.5rem] w-[3.5rem] items-center justify-center rounded-full border border-zinc-600/90 bg-zinc-950/90 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_0_0_1px_rgb(0_0_0/0.5),0_0_24px_rgb(232_93_4/0.2)] backdrop-blur-sm transition-all duration-200 sm:h-[3.85rem] sm:w-[3.85rem]">
             <HubNodeIcon id={HUB_CENTER.icon} />
           </span>
-          <span className="text-[10px] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:text-[11px]">
+          <span className="text-[0.625rem] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:text-[0.6875rem]">
             {HUB_CENTER.label}
           </span>
         </Link>
@@ -230,7 +230,7 @@ export function CapabilitiesHubVisual() {
               <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full border border-zinc-600/90 bg-zinc-950/85 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_0_0_1px_rgb(0_0_0/0.5)] backdrop-blur-sm transition-all duration-200 sm:h-[3.6rem] sm:w-[3.6rem]">
                 <HubNodeIcon id={node.icon} />
               </span>
-              <span className="text-[10px] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:text-[11px]">
+              <span className="text-[0.625rem] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:text-[0.6875rem]">
                 {node.label}
               </span>
             </Link>
