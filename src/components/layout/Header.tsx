@@ -18,7 +18,7 @@ const NAV_ITEMS: NavItemType[] = [
     label: 'Capabilities',
     columns: [
       {
-        heading: 'Technieum guard platform',
+        heading: 'Technieum Offensive Security platforms',
         items: [
           { label: 'TOIP (OffSec intelligence)', to: productPath('toip') },
           { label: 'Technieum-X (ASM)', to: productPath('asm') },
