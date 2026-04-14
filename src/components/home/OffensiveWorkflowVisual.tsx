@@ -37,6 +37,17 @@ function Arrow({ variant, motion }: { variant: DashVariant; motion: boolean }) {
 
 type NodeTone = 'default' | 'brand' | 'cyan' | 'success'
 
+const nodeHoverByTone: Record<NodeTone, string> = {
+  default:
+    'hover:border-border-strong hover:bg-panel/55 hover:shadow-[0_0_18px_-8px_rgb(255_255_255/0.08)]',
+  brand:
+    'hover:border-brand/90 hover:shadow-[0_0_22px_-6px_rgb(232_93_4/0.4)] hover:bg-[color-mix(in_oklab,var(--color-brand)_18%,transparent)]',
+  cyan:
+    'hover:border-cyan-400/65 hover:shadow-[0_0_24px_-6px_rgb(34_211_238/0.38)] hover:bg-cyan-500/[0.1]',
+  success:
+    'hover:border-emerald-400/55 hover:shadow-[0_0_22px_-6px_rgb(74_222_128/0.28)] hover:bg-emerald-500/[0.1]',
+}
+
 function Node({
   title,
   sub,
@@ -64,7 +75,7 @@ function Node({
       : ''
   return (
     <div
-      className={`min-w-0 flex-1 rounded-md border px-1.5 py-1.5 text-center ${tones[tone]} ${pulseCls}`}
+      className={`min-w-0 flex-1 rounded-md border px-1.5 py-1.5 text-center transition-[transform,box-shadow,border-color,background-color] duration-200 ease-out will-change-transform hover:z-[1] hover:scale-[1.04] motion-reduce:hover:scale-100 ${tones[tone]} ${nodeHoverByTone[tone]} ${pulseCls}`}
     >
       <p className="text-[0.625rem] font-semibold leading-[1.2] text-heading">{title}</p>
       {sub ? (
@@ -78,11 +89,53 @@ function Node({
   )
 }
 
-function Lane({ label, children }: { label: string; children: ReactNode }) {
+function Lane({
+  label,
+  laneNum,
+  children,
+}: {
+  label: string
+  laneNum: string
+  children: ReactNode
+}) {
   return (
     <div className="w-full min-w-0">
-      <p className="mb-1 text-[0.5625rem] font-bold uppercase tracking-[0.14em] text-brand md:text-[0.625rem]">{label}</p>
+      <p className="mb-1 flex items-baseline gap-1.5 text-[0.5625rem] font-bold uppercase tracking-[0.14em] text-brand md:text-[0.625rem]">
+        <span className="font-mono text-[0.5625rem] font-bold tabular-nums text-brand/55 md:text-[0.625rem]">
+          {laneNum}
+        </span>
+        <span>{label}</span>
+      </p>
       <div className="flex items-stretch">{children}</div>
+    </div>
+  )
+}
+
+function LaneRow({
+  index,
+  motion,
+  focusedLane,
+  onFocus,
+  children,
+}: {
+  index: number
+  motion: boolean
+  focusedLane: number | null
+  onFocus: (i: number) => void
+  children: ReactNode
+}) {
+  const dimmed = focusedLane !== null && focusedLane !== index
+  return (
+    <div
+      className={`offensive-workflow-lane-row transition-opacity duration-300 ease-out ${dimmed ? 'opacity-[0.38]' : 'opacity-100'}`}
+      onPointerEnter={() => onFocus(index)}
+    >
+      <div
+        className={motion ? 'offensive-workflow-lane-enter' : undefined}
+        style={motion ? { animationDelay: `${index * 85}ms` } : undefined}
+      >
+        {children}
+      </div>
     </div>
   )
 }
@@ -90,72 +143,116 @@ function Lane({ label, children }: { label: string; children: ReactNode }) {
 /** Animated workflow lanes (GIF-like motion, theme colors). */
 export function OffensiveWorkflowVisual() {
   const motion = !useReducedMotion()
+  const [focusedLane, setFocusedLane] = useState<number | null>(null)
 
   return (
-    <div
-      className="rounded-xl border border-border-strong/60 bg-[color-mix(in_oklab,var(--color-panel)_88%,black)] p-3 shadow-md md:p-4"
-      role="img"
-      aria-label="Diagram: five offensive workstreams from intel and scanning through ToIP and tooling into validated findings, above the OffSec Management Portal."
-    >
-      <div className="space-y-2.5 md:space-y-3">
-        <Lane label="Business logic">
-          <Node title="Source code" sub="SAST intel" tone="default" motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="Logic extraction" sub="Auth / txn" tone="default" motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="ToIP" sub="15k+ reports, RAG search" tone="brand" pulse motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="Playbooks" sub="Target-specific" tone="default" motion={motion} />
-          <Arrow variant="success" motion={motion} />
-          <Node title="Validated" sub="Manual + auto" tone="success" motion={motion} />
-        </Lane>
+    <div className="offensive-workflow-stage rounded-2xl p-px shadow-[0_0_48px_-16px_rgb(232_93_4/0.35)] md:shadow-[0_0_64px_-18px_rgb(232_93_4/0.38)]">
+      <div
+        className={`offensive-workflow-stage__inner relative overflow-hidden rounded-[calc(1rem-1px)] border border-border-strong/50 bg-[color-mix(in_oklab,var(--color-panel)_88%,black)] p-3 shadow-inner md:p-4 ${motion ? 'offensive-workflow-stage__inner--ambient' : ''}`}
+        role="img"
+        aria-label="Diagram: five offensive workstreams from intel and scanning through ToIP and tooling into validated findings, above the OffSec Management Portal."
+        onPointerLeave={() => setFocusedLane(null)}
+      >
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.45] offensive-workflow-stage__grid"
+          aria-hidden
+        />
 
-        <Lane label="SAST validation">
-          <Node title="SAST findings" sub="SQLi, XSS, etc." tone="default" motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="ToIP" sub="Shared intel" tone="brand" pulse motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="Playbooks" sub="Exploit-matched" tone="default" motion={motion} />
-          <Arrow variant="success" motion={motion} />
-          <Node title="Validated" sub="Manual + auto" tone="success" motion={motion} />
-        </Lane>
+        <div className="relative space-y-2.5 md:space-y-3">
+          <LaneRow
+            index={0}
+            motion={motion}
+            focusedLane={focusedLane}
+            onFocus={setFocusedLane}
+          >
+            <Lane label="Business logic" laneNum="01">
+                <Node title="Source code" sub="SAST intel" tone="default" motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="Logic extraction" sub="Auth / txn" tone="default" motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="ToIP" sub="15k+ reports, RAG search" tone="brand" pulse motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="Playbooks" sub="Target-specific" tone="default" motion={motion} />
+                <Arrow variant="success" motion={motion} />
+                <Node title="Validated" sub="Manual + auto" tone="success" motion={motion} />
+              </Lane>
+          </LaneRow>
 
-        <Lane label="Attack surface intel">
-          <Node title="ASM intel" sub="Subs / APIs" tone="default" motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="ToIP" sub="Shared intel" tone="brand" pulse motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="Playbooks" sub="Surface-specific" tone="default" motion={motion} />
-          <Arrow variant="success" motion={motion} />
-          <Node title="Validated" sub="Manual + auto" tone="success" motion={motion} />
-        </Lane>
+          <LaneRow
+            index={1}
+            motion={motion}
+            focusedLane={focusedLane}
+            onFocus={setFocusedLane}
+          >
+            <Lane label="SAST validation" laneNum="02">
+                <Node title="SAST findings" sub="SQLi, XSS, etc." tone="default" motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="ToIP" sub="Shared intel" tone="brand" pulse motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="Playbooks" sub="Exploit-matched" tone="default" motion={motion} />
+                <Arrow variant="success" motion={motion} />
+                <Node title="Validated" sub="Manual + auto" tone="success" motion={motion} />
+              </Lane>
+          </LaneRow>
 
-        <Lane label="Tech stack scan">
-          <Node title="Tech stack" sub="ASM / SAST out" tone="default" motion={motion} />
-          <Arrow variant="cyan" motion={motion} />
-          <Node title="Nuclei" sub="Curated templates" tone="cyan" pulse motion={motion} />
-          <Arrow variant="success" motion={motion} />
-          <Node title="Findings" sub="Validated" tone="success" motion={motion} />
-        </Lane>
+          <LaneRow
+            index={2}
+            motion={motion}
+            focusedLane={focusedLane}
+            onFocus={setFocusedLane}
+          >
+            <Lane label="Attack surface intel" laneNum="03">
+                <Node title="ASM intel" sub="Subs / APIs" tone="default" motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="ToIP" sub="Shared intel" tone="brand" pulse motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="Playbooks" sub="Surface-specific" tone="default" motion={motion} />
+                <Arrow variant="success" motion={motion} />
+                <Node title="Validated" sub="Manual + auto" tone="success" motion={motion} />
+              </Lane>
+          </LaneRow>
 
-        <Lane label="AI / LLM security">
-          <Node title="Endpoints" sub="LLM APIs" tone="default" motion={motion} />
-          <Arrow variant="brand" motion={motion} />
-          <Node title="LLM Attack Suite" sub="1005+ prompts" tone="brand" pulse motion={motion} />
-          <Arrow variant="muted" motion={motion} />
-          <Node title="Prompt testing" sub="Exhaustive" tone="default" motion={motion} />
-          <Arrow variant="success" motion={motion} />
-          <Node title="Escalation" sub="Until bypass" tone="success" motion={motion} />
-        </Lane>
-      </div>
+          <LaneRow
+            index={3}
+            motion={motion}
+            focusedLane={focusedLane}
+            onFocus={setFocusedLane}
+          >
+            <Lane label="Tech stack scan" laneNum="04">
+                <Node title="Tech stack" sub="ASM / SAST out" tone="default" motion={motion} />
+                <Arrow variant="cyan" motion={motion} />
+                <Node title="Nuclei" sub="Curated templates" tone="cyan" pulse motion={motion} />
+                <Arrow variant="success" motion={motion} />
+                <Node title="Findings" sub="Validated" tone="success" motion={motion} />
+              </Lane>
+          </LaneRow>
 
-      <div className="mt-3 rounded-lg border border-brand/35 bg-[color-mix(in_oklab,var(--color-brand)_10%,black)] px-3 py-2.5 text-center md:mt-4">
-        <p className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
-          OffSec Management Portal
-        </p>
-        <p className="mt-1 text-[0.5625rem] leading-snug text-muted md:text-[0.625rem]">
-          Centralized tracking, live client dashboards, findings management, retest workflow
-        </p>
+          <LaneRow
+            index={4}
+            motion={motion}
+            focusedLane={focusedLane}
+            onFocus={setFocusedLane}
+          >
+            <Lane label="AI / LLM security" laneNum="05">
+                <Node title="Endpoints" sub="LLM APIs" tone="default" motion={motion} />
+                <Arrow variant="brand" motion={motion} />
+                <Node title="LLM Attack Suite" sub="1005+ prompts" tone="brand" pulse motion={motion} />
+                <Arrow variant="muted" motion={motion} />
+                <Node title="Prompt testing" sub="Exhaustive" tone="default" motion={motion} />
+                <Arrow variant="success" motion={motion} />
+                <Node title="Escalation" sub="Until bypass" tone="success" motion={motion} />
+              </Lane>
+          </LaneRow>
+        </div>
+
+        <div className="offensive-workflow-portal relative mt-3 rounded-lg border border-brand/40 bg-[color-mix(in_oklab,var(--color-brand)_12%,black)] px-3 py-2.5 text-center md:mt-4">
+          <p className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
+            OffSec Management Portal
+          </p>
+          <p className="mt-1 text-[0.5625rem] leading-snug text-muted md:text-[0.625rem]">
+            Centralized tracking, live client dashboards, findings management, retest workflow
+          </p>
+        </div>
       </div>
     </div>
   )

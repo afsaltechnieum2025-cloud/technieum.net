@@ -111,6 +111,19 @@ export function HomePage() {
             <p className="m-0 text-pretty text-sm leading-relaxed text-muted md:text-base">
               {OFFENSIVE_WORKFLOW.intro}
             </p>
+            <ul
+              className="mt-6 flex list-none flex-wrap gap-2 p-0 md:mt-7 md:gap-2.5"
+              aria-label="Engine highlights"
+            >
+              {OFFENSIVE_WORKFLOW.highlights.map((text) => (
+                <li
+                  key={text}
+                  className="rounded-full border border-border-strong/55 bg-[color-mix(in_oklab,var(--color-panel)_75%,transparent)] px-3 py-1.5 text-xs font-semibold tracking-tight text-heading shadow-sm backdrop-blur-sm md:px-3.5 md:text-[0.8125rem]"
+                >
+                  {text}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
