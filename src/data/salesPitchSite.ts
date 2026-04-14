@@ -113,11 +113,11 @@ export const OFFENSIVE_WORKFLOW = {
   eyebrow: 'Your All-in-One Continuous Offensive Security Platform',
   meetHeadline: 'Meet the Technieum Offensive Engine',
   intro:
-    'The Technieum Offensive Engine provides unified offensive coverage by combining attack surface management, vulnerability intelligence and AI-augmented testing, continuous penetration streams, breach and adversary simulation, and ToIP-backed exploit intelligence into a single coordinated program with portal-native scoring, reporting, and retest.',
+    'The Technieum Offensive Engine provides unified offensive coverage by combining attack surface management, vulnerability intelligence and AI-augmented testing, continuous penetration streams, breach and adversary simulation, and Technieum OffSec intelligence portal–backed exploit intelligence into a single coordinated program with portal-native scoring, reporting, and retest.',
   /** Short value props under the intro */
   highlights: [
     'Five coordinated workstreams',
-    'Technieum OffSec intelligence portal',
+    'Technieum OffSec intelligence portal–backed exploit intelligence',
     'Validated into one portal',
   ],
 } as const
