@@ -86,6 +86,54 @@ export const HOME_TOIP = {
   ],
 } as const
 
+export const HOME_ASM = {
+  title: 'Technieum-X (external attack surface management)',
+  subtitle: 'Orchestrated recon, intel, and portal-ready reporting',
+  intro:
+    'Technieum-X is how Technieum maps what the internet sees before and during an engagement: phased discovery, DNS and stack intelligence, vulnerability correlation, and threat enrichment that lands in dashboards and the OffSec Management Portal instead of orphaned scan files.',
+  bullets: [
+    '100+ integrated tools sequenced across discovery, analysis, enrichment, and baseline reporting.',
+    'CVE, EPSS, and KEV-aware prioritization beside reputation and abuse signals for defensible triage.',
+    'Webhooks, APIs, and live progress streams so ASM events stay tied to owners, retests, and TOIP context.',
+  ],
+} as const
+
+export const HOME_LLM = {
+  title: 'LLM Attack Suite',
+  subtitle: 'Recursive red-team pressure with evidence in every finding',
+  intro:
+    'The suite runs parallel adversarial streams against your LLM APIs and features: adaptive prompts, streaming telemetry, and literal response fragments in confirmed issues so AppSec and governance teams share one defensible story.',
+  bullets: [
+    '1,005+ curated prompts across ten OWASP LLM-style category lanes with twelve parallel streams.',
+    'Probe-escalate-refine loops guided by live model output, with SSRF-aware validation and early exit on critical severity.',
+    'Exports mapped to OWASP LLM, MITRE ATLAS, and NIST AI RMF; findings flow into the OffSec Management Portal taxonomy.',
+  ],
+} as const
+
+export const HOME_SAST = {
+  title: 'AI SAST + AI SCA',
+  subtitle: 'Multi-engine static analysis with reachability-aware dependency risk',
+  intro:
+    'Technieum merges Semgrep, Bandit, Trivy-class scanning, secrets, proprietary rules, and LLM validation with graph taint and a dedicated business-logic agent. AI SCA layers exploitability and reachability on dependencies so the same backlog covers code flaws and the vulnerable packages that actually execute in your paths.',
+  bullets: [
+    'Seven agents, 350+ rules, six scanner families, SARIF 2.1.0 for GitHub Actions and GitLab CI.',
+    '0-100 priority scores across SAST and SCA; CWE mapping and portal-native owners and retests.',
+    'PoC-oriented snippets and plain-language fixes so developers ship remediations instead of reopening static reports.',
+  ],
+} as const
+
+export const HOME_AD = {
+  title: 'AD Suite',
+  subtitle: 'PowerShell-native Active Directory assessment at assessor depth',
+  intro:
+    'AD Suite runs 600+ checks across Kerberos, delegation, tiers, GPO, ADCS, trusts, and hybrid Azure AD with parallel runspaces, ADSI-native evidence, and a weighted domain score. Heatmaps, baselines, and MITRE, CIS, and STIG mappings keep identity risk in the same retest cadence as the rest of your OffSec program.',
+  bullets: [
+    '600+ checks and 20+ categories with raw proof per finding, not anonymous LDAP dumps.',
+    'Air-gapped friendly: no cloud callbacks at runtime; JSON, CSV, and HTML for engineering and audit.',
+    'Attack-path narratives and PowerShell remediation snippets so directory admins close gaps faster.',
+  ],
+} as const
+
 export const OFFSEC_PORTAL = {
   title: 'OffSec Management Portal',
   /** One-line label for compact blocks on service program pages */

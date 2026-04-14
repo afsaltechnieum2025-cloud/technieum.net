@@ -18,7 +18,8 @@ export type ProgramHubConfig = {
   visualNodes: readonly [ProgramHubVisualNode, ProgramHubVisualNode, ProgramHubVisualNode, ProgramHubVisualNode]
 }
 
-const APPLICATION_SECURITY: ProgramHubConfig = {
+/** Used by ApplicationSecurityPage and the generic program hub map. */
+export const applicationSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: web and thick client, API, mobile, and code assurance streams consolidating in the OffSec Management Portal.',
   hero: {
@@ -90,7 +91,8 @@ const APPLICATION_SECURITY: ProgramHubConfig = {
   ],
 }
 
-const CLOUD_SECURITY: ProgramHubConfig = {
+/** Used by CloudSecurityPage and the generic program hub map. */
+export const cloudSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: IAM, workloads, pipeline, and secrets streams consolidating in the OffSec Management Portal.',
   hero: {
@@ -162,7 +164,8 @@ const CLOUD_SECURITY: ProgramHubConfig = {
   ],
 }
 
-const AI_SECURITY: ProgramHubConfig = {
+/** Used by AiSecurityPage and the generic program hub map. */
+export const aiSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: model endpoints, tools and MCP, prompt testing, and governance hooks consolidating in the OffSec Management Portal.',
   hero: {
@@ -234,7 +237,8 @@ const AI_SECURITY: ProgramHubConfig = {
   ],
 }
 
-const THREAT_SIMULATIONS: ProgramHubConfig = {
+/** Used by ThreatSimulationsPage and the generic program hub map. */
+export const threatSimulationsHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: red team, purple team, tabletop, and BAS streams consolidating in the OffSec Management Portal.',
   hero: {
@@ -523,10 +527,10 @@ const WFH_SECURITY: ProgramHubConfig = {
 }
 
 export const GENERIC_PROGRAM_HUB_CONFIGS: Record<string, ProgramHubConfig> = {
-  'technieum-application-security': APPLICATION_SECURITY,
-  'technieum-cloud-security': CLOUD_SECURITY,
-  'technieum-ai-security': AI_SECURITY,
-  'technieum-threat-simulations': THREAT_SIMULATIONS,
+  'technieum-application-security': applicationSecurityHubConfig,
+  'technieum-cloud-security': cloudSecurityHubConfig,
+  'technieum-ai-security': aiSecurityHubConfig,
+  'technieum-threat-simulations': threatSimulationsHubConfig,
   'technieum-ics-ot-security': ICS_OT,
   'technieum-security-consulting': SECURITY_CONSULTING,
   'technieum-wfh-security': WFH_SECURITY,

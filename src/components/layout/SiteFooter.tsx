@@ -19,7 +19,7 @@ const servicesLinks = [
     label: t.title,
     to: serviceTopicNavHref(t),
   })),
-  { label: 'Contact sales', to: '/contact' },
+  // { label: 'Contact sales', to: '/contact' },
 ]
 
 const useCasesLinks = [

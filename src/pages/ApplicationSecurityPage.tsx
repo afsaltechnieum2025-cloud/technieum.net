@@ -1,25 +1,26 @@
 import { Link } from 'react-router-dom'
-import { InfrastructureNetworkVisual } from '../components/infrastructure-network/InfrastructureNetworkVisual'
+import { GenericPipelineVisual } from '../components/program-hub/GenericPipelineVisual'
 import {
-  INFRA_NETWORK_CHALLENGE,
-  INFRA_NETWORK_CTA,
-  INFRA_NETWORK_DELIVERABLE_REPORTS,
-  INFRA_NETWORK_DELIVERABLES_PROGRAM,
-  INFRA_NETWORK_EDGE,
-  INFRA_NETWORK_HERO,
-  INFRA_NETWORK_KEY_BENEFITS,
-  INFRA_NETWORK_METHODOLOGY,
-  INFRA_NETWORK_OUTCOMES,
-  INFRA_NETWORK_PARTNER,
-  INFRA_NETWORK_PDF_HREF,
-  INFRA_NETWORK_PILLARS,
-  INFRA_NETWORK_SERVICE_CATALOG,
-  INFRA_NETWORK_SOLUTION_INTRO,
-  INFRA_NETWORK_STANDARDS,
-} from '../data/infrastructureNetworkPageContent'
+  APP_SEC_CHALLENGE,
+  APP_SEC_CTA,
+  APP_SEC_DELIVERABLE_REPORTS,
+  APP_SEC_DELIVERABLES_PROGRAM_EXTRA,
+  APP_SEC_EDGE,
+  APP_SEC_HERO,
+  APP_SEC_KEY_BENEFITS,
+  APP_SEC_METHODOLOGY,
+  APP_SEC_PARTNER,
+  APP_SEC_PDF_HREF,
+  APP_SEC_SERVICE_CATALOG,
+  APP_SEC_SOLUTION_INTRO,
+  APP_SEC_STANDARDS,
+} from '../data/applicationSecurityPageContent'
+import { applicationSecurityHubConfig } from '../data/programHubRegistry'
 import { OFFSEC_PORTAL, PROJECT_CYCLE, SALES_PITCH_PDF } from '../data/salesPitchSite'
 
-export function InfrastructureNetworkPage() {
+export function ApplicationSecurityPage() {
+  const { visualNodes, visualAriaLabel, pillars, outcomes, deliverables } = applicationSecurityHubConfig
+
   return (
     <main id="main-content" className="flex flex-col bg-page">
       <section className="section-zz-a relative overflow-hidden bg-bg-inset py-14 md:py-20">
@@ -27,10 +28,10 @@ export function InfrastructureNetworkPage() {
         <div className="container relative z-10">
           <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
-              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{INFRA_NETWORK_HERO.eyebrow}</p>
-              <h1 className="heading-scale-hero mb-4 max-w-xl text-pretty">{INFRA_NETWORK_HERO.title}</h1>
-              <p className="mb-3 max-w-xl text-sm font-medium leading-relaxed text-zinc-200 md:text-base">{INFRA_NETWORK_HERO.lead}</p>
-              <p className="mb-8 max-w-xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_HERO.sub}</p>
+              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{APP_SEC_HERO.eyebrow}</p>
+              <h1 className="heading-scale-hero mb-4 max-w-xl text-pretty">{APP_SEC_HERO.title}</h1>
+              <p className="mb-3 max-w-xl text-sm font-medium leading-relaxed text-zinc-200 md:text-base">{APP_SEC_HERO.lead}</p>
+              <p className="mb-8 max-w-xl text-sm leading-relaxed text-muted">{APP_SEC_HERO.sub}</p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/contact"
@@ -39,7 +40,7 @@ export function InfrastructureNetworkPage() {
                   Scope a program
                 </Link>
                 <a
-                  href={INFRA_NETWORK_PDF_HREF}
+                  href={APP_SEC_PDF_HREF}
                   download
                   className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-7 md:text-sm"
                 >
@@ -53,17 +54,17 @@ export function InfrastructureNetworkPage() {
                 </Link>
               </div>
             </div>
-            <InfrastructureNetworkVisual />
+            <GenericPipelineVisual nodes={visualNodes} ariaLabel={visualAriaLabel} />
           </div>
         </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_KEY_BENEFITS.title}</h2>
-          <p className="mb-8 text-sm font-medium text-brand">{INFRA_NETWORK_KEY_BENEFITS.subtitle}</p>
+          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{APP_SEC_KEY_BENEFITS.title}</h2>
+          <p className="mb-8 text-sm font-medium text-brand">{APP_SEC_KEY_BENEFITS.subtitle}</p>
           <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-3">
-            {INFRA_NETWORK_KEY_BENEFITS.items.map((b) => (
+            {APP_SEC_KEY_BENEFITS.items.map((b) => (
               <li
                 key={b.title}
                 className="rounded-xl border border-border bg-panel/30 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
@@ -78,28 +79,28 @@ export function InfrastructureNetworkPage() {
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_CHALLENGE.title}</h2>
-          <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_CHALLENGE.intro}</p>
+          <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{APP_SEC_CHALLENGE.title}</h2>
+          <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted">{APP_SEC_CHALLENGE.intro}</p>
           <ul className="m-0 mb-10 max-w-3xl list-none space-y-3 p-0">
-            {INFRA_NETWORK_CHALLENGE.bullets.map((line) => (
+            {APP_SEC_CHALLENGE.bullets.map((line) => (
               <li key={line} className="flex gap-3 text-sm leading-relaxed text-muted">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
                 <span>{line}</span>
               </li>
             ))}
           </ul>
-          <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_PARTNER.title}</h2>
-          <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_PARTNER.body}</p>
+          <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{APP_SEC_PARTNER.title}</h2>
+          <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted">{APP_SEC_PARTNER.body}</p>
         </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_SOLUTION_INTRO.title}</h2>
-          <p className="mb-2 text-sm font-medium text-brand">{INFRA_NETWORK_SOLUTION_INTRO.subtitle}</p>
-          <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_SOLUTION_INTRO.intro}</p>
+          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{APP_SEC_SOLUTION_INTRO.title}</h2>
+          <p className="mb-2 text-sm font-medium text-brand">{APP_SEC_SOLUTION_INTRO.subtitle}</p>
+          <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted">{APP_SEC_SOLUTION_INTRO.intro}</p>
           <ol className="m-0 flex list-none flex-col gap-4 p-0">
-            {INFRA_NETWORK_SERVICE_CATALOG.map((s) => (
+            {APP_SEC_SERVICE_CATALOG.map((s) => (
               <li
                 key={s.step}
                 className="flex gap-4 rounded-xl border border-border-strong/60 bg-panel/25 p-5 md:gap-5 md:p-6"
@@ -124,11 +125,11 @@ export function InfrastructureNetworkPage() {
         <div className="container max-w-5xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">Coverage pillars</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">
-            Combine lanes to match your estate: external-only, internal assumed-breach, full identity review, or a phased
-            rollout, all under one program desk.
+            Mix and match pillars to your roadmap. Everything rolls into the same delivery standards, portal scoring, and
+            retest discipline as the rest of the Technieum portfolio.
           </p>
           <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
-            {INFRA_NETWORK_PILLARS.map((s) => (
+            {pillars.map((s) => (
               <li
                 key={s.id}
                 className="rounded-xl border border-border bg-panel/30 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
@@ -148,11 +149,11 @@ export function InfrastructureNetworkPage() {
 
       <section className="section-zz-b py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_EDGE.title}</h2>
-          <p className="mb-2 text-sm font-medium text-brand">{INFRA_NETWORK_EDGE.subtitle}</p>
-          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_EDGE.methodologyLead}</p>
+          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{APP_SEC_EDGE.title}</h2>
+          <p className="mb-2 text-sm font-medium text-brand">{APP_SEC_EDGE.subtitle}</p>
+          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{APP_SEC_EDGE.methodologyLead}</p>
           <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
-            {INFRA_NETWORK_EDGE.pillars.map((p) => (
+            {APP_SEC_EDGE.pillars.map((p) => (
               <li key={p.title} className="rounded-xl border border-border bg-panel/30 p-5">
                 <h3 className="mb-2 text-sm font-bold text-heading">{p.title}</h3>
                 <p className="m-0 text-sm leading-relaxed text-muted">{p.body}</p>
@@ -164,11 +165,11 @@ export function InfrastructureNetworkPage() {
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_METHODOLOGY.subtitle}</h2>
-          <p className="mb-2 text-sm font-semibold text-brand">{INFRA_NETWORK_METHODOLOGY.title}</p>
-          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_METHODOLOGY.intro}</p>
+          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{APP_SEC_METHODOLOGY.subtitle}</h2>
+          <p className="mb-2 text-sm font-semibold text-brand">{APP_SEC_METHODOLOGY.title}</p>
+          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{APP_SEC_METHODOLOGY.intro}</p>
           <ol className="m-0 grid list-none gap-3 p-0 lg:grid-cols-5">
-            {INFRA_NETWORK_METHODOLOGY.phases.map((ph) => (
+            {APP_SEC_METHODOLOGY.phases.map((ph) => (
               <li
                 key={ph.step}
                 className="relative rounded-xl border border-border/90 bg-panel/25 p-4 pt-5 md:p-5"
@@ -232,7 +233,7 @@ export function InfrastructureNetworkPage() {
             <div>
               <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">Program outcomes</h2>
               <ul className="m-0 flex list-none flex-col gap-4 p-0">
-                {INFRA_NETWORK_OUTCOMES.map((o) => (
+                {outcomes.map((o) => (
                   <li
                     key={o.title}
                     className="rounded-xl border border-border-strong/60 bg-gradient-to-br from-brand/[0.07] to-transparent p-5"
@@ -249,11 +250,11 @@ export function InfrastructureNetworkPage() {
 
       <section className="section-zz-b py-12 md:py-16">
         <div className="container max-w-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_DELIVERABLE_REPORTS.subtitle}</h2>
-          <p className="mb-2 text-sm font-medium text-brand">{INFRA_NETWORK_DELIVERABLE_REPORTS.title}</p>
-          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_DELIVERABLE_REPORTS.intro}</p>
+          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{APP_SEC_DELIVERABLE_REPORTS.subtitle}</h2>
+          <p className="mb-2 text-sm font-medium text-brand">{APP_SEC_DELIVERABLE_REPORTS.title}</p>
+          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{APP_SEC_DELIVERABLE_REPORTS.intro}</p>
           <ul className="m-0 mb-10 grid list-none gap-4 p-0 sm:grid-cols-2">
-            {INFRA_NETWORK_DELIVERABLE_REPORTS.pdfCore.map((d) => (
+            {APP_SEC_DELIVERABLE_REPORTS.pdfCore.map((d) => (
               <li key={d.title} className="rounded-xl border border-border bg-panel/30 p-5">
                 <p className="mb-2 text-sm font-bold text-heading">{d.title}</p>
                 <p className="m-0 text-sm leading-relaxed text-muted">{d.body}</p>
@@ -262,7 +263,13 @@ export function InfrastructureNetworkPage() {
           </ul>
           <h3 className="mb-4 text-base font-semibold text-heading">Program and portal</h3>
           <ul className="m-0 flex list-none flex-col gap-3 p-0">
-            {INFRA_NETWORK_DELIVERABLES_PROGRAM.map((d) => (
+            {deliverables.map((d) => (
+              <li key={d} className="flex gap-3 text-sm leading-relaxed text-muted md:text-base">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
+                <span>{d}</span>
+              </li>
+            ))}
+            {APP_SEC_DELIVERABLES_PROGRAM_EXTRA.map((d) => (
               <li key={d} className="flex gap-3 text-sm leading-relaxed text-muted md:text-base">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
                 <span>{d}</span>
@@ -274,18 +281,18 @@ export function InfrastructureNetworkPage() {
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
         <div className="container max-w-3xl">
-          <h2 className="mb-4 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_STANDARDS.title}</h2>
-          <p className="mb-6 text-sm leading-relaxed text-muted">{INFRA_NETWORK_STANDARDS.intro}</p>
-          <p className="m-0 text-sm leading-relaxed text-muted">{INFRA_NETWORK_STANDARDS.certifications}</p>
+          <h2 className="mb-4 text-lg font-semibold text-heading md:text-xl">{APP_SEC_STANDARDS.title}</h2>
+          <p className="mb-6 text-sm leading-relaxed text-muted">{APP_SEC_STANDARDS.intro}</p>
+          <p className="m-0 text-sm leading-relaxed text-muted">{APP_SEC_STANDARDS.certifications}</p>
         </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
         <div className="container max-w-3xl">
-          <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_CTA.title}</h2>
-          <p className="mb-6 text-sm leading-relaxed text-muted">{INFRA_NETWORK_CTA.body}</p>
+          <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{APP_SEC_CTA.title}</h2>
+          <p className="mb-6 text-sm leading-relaxed text-muted">{APP_SEC_CTA.body}</p>
           <div className="mb-8 flex flex-wrap gap-3">
-            {INFRA_NETWORK_CTA.contacts.map((c) => (
+            {APP_SEC_CTA.contacts.map((c) => (
               <a
                 key={c.href}
                 href={c.href}
@@ -297,11 +304,11 @@ export function InfrastructureNetworkPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <a
-              href={INFRA_NETWORK_PDF_HREF}
+              href={APP_SEC_PDF_HREF}
               download
               className="inline-flex items-center justify-center rounded-full border border-border-strong px-5 py-2 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:text-sm"
             >
-              Infrastructure network datasheet (PDF)
+              Application security datasheet (PDF)
             </a>
             <a
               href={SALES_PITCH_PDF}

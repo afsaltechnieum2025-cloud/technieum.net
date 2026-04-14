@@ -1,5 +1,9 @@
 import { Navigate, useParams } from 'react-router-dom'
 import { getProgramHubConfig } from '../data/programHubRegistry'
+import { ApplicationSecurityPage } from './ApplicationSecurityPage'
+import { AiSecurityPage } from './AiSecurityPage'
+import { CloudSecurityPage } from './CloudSecurityPage'
+import { ThreatSimulationsPage } from './ThreatSimulationsPage'
 import { GenericServiceProgramPage } from './GenericServiceProgramPage'
 import { InfrastructureNetworkPage } from './InfrastructureNetworkPage'
 import { MasterOffsecPage } from './MasterOffsecPage'
@@ -10,6 +14,10 @@ export function ServiceProgramRouter() {
 
   if (programSlug === 'technieum-master-offsec') return <MasterOffsecPage />
   if (programSlug === 'technieum-infrastructure-network') return <InfrastructureNetworkPage />
+  if (programSlug === 'technieum-application-security') return <ApplicationSecurityPage />
+  if (programSlug === 'technieum-cloud-security') return <CloudSecurityPage />
+  if (programSlug === 'technieum-ai-security') return <AiSecurityPage />
+  if (programSlug === 'technieum-threat-simulations') return <ThreatSimulationsPage />
 
   const config = getProgramHubConfig(programSlug)
   if (!config) return <Navigate to="/services" replace />
