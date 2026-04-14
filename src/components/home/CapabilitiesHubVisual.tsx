@@ -261,7 +261,7 @@ export function CapabilitiesHubVisual() {
         })}
       </div>
 
-      {/* Spokes above node hit-targets so every Portal→capability segment stays visible (was hidden under opaque circles). */}
+      {/* Spokes: paths run outer→hub so flow animation reads as capabilities feeding the Portal. */}
       <svg
         className="pointer-events-none absolute inset-0 z-[15] h-full w-full overflow-visible"
         viewBox="0 0 100 100"
@@ -271,7 +271,7 @@ export function CapabilitiesHubVisual() {
       >
         {HUB_OUTER.map((node, i) => {
           const { x1, y1, x2, y2 } = spokeTrimmedEndpoints(i, n)
-          const d = zigzagSpokeD(x1, y1, x2, y2, HUB_ZIGZAG_AMP)
+          const d = zigzagSpokeD(x2, y2, x1, y1, HUB_ZIGZAG_AMP)
           const pathId = `hub-spoke-zz-${i}`
           return (
             <g key={`spoke-pack-${node.label}`} className="capabilities-hub-spokes">

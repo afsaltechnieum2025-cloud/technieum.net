@@ -508,7 +508,7 @@
   animation: hero-cyber-scan-move 7s ease-in-out infinite;
 }
 
-/* Capabilities hub: “packet” runs along zigzag spoke (pathLength=1 on path) */
+/* Capabilities hub: bright segment runs along spoke toward Portal (path outer→hub, pathLength=1) */
 @keyframes capabilities-hub-spoke-dash-travel {
   to {
     stroke-dashoffset: -1;
