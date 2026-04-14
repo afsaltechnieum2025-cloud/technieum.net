@@ -310,7 +310,7 @@ export const threatSimulationsHubConfig: ProgramHubConfig = {
   ],
 }
 
-const ICS_OT: ProgramHubConfig = {
+export const icsOtSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: safety scope, OT segmentation, protocols, and IT-OT bridge consolidating in the OffSec Management Portal.',
   hero: {
@@ -382,7 +382,7 @@ const ICS_OT: ProgramHubConfig = {
   ],
 }
 
-const SECURITY_CONSULTING: ProgramHubConfig = {
+export const securityConsultingHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: strategy, architecture, program design, and compliance narrative consolidating in the OffSec Management Portal.',
   hero: {
@@ -454,7 +454,7 @@ const SECURITY_CONSULTING: ProgramHubConfig = {
   ],
 }
 
-const WFH_SECURITY: ProgramHubConfig = {
+export const wfhSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: remote identity, endpoints, collaboration, and phishing resilience consolidating in the OffSec Management Portal.',
   hero: {
@@ -531,9 +531,9 @@ export const GENERIC_PROGRAM_HUB_CONFIGS: Record<string, ProgramHubConfig> = {
   'technieum-cloud-security': cloudSecurityHubConfig,
   'technieum-ai-security': aiSecurityHubConfig,
   'technieum-threat-simulations': threatSimulationsHubConfig,
-  'technieum-ics-ot-security': ICS_OT,
-  'technieum-security-consulting': SECURITY_CONSULTING,
-  'technieum-wfh-security': WFH_SECURITY,
+  'technieum-ics-ot-security': icsOtSecurityHubConfig,
+  'technieum-security-consulting': securityConsultingHubConfig,
+  'technieum-wfh-security': wfhSecurityHubConfig,
 }
 
 export function getProgramHubConfig(slug: string): ProgramHubConfig | undefined {
