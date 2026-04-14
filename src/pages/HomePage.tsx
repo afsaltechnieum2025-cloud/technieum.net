@@ -65,7 +65,7 @@ export function HomePage() {
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div className="min-w-0 lg:sticky lg:top-28">
-              <CapabilitiesHubInPortalFrame />
+              <CapabilitiesHubInPortalFrame variant="products" />
             </div>
             <div className="min-w-0">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">

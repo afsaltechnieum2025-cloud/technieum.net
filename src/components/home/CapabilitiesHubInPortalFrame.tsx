@@ -1,10 +1,14 @@
-import { CapabilitiesHubVisual } from './CapabilitiesHubVisual'
+import { CapabilitiesHubVisual, type CapabilitiesHubVariant } from './CapabilitiesHubVisual'
+
+type Props = {
+  /** `services` = Uncover Material Risk hub (8 service lanes). `products` = TOIP / ASM / LLM / SAST / AD (OffSec portal section). */
+  variant?: CapabilitiesHubVariant
+}
 
 /**
- * Same OffSec Management Portal chrome as the lower-page illustration, with the
- * animated capability hub in the main window (replaces the three-column wireframe).
+ * OffSec Management Portal chrome with animated hub inside the window body.
  */
-export function CapabilitiesHubInPortalFrame() {
+export function CapabilitiesHubInPortalFrame({ variant = 'services' }: Props) {
   return (
     <figure className="m-0 w-full">
       <div className="overflow-hidden rounded-xl border border-border-strong bg-[#050505] shadow-[0_20px_50px_-20px_rgba(0,0,0,0.85)]">
@@ -24,15 +28,27 @@ export function CapabilitiesHubInPortalFrame() {
           className="capabilities-hub-portal-chip-bg relative flex min-h-[220px] items-center justify-center px-3 py-5 sm:min-h-[260px] sm:px-5 sm:py-7 md:min-h-[280px]"
           role="presentation"
         >
-          <div className="w-full max-w-[min(100%,440px)]">
-            <CapabilitiesHubVisual />
+          <div
+            className={
+              variant === 'products' ? 'w-full max-w-[min(100%,460px)]' : 'w-full max-w-[min(100%,500px)]'
+            }
+          >
+            <CapabilitiesHubVisual variant={variant} />
           </div>
         </div>
       </div>
-      <figcaption className="sr-only">
-        OffSec Management Portal window showing capability hub: Portal at the center with TOIP, ASM, LLM, SAST, and AD
-        connected by animated spokes.
-      </figcaption>
+      {variant === 'services' ? (
+        <figcaption className="sr-only">
+          OffSec Management Portal window: central Portal with eight service lanes—Infrastructure network, Application
+          security, Cloud security, AI security, Threat simulations, ICS OT Security, Security consulting, and WFH
+          security—linked by animated spokes.
+        </figcaption>
+      ) : (
+        <figcaption className="sr-only">
+          OffSec Management Portal window: central Portal with TOIP, ASM, LLM, SAST, and AD capability nodes linked by
+          animated spokes.
+        </figcaption>
+      )}
     </figure>
   )
 }
