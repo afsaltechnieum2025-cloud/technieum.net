@@ -1,19 +1,15 @@
 import { Fragment, useEffect, useState, type CSSProperties } from 'react'
-import { Link } from 'react-router-dom'
 import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
 import type { ProductDocument } from '../data/productDocuments'
 import {
   ASM_AI,
-  ASM_CLOSING,
   ASM_DATA_MODEL,
   ASM_EXECUTIVE,
   ASM_HERO,
   ASM_INTERACTION,
   ASM_OUTPUTS,
-  ASM_PAGE_META,
   ASM_PIPELINE,
   ASM_SCALE,
-  ASM_TECH_STACK,
   ASM_USE_CASES,
 } from '../data/asmPageContent'
 import { PRODUCT_PITCH_PAGES } from '../data/productPitchPages'
@@ -47,57 +43,84 @@ function revealStyle(index: number, reduce: boolean): CSSProperties | undefined 
 
 function AsmPipeline({ motion }: { motion: boolean }) {
   const phases = ASM_PIPELINE.phases
-  const dashH = motion ? 'toip-pipeline-dash' : 'h-0.5 w-full rounded-full bg-border-strong'
-  const dashV = motion ? 'toip-pipeline-dash--vertical' : 'h-6 w-0.5 rounded-full bg-border-strong'
+  const connH = motion ? 'toip-pipeline-dash' : 'h-0.5 w-full min-w-[2.25rem] rounded-full bg-border-strong'
+  const connV = motion ? 'toip-pipeline-dash--vertical' : 'h-10 w-0.5 shrink-0 rounded-full bg-border-strong'
+
+  const cardSurface =
+    'rounded-xl border border-white/[0.08] bg-gradient-to-br from-[#0c0c0c] via-[color-mix(in_oklab,var(--color-panel)_88%,black)] to-[#050505] shadow-[inset_0_1px_0_rgb(255_255_255/0.06)]'
+
+  const stepBadge =
+    'flex shrink-0 items-center justify-center rounded-full border border-brand/45 bg-gradient-to-br from-brand/28 to-brand/10 text-sm font-bold text-brand shadow-[0_0_22px_-5px_color-mix(in_oklab,var(--color-brand)_42%,transparent)]'
+
+  const desktopCard = (p: (typeof phases)[number], i: number, textLtr?: boolean) => (
+    <div
+      className={`toip-reveal flex min-h-[220px] flex-col ${cardSurface} p-5 md:p-6`}
+      dir={textLtr ? 'ltr' : undefined}
+      style={revealStyle(i, !motion)}
+    >
+      <div className="mb-4 flex flex-col items-center text-center">
+        <span className={`${stepBadge} mb-3 h-11 w-11 text-[0.8125rem]`} aria-hidden>
+          {p.step}
+        </span>
+        <h3 className="m-0 text-sm font-semibold leading-snug text-heading">{p.name}</h3>
+      </div>
+      <p className="m-0 mt-auto text-center text-xs leading-relaxed text-muted">{p.detail}</p>
+    </div>
+  )
+
+  const renderConnH = (ltr?: boolean) => (
+    <div
+      className={`flex w-10 items-center justify-center md:w-11 xl:w-12 ${ltr ? '[direction:ltr]' : ''}`}
+      aria-hidden
+    >
+      <div className={connH} />
+    </div>
+  )
 
   return (
-    <div className="mt-10">
-      <div className="flex flex-col gap-0 lg:hidden">
+    <div className="mt-6 md:mt-7" role="region" aria-label="ASM pipeline from scope to portal-ready output">
+      <div className="flex flex-col gap-0 md:hidden">
         {phases.map((p, i) => (
           <Fragment key={p.step}>
-            <div
-              className="toip-reveal rounded-xl border border-border-strong/70 bg-panel/45 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
-              style={revealStyle(i, !motion)}
-            >
-              <div className="mb-3 flex items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-brand/40 bg-brand/15 text-sm font-bold text-brand">
+            <div className={`toip-reveal ${cardSurface} p-5`} style={revealStyle(i, !motion)}>
+              <div className="mb-3 flex items-start gap-3">
+                <span className={`${stepBadge} h-10 w-10`} aria-hidden>
                   {p.step}
                 </span>
-                <h3 className="m-0 text-base font-semibold text-heading">{p.name}</h3>
+                <div className="min-w-0 flex-1">
+                  <h3 className="m-0 text-base font-semibold leading-snug text-heading">{p.name}</h3>
+                </div>
               </div>
               <p className="m-0 text-sm leading-relaxed text-muted">{p.detail}</p>
             </div>
             {i < phases.length - 1 ? (
-              <div className="flex justify-center py-3" aria-hidden>
-                <div className={dashV} />
+              <div className="flex justify-center py-2.5" aria-hidden>
+                <div className={connV} />
               </div>
             ) : null}
           </Fragment>
         ))}
       </div>
 
-      <div className="hidden lg:flex lg:items-stretch lg:gap-0">
-        {phases.map((p, i) => (
-          <Fragment key={p.step}>
-            <div
-              className="toip-reveal min-w-0 flex-1 rounded-xl border border-border-strong/70 bg-panel/45 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
-              style={revealStyle(i, !motion)}
-            >
-              <div className="mb-3 flex flex-col items-center text-center">
-                <span className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg border border-brand/40 bg-brand/15 text-sm font-bold text-brand">
-                  {p.step}
-                </span>
-                <h3 className="m-0 text-sm font-semibold leading-snug text-heading">{p.name}</h3>
-              </div>
-              <p className="m-0 text-center text-xs leading-relaxed text-muted">{p.detail}</p>
-            </div>
-            {i < phases.length - 1 ? (
-              <div className="flex w-10 shrink-0 items-center justify-center self-center px-1" aria-hidden>
-                <div className={dashH} />
-              </div>
-            ) : null}
-          </Fragment>
-        ))}
+      <div className="hidden md:mx-auto md:mt-0 md:block md:max-w-5xl">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-stretch">
+          {desktopCard(phases[0], 0)}
+          {renderConnH()}
+          {desktopCard(phases[1], 1)}
+
+          <div className="col-span-2 min-h-0" aria-hidden />
+          <div className="flex justify-center py-2.5" aria-hidden>
+            <div className={connV} />
+          </div>
+
+          <div className="col-span-3 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch" dir="rtl">
+            {desktopCard(phases[2], 2, true)}
+            {renderConnH(true)}
+            {desktopCard(phases[3], 3, true)}
+            {renderConnH(true)}
+            {desktopCard(phases[4], 4, true)}
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -113,31 +136,15 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
 
   const screenshotTour =
     productHasScreenshotFolder(doc.id) && slides.length > 0 ? (
-      <section className="section-zz-b py-14 md:py-20" aria-labelledby="asm-screenshots-heading">
+      <section className="section-zz-b py-4 md:py-8" aria-label={chrome.regionAriaLabel}>
         <div className="container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div>
-              <h2 id="asm-screenshots-heading" className="mb-3 text-xl font-medium text-heading md:text-2xl">
-                {HOME_ASM.title}
-              </h2>
-              <p className="mb-6 text-base leading-snug text-brand">{HOME_ASM.subtitle}</p>
-              <p className="mb-8 text-sm leading-relaxed text-muted lg:mb-0">{HOME_ASM.intro}</p>
-              <ul className="m-0 mt-8 list-none space-y-4 p-0 lg:mt-10">
-                {HOME_ASM.bullets.map((b) => (
-                  <li key={b} className="flex gap-3 text-sm text-muted">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" aria-hidden />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:sticky lg:top-28">
-              <OffsecPortalSlideshow
-                slides={slides}
-                chromeTitle={chrome.chromeTitle}
-                regionAriaLabel={chrome.regionAriaLabel}
-              />
-            </div>
+          <div className="mx-auto w-full max-w-md">
+            <OffsecPortalSlideshow
+              slides={slides}
+              chromeTitle={chrome.chromeTitle}
+              regionAriaLabel={chrome.regionAriaLabel}
+              compact
+            />
           </div>
         </div>
       </section>
@@ -195,28 +202,50 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
             <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_EXECUTIVE.title}</h2>
             <p className="mb-10 text-sm leading-relaxed text-muted md:text-base">{ASM_EXECUTIVE.body}</p>
           </div>
-          <h3 className="mb-6 text-center text-sm font-bold uppercase tracking-[0.16em] text-brand lg:text-left">
-            Key differentiators
-          </h3>
-          <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-2">
+          <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row sm:items-end sm:justify-between lg:items-center">
+            <h3 className="m-0 text-center text-xs font-bold uppercase tracking-[0.22em] text-brand sm:text-left md:text-sm">
+              Key differentiators
+            </h3>
+            <div
+              className="h-px w-16 shrink-0 bg-gradient-to-r from-brand/60 to-transparent sm:mx-0 sm:flex-1 sm:translate-y-[-2px] lg:max-w-md"
+              aria-hidden
+            />
+          </div>
+          <ul className="m-0 grid list-none gap-5 p-0 md:grid-cols-2 md:gap-6">
             {ASM_EXECUTIVE.differentiators.map((item, i) => (
               <li
                 key={i}
-                className="toip-reveal card-hover-glow flex gap-4 rounded-xl border border-border bg-panel/35 p-5 md:p-6"
+                className="toip-reveal group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-br from-[#0a0a0a] via-[color-mix(in_oklab,var(--color-panel)_92%,black)] to-[#030303] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.05),0_20px_48px_-28px_rgb(0_0_0/0.75)] transition-[transform,box-shadow,border-color] duration-300 md:p-7 md:pl-8 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_24px_56px_-20px_color-mix(in_oklab,var(--color-brand)_18%,transparent)]"
                 style={revealStyle(i, !motion)}
               >
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  aria-hidden
+                  style={{
+                    background:
+                      'radial-gradient(ellipse 80% 60% at 0% 0%, color-mix(in oklab, var(--color-brand) 14%, transparent), transparent 55%)',
+                  }}
+                />
                 <span
-                  className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand shadow-[0_0_12px_rgb(232_93_4/0.45)]"
+                  className="pointer-events-none absolute -right-1 -top-3 select-none font-mono text-[4.25rem] font-bold leading-none tracking-tighter text-heading/[0.045] transition-colors duration-300 group-hover:text-brand/[0.12] md:-right-2 md:-top-4 md:text-[5.25rem]"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div
+                  className="absolute left-0 top-5 bottom-5 w-[3px] rounded-r-full bg-gradient-to-b from-brand via-[color-mix(in_oklab,var(--color-brand)_70%,var(--color-brand-strong))] to-brand-strong opacity-90 shadow-[0_0_20px_color-mix(in_oklab,var(--color-brand)_35%,transparent)]"
                   aria-hidden
                 />
-                <p className="m-0 text-sm leading-relaxed text-muted">{item}</p>
+                <p className="relative z-[1] m-0 pl-5 text-[0.8125rem] leading-relaxed text-muted md:pl-6 md:text-sm md:leading-relaxed">
+                  {item}
+                </p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="section-zz-a bg-panel/15 py-14 md:py-20">
+      <section className="section-zz-a bg-panel/15 pt-14 md:pt-20 pb-8 md:pb-10">
         <div className="container">
           <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_INTERACTION.title}</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{ASM_INTERACTION.intro}</p>
@@ -242,11 +271,13 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b py-14 md:py-20">
+      <section className="section-zz-b pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
-          <h2 className="mb-2 text-xl font-medium text-heading md:text-2xl">{ASM_PIPELINE.title}</h2>
-          <p className="mb-2 max-w-2xl text-sm text-muted md:text-base">{ASM_PIPELINE.subtitle}</p>
-          <AsmPipeline motion={motion} />
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-2 text-xl font-medium text-heading md:text-2xl">{ASM_PIPELINE.title}</h2>
+            <p className="mb-0 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{ASM_PIPELINE.subtitle}</p>
+            <AsmPipeline motion={motion} />
+          </div>
         </div>
       </section>
 
@@ -272,7 +303,7 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b py-14 md:py-20">
+      <section className="section-zz-b py-8 md:py-10">
         <div className="container">
           <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_SCALE.title}</h2>
           <p className="mb-10 max-w-3xl text-sm text-muted md:text-base">{ASM_SCALE.intro}</p>
@@ -291,61 +322,104 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-a bg-panel/15 py-14 md:py-20">
-        <div className="container max-w-4xl">
-          <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_AI.title}</h2>
-          <p className="mb-8 text-sm leading-relaxed text-muted md:text-base">{ASM_AI.intro}</p>
-          <ul className="m-0 space-y-4 p-0">
-            {ASM_AI.points.map((p, i) => (
+      <section className="section-zz-a bg-panel/15 pt-8 md:pt-10 pb-14 md:pb-20">
+        <div className="container">
+          <div className="toip-reveal mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+            <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_AI.title}</h2>
+            <p className="mb-10 text-sm leading-relaxed text-muted md:text-base">{ASM_AI.intro}</p>
+          </div>
+          <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row sm:items-end sm:justify-between lg:items-center">
+            <h3 className="m-0 text-center text-xs font-bold uppercase tracking-[0.22em] text-brand sm:text-left md:text-sm">
+              How AI is used
+            </h3>
+            <div
+              className="h-px w-16 shrink-0 bg-gradient-to-r from-brand/60 to-transparent sm:mx-0 sm:flex-1 sm:translate-y-[-2px] lg:max-w-md"
+              aria-hidden
+            />
+          </div>
+          <ul className="m-0 grid list-none gap-5 p-0 md:grid-cols-2 md:gap-6">
+            {ASM_AI.points.map((item, i) => (
               <li
                 key={i}
-                className="toip-reveal flex gap-3 text-sm leading-relaxed text-muted md:text-base"
+                className="toip-reveal group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-br from-[#0a0a0a] via-[color-mix(in_oklab,var(--color-panel)_92%,black)] to-[#030303] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.05),0_20px_48px_-28px_rgb(0_0_0/0.75)] transition-[transform,box-shadow,border-color] duration-300 md:p-7 md:pl-8 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_24px_56px_-20px_color-mix(in_oklab,var(--color-brand)_18%,transparent)]"
                 style={revealStyle(i, !motion)}
               >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
-                <span>{p}</span>
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  aria-hidden
+                  style={{
+                    background:
+                      'radial-gradient(ellipse 80% 60% at 0% 0%, color-mix(in oklab, var(--color-brand) 14%, transparent), transparent 55%)',
+                  }}
+                />
+                <span
+                  className="pointer-events-none absolute -right-1 -top-3 select-none font-mono text-[4.25rem] font-bold leading-none tracking-tighter text-heading/[0.045] transition-colors duration-300 group-hover:text-brand/[0.12] md:-right-2 md:-top-4 md:text-[5.25rem]"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div
+                  className="absolute left-0 top-5 bottom-5 w-[3px] rounded-r-full bg-gradient-to-b from-brand via-[color-mix(in_oklab,var(--color-brand)_70%,var(--color-brand-strong))] to-brand-strong opacity-90 shadow-[0_0_20px_color-mix(in_oklab,var(--color-brand)_35%,transparent)]"
+                  aria-hidden
+                />
+                <p className="relative z-[1] m-0 pl-5 text-[0.8125rem] leading-relaxed text-muted md:pl-6 md:text-sm md:leading-relaxed">
+                  {item}
+                </p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="section-zz-b py-14 md:py-20">
+      <section className="section-zz-b pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
-          <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_OUTPUTS.title}</h2>
-          <p className="mb-10 max-w-3xl text-sm text-muted md:text-base">{ASM_OUTPUTS.intro}</p>
-          <div className="grid gap-4 md:grid-cols-2">
-            {ASM_OUTPUTS.rows.map((row, i) => (
-              <div
-                key={row.section}
-                className="toip-reveal rounded-xl border border-border-strong/60 bg-panel/30 p-5 md:p-6"
-                style={revealStyle(i % 8, !motion)}
-              >
-                <h3 className="mb-2 text-sm font-bold uppercase tracking-wide text-brand">{row.section}</h3>
-                <p className="m-0 text-sm leading-relaxed text-muted">{row.contains}</p>
-              </div>
-            ))}
+          <div className="toip-reveal mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+            <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{ASM_OUTPUTS.title}</h2>
+            <p className="mb-10 text-sm leading-relaxed text-muted md:text-base">{ASM_OUTPUTS.intro}</p>
           </div>
-        </div>
-      </section>
-
-      <section className="section-zz-a py-14 md:py-20">
-        <div className="container max-w-4xl">
-          <h2 className="mb-8 text-xl font-medium text-heading md:text-2xl">{ASM_TECH_STACK.title}</h2>
-          <div className="overflow-hidden rounded-xl border border-border bg-panel/25">
-            {ASM_TECH_STACK.rows.map((row, i) => (
-              <div
-                key={row.layer}
-                className={`toip-reveal grid grid-cols-1 gap-1 border-border px-4 py-4 sm:grid-cols-[minmax(8rem,12rem)_1fr] sm:gap-6 md:px-6 ${
-                  i > 0 ? 'border-t' : ''
-                }`}
+          <div className="mb-8 flex flex-col items-center gap-4 sm:flex-row sm:items-end sm:justify-between lg:items-center">
+            <h3 className="m-0 text-center text-xs font-bold uppercase tracking-[0.22em] text-brand sm:text-left md:text-sm">
+              Output sections
+            </h3>
+            <div
+              className="h-px w-16 shrink-0 bg-gradient-to-r from-brand/60 to-transparent sm:mx-0 sm:flex-1 sm:translate-y-[-2px] lg:max-w-md"
+              aria-hidden
+            />
+          </div>
+          <ul className="m-0 grid list-none gap-5 p-0 md:grid-cols-2 md:gap-6">
+            {ASM_OUTPUTS.rows.map((row, i) => (
+              <li
+                key={row.section}
+                className="toip-reveal group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-br from-[#0a0a0a] via-[color-mix(in_oklab,var(--color-panel)_92%,black)] to-[#030303] p-6 shadow-[inset_0_1px_0_rgb(255_255_255/0.05),0_20px_48px_-28px_rgb(0_0_0/0.75)] transition-[transform,box-shadow,border-color] duration-300 md:p-7 md:pl-8 hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_24px_56px_-20px_color-mix(in_oklab,var(--color-brand)_18%,transparent)]"
                 style={revealStyle(i, !motion)}
               >
-                <div className="text-xs font-bold uppercase tracking-wide text-brand sm:pt-0.5">{row.layer}</div>
-                <div className="text-sm text-muted">{row.technology}</div>
-              </div>
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  aria-hidden
+                  style={{
+                    background:
+                      'radial-gradient(ellipse 80% 60% at 0% 0%, color-mix(in oklab, var(--color-brand) 14%, transparent), transparent 55%)',
+                  }}
+                />
+                <span
+                  className="pointer-events-none absolute -right-1 -top-3 select-none font-mono text-[4.25rem] font-bold leading-none tracking-tighter text-heading/[0.045] transition-colors duration-300 group-hover:text-brand/[0.12] md:-right-2 md:-top-4 md:text-[5.25rem]"
+                  aria-hidden
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div
+                  className="absolute left-0 top-5 bottom-5 w-[3px] rounded-r-full bg-gradient-to-b from-brand via-[color-mix(in_oklab,var(--color-brand)_70%,var(--color-brand-strong))] to-brand-strong opacity-90 shadow-[0_0_20px_color-mix(in_oklab,var(--color-brand)_35%,transparent)]"
+                  aria-hidden
+                />
+                <div className="relative z-[1] pl-5 md:pl-6">
+                  <h4 className="m-0 mb-2 text-sm font-semibold text-heading">{row.section}</h4>
+                  <p className="m-0 text-[0.8125rem] leading-relaxed text-muted md:text-sm md:leading-relaxed">
+                    {row.contains}
+                  </p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -364,36 +438,6 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section-zz-a bg-panel/20 py-14 md:py-20">
-        <div className="container">
-          <p className="toip-reveal mx-auto mb-10 max-w-3xl text-center text-sm leading-relaxed text-muted md:text-base">
-            {ASM_CLOSING.paragraph}
-          </p>
-          <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-bg-inset p-8 md:p-10">
-            <h2 className="mb-4 text-lg font-medium text-heading">OffSec Management Portal fit</h2>
-            <p className="m-0 text-sm leading-relaxed text-muted">{pitch.portalFit}</p>
-            <p className="mt-4 text-sm font-medium text-heading">{pitch.ctaLine}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="btn-brand-lively inline-flex items-center justify-center rounded-full border border-brand-strong bg-brand-strong px-8 py-3 text-sm font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft"
-              >
-                Talk to sales
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center rounded-full border border-border-strong px-8 py-3 text-sm font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand"
-              >
-                View services portfolio
-              </Link>
-            </div>
-          </div>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-muted/70">
-            {ASM_PAGE_META.confidentialNote}
-          </p>
         </div>
       </section>
 

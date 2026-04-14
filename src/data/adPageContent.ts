@@ -4,11 +4,6 @@
  * ASCII-only strings for the UI.
  */
 
-export const AD_PAGE_META = {
-  confidentialNote:
-    'Overview for client and stakeholder use. Formal statements of work govern delivery.',
-} as const
-
 export const AD_HERO = {
   lead:
     'AD Suite is a modular PowerShell framework for on-premises Active Directory modeled on how professional assessors walk a forest. More than six hundred checks span Kerberos, delegation, privilege tiers, password policy, Group Policy, ADCS, trusts, and hybrid Azure AD contexts. Parallel runspaces execute independent checks at speed; every finding retains ADSI-native evidence; weighted scoring rolls up to a domain score leadership can track before and after remediation waves. Runtime is air-gapped friendly with no cloud dependency.',
@@ -175,19 +170,6 @@ export const AD_OUTPUTS = {
   ],
 } as const
 
-export const AD_TECH_STACK = {
-  title: 'Technical stack',
-  rows: [
-    { layer: 'Runtime', technology: 'PowerShell on Windows assessor or jump host with directory connectivity' },
-    { layer: 'Directory API', technology: 'ADSI and LDAP queries; no proprietary cloud middle tier' },
-    { layer: 'Concurrency', technology: 'Runspace pool dispatches independent check functions in parallel' },
-    { layer: 'Modularity', technology: 'Category-scoped modules for Kerberos, delegation, ADCS, trusts, hybrid, and more' },
-    { layer: 'Scoring engine', technology: 'Configurable weights and category multipliers with documented rationale' },
-    { layer: 'Reporting', technology: 'HTML, JSON, CSV generators plus heatmap and baseline diff logic' },
-    { layer: 'Air gap', technology: 'Offline-capable execution without internet dependency at scan time' },
-  ],
-} as const
-
 export const AD_USE_CASES = {
   title: 'Example use cases',
   cases: [
@@ -222,9 +204,4 @@ export const AD_USE_CASES = {
         'Pair AD Suite output with lateral movement testing when tiering and identity paths are in scope.',
     },
   ],
-} as const
-
-export const AD_CLOSING = {
-  paragraph:
-    'AD Suite brings assessor-grade identity coverage, evidence depth, and framework language into a repeatable PowerShell program. Parallel execution, transparent scoring, and air-gapped operation make it suitable for the same forests where a single mis-tiered delegation can undo millions in application security spend.',
 } as const

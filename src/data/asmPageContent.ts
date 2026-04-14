@@ -3,11 +3,6 @@
  * ASCII-only strings for the UI.
  */
 
-export const ASM_PAGE_META = {
-  confidentialNote:
-    'Overview for client and stakeholder use. Formal statements of work govern delivery.',
-} as const
-
 export const ASM_HERO = {
   lead:
     'Technieum-X is an AI-assisted external attack surface management platform that orchestrates a large library of reconnaissance, analysis, and validation tools across a disciplined multi-phase pipeline. It turns raw internet-facing signals into correlated assets, prioritized vulnerabilities, threat context, and compliance-ready narratives that feed the OffSec Management Portal and Technieum OffSec Intelligence Portal-backed testing, instead of stopping at a flat scanner export.',
@@ -180,19 +175,6 @@ export const ASM_OUTPUTS = {
   ],
 } as const
 
-export const ASM_TECH_STACK = {
-  title: 'Technical stack (representative)',
-  rows: [
-    { layer: 'Orchestration', technology: 'Multi-phase job engine with tool adapters and queue-backed workers' },
-    { layer: 'Data store', technology: 'Relational metadata for assets, findings, runs, and baselines' },
-    { layer: 'Integrations', technology: '100+ tool and API connectors with graceful degradation when keys are absent' },
-    { layer: 'Real-time', technology: 'Webhooks and server-sent events for live progress and portal consumption' },
-    { layer: 'APIs', technology: 'REST surfaces for automation, export, and third-party SOAR-style hooks' },
-    { layer: 'AI layer', technology: 'Correlation, summarization, and ranking assistance over structured finding data' },
-    { layer: 'Deployment', technology: 'Container-friendly deployment patterns for dedicated ASM infrastructure' },
-  ],
-} as const
-
 export const ASM_USE_CASES = {
   title: 'Example use cases',
   cases: [
@@ -227,9 +209,4 @@ export const ASM_USE_CASES = {
         'Findings sync to the OffSec Management Portal with owners and retest states visible through sign-off.',
     },
   ],
-} as const
-
-export const ASM_CLOSING = {
-  paragraph:
-    'Technieum-X combines broad external reconnaissance with threat context, CVE-aware prioritization, and portal-native workflows. It is the visibility layer that keeps ASM, validation, and Technieum OffSec Intelligence Portal-backed intelligence aligned on one story about your real attack surface.',
 } as const

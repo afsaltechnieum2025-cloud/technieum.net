@@ -4,11 +4,6 @@
  * ASCII-only strings for the UI.
  */
 
-export const SAST_PAGE_META = {
-  confidentialNote:
-    'Overview for client and stakeholder use. Formal statements of work govern delivery.',
-} as const
-
 export const SAST_HERO = {
   lead:
     'Technieum AI-validated SAST merges multiple static analysis engines, secret and dependency signals, and a proprietary rule set with graph-style taint reasoning and LLM validation. SCA sits in the same pipeline story: dependency findings inherit exploitability and reachability scoring so engineering upgrades what is actually exposed in code paths, not every CVE in a lockfile. The outcome is one ranked backlog that fits GitHub, GitLab, SARIF gates, and the OffSec Management Portal.',
@@ -181,19 +176,6 @@ export const SAST_OUTPUTS = {
   ],
 } as const
 
-export const SAST_TECH_STACK = {
-  title: 'Technical stack (representative)',
-  rows: [
-    { layer: 'Ingest', technology: 'ZIP, Git URL, local tree; language-aware file selection' },
-    { layer: 'Static engines', technology: 'Semgrep, Bandit, Trivy-class, secret scanning, proprietary AI-validated SAST' },
-    { layer: 'Analysis', technology: 'Graph taint, structural rules, 350+ signatures, seven-agent orchestration' },
-    { layer: 'AI validation', technology: 'LLM confirms, deduplicates, and narrates fixes' },
-    { layer: 'Business logic', technology: 'Dedicated agent for auth, IDOR, race, workflow abuse' },
-    { layer: 'SCA', technology: 'Dependency resolution with reachability and exploitability scoring' },
-    { layer: 'Export', technology: 'SARIF 2.1.0, JSON, Markdown, HTML; GitHub and GitLab integrations' },
-  ],
-} as const
-
 export const SAST_USE_CASES = {
   title: 'Example use cases',
   cases: [
@@ -228,9 +210,4 @@ export const SAST_USE_CASES = {
         'Connect code-level flaws to what the external surface actually exposes in one program narrative.',
     },
   ],
-} as const
-
-export const SAST_CLOSING = {
-  paragraph:
-    'AI-validated SAST and SCA together turn noisy scanners into a single, ranked, developer-legible backlog. Multi-engine coverage, LLM validation, business-logic depth, and reachability-aware dependency scoring keep security and engineering on one roadmap from commit to portal sign-off.',
 } as const

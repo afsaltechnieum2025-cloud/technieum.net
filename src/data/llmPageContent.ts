@@ -3,11 +3,6 @@
  * ASCII-only strings for the UI.
  */
 
-export const LLM_PAGE_META = {
-  confidentialNote:
-    'Overview for client and stakeholder use. Formal statements of work govern delivery.',
-} as const
-
 export const LLM_HERO = {
   lead:
     'Technieum LLM Attack Suite is a web and API testing platform that runs many parallel adversarial streams against your LLM application. An attacker agent follows a recursive loop (probe, escalate, refine, extract, pivot) guided by live model responses, with SSRF-aware validation and early exit when critical issues are confirmed. Every validated finding carries literal response fragments so security and governance teams can defend the result in audit, not just in a dashboard screenshot.',
@@ -180,19 +175,6 @@ export const LLM_OUTPUTS = {
   ],
 } as const
 
-export const LLM_TECH_STACK = {
-  title: 'Technical stack (representative)',
-  rows: [
-    { layer: 'API and UI', technology: 'Web dashboard and Flask API for run control' },
-    { layer: 'Real-time', technology: 'Server-Sent Events for turn-by-turn attack progress' },
-    { layer: 'Orchestration', technology: 'Parallel stream engine with configurable concurrency and early exit' },
-    { layer: 'Attacker agent', technology: 'Recursive probe-escalate-refine-extract-pivot loop driven by target responses' },
-    { layer: 'Detection', technology: 'Deterministic rules layered with LLM-generated attack variants' },
-    { layer: 'Reporting', technology: 'PDF, JSON, HTML, CSV and heatmap visualizations' },
-    { layer: 'Deployment', technology: 'On-prem, Docker, or Vercel with configurable LLM backend' },
-  ],
-} as const
-
 export const LLM_USE_CASES = {
   title: 'Example use cases',
   cases: [
@@ -227,9 +209,4 @@ export const LLM_USE_CASES = {
         'When prompts and server logic ship together, align LLM testing with static analysis on the same release train.',
     },
   ],
-} as const
-
-export const LLM_CLOSING = {
-  paragraph:
-    'LLM Attack Suite delivers depth, parallelism, and evidence that checklist LLM scans cannot match. Recursive adversarial pressure, framework-aligned reporting, and portal-native handoff keep AI risk visible next to the rest of your offensive security program.',
 } as const
