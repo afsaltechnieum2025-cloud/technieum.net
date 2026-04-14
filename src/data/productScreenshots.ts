@@ -2,24 +2,8 @@
 
 import type { ProductDocId } from './productDocuments'
 
-/** Use literal glob strings so Vite can resolve them at build time. */
-const toipModules = import.meta.glob<string>('../../assets/product-screenshots/toip/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  import: 'default',
-})
-const asmModules = import.meta.glob<string>('../../assets/product-screenshots/asm/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  import: 'default',
-})
-const llmModules = import.meta.glob<string>('../../assets/product-screenshots/llm/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  import: 'default',
-})
-const sastModules = import.meta.glob<string>('../../assets/product-screenshots/sast/*.{png,jpg,jpeg,webp}', {
-  eager: true,
-  import: 'default',
-})
-const adSuitModules = import.meta.glob<string>('../../assets/product-screenshots/ad-suite/*.{png,jpg,jpeg,webp}', {
+/** Only AD Suite still ships a screenshot carousel on the product page. */
+const adSuiteModules = import.meta.glob<string>('../../assets/product-screenshots/ad-suite/*.{png,jpg,jpeg,webp}', {
   eager: true,
   import: 'default',
 })
@@ -42,15 +26,7 @@ function slidesFrom(modules: Record<string, string>, altPrefix: string): Product
     }))
 }
 
-const SLIDE_MODULES: Record<'toip' | 'asm' | 'llm' | 'sast' | 'ad', Record<string, string>> = {
-  toip: toipModules,
-  asm: asmModules,
-  llm: llmModules,
-  sast: sastModules,
-  ad: adSuitModules,
-}
-
-const ALT_PREFIX: Record<keyof typeof SLIDE_MODULES, string> = {
+const ALT_PREFIX: Record<ProductDocId, string> = {
   toip: 'Technieum OffSec Intelligence Portal',
   asm: 'Technieum-X',
   llm: 'LLM Attack Suite',
@@ -58,13 +34,14 @@ const ALT_PREFIX: Record<keyof typeof SLIDE_MODULES, string> = {
   ad: 'AD Suite',
 }
 
-/** Bundled images from assets/product-screenshots/{toip,asm,llm,sast,ad-suite} (build time). */
+/** Bundled images from assets/product-screenshots/ad-suite/ when present. */
 export function getProductScreenshotSlides(id: ProductDocId): ProductScreenshotSlide[] {
-  return slidesFrom(SLIDE_MODULES[id], ALT_PREFIX[id])
+  if (id !== 'ad') return []
+  return slidesFrom(adSuiteModules, ALT_PREFIX.ad)
 }
 
 export const PRODUCT_SCREENSHOT_CHROME: Record<
-  keyof typeof SLIDE_MODULES,
+  ProductDocId,
   { chromeTitle: string; regionAriaLabel: string }
 > = {
   toip: {
@@ -80,6 +57,6 @@ export const PRODUCT_SCREENSHOT_CHROME: Record<
   ad: { chromeTitle: 'AD Suite', regionAriaLabel: 'AD Suite product screenshots' },
 }
 
-export function productHasScreenshotFolder(id: ProductDocId): id is keyof typeof SLIDE_MODULES {
-  return id === 'toip' || id === 'asm' || id === 'llm' || id === 'sast' || id === 'ad'
+export function productHasScreenshotFolder(id: ProductDocId): boolean {
+  return id === 'ad' && Object.keys(adSuiteModules).length > 0
 }

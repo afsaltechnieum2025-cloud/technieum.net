@@ -1,11 +1,6 @@
-import { type CSSProperties, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BrandLogo } from '../BrandLogo'
 import { TOIP_LAUNCH_PHASES, TOIP_LAUNCH_SCAN_LINES } from '../../data/toipLaunchAnimationContent'
-
-export const TOIP_ACCENT_TEXT: CSSProperties = {
-  color: 'var(--color-brand)',
-  fontWeight: 700,
-}
 
 const LINE_MS = 900
 

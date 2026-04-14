@@ -1,11 +1,6 @@
-import { type CSSProperties, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BrandLogo } from '../BrandLogo'
 import { ASM_LAUNCH_PHASES, ASM_LAUNCH_SCAN_LINES } from '../../data/asmLaunchAnimationContent'
-
-export const ACCENT_TEXT: CSSProperties = {
-  color: 'var(--color-brand)',
-  fontWeight: 700,
-}
 
 const LINE_MS = 900
 
