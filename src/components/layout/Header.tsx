@@ -459,7 +459,7 @@ export function Header({ padSafeTop = false }: { padSafeTop?: boolean }) {
                     const base =
                       'rounded-md px-3 py-2 text-[0.9375rem] font-semibold no-underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50'
                     if (item.accentBrand) {
-                      return `${base} text-brand hover:text-brand-strong ${isActive ? 'bg-brand/10 ring-1 ring-brand/30' : ''}`
+                      return `${base} text-brand hover:text-brand-strong ${isActive ? 'bg-brand/18 ring-1 ring-brand/45 shadow-[0_0_24px_-6px_rgb(232_93_4/0.4)]' : ''}`
                     }
                     return `${base} ${isActive ? 'text-brand' : 'text-zinc-200 hover:text-white'}`
                   }}
