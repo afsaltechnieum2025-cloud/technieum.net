@@ -297,6 +297,18 @@
     z-index: 1;
   }
 
+  /*
+   * hero-color-drift must stay position:absolute + inset:0 so blobs fill the section.
+   * The rule above matches every direct child and would otherwise win in the cascade (same specificity, later),
+   * collapsing the drift layer and hiding the hero glow on /why-technieum, product heroes, etc.
+   */
+  .section-zz-a > .hero-color-drift,
+  .section-zz-b > .hero-color-drift {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
   /* Zigzag sections default to overflow:hidden for gradients; use this when a child needs to paint outside (e.g. hub node labels). */
   .section-zz-a.section-zz-allow-overflow,
   .section-zz-b.section-zz-allow-overflow {

@@ -18,7 +18,8 @@ export function HomePage() {
         className="section-zz-b section-zz-allow-overflow pt-16 pb-12 md:pt-20 md:pb-14"
         aria-labelledby="capabilities-hub-heading"
       >
-        <div className="container">
+        <div className="hero-color-drift" aria-hidden />
+        <div className="container relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
             <div className="min-w-0">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
