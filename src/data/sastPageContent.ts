@@ -6,7 +6,7 @@
 
 export const SAST_HERO = {
   lead:
-    'Technieum AI-validated SAST merges multiple static analysis engines, secret and dependency signals, and a proprietary rule set with graph-style taint reasoning and LLM validation. SCA sits in the same pipeline story: dependency findings inherit exploitability and reachability scoring so engineering upgrades what is actually exposed in code paths, not every CVE in a lockfile. The outcome is one ranked backlog that fits GitHub, GitLab, SARIF gates, and the OffSec Management Portal.',
+    'Technieum AI-validated SAST merges multiple static analysis engines, secret and dependency signals, and a proprietary rule set with graph-style taint reasoning and LLM validation. SCA sits in the same pipeline story: dependency findings inherit exploitability and reachability scoring so engineering upgrades what is actually exposed in code paths, not every CVE in a lockfile.',
 } as const
 
 export const SAST_EXECUTIVE = {
