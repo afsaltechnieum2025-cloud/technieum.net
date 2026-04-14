@@ -69,9 +69,9 @@ function SastPipeline({ motion }: { motion: boolean }) {
     </div>
   )
 
-  const renderConnH = (ltr?: boolean) => (
+  const renderConnH = (ltr?: boolean, flowLeft?: boolean) => (
     <div
-      className={`flex w-8 items-center justify-center md:w-9 xl:w-10 ${ltr ? '[direction:ltr]' : ''}`}
+      className={`flex w-8 items-center justify-center md:w-9 xl:w-10 ${ltr ? '[direction:ltr]' : ''} ${flowLeft ? 'scale-x-[-1]' : ''}`}
       aria-hidden
     >
       <div className={connH} />
@@ -118,16 +118,14 @@ function SastPipeline({ motion }: { motion: boolean }) {
             <div className={connV} />
           </div>
 
-          <div
-            className="col-span-3 grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-stretch"
-            dir="rtl"
-          >
+          {/* Bottom row LTR 6-5-4-3 so the drop from step 2 meets step 3; horizontal dashes flipped for 3→4→5→6 */}
+          <div className="col-span-3 grid grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] items-stretch">
             {desktopCard(phases[5], 5, true)}
-            {renderConnH(true)}
+            {renderConnH(true, true)}
             {desktopCard(phases[4], 4, true)}
-            {renderConnH(true)}
+            {renderConnH(true, true)}
             {desktopCard(phases[3], 3, true)}
-            {renderConnH(true)}
+            {renderConnH(true, true)}
             {desktopCard(phases[2], 2, true)}
           </div>
         </div>
