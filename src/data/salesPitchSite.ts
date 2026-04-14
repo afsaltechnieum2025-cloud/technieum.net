@@ -38,32 +38,42 @@ export const WHY_TECHNIEUM_PAGE = {
     'Daily visibility, fast critical escalation, and remediation guidance written for your stack—not generic checklist output.',
 } as const
 
-/** Why Technieum page: portal capability grid (OffSec Management Portal). */
+/** Why Technieum page: "What sets Technieum apart" — six cards in 2×3 + one full-width commitment. */
 export const WHY_TECHNIEUM = [
   {
-    title: 'Attack surface dashboard',
-    body: 'Live inventory of assets, technologies, and exposure trends across runs.',
-  },
-  {
-    title: 'Vulnerability and validation views',
-    body: 'Correlated findings with severity, evidence, and state through retest.',
-  },
-  {
-    title: 'Attack graph and path narratives',
-    body: 'Storylines from public entry points to critical issues for leadership briefings.',
-  },
-  {
-    title: 'Compliance mapping',
+    title: 'AI at every layer',
     body:
-      'Control-oriented views aligned to NIST CSF, PCI-DSS, HIPAA, GDPR, and SOC 2 where applicable.',
+      'Agentic recon, RAG-backed intelligence in Technieum OffSec Intelligence Portal, and AI-assisted remediation guidance. Automation widens coverage; experts decide what ships to your backlog.',
   },
   {
-    title: 'Reports and exports',
-    body: 'Structured reports suitable for client deliverables and internal archives.',
+    title: 'Timely delivery',
+    body:
+      'Milestone-driven work, daily updates, weekly reviews when you need them, and rapid escalation on criticals. Structured communication keeps security and leadership aligned.',
   },
   {
-    title: 'Streaming and APIs',
-    body: 'Webhooks, APIs, and SSE for portal sync, ticketing, and custom automation.',
+    title: 'Accurate, actionable remediation',
+    body:
+      'Fix guidance tailored to your stack and architecture—not anonymous scanner text. Written so developers and operators can ship fixes with confidence.',
+  },
+  {
+    title: 'In-house R&D',
+    body:
+      'Researchers hunting zero-days and publishing CVEs. That research feeds our platforms and sharpens every client engagement.',
+  },
+  {
+    title: 'Six proprietary AI capabilities',
+    body:
+      'Technieum OffSec Intelligence Portal, LLM Attack Suite, AD Suite, AI ASM, AI-validated SAST, and SCA—built at Technieum and run alongside commercial tools when they add value.',
+  },
+  {
+    title: '360 coverage per engagement',
+    body:
+      'AI-validated SAST, SCA, ASM, Active Directory, and AI or LLM testing in one coordinated program, cross-correlated across the attack surface you define.',
+  },
+  {
+    title: 'Zero false positives commitment',
+    body:
+      'AI accelerates discovery; humans validate every finding before it hits your queue. You prioritize confirmed risk, not noise.',
   },
 ] as const
 

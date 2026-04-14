@@ -177,8 +177,12 @@ export function WhyTechnieumPage() {
         </div>
       </section>
 
-      <ScrollRevealSection className="section-zz-b w-full pt-8 pb-14 md:pt-10 md:pb-20" ariaLabelledBy="why-points-heading">
-        <div className="container min-w-0">
+      <ScrollRevealSection className="section-zz-b relative w-full overflow-hidden pt-8 pb-14 md:pt-10 md:pb-20" ariaLabelledBy="why-points-heading">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_18%_12%,rgb(232_93_4/0.12),transparent_58%)] opacity-95"
+          aria-hidden
+        />
+        <div className="container relative z-10 min-w-0">
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <h2 id="why-points-heading" className="heading-scale-hero mb-3 text-pretty">
               What sets Technieum apart
@@ -189,40 +193,45 @@ export function WhyTechnieumPage() {
             </p>
           </div>
 
-          <ul className="m-0 grid min-w-0 list-none grid-cols-1 gap-4 p-0 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <ul className="m-0 grid min-w-0 list-none grid-cols-1 gap-4 p-0 md:grid-cols-2 md:gap-5 lg:gap-6">
             {WHY_TECHNIEUM.map((item, index) => {
               const isFeatured = index === WHY_TECHNIEUM.length - 1
+              const watermark = String(index + 1).padStart(2, '0')
               return (
                 <li
                   key={item.title}
                   style={{ '--why-i': index } as CSSProperties}
-                  className={`why-tn-card-wrap group rounded-xl border bg-panel/20 px-5 py-5 md:px-6 md:py-6 ${
-                    isFeatured
-                      ? 'border-brand/35 bg-[linear-gradient(180deg,rgb(232_93_4/0.07)_0%,transparent_42%)] shadow-[0_0_0_1px_rgb(232_93_4/0.12)] sm:col-span-2 lg:col-span-3'
-                      : 'border-border/70 hover:border-border-strong hover:bg-panel/35 hover:shadow-md'
+                  className={`why-tn-card-wrap group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-[#111111] shadow-[0_1px_0_rgb(255_255_255/0.04)_inset] transition-[transform,box-shadow,border-color,background-color] duration-300 hover:-translate-y-0.5 hover:border-white/[0.11] hover:bg-[#131313] hover:shadow-[0_24px_56px_-28px_rgba(0,0,0,0.9)] ${
+                    isFeatured ? 'md:col-span-2' : ''
                   }`}
                 >
                   <div
-                    className={`flex gap-4 ${isFeatured ? 'mx-auto max-w-3xl lg:flex-row lg:items-start lg:gap-6' : ''}`}
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    aria-hidden
+                    style={{
+                      background:
+                        'radial-gradient(circle at 100% 0%, rgb(232 93 4 / 0.07), transparent 52%)',
+                    }}
+                  />
+                  <span
+                    className="pointer-events-none absolute right-1 top-0 select-none font-mono text-[3.25rem] font-bold leading-none tracking-tight text-heading/[0.035] sm:right-2 sm:text-[3.75rem] md:text-[4.25rem] lg:text-[4.5rem]"
+                    aria-hidden
                   >
-                    <span
-                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-sm font-bold tabular-nums ${
-                        isFeatured
-                          ? 'bg-brand/25 text-brand'
-                          : 'bg-brand/15 text-brand group-hover:bg-brand/20'
-                      }`}
-                      aria-hidden
-                    >
-                      {index + 1}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="m-0 mb-2 text-base font-semibold leading-snug text-heading md:text-lg">
-                        {item.title}
-                      </h3>
-                      <p className="m-0 text-sm leading-relaxed text-muted md:text-[0.9375rem] md:leading-relaxed">
-                        {item.body}
-                      </p>
-                    </div>
+                    {watermark}
+                  </span>
+                  <div
+                    className="pointer-events-none absolute left-0 top-1/2 h-[min(68%,11rem)] min-h-[3.25rem] max-h-[70%] w-[3px] -translate-y-1/2 rounded-full bg-gradient-to-b from-brand via-[rgb(245_158_11)] to-brand-strong shadow-[0_0_14px_rgb(232_93_4/0.4)]"
+                    aria-hidden
+                  />
+                  <div
+                    className={`relative z-[1] min-w-0 py-5 pl-6 pr-5 md:py-6 md:pl-7 md:pr-7 ${isFeatured ? 'md:mx-auto md:max-w-3xl' : ''}`}
+                  >
+                    <h3 className="m-0 mb-2 text-base font-bold leading-snug text-heading md:text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="m-0 text-sm leading-relaxed text-muted md:text-[0.9375rem] md:leading-relaxed">
+                      {item.body}
+                    </p>
                   </div>
                 </li>
               )
