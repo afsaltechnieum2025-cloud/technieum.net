@@ -145,7 +145,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-14 md:py-20">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset pt-14 md:pt-20 pb-6 md:pb-8">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{doc.subtitle}</p>
@@ -169,8 +169,6 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
             ))}
           </div>
 
-          <p className="mb-10 text-xs text-muted/80">{LLM_HERO.preparedBy}</p>
-
           <div className="flex flex-wrap gap-3">
             <a
               href={pdf}
@@ -187,17 +185,11 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
             >
               Download PDF
             </a>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-7 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-8 md:text-sm"
-            >
-              Speak with sales
-            </Link>
           </div>
         </div>
       </section>
 
-      <section className="section-zz-b py-14 md:py-20">
+      <section className="section-zz-b pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
           <div className="toip-reveal mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
             <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_EXECUTIVE.title}</h2>

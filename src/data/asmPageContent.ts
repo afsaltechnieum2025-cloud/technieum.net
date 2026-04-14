@@ -11,7 +11,6 @@ export const ASM_PAGE_META = {
 export const ASM_HERO = {
   lead:
     'Technieum-X is an AI-assisted external attack surface management platform that orchestrates a large library of reconnaissance, analysis, and validation tools across a disciplined multi-phase pipeline. It turns raw internet-facing signals into correlated assets, prioritized vulnerabilities, threat context, and compliance-ready narratives that feed the OffSec Management Portal and Technieum OffSec Intelligence Portal-backed testing, instead of stopping at a flat scanner export.',
-  preparedBy: 'TECHNIEUM Technologies LLC',
 } as const
 
 export const ASM_EXECUTIVE = {

@@ -11,7 +11,6 @@ export const TOIP_PAGE_META = {
 export const TOIP_HERO = {
   lead:
     'Technieum OffSec Intelligence Portal is a searchable, AI-assisted vulnerability intelligence platform that draws from tens of thousands of real vulnerability reports and authoritative sources (NVD, CISA KEV, Nuclei, PayloadsAllTheThings) to deliver structured, citation-backed analysis, ready-to-use payloads, and attack scenarios derived from real-world reports, powered by a flexible external LLM integration.',
-  preparedBy: 'TECHNIEUM Technologies LLC',
 } as const
 
 export const TOIP_EXECUTIVE = {

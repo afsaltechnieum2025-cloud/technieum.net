@@ -11,7 +11,6 @@ export const LLM_PAGE_META = {
 export const LLM_HERO = {
   lead:
     'Technieum LLM Attack Suite is a web and API testing platform that runs many parallel adversarial streams against your LLM application. An attacker agent follows a recursive loop (probe, escalate, refine, extract, pivot) guided by live model responses, with SSRF-aware validation and early exit when critical issues are confirmed. Every validated finding carries literal response fragments so security and governance teams can defend the result in audit, not just in a dashboard screenshot.',
-  preparedBy: 'TECHNIEUM Technologies LLC',
 } as const
 
 export const LLM_EXECUTIVE = {

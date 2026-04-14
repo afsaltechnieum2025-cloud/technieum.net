@@ -12,7 +12,6 @@ export const AD_PAGE_META = {
 export const AD_HERO = {
   lead:
     'AD Suite is a modular PowerShell framework for on-premises Active Directory modeled on how professional assessors walk a forest. More than six hundred checks span Kerberos, delegation, privilege tiers, password policy, Group Policy, ADCS, trusts, and hybrid Azure AD contexts. Parallel runspaces execute independent checks at speed; every finding retains ADSI-native evidence; weighted scoring rolls up to a domain score leadership can track before and after remediation waves. Runtime is air-gapped friendly with no cloud dependency.',
-  preparedBy: 'TECHNIEUM Technologies LLC',
 } as const
 
 export const AD_EXECUTIVE = {
