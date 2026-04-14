@@ -18,7 +18,7 @@ export type ProgramHubConfig = {
   visualNodes: readonly [ProgramHubVisualNode, ProgramHubVisualNode, ProgramHubVisualNode, ProgramHubVisualNode]
 }
 
-/** Used by ApplicationSecurityPage and the generic program hub map. */
+/** Used by ApplicationSecurityPage. */
 export const applicationSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: web and thick client, API, mobile, and code assurance streams consolidating in the OffSec Management Portal.',
@@ -91,7 +91,7 @@ export const applicationSecurityHubConfig: ProgramHubConfig = {
   ],
 }
 
-/** Used by CloudSecurityPage and the generic program hub map. */
+/** Used by CloudSecurityPage. */
 export const cloudSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: IAM, workloads, pipeline, and secrets streams consolidating in the OffSec Management Portal.',
@@ -164,7 +164,7 @@ export const cloudSecurityHubConfig: ProgramHubConfig = {
   ],
 }
 
-/** Used by AiSecurityPage and the generic program hub map. */
+/** Used by AiSecurityPage. */
 export const aiSecurityHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: model endpoints, tools and MCP, prompt testing, and governance hooks consolidating in the OffSec Management Portal.',
@@ -237,7 +237,7 @@ export const aiSecurityHubConfig: ProgramHubConfig = {
   ],
 }
 
-/** Used by ThreatSimulationsPage and the generic program hub map. */
+/** Used by ThreatSimulationsPage. */
 export const threatSimulationsHubConfig: ProgramHubConfig = {
   visualAriaLabel:
     'Diagram: red team, purple team, tabletop, and BAS streams consolidating in the OffSec Management Portal.',
@@ -524,18 +524,4 @@ export const wfhSecurityHubConfig: ProgramHubConfig = {
     'Retest memo when re-validation is in scope.',
     'Sales pitch or policy addenda for stakeholder packs when needed.',
   ],
-}
-
-export const GENERIC_PROGRAM_HUB_CONFIGS: Record<string, ProgramHubConfig> = {
-  'technieum-application-security': applicationSecurityHubConfig,
-  'technieum-cloud-security': cloudSecurityHubConfig,
-  'technieum-ai-security': aiSecurityHubConfig,
-  'technieum-threat-simulations': threatSimulationsHubConfig,
-  'technieum-ics-ot-security': icsOtSecurityHubConfig,
-  'technieum-security-consulting': securityConsultingHubConfig,
-  'technieum-wfh-security': wfhSecurityHubConfig,
-}
-
-export function getProgramHubConfig(slug: string): ProgramHubConfig | undefined {
-  return GENERIC_PROGRAM_HUB_CONFIGS[slug]
 }
