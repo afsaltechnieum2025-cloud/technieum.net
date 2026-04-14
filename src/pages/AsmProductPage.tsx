@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useState, type CSSProperties } from 'react'
-import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
+import { AsmPortalLaunchUI } from '../components/home/AsmPortalLaunchUI'
+import { PortalPreviewFrame } from '../components/home/PortalPreviewFrame'
 import type { ProductDocument } from '../data/productDocuments'
 import {
   ASM_AI,
@@ -13,11 +14,7 @@ import {
   ASM_USE_CASES,
 } from '../data/asmPageContent'
 import { PRODUCT_PITCH_PAGES } from '../data/productPitchPages'
-import {
-  getProductScreenshotSlides,
-  productHasScreenshotFolder,
-  PRODUCT_SCREENSHOT_CHROME,
-} from '../data/productScreenshots'
+import { PRODUCT_SCREENSHOT_CHROME } from '../data/productScreenshots'
 import { HOME_ASM } from '../data/salesPitchSite'
 
 function pdfHref(file: string) {
@@ -131,67 +128,68 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
   const pdf = pdfHref(doc.pdfFile)
   const reduceMotion = useReducedMotion()
   const motion = !reduceMotion
-  const slides = getProductScreenshotSlides(doc.id)
   const chrome = PRODUCT_SCREENSHOT_CHROME.asm
-
-  const screenshotTour =
-    productHasScreenshotFolder(doc.id) && slides.length > 0 ? (
-      <section className="section-zz-b py-4 md:py-8" aria-label={chrome.regionAriaLabel}>
-        <div className="container">
-          <div className="mx-auto w-full max-w-md">
-            <OffsecPortalSlideshow
-              slides={slides}
-              chromeTitle={chrome.chromeTitle}
-              regionAriaLabel={chrome.regionAriaLabel}
-              compact
-            />
-          </div>
-        </div>
-      </section>
-    ) : null
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
       <section className="section-zz-a relative overflow-hidden bg-bg-inset pt-14 md:pt-20 pb-6 md:pb-8">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
-          <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{doc.subtitle}</p>
-          <h1 className="heading-scale-hero mb-5 max-w-4xl text-pretty">{pitch.heroTitle}</h1>
-          <p className="mb-2 max-w-4xl text-base font-semibold leading-snug text-heading md:text-lg">{HOME_ASM.title}</p>
-          <p className="mb-8 max-w-3xl text-base leading-snug text-brand md:text-lg">{HOME_ASM.subtitle}</p>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-12">
+            <div className="min-w-0">
+              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{doc.subtitle}</p>
+              <h1 className="heading-scale-hero mb-5 max-w-4xl text-pretty">{pitch.heroTitle}</h1>
+              <p className="mb-2 max-w-4xl text-base font-semibold leading-snug text-heading md:text-lg">{HOME_ASM.title}</p>
+              <p className="mb-6 max-w-3xl text-base leading-snug text-brand md:text-lg lg:mb-8">{HOME_ASM.subtitle}</p>
 
-          <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{ASM_HERO.lead}</p>
-          <p className="mb-6 max-w-3xl text-base leading-relaxed text-muted md:text-lg">{pitch.heroLead}</p>
-          <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted">{pitch.elevator}</p>
-
-          <div className="mb-10 grid gap-4 sm:grid-cols-3">
-            {pitch.pitchMetrics.map((m) => (
-              <div
-                key={m.label}
-                className="rounded-xl border border-border bg-page px-5 py-5 text-center"
+              <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{ASM_HERO.lead}</p>
+            </div>
+            <div className="mx-auto w-full max-w-lg lg:mx-0 lg:mt-10 lg:justify-self-end xl:mt-12">
+              <PortalPreviewFrame
+                chromeTitle={chrome.chromeTitle}
+                compact
+                aria-label={chrome.regionAriaLabel}
               >
-                <p className="text-xl font-semibold text-heading">{m.value}</p>
-                <p className="text-xs text-muted">{m.label}</p>
-              </div>
-            ))}
-          </div>
+                <AsmPortalLaunchUI loop compact />
+              </PortalPreviewFrame>
+            </div>
 
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={pdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-brand-lively inline-flex items-center justify-center rounded-full border border-brand-strong bg-brand-strong px-7 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft md:px-8 md:text-sm"
-            >
-              Open technical PDF
-            </a>
-            <a
-              href={pdf}
-              download={doc.downloadName}
-              className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-7 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-8 md:text-sm"
-            >
-              Download PDF
-            </a>
+            <div className="grid gap-6 lg:col-span-2 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-12">
+              <p className="m-0 min-w-0 text-base leading-relaxed text-muted md:text-lg">{pitch.heroLead}</p>
+              <p className="m-0 min-w-0 text-sm leading-relaxed text-muted md:text-base">{pitch.elevator}</p>
+            </div>
+
+            <div className="flex flex-col gap-8 lg:col-span-2">
+              <div className="grid gap-4 sm:grid-cols-3">
+                {pitch.pitchMetrics.map((m) => (
+                  <div
+                    key={m.label}
+                    className="rounded-xl border border-border bg-page px-5 py-5 text-center"
+                  >
+                    <p className="text-xl font-semibold text-heading">{m.value}</p>
+                    <p className="text-xs text-muted">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={pdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-brand-lively inline-flex items-center justify-center rounded-full border border-brand-strong bg-brand-strong px-7 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft md:px-8 md:text-sm"
+                >
+                  Open technical PDF
+                </a>
+                <a
+                  href={pdf}
+                  download={doc.downloadName}
+                  className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-7 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-8 md:text-sm"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -440,8 +438,6 @@ export function AsmProductPage({ doc }: { doc: ProductDocument }) {
           </div>
         </div>
       </section>
-
-      {screenshotTour}
     </main>
   )
 }
