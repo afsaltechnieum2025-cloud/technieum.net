@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import type { MouseEvent, ReactNode } from 'react'
+import type { To } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import technieumLogo from '../../assets/technieum-logo.png'
 import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
 
@@ -43,14 +44,51 @@ const sectionTitleClass =
 const footerColClass =
   'flex min-w-0 flex-col lg:flex-1 lg:basis-0 lg:min-w-0'
 
+/** Same-origin SPA nav: avoids full document load (nginx 404 on /routes without try_files). */
+function footerNavDestination(to: string): To {
+  const hashIdx = to.indexOf('#')
+  if (hashIdx < 0) return to
+  const pathPart = to.slice(0, hashIdx)
+  const pathname = pathPart === '' ? '/' : pathPart
+  return { pathname, hash: to.slice(hashIdx) }
+}
+
+function FooterInternalLink({
+  to,
+  className,
+  children,
+  'aria-label': ariaLabel,
+}: {
+  to: string
+  className: string
+  children: ReactNode
+  'aria-label'?: string
+}) {
+  const navigate = useNavigate()
+
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.defaultPrevented) return
+    if (e.button !== 0) return
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return
+    e.preventDefault()
+    navigate(footerNavDestination(to))
+  }
+
+  return (
+    <a href={to} className={className} aria-label={ariaLabel} onClick={handleClick}>
+      {children}
+    </a>
+  )
+}
+
 function ColLinks({ items }: { items: { label: string; to: string }[] }) {
   return (
     <ul className="mt-0 flex list-none flex-col gap-3.5 p-0">
       {items.map(({ label, to }) => (
         <li key={label}>
-          <Link to={to} className={linkClass}>
+          <FooterInternalLink to={to} className={linkClass}>
             {label}
-          </Link>
+          </FooterInternalLink>
         </li>
       ))}
     </ul>
@@ -177,7 +215,7 @@ export function Footer() {
           <div className="grid w-full grid-cols-1 items-start gap-y-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:flex lg:flex-row lg:gap-x-8 lg:gap-y-0 xl:gap-x-10">
             {/* Col 1 — logo only */}
             <div className={footerColClass}>
-              <Link to="/" aria-label="Technieum home" className="inline-flex self-start pb-8">
+              <FooterInternalLink to="/" aria-label="Technieum home" className="inline-flex self-start pb-8">
                 <img
                   src={technieumLogo}
                   width={148}
@@ -185,7 +223,7 @@ export function Footer() {
                   alt="Technieum"
                   className="block"
                 />
-              </Link>
+              </FooterInternalLink>
             </div>
 
             <div className={footerColClass}>
