@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { SALES_PITCH_PDF } from '../../data/salesPitchSite'
 
 const CLOSE_MS = 320
 
@@ -45,24 +44,16 @@ export function TopBar({ onHidden }: { onHidden?: () => void }) {
           closing ? '-translate-y-2' : 'translate-y-0'
         }`}
       >
-        <div className="container relative z-10 flex flex-col items-stretch justify-center gap-2 py-2.5 pl-3 pr-11 text-center text-xs text-white xs:flex-row xs:flex-wrap xs:items-center xs:gap-x-3 xs:gap-y-2 xs:py-3 xs:pl-0 xs:pr-12 xs:text-sm sm:pr-14">
-          <span className="min-w-0 flex-1 leading-snug xs:flex-none xs:max-w-[min(100%,36rem)] sm:max-w-none">
-            <strong className="font-bold">Executive briefing</strong>
-            {' '}
-            <span className="text-white/95">— offensive security programs & delivery model (PDF)</span>
-          </span>
-          <a
-            href={SALES_PITCH_PDF}
-            download
-            className="inline-flex shrink-0 items-center justify-center rounded-full border-0 bg-white px-4 py-1.5 text-xs font-bold tracking-wide text-brand no-underline whitespace-nowrap transition-opacity hover:opacity-90 xs:px-5 xs:text-sm"
-          >
-            Download PDF
-          </a>
+        <div className="container relative z-10 flex items-center justify-center py-2.5 pl-3 pr-11 text-center text-xs text-white/95 xs:py-3 xs:pl-0 xs:pr-12 xs:text-sm sm:pr-14">
+          <p className="m-0 max-w-2xl leading-snug">
+            <span className="font-bold text-white">Welcome to Technieum </span>
+            <span className="text-white/95">Explore our platforms and offensive security programs.</span>
+          </p>
         </div>
         <button
           type="button"
           onClick={dismiss}
-          aria-label="Dismiss announcement"
+          aria-label="Dismiss welcome message"
           className="absolute right-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-md text-white/90 transition-colors hover:bg-white/15 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:right-3"
         >
           <IconX />
