@@ -17,13 +17,6 @@ export type ServiceTopic = {
  */
 export const SERVICE_TOPICS: readonly ServiceTopic[] = [
   {
-    slug: 'technieum-master-offsec',
-    title: 'Master Offsec',
-    summary:
-      'End-to-end offensive programs: how we plan, execute, and report across streams with portal visibility, validated findings, and one coherent delivery rhythm.',
-    detailPath: serviceProgramPath('technieum-master-offsec'),
-  },
-  {
     slug: 'technieum-infrastructure-network',
     title: 'Infrastructure network',
     summary:

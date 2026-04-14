@@ -1,15 +1,16 @@
-import { Link } from 'react-router-dom'
 import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
-import { SERVICE_TOPICS, serviceTopicPdfHref } from '../data/serviceDocuments'
+import { ServiceCatalogRow } from '../components/services/ServiceCatalogRow'
+import { SERVICE_TOPICS } from '../data/serviceDocuments'
+import { SERVICES_CATALOG_INTRO, SERVICE_CATALOG_ROW_META } from '../data/servicesCatalogRowContent'
 import { STANDARDS_SHOWCASE } from '../data/salesPitchSite'
 
 export function ServicesPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-16 md:py-24 lg:py-28">
+      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-12 md:py-16 lg:py-20">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
             <div className="order-2 flex min-w-0 w-full justify-center overflow-visible lg:order-1 lg:justify-start">
               <div className="w-full max-w-[min(100%,520px)] overflow-visible">
                 <CapabilitiesHubVisual variant="services" />
@@ -23,7 +24,7 @@ export function ServicesPage() {
               </h1>
               <p className="m-0 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
                 Every service opens a program hub: coverage pillars, delivery rhythm, portal workflow, and a datasheet PDF
-                you can download. Master Offsec and Infrastructure network use tailored visuals; the rest share the pipeline
+                you can download. Infrastructure network uses a tailored visual; the rest share the pipeline
                 layout. Use the briefs for internal sharing; formal scoping stays on a call with your team.
               </p>
             </div>
@@ -31,120 +32,46 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="services-catalog-section py-12 md:py-16" aria-labelledby="service-topics-heading">
-        <div className="container max-w-6xl">
-          <div className="mb-6 md:mb-8">
+      <section
+        className="section-zz-b services-catalog-section relative overflow-hidden py-8 md:py-10 lg:py-12"
+        aria-labelledby="service-topics-heading"
+      >
+        <div className="container">
+          <header className="mb-6 max-w-4xl md:mb-8">
             <h2
               id="service-topics-heading"
-              className="mb-2 text-xl font-semibold tracking-tight text-heading md:text-2xl"
+              className="heading-scale-hero mb-3 max-w-3xl text-pretty md:mb-4"
             >
-              Services
+              {SERVICES_CATALOG_INTRO.title}
             </h2>
-            <p className="mb-3 max-w-3xl text-sm font-medium leading-snug text-zinc-200 md:text-base">
-              Offensive coverage from master programs through cloud, AI, OT, simulations, consulting, and WFH: one catalog,
-              one delivery standard, sheets you can hand to risk and procurement.
+            <p className="mb-2 max-w-3xl text-sm font-medium leading-relaxed text-zinc-200 md:text-base">
+              {SERVICES_CATALOG_INTRO.lead}
             </p>
-            <p className="mb-6 max-w-3xl text-sm leading-snug text-muted md:text-base">
-              Open a tile for the program hub, then grab the PDF from the page when you need the contract-grade datasheet.
-              Skim the summary on the catalog; deep detail lives on each hub and in the PDF.
-            </p>
+            <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{SERVICES_CATALOG_INTRO.sub}</p>
+          </header>
 
-            <div
-              className="grid gap-4 border-y border-border/70 py-4 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border/60"
-              aria-label="How we deliver"
-            >
-              {[
-                { k: 'Operators', v: 'Senior testers on every stream, not scan-and-dash reports.' },
-                { k: 'Signal', v: 'AI speeds work; humans validate what hits remediation and audit.' },
-                { k: 'Rhythm', v: 'Shared scoring, portal visibility, and reporting leadership can defend.' },
-              ].map((row, i) => (
-                <div
-                  key={row.k}
-                  className={`min-w-0 sm:px-4 ${i === 0 ? 'sm:pl-0' : ''} ${i === 2 ? 'sm:pr-0' : ''}`}
-                >
-                  <p className="mb-1 text-[0.625rem] font-bold uppercase tracking-[0.12em] text-brand">{row.k}</p>
-                  <p className="m-0 text-xs leading-snug text-zinc-400 md:text-[0.8125rem]">{row.v}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <ul className="m-0 grid list-none grid-cols-1 gap-3.5 p-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+          <div className="flex flex-col">
             {SERVICE_TOPICS.map((topic, index) => {
-              const pdf = serviceTopicPdfHref(topic)
-              const n = String(index + 1).padStart(2, '0')
-              const cardClass =
-                'services-category-card group relative flex h-full min-h-0 flex-col overflow-hidden no-underline outline-none transition-[transform,box-shadow] duration-200 hover:-translate-y-px hover:shadow-[0_20px_48px_-22px_rgba(232,93,4,0.18)] focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-page'
-              const body = (
-                <>
-                  <span
-                    className="absolute bottom-0 left-0 top-0 w-0.5 bg-gradient-to-b from-brand via-brand/70 to-brand/30 opacity-80 transition-[width,opacity] duration-200 group-hover:w-1 group-hover:opacity-100"
-                    aria-hidden
-                  />
-                  <div className="services-category-card-inner flex h-full min-h-[11.5rem] flex-col pl-3.5 pr-4 pb-4 pt-4 md:min-h-[12rem] md:pl-4 md:pr-5 md:pb-4 md:pt-4">
-                    <div className="mb-2 flex items-center justify-between gap-2">
-                      <span className="font-mono text-[0.625rem] font-semibold tabular-nums tracking-widest text-brand/85 md:text-[0.6875rem]">
-                        {n}
-                      </span>
-                      <span className="rounded-full border border-border/80 bg-black/30 px-2 py-0.5 text-[0.5625rem] font-semibold uppercase tracking-wider text-muted">
-                        {topic.detailPath ? 'Program hub' : 'Datasheet'}
-                      </span>
-                    </div>
-                    <h3 className="mb-1.5 text-[0.9375rem] font-bold leading-snug tracking-tight text-heading transition-colors group-hover:text-brand md:text-base">
-                      {topic.title}
-                    </h3>
-                    <p className="mb-0 flex-1 text-[0.8125rem] leading-snug text-muted md:text-sm">{topic.summary}</p>
-                    <div className="mt-3 flex items-center gap-1.5 border-t border-border/50 pt-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-brand/90 transition-transform duration-200 group-hover:translate-x-0.5 md:text-xs">
-                      <span>{topic.detailPath ? 'Open hub' : 'Scope pack'}</span>
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
-                        <path
-                          d="M3 7h7M8 3l4 4-4 4"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </>
-              )
-              return (
-                <li key={topic.slug} id={topic.slug} className="scroll-mt-28">
-                  {topic.detailPath ? (
-                    <Link
-                      to={topic.detailPath}
-                      className={cardClass}
-                      aria-label={`${topic.title}: open program overview`}
-                    >
-                      {body}
-                    </Link>
-                  ) : (
-                    <a
-                      href={pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cardClass}
-                      aria-label={`${topic.title}: open datasheet PDF in new tab`}
-                    >
-                      {body}
-                    </a>
-                  )}
-                </li>
-              )
+              const meta = SERVICE_CATALOG_ROW_META[index]
+              if (!meta || meta.slug !== topic.slug) {
+                throw new Error(
+                  `servicesCatalogRowContent out of sync with SERVICE_TOPICS at index ${index} (${topic.slug})`,
+                )
+              }
+              return <ServiceCatalogRow key={topic.slug} topic={topic} meta={meta} index={index} />
             })}
-          </ul>
+          </div>
         </div>
       </section>
 
-      <section className="section-zz-a py-14 md:py-16">
+      <section className="section-zz-a relative overflow-hidden py-10 md:py-12 lg:py-14">
         <div className="container max-w-5xl">
-          <h2 className="mb-4 max-w-3xl text-xl font-medium leading-snug tracking-tight text-heading md:text-2xl">
+          <h2 className="mb-3 max-w-3xl text-xl font-medium leading-snug tracking-tight text-heading md:mb-4 md:text-2xl">
             {STANDARDS_SHOWCASE.title}
           </h2>
-          <p className="mb-10 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{STANDARDS_SHOWCASE.lead}</p>
+          <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted md:mb-8 md:text-base">{STANDARDS_SHOWCASE.lead}</p>
 
-          <div className="grid gap-10 md:grid-cols-2 md:gap-14">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-10">
             <div>
               <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand">
                 <span className="h-px w-8 bg-brand/70" aria-hidden />
@@ -177,7 +104,7 @@ export function ServicesPage() {
             </div>
           </div>
 
-          <p className="mt-10 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{STANDARDS_SHOWCASE.closing}</p>
+          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted md:mt-8 md:text-base">{STANDARDS_SHOWCASE.closing}</p>
         </div>
       </section>
     </main>

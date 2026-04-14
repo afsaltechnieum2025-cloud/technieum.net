@@ -47,7 +47,7 @@ const NAV_ITEMS: NavItemType[] = [
       },
       {
         heading: 'Professional services',
-        items: SERVICE_TOPICS.filter((t) => t.slug !== 'technieum-master-offsec').map((t) => ({
+        items: SERVICE_TOPICS.map((t) => ({
           label: t.title,
           to: serviceTopicNavHref(t),
         })),

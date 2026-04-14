@@ -15,7 +15,7 @@ const capabilityLinks = [
 ]
 
 const servicesLinks = [
-  ...SERVICE_TOPICS.filter((t) => t.slug !== 'technieum-master-offsec').map((t) => ({
+  ...SERVICE_TOPICS.map((t) => ({
     label: t.title,
     to: serviceTopicNavHref(t),
   })),
