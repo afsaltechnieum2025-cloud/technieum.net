@@ -47,7 +47,14 @@ function getHubCenter(variant: CapabilitiesHubVariant): HubCenterConfig {
 }
 
 type HubServiceNode = { label: string; to: string; tip: string }
-type HubProductNode = { label: string; to: string; icon: ProductDocId }
+type HubProductNode = {
+  /** Stable key for tooltips and React keys (full product name). */
+  label: string
+  /** Optional shorter label in the hub diagram only (e.g. TOIP on the home portal section). */
+  displayLabel?: string
+  to: string
+  icon: ProductDocId
+}
 
 const HUB_SERVICE_SLUGS = [
   'technieum-infrastructure-network',
@@ -68,8 +75,12 @@ const HUB_OUTER_SERVICES: HubServiceNode[] = HUB_SERVICE_SLUGS.map((slug) => {
 
 /** Clockwise from top — product capability hub (OffSec portal section). */
 const HUB_OUTER_PRODUCTS: HubProductNode[] = [
-  /** Diagram-only label; rest of site uses full portal name. */
-  { label: 'TOIP', to: productPath('toip'), icon: 'toip' },
+  {
+    label: 'Technieum OffSec Intelligence Portal',
+    displayLabel: 'TOIP',
+    to: productPath('toip'),
+    icon: 'toip',
+  },
   { label: 'ASM', to: productPath('asm'), icon: 'asm' },
   { label: 'LLM', to: productPath('llm'), icon: 'llm' },
   { label: 'SAST', to: productPath('sast'), icon: 'sast' },
@@ -339,10 +350,10 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                 {isProducts ? <HubNodeIcon id="portal" /> : <ServicesHubGlyph className={iconCnServices} />}
               </span>
               <span
-                className={`absolute left-1/2 top-full z-[21] -translate-x-1/2 text-center font-semibold tracking-wide text-zinc-200 drop-shadow-sm ${
+                className={`absolute left-1/2 top-full z-[21] mt-1.5 -translate-x-1/2 text-center font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:mt-2 ${
                   isProducts
-                    ? 'mt-2.5 whitespace-nowrap text-[0.625rem] sm:mt-3.5 sm:text-[0.6875rem]'
-                    : 'mt-1.5 max-w-[6.5rem] text-[0.5rem] leading-[1.2] sm:mt-2 sm:max-w-[7.25rem] sm:text-[0.5625rem]'
+                    ? 'whitespace-nowrap text-[0.625rem] sm:text-[0.6875rem]'
+                    : 'max-w-[6.5rem] text-[0.5rem] leading-[1.2] sm:max-w-[7.25rem] sm:text-[0.5625rem]'
                 }`}
               >
                 {center.label}
@@ -353,7 +364,8 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
           {isProducts
             ? HUB_OUTER_PRODUCTS.map((node, i) => {
                 const { x, y } = polarPct(i, n, spokeR)
-                const isToip = node.icon === 'toip'
+                const caption = node.displayLabel ?? node.label
+                const labelAbove = node.icon === 'toip'
                 return (
                   <Link
                     key={node.label}
@@ -364,20 +376,19 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                     aria-label={`${node.label}: open overview`}
                   >
                     <span className="relative inline-flex flex-col items-center">
+                      {labelAbove ? (
+                        <span className="mb-1 whitespace-nowrap text-[0.6875rem] font-bold tracking-[0.12em] text-white drop-shadow-[0_1px_2px_rgb(0_0_0/0.85)] sm:mb-1.5 sm:text-[0.75rem]">
+                          {caption}
+                        </span>
+                      ) : null}
                       <span className="flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full border border-zinc-600/90 bg-zinc-950/85 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_0_0_1px_rgb(0_0_0/0.5)] backdrop-blur-sm transition-all duration-200 sm:h-[3.6rem] sm:w-[3.6rem]">
                         <CapabilityLogo id={node.icon} className={iconCnProducts} />
                       </span>
-                      {isToip ? (
-                        <span
-                          className={`chub-toip-label-rise absolute whitespace-nowrap text-[0.6875rem] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:text-[0.6875rem] ${reduceMotion ? 'chub-toip-label-rise--static' : ''}`}
-                        >
-                          {node.label}
-                        </span>
-                      ) : (
+                      {!labelAbove ? (
                         <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap text-[0.625rem] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:mt-2 sm:text-[0.6875rem]">
-                          {node.label}
+                          {caption}
                         </span>
-                      )}
+                      ) : null}
                     </span>
                   </Link>
                 )

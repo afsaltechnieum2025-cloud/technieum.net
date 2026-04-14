@@ -223,7 +223,7 @@ export const LLM_USE_CASES = {
         'LLM issues share portal taxonomy with ASM and SAST so AI risk is not siloed from the broader program.',
     },
     {
-      query: 'Pair with AI SAST',
+      query: 'Pair with AI-validated SAST',
       outcome:
         'When prompts and server logic ship together, align LLM testing with static analysis on the same release train.',
     },

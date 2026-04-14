@@ -1,7 +1,7 @@
 import { CapabilitiesHubVisual, type CapabilitiesHubVariant } from './CapabilitiesHubVisual'
 
 type Props = {
-  /** `services` = Uncover Material Risk hub (8 service lanes). `products` = diagram hub: TOIP / ASM / LLM / SAST / AD (OffSec portal section). */
+  /** `services` = Uncover Material Risk hub (8 service lanes). `products` = Technieum OffSec Intelligence Portal / ASM / LLM / SAST / AD (OffSec portal section). */
   variant?: CapabilitiesHubVariant
 }
 

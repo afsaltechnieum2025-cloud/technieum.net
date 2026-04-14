@@ -183,7 +183,7 @@ export const ICS_OT_DELIVERABLE_REPORTS = {
         'Attack vectors and adversary profiles mapped to MITRE ATT&CK and OT-relevant TTPs where they strengthen prioritization.',
     },
     {
-      title: 'Technieum OffSec Management Portal playbook document',
+      title: 'Technieum OffSec Intelligence Portal playbook document',
       body:
         'Target-specific intelligence playbooks from our RAG-powered engine to contextualize industry-relevant OT and IT–OT threats.',
     },

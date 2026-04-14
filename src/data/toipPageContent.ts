@@ -10,14 +10,14 @@ export const TOIP_PAGE_META = {
 
 export const TOIP_HERO = {
   lead:
-    'The Technieum OffSec Management Portal is a searchable, AI-assisted vulnerability intelligence platform that draws from tens of thousands of real vulnerability reports and authoritative sources (NVD, CISA KEV, Nuclei, PayloadsAllTheThings) to deliver structured, citation-backed analysis, ready-to-use payloads, and attack scenarios derived from real-world reports, powered by a flexible external LLM integration.',
+    'Technieum OffSec Intelligence Portal is a searchable, AI-assisted vulnerability intelligence platform that draws from tens of thousands of real vulnerability reports and authoritative sources (NVD, CISA KEV, Nuclei, PayloadsAllTheThings) to deliver structured, citation-backed analysis, ready-to-use payloads, and attack scenarios derived from real-world reports, powered by a flexible external LLM integration.',
   preparedBy: 'TECHNIEUM Technologies LLC',
 } as const
 
 export const TOIP_EXECUTIVE = {
   title: 'Executive summary',
   body:
-    'The Technieum OffSec Management Portal is an enterprise-grade web application that enables security researchers, penetration testers, and offensive security professionals to discover, analyse, and validate vulnerabilities. It combines a large, curated database of disclosed vulnerability reports, CVEs, and security payloads with a state-of-the-art external LLM using RAG (Retrieval-Augmented Generation).',
+    'Technieum OffSec Intelligence Portal is an enterprise-grade web application that enables security researchers, penetration testers, and offensive security professionals to discover, analyse, and validate vulnerabilities. It combines a large, curated database of disclosed vulnerability reports, CVEs, and security payloads with a state-of-the-art external LLM using RAG (Retrieval-Augmented Generation).',
   differentiators: [
     'Purpose-built for offensive security and vulnerability research: every answer is grounded in a verified intelligence database.',
     'Explicit citations to disclosed reports and CVEs: findings can be verified, traced, and included in client deliverables.',
@@ -27,7 +27,7 @@ export const TOIP_EXECUTIVE = {
 } as const
 
 export const TOIP_INTERACTION = {
-  title: 'How users interact with the Technieum OffSec Management Portal',
+  title: 'How users interact with Technieum OffSec Intelligence Portal',
   intro:
     'Users submit natural-language queries (for example, XSS filter bypass for Cloudflare WAF, or blind SQLi time-based payload for MySQL). The system then:',
   steps: [
@@ -83,7 +83,7 @@ export const TOIP_PIPELINE = {
 export const TOIP_DATA_MODEL = {
   title: 'How we get data and data sources',
   intro:
-    'The Technieum OffSec Management Portal does not scrape the internet in real time. It uses a curated, pre-processed intelligence database built once (or periodically) and then queried at runtime. This ensures consistent quality, fast retrieval, and full control, which is critical for professional and compliance-sensitive use.',
+    'Technieum OffSec Intelligence Portal does not scrape the internet in real time. It uses a curated, pre-processed intelligence database built once (or periodically) and then queried at runtime. This ensures consistent quality, fast retrieval, and full control, which is critical for professional and compliance-sensitive use.',
   sources: [
     {
       name: 'Disclosed vulnerability reports',
@@ -129,10 +129,10 @@ export const TOIP_RAG = {
   intro:
     "There is no custom training of a model on your data. The system is intelligent because the knowledge base is built from your chosen sources and the pipeline (retrieval plus prompting) is fixed. Improving performance means improving data quality, coverage, and pipeline design, not running gradient updates.",
   points: [
-    'Embedding model (sentence-transformers): pre-trained all-MiniLM-L6-v2 converts text into 384-dimensional vectors. Used as-is; no fine-tuning in the Technieum OffSec Management Portal.',
+    'Embedding model (sentence-transformers): pre-trained all-MiniLM-L6-v2 converts text into 384-dimensional vectors. Used as-is; no fine-tuning in Technieum OffSec Intelligence Portal.',
     'Reranker (cross-encoder): pre-trained ms-marco-MiniLM-L-6-v2 scores (query, chunk) pairs for relevance. Used as-is.',
     'Retrieval design: query expansion, HyDE, parallel multi-source search, reranking, and impact and freshness weighting.',
-    'External LLM: state-of-the-art large language model accessed via API provides reasoning; the Technieum OffSec Management Portal augments it with retrieved context so every answer is grounded in the intelligence database.',
+    'External LLM: state-of-the-art large language model accessed via API provides reasoning; Technieum OffSec Intelligence Portal augments it with retrieved context so every answer is grounded in the intelligence database.',
   ],
 } as const
 
@@ -222,5 +222,5 @@ export const TOIP_USE_CASES = {
 
 export const TOIP_CLOSING = {
   paragraph:
-    'The Technieum OffSec Management Portal combines a curated multi-source intelligence database with a flexible external LLM and a retrieval pipeline tuned for offensive security and vulnerability research. The platform delivers detailed, citation-backed, actionable answers that analysts can trust and use immediately.',
+    'Technieum OffSec Intelligence Portal combines a curated multi-source intelligence database with a flexible external LLM and a retrieval pipeline tuned for offensive security and vulnerability research. The platform delivers detailed, citation-backed, actionable answers that analysts can trust and use immediately.',
 } as const

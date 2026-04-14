@@ -38,7 +38,7 @@ export const SERVICE_CATALOG_ROW_META: readonly ServiceCatalogRowMeta[] = [
       'API & GraphQL review',
       'Mobile application security',
       'Business logic & abuse cases',
-      'AI-assisted SAST & SCA',
+      'AI-validated SAST & SCA',
     ],
   },
   {

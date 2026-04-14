@@ -1,5 +1,5 @@
 /**
- * Marketing / product page copy for AI SAST + AI SCA (single product: Technieum AI-SAST).
+ * Marketing / product page copy for AI-validated SAST + SCA (single product: Technieum AI-validated SAST).
  * Aligned to public/docs/SAST.pdf themes and productPitchPages.sast.
  * ASCII-only strings for the UI.
  */
@@ -11,7 +11,7 @@ export const SAST_PAGE_META = {
 
 export const SAST_HERO = {
   lead:
-    'Technieum AI-SAST merges multiple static analysis engines, secret and dependency signals, and a proprietary rule set with graph-style taint reasoning and LLM validation. AI SCA sits in the same pipeline story: dependency findings inherit exploitability and reachability scoring so engineering upgrades what is actually exposed in code paths, not every CVE in a lockfile. The outcome is one ranked backlog that fits GitHub, GitLab, SARIF gates, and the OffSec Management Portal.',
+    'Technieum AI-validated SAST merges multiple static analysis engines, secret and dependency signals, and a proprietary rule set with graph-style taint reasoning and LLM validation. SCA sits in the same pipeline story: dependency findings inherit exploitability and reachability scoring so engineering upgrades what is actually exposed in code paths, not every CVE in a lockfile. The outcome is one ranked backlog that fits GitHub, GitLab, SARIF gates, and the OffSec Management Portal.',
   preparedBy: 'TECHNIEUM Technologies LLC',
 } as const
 
@@ -22,19 +22,19 @@ export const SAST_EXECUTIVE = {
   differentiators: [
     'LLM validation confirms or downgrades static candidates and explains risk in plain language with before-and-after fix hints.',
     'Business-logic hunting targets authorization, IDOR, race, and workflow gaps that pattern matchers routinely miss.',
-    'AI SCA treats dependencies as the twin of SAST: reachability-aware prioritization prevents dependency churn without security gain.',
+    'SCA treats dependencies as the twin of SAST: reachability-aware prioritization prevents dependency churn without security gain.',
     'SARIF 2.1.0 and native GitHub / GitLab security tab workflows so gates live where developers already work.',
     'Priority scores (0-100) blend severity, confidence, and exploitability for a single triage language across SAST and SCA.',
   ],
 } as const
 
 export const SAST_INTERACTION = {
-  title: 'How teams run AI SAST and AI SCA',
+  title: 'How teams run AI-validated SAST and SCA',
   intro:
     'Security and engineering share one ingest, one dashboard, and one export path. A typical program flow:',
   steps: [
     'Ingest from ZIP upload, Git URL, or local tree with intelligent file selection per language and framework.',
-    'Run parallel external scanners plus the proprietary AI-SAST engine with graph-based taint tracing across the selected corpus.',
+    'Run parallel external scanners plus the proprietary AI-validated SAST engine with graph-based taint tracing across the selected corpus.',
     'Feed candidates to the validation agent: duplicates merge, false positives drop, and each retained issue gains narrative context.',
     'Invoke the business-logic agent for auth bypass, IDOR, race, and workflow-class problems that pure signatures skip.',
     'Run dependency and SCA analysis with reachability and exploitability overlays so upgrade work tracks real call paths and exposure.',
@@ -62,7 +62,7 @@ export const SAST_PIPELINE = {
       step: '2',
       name: 'Multi-engine static scan',
       detail:
-        'Parallel Semgrep, Bandit, Trivy-style, secret scanning, dependency audit, and proprietary AI-SAST rules execute together.',
+        'Parallel Semgrep, Bandit, Trivy-style, secret scanning, dependency audit, and proprietary AI-validated SAST rules execute together.',
     },
     {
       step: '3',
@@ -119,7 +119,7 @@ export const SAST_DATA_MODEL = {
     {
       name: 'Dependency graph and SCA',
       description: 'Lockfiles and manifests correlated to resolved versions and known CVEs.',
-      role: 'Feeds reachability and exploitability scoring for AI SCA prioritization.',
+      role: 'Feeds reachability and exploitability scoring for SCA prioritization.',
     },
     {
       name: 'Portal and CI fabric',
@@ -141,7 +141,7 @@ export const SAST_SCALE = {
 } as const
 
 export const SAST_AI = {
-  title: 'AI SAST: validation and business logic',
+  title: 'AI-validated SAST: validation and business logic',
   intro:
     'The LLM is not a replacement for static engines; it is the filter and explainer on top of them. Candidates that survive have consistent severity language, merged duplicates, and remediation hints developers recognize.',
   points: [
@@ -154,7 +154,7 @@ export const SAST_AI = {
 } as const
 
 export const SAST_SCA = {
-  title: 'AI SCA: composable dependency risk',
+  title: 'SCA: composable dependency risk',
   intro:
     'SCA is positioned as the dependency twin of SAST: the same program surfaces vulnerable packages, but reachability and exploitability prevent "patch the entire npm tree" exercises that do not change actual risk.',
   points: [
@@ -186,7 +186,7 @@ export const SAST_TECH_STACK = {
   title: 'Technical stack (representative)',
   rows: [
     { layer: 'Ingest', technology: 'ZIP, Git URL, local tree; language-aware file selection' },
-    { layer: 'Static engines', technology: 'Semgrep, Bandit, Trivy-class, secret scanning, proprietary AI-SAST' },
+    { layer: 'Static engines', technology: 'Semgrep, Bandit, Trivy-class, secret scanning, proprietary AI-validated SAST' },
     { layer: 'Analysis', technology: 'Graph taint, structural rules, 350+ signatures, seven-agent orchestration' },
     { layer: 'AI validation', technology: 'LLM confirms, deduplicates, and narrates fixes' },
     { layer: 'Business logic', technology: 'Dedicated agent for auth, IDOR, race, workflow abuse' },
@@ -233,5 +233,5 @@ export const SAST_USE_CASES = {
 
 export const SAST_CLOSING = {
   paragraph:
-    'AI SAST and AI SCA together turn noisy scanners into a single, ranked, developer-legible backlog. Multi-engine coverage, LLM validation, business-logic depth, and reachability-aware dependency scoring keep security and engineering on one roadmap from commit to portal sign-off.',
+    'AI-validated SAST and SCA together turn noisy scanners into a single, ranked, developer-legible backlog. Multi-engine coverage, LLM validation, business-logic depth, and reachability-aware dependency scoring keep security and engineering on one roadmap from commit to portal sign-off.',
 } as const

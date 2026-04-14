@@ -113,7 +113,7 @@ export const THREAT_SIM_EDGE = {
       body: 'Push fatigue and AiTM token theft — real MFA circumvention scenarios.',
     },
     {
-      title: 'Technieum OffSec Management Portal social intel',
+      title: 'Technieum OffSec Intelligence Portal social intel',
       body: 'RAG-powered research on industry-specific social engineering TTPs.',
     },
     {
@@ -140,7 +140,7 @@ export const THREAT_SIM_METHODOLOGY = {
       step: '2',
       title: 'Analyze',
       body:
-        'Campaign design with custom pretexts, clone portals for credential harvesting, vishing scripts, MFA bypass technique selection (push fatigue, AiTM). Technieum OffSec Management Portal social intelligence improves pretext credibility.',
+        'Campaign design with custom pretexts, clone portals for credential harvesting, vishing scripts, MFA bypass technique selection (push fatigue, AiTM). Technieum OffSec Intelligence Portal social intelligence improves pretext credibility.',
     },
     {
       step: '3',
@@ -185,7 +185,7 @@ export const THREAT_SIM_DELIVERABLE_REPORTS = {
         'Threat landscape analysis for your environment: attack vectors and adversary profiles mapped to MITRE ATT&CK.',
     },
     {
-      title: 'Technieum OffSec Management Portal playbook document',
+      title: 'Technieum OffSec Intelligence Portal playbook document',
       body:
         'Target-specific attack playbooks from 15,000+ real-world disclosed vulnerabilities via our RAG-powered intelligence engine.',
     },

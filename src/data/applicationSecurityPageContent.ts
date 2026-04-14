@@ -6,9 +6,9 @@ export const APP_SEC_HERO = {
   eyebrow: 'Application security',
   title: 'Application security testing',
   lead:
-    'Business logic-aware testing of web apps, APIs, mobile, and source code — powered by AI SAST and the Technieum OffSec Management Portal. Browser, API, mobile, architecture, and code-level testing with exploitability you can defend in sprint planning and release gates.',
+    'Business logic-aware testing of web apps, APIs, mobile, and source code — powered by AI-validated SAST and Technieum OffSec Intelligence Portal. Browser, API, mobile, architecture, and code-level testing with exploitability you can defend in sprint planning and release gates.',
   sub:
-    'Structured to align with the application security datasheet: OWASP-aligned cases, AI-assisted SAST and SCA where they help, Technieum OffSec Management Portal–backed playbooks, and human validation before severity hits your backlog.',
+    'Structured to align with the application security datasheet: OWASP-aligned cases, AI-validated SAST and SCA where they help, Technieum OffSec Intelligence Portal-backed playbooks, and human validation before severity hits your backlog.',
 } as const
 
 export const APP_SEC_KEY_BENEFITS = {
@@ -21,9 +21,9 @@ export const APP_SEC_KEY_BENEFITS = {
         'We extract your application authentication, authorization, and transaction logic — then generate target-specific attack playbooks.',
     },
     {
-      title: 'Agentic SAST pipeline',
+      title: 'Agentic AI-validated SAST pipeline',
       body:
-        'Source code to logic extraction, Technieum OffSec Management Portal playbooks, and validated exploits: automated analysis, then human validation.',
+        'Source code to logic extraction, Technieum OffSec Intelligence Portal playbooks, and validated exploits: automated analysis, then human validation.',
     },
     {
       title: 'Zero false positives commitment',
@@ -54,7 +54,7 @@ export const APP_SEC_SOLUTION_INTRO = {
   title: 'Our solution',
   subtitle: 'Services overview',
   intro:
-    'Technieum combines AI-powered static analysis with dynamic testing, manual code review, and SCA — all cross-correlated through the Technieum OffSec Management Portal.',
+    'Technieum combines AI-powered static analysis with dynamic testing, manual code review, and SCA — all cross-correlated through Technieum OffSec Intelligence Portal intelligence.',
 } as const
 
 export const APP_SEC_SERVICE_CATALOG = [
@@ -84,7 +84,7 @@ export const APP_SEC_SERVICE_CATALOG = [
   },
   {
     step: '5',
-    title: 'Source code review (AI SAST)',
+    title: 'Source code review (AI-validated SAST)',
     body:
       'AI-powered static analysis beyond pattern matching: authentication flows, authorization models, transaction logic, and data handling. Identifies business logic vulnerabilities, tainted data flows, insecure cryptographic implementations, hardcoded secrets, and injection sinks with contextual exploitability scoring.',
   },
@@ -106,18 +106,18 @@ export const APP_SEC_EDGE = {
   title: 'The Technieum edge',
   subtitle: 'Why Technieum for application security',
   methodologyLead:
-    'Agentic SAST pipeline: source code to AI analysis, business logic extraction, Technieum OffSec Management Portal playbooks, exploit creation, and human validation.',
+    'Agentic AI-validated SAST pipeline: source code to AI analysis, business logic extraction, Technieum OffSec Intelligence Portal playbooks, exploit creation, and human validation.',
   pillars: [
     {
       title: 'Business logic extraction',
       body: 'We understand your application authentication, authorization, and transaction logic before testing.',
     },
     {
-      title: 'AI SAST and AI SCA',
+      title: 'AI-validated SAST and SCA',
       body: 'Proprietary static analysis with exploitability scoring and reachability analysis on dependencies.',
     },
     {
-      title: 'Technieum OffSec Management Portal attack playbooks',
+      title: 'Technieum OffSec Intelligence Portal attack playbooks',
       body: '15,000+ vulnerability contexts — payloads, WAF bypasses, and exploit chains aligned to your stack.',
     },
     {
@@ -145,13 +145,13 @@ export const APP_SEC_METHODOLOGY = {
       step: '1',
       title: 'Discover',
       body:
-        'Application reconnaissance maps endpoints, authentication flows, API schemas (REST, GraphQL, SOAP), mobile binary analysis, and technology stack fingerprinting. AI SAST performs initial source analysis to extract business logic patterns.',
+        'Application reconnaissance maps endpoints, authentication flows, API schemas (REST, GraphQL, SOAP), mobile binary analysis, and technology stack fingerprinting. AI-validated SAST performs initial source analysis to extract business logic patterns.',
     },
     {
       step: '2',
       title: 'Analyze',
       body:
-        'AI SAST extracts authentication, authorization, and transaction logic from source. The Technieum OffSec Management Portal generates application-specific attack playbooks. AI SCA maps dependency risks with exploitability scoring. Threat models reflect your architecture.',
+        'AI-validated SAST extracts authentication, authorization, and transaction logic from source. Technieum OffSec Intelligence Portal generates application-specific attack playbooks. SCA maps dependency risks with exploitability scoring. Threat models reflect your architecture.',
     },
     {
       step: '3',
@@ -196,7 +196,7 @@ export const APP_SEC_DELIVERABLE_REPORTS = {
         'Threat landscape analysis for your environment: attack vectors and adversary profiles mapped to MITRE ATT&CK.',
     },
     {
-      title: 'Technieum OffSec Management Portal playbook document',
+      title: 'Technieum OffSec Intelligence Portal playbook document',
       body:
         'Target-specific attack playbooks from 15,000+ real-world disclosed vulnerabilities via our RAG-powered intelligence engine.',
     },

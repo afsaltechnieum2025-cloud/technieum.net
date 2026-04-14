@@ -21,7 +21,7 @@ export type ProductDocument = {
 export const PRODUCT_DOCUMENTS: ProductDocument[] = [
   {
     id: 'toip',
-    name: 'Technieum OffSec Management Portal',
+    name: 'Technieum OffSec Intelligence Portal',
     subtitle: 'Technieum Offsec Intelligence Portal',
     glanceDescription:
       'Grounded answers from a large vulnerability corpus: citations, payloads, and scenarios your testers can run immediately.',
@@ -29,7 +29,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     downloadName: 'Technieum-TOIP-Technical-Overview.pdf',
     tagline: 'Citation-backed vulnerability intelligence for offensive security teams.',
     summary:
-      'The Technieum OffSec Management Portal is an enterprise-grade, AI-augmented research capability for penetration testers and disclosure programmes. It combines a curated corpus of tens of thousands of real vulnerability reports with retrieval-augmented generation (RAG) so every answer is grounded in NVD, CISA KEV, Nuclei templates, PayloadsAllTheThings, and disclosed reports, with explicit citations, ready payloads, and attack scenarios drawn from real-world cases.',
+      'Technieum OffSec Intelligence Portal is an enterprise-grade, AI-augmented research capability for penetration testers and disclosure programmes. It combines a curated corpus of tens of thousands of real vulnerability reports with retrieval-augmented generation (RAG) so every answer is grounded in NVD, CISA KEV, Nuclei templates, PayloadsAllTheThings, and disclosed reports, with explicit citations, ready payloads, and attack scenarios drawn from real-world cases.',
     stats: [
       { value: '90,000+', label: 'Vulnerability reports (typical corpus)' },
       { value: '5', label: 'Parallel intelligence sources' },
@@ -66,7 +66,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     downloadName: 'Technieum-X-ASM-Overview-v2.pdf',
     tagline: 'One engine to discover, assess, and manage your external attack surface.',
     summary:
-      'Technieum-X orchestrates 50+ industry tools across a ten-phase pipeline: from discovery and OSINT through vulnerability testing, threat intel enrichment, CVE correlation (CVSS, EPSS, KEV), change detection, compliance mapping, and attack-graph analysis. It is designed to feed the Technieum OffSec Management Portal: scan, find, prioritize, act, and rescan in a closed loop.',
+      'Technieum-X orchestrates 50+ industry tools across a ten-phase pipeline: from discovery and OSINT through vulnerability testing, threat intel enrichment, CVE correlation (CVSS, EPSS, KEV), change detection, compliance mapping, and attack-graph analysis. It is designed to feed Technieum OffSec Intelligence Portal: scan, find, prioritize, act, and rescan in a closed loop.',
     stats: [
       { value: '50+', label: 'Integrated security tools' },
       { value: '10', label: 'Scan phases' },
@@ -76,7 +76,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
       'Unified view of subdomains, DNS, ports, technologies, and vulnerabilities.',
       'Threat context from GreyNoise, OTX, Abuse.ch, CrowdSec, DeHashed, AbuseIPDB, and more.',
       'Dashboards for assessments, vulnerabilities, attack surface, attack graph, compliance, and reports.',
-      'Webhooks, APIs, and SSE for live progress, ready for Technieum OffSec Management Portal integration.',
+      'Webhooks, APIs, and SSE for live progress, ready for Technieum OffSec Intelligence Portal integration.',
       'Graceful degradation when optional tools or API keys are unavailable.',
     ],
     frameworks: ['NIST CSF', 'PCI-DSS', 'HIPAA', 'GDPR', 'SOC 2'],
@@ -130,7 +130,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
   },
   {
     id: 'sast',
-    name: 'AI-SAST',
+    name: 'AI-validated SAST',
     subtitle: 'AI-Powered Static Application Security Testing',
     glanceDescription:
       'Seven agents merge SAST, secrets, dependencies, and AI validation into SARIF-ready priorities your developers can ship against.',
@@ -138,7 +138,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     downloadName: 'Technieum-AI-SAST-Product-Overview-v2.pdf',
     tagline: 'Six engines, graph-based taint analysis, and LLM validation: one prioritized backlog.',
     summary:
-      'TECHNIEUM AI-SAST merges Semgrep, Bandit, Trivy, secret scanning, dependency audit, and a proprietary AI-SAST engine with 350+ rules. A seven-agent pipeline filters files, runs structural and semantic analysis, validates every candidate with an LLM, hunts business-logic flaws, generates sandboxed PoCs, and produces SARIF-ready output for modern CI/CD.',
+      'TECHNIEUM AI-validated SAST merges Semgrep, Bandit, Trivy, secret scanning, dependency audit, and a proprietary AI-validated SAST engine with 350+ rules. A seven-agent pipeline filters files, runs structural and semantic analysis, validates every candidate with an LLM, hunts business-logic flaws, generates sandboxed PoCs, and produces SARIF-ready output for modern CI/CD.',
     stats: [
       { value: '350+', label: 'Detection rules' },
       { value: '7', label: 'Analysis agents' },
@@ -153,7 +153,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     frameworks: ['SARIF 2.1.0', 'CWE mapping', 'GitHub / GitLab security tabs'],
     architecture: [
       { phase: 'Ingest', detail: 'Upload, Git clone, or connect a local tree; auto-detect languages.' },
-      { phase: 'Multi-engine scan', detail: 'Parallel external scanners plus AI-SAST signatures and taint tracing.' },
+      { phase: 'Multi-engine scan', detail: 'Parallel external scanners plus AI-validated SAST signatures and taint tracing.' },
       { phase: 'AI validation', detail: 'LLM confirms or downgrades candidates; merges duplicates.' },
       { phase: 'PoC and report', detail: 'Exploit snippets, dashboard trends, JSON / MD / HTML export.' },
     ],

@@ -10,7 +10,7 @@ export const INFRA_NETWORK_HERO = {
   lead:
     'AI-powered assessment of your network perimeter, internal infrastructure, and Active Directory environments. Perimeter-to-core offensive testing with attack-surface intelligence, controlled exploitation, and reporting your NOC and leadership can act on while keeping one thread from external exposure through internal blast radius.',
   sub:
-    'Structured to match the Infrastructure network datasheet in your service library: clear scope boundaries, evidence-first narratives, cross-correlated ASM, AD Suite, the Technieum OffSec Management Portal, and tracking from first finding through retest.',
+    'Structured to match the Infrastructure network datasheet in your service library: clear scope boundaries, evidence-first narratives, cross-correlated ASM, AD Suite, Technieum OffSec Intelligence Portal, and portal-backed tracking from first finding through retest.',
 } as const
 
 export const INFRA_NETWORK_KEY_BENEFITS = {
@@ -155,7 +155,7 @@ export const INFRA_NETWORK_EDGE = {
   title: 'The Technieum edge',
   subtitle: 'Why Technieum for infrastructure',
   methodologyLead:
-    'Every engagement runs five converging pipelines — ASM, SAST, AD Suite, and Nuclei — with intelligence from the Technieum OffSec Management Portal cross-correlated end to end.',
+    'Every engagement runs five converging pipelines — ASM, SAST, AD Suite, Technieum OffSec Intelligence Portal, and Nuclei — all cross-correlated via the OffSec Management Portal.',
   pillars: [
     {
       title: 'AI-based ASM platform',
@@ -167,7 +167,7 @@ export const INFRA_NETWORK_EDGE = {
         'Purpose-built AD assessment: Kerberoasting, DCSync, Golden Ticket class paths, and domain compromise narratives with evidence.',
     },
     {
-      title: 'Technieum OffSec Management Portal intelligence engine',
+      title: 'Technieum OffSec Intelligence Portal engine',
       body: '15,000+ real-world exploit contexts via RAG search — playbooks with payloads aligned to what broke in the field.',
     },
     {
@@ -202,7 +202,7 @@ export const INFRA_NETWORK_METHODOLOGY = {
       step: '2',
       title: 'Analyze',
       body:
-        'The Technieum OffSec Management Portal generates infrastructure-specific attack playbooks. AD Suite maps privilege escalation paths and domain compromise chains. Network topology analysis surfaces segmentation weaknesses and lateral movement opportunities.',
+        'Technieum OffSec Intelligence Portal generates infrastructure-specific attack playbooks. AD Suite maps privilege escalation paths and domain compromise chains. Network topology analysis surfaces segmentation weaknesses and lateral movement opportunities.',
     },
     {
       step: '3',
@@ -262,7 +262,7 @@ export const INFRA_NETWORK_DELIVERABLE_REPORTS = {
         'Threat landscape analysis for your environment: attack vectors and adversary profiles mapped to MITRE ATT&CK.',
     },
     {
-      title: 'Technieum OffSec Management Portal playbook document',
+      title: 'Technieum OffSec Intelligence Portal playbook document',
       body:
         'Target-specific attack playbooks from 15,000+ real-world disclosed vulnerabilities via our RAG-powered intelligence engine.',
     },

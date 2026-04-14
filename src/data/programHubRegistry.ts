@@ -28,7 +28,7 @@ export const applicationSecurityHubConfig: ProgramHubConfig = {
     lead:
       'Browser, API, mobile, architecture, and code-level testing with exploitability you can defend in sprint planning and release gates.',
     sub:
-      'Structured to align with the application security datasheet: OWASP-aligned cases, AI-assisted SAST and SCA where they help, and human validation before severity hits your backlog.',
+      'Structured to align with the application security datasheet: OWASP-aligned cases, AI-validated SAST and SCA where they help, and human validation before severity hits your backlog.',
   },
   visualNodes: [
     { t1: 'Web / client', t2: 'Browser apps' },
@@ -63,7 +63,7 @@ export const applicationSecurityHubConfig: ProgramHubConfig = {
     },
     {
       id: 'code',
-      title: 'AI SAST and SCA',
+      title: 'AI-validated SAST and SCA',
       accent: 'Triage',
       body: 'Static and composition findings correlated with dynamic proof so engineering effort lands on real chains, not rule noise.',
     },

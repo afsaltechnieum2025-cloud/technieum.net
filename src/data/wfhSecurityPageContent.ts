@@ -182,7 +182,7 @@ export const WFH_SEC_DELIVERABLE_REPORTS = {
         'Remote-work attack vectors and adversary profiles mapped to MITRE ATT&CK where it strengthens prioritization.',
     },
     {
-      title: 'Technieum OffSec Management Portal playbook document',
+      title: 'Technieum OffSec Intelligence Portal playbook document',
       body:
         'Target-specific playbooks from our RAG-powered intelligence engine contextualizing workforce-targeted TTPs.',
     },

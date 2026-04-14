@@ -16,8 +16,8 @@ export type ProductPitchPage = {
 export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
   toip: {
     id: 'toip',
-    heroEyebrow: 'Technieum OffSec Management Portal',
-    heroTitle: 'Technieum OffSec Management Portal: RAG-backed vulnerability intelligence at query speed',
+    heroEyebrow: 'Technieum OffSec Intelligence Portal',
+    heroTitle: 'Technieum OffSec Intelligence Portal: RAG-backed vulnerability intelligence at query speed',
     heroLead:
       'Semantic search across 15,000+ real-world disclosed vulnerabilities delivers instant attack playbooks with exact payloads, WAF bypass techniques, and chained exploit sequences. Hours of research collapse into one grounded query.',
     pitchMetrics: [
@@ -26,7 +26,7 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
       { value: 'Playbooks', label: 'Payloads, bypasses, chains' },
     ],
     elevator:
-      'The Technieum OffSec Management Portal is the research brain behind Technieum engagements: it frames scenarios, surfaces proven tradecraft, and keeps deliverables aligned to what actually worked in the field.',
+      'Technieum OffSec Intelligence Portal is the research brain behind Technieum engagements: it frames scenarios, surfaces proven tradecraft, and keeps deliverables aligned to what actually worked in the field.',
     pillars: [
       {
         title: 'Intel that reads like an operator wrote it',
@@ -46,10 +46,10 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
     ],
     deepDive: [
       {
-        title: 'How the Technieum OffSec Management Portal shows up on engagements',
+        title: 'How Technieum OffSec Intelligence Portal shows up on engagements',
         paragraphs: [
-          'During scoping and testing, analysts use the Technieum OffSec Management Portal to align test cases to real disclosure patterns: same classes of flaws, same bypass families, same chain logic that showed up in production incidents.',
-          'The Technieum OffSec Management Portal complements automated scanning by explaining why a finding matters, how others exploited similar conditions, and which payloads or sequences are most relevant to your stack.',
+          'During scoping and testing, analysts use Technieum OffSec Intelligence Portal to align test cases to real disclosure patterns: same classes of flaws, same bypass families, same chain logic that showed up in production incidents.',
+          'Technieum OffSec Intelligence Portal complements automated scanning by explaining why a finding matters, how others exploited similar conditions, and which payloads or sequences are most relevant to your stack.',
         ],
       },
       {
@@ -61,9 +61,9 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
       },
     ],
     portalFit:
-      'Technieum OffSec Management Portal intelligence is designed to unify shared context, consistent CWE and CVSS language, and a single place for testers and stakeholders to consume updates.',
+      'Technieum OffSec Intelligence Portal is designed to plug into the OffSec Management Portal: shared context, consistent CWE and CVSS language, and a single place for testers and stakeholders to consume updates.',
     ctaLine:
-      'Pair the Technieum OffSec Management Portal with ASM and validation services for end-to-end coverage from surface discovery to grounded exploitation narratives.',
+      'Pair Technieum OffSec Intelligence Portal with ASM and validation services for end-to-end coverage from surface discovery to grounded exploitation narratives.',
   },
   asm: {
     id: 'asm',
@@ -74,7 +74,7 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
     pitchMetrics: [
       { value: '100+', label: 'Recon and analysis tools' },
       { value: '4', label: 'Core ASM phases' },
-      { value: 'Intel', label: 'Feeds Technieum OffSec Management Portal and testers' },
+      { value: 'Intel', label: 'Feeds Technieum OffSec Intelligence Portal and testers' },
     ],
     elevator:
       'Technieum-X is the external visibility engine: it tells you what the internet can see, what is weak, and what changed since the last baseline.',
@@ -163,14 +163,14 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
     ],
     portalFit:
       'LLM findings land in the same portal taxonomy as application and infrastructure issues so AI risk is not siloed from the rest of the program.',
-    ctaLine: 'Pair LLM testing with AI SAST when prompts and server logic share the same release train.',
+    ctaLine: 'Pair LLM testing with AI-validated SAST when prompts and server logic share the same release train.',
   },
   sast: {
     id: 'sast',
-    heroEyebrow: 'AI SAST and AI SCA',
+    heroEyebrow: 'AI-validated SAST and SCA',
     heroTitle: 'Business-logic-aware static analysis plus composable dependency risk',
     heroLead:
-      'AI SAST merges multiple static engines with AI validation, taint-style reasoning, and business-logic hunting. AI SCA layers dependency scanning with exploitability and reachability scoring so upgrades are prioritized on real exposure.',
+      'AI-validated SAST merges multiple static engines with AI validation, taint-style reasoning, and business-logic hunting. SCA layers dependency scanning with exploitability and reachability scoring so upgrades are prioritized on real exposure.',
     pitchMetrics: [
       { value: 'Multi-engine', label: 'SAST plus signatures' },
       { value: 'AI', label: 'Validation and deduplication' },
@@ -207,13 +207,13 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
         title: 'SCA in the same story',
         paragraphs: [
           'Sales positioning treats SCA as the dependency twin of SAST: reachability and exploitability prevent "upgrade everything" panic.',
-          'Download the AI-SAST technical PDF for agent detail, rule counts, and timing guidance on large repositories.',
+          'Download the AI-validated SAST technical PDF for agent detail, rule counts, and timing guidance on large repositories.',
         ],
       },
     ],
     portalFit:
       'Static and dependency findings inherit portal scoring, owners, and retest states alongside ASM and LLM issues.',
-    ctaLine: 'Run AI SAST and SCA in the same sprint as ASM to connect code-level flaws to what is actually exposed.',
+    ctaLine: 'Run AI-validated SAST and SCA in the same sprint as ASM to connect code-level flaws to what is actually exposed.',
   },
   ad: {
     id: 'ad',

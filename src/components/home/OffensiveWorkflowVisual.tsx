@@ -150,7 +150,7 @@ export function OffensiveWorkflowVisual() {
       <div
         className={`offensive-workflow-stage__inner relative overflow-hidden rounded-[calc(1rem-1px)] border border-border-strong/50 bg-[color-mix(in_oklab,var(--color-panel)_88%,black)] p-3 shadow-inner md:p-4 ${motion ? 'offensive-workflow-stage__inner--ambient' : ''}`}
         role="img"
-        aria-label="Diagram: five offensive workstreams from intel and scanning through the Technieum OffSec Management Portal and tooling into validated findings, above the OffSec Management Portal."
+        aria-label="Diagram: five offensive workstreams from intel and scanning through Technieum OffSec Intelligence Portal and tooling into validated findings, above the OffSec Management Portal."
         onPointerLeave={() => setFocusedLane(null)}
       >
         <div
@@ -170,7 +170,13 @@ export function OffensiveWorkflowVisual() {
                 <Arrow variant="brand" motion={motion} />
                 <Node title="Logic extraction" sub="Auth / txn" tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
-                <Node title="Technieum OffSec Management Portal" sub="15k+ reports, RAG search" tone="brand" pulse motion={motion} />
+                <Node
+                  title="Technieum OffSec Intelligence Portal"
+                  sub="15k+ reports, RAG search"
+                  tone="brand"
+                  pulse
+                  motion={motion}
+                />
                 <Arrow variant="brand" motion={motion} />
                 <Node title="Playbooks" sub="Target-specific" tone="default" motion={motion} />
                 <Arrow variant="success" motion={motion} />
@@ -187,7 +193,13 @@ export function OffensiveWorkflowVisual() {
             <Lane label="SAST validation" laneNum="02">
                 <Node title="SAST findings" sub="SQLi, XSS, etc." tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
-                <Node title="Technieum OffSec Management Portal" sub="Shared intel" tone="brand" pulse motion={motion} />
+                <Node
+                  title="Technieum OffSec Intelligence Portal"
+                  sub="Shared intel"
+                  tone="brand"
+                  pulse
+                  motion={motion}
+                />
                 <Arrow variant="brand" motion={motion} />
                 <Node title="Playbooks" sub="Exploit-matched" tone="default" motion={motion} />
                 <Arrow variant="success" motion={motion} />
@@ -204,7 +216,13 @@ export function OffensiveWorkflowVisual() {
             <Lane label="Attack surface intel" laneNum="03">
                 <Node title="ASM intel" sub="Subs / APIs" tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
-                <Node title="Technieum OffSec Management Portal" sub="Shared intel" tone="brand" pulse motion={motion} />
+                <Node
+                  title="Technieum OffSec Intelligence Portal"
+                  sub="Shared intel"
+                  tone="brand"
+                  pulse
+                  motion={motion}
+                />
                 <Arrow variant="brand" motion={motion} />
                 <Node title="Playbooks" sub="Surface-specific" tone="default" motion={motion} />
                 <Arrow variant="success" motion={motion} />
