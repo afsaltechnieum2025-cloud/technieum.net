@@ -666,6 +666,142 @@
   animation: master-offsec-hub-pulse 3.2s ease-in-out infinite;
 }
 
+/* --- Services catalog: hub converge diagram (portal + tiles) --- */
+@keyframes service-hub-enter-up-kf {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes service-hub-lines-fade-kf {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.service-hub-tile-enter {
+  animation: service-hub-enter-up-kf 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.service-hub-lines-enter {
+  animation: service-hub-lines-fade-kf 0.75s ease-out both;
+}
+
+.service-hub-portal-enter {
+  animation: service-hub-enter-up-kf 0.82s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes service-hub-portal-edge-kf {
+
+  0%,
+  100% {
+    stroke-opacity: 0.52;
+  }
+
+  50% {
+    stroke-opacity: 0.68;
+  }
+}
+
+.service-hub-portal-edge-breathe {
+  animation: service-hub-portal-edge-kf 5.8s ease-in-out infinite;
+}
+
+@keyframes service-hub-ellipse-breathe-kf {
+
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+
+  50% {
+    opacity: 0.48;
+  }
+}
+
+.service-hub-ellipse-breathe {
+  animation: service-hub-ellipse-breathe-kf 8s ease-in-out infinite;
+}
+
+@keyframes service-hub-ambient-kf {
+
+  0%,
+  100% {
+    opacity: 0.68;
+  }
+
+  50% {
+    opacity: 0.82;
+  }
+}
+
+.service-hub-converge-ambient {
+  animation: service-hub-ambient-kf 9s ease-in-out infinite;
+}
+
+/* --- Why Technieum page (hero + scroll reveal) --- */
+@keyframes why-tn-hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.why-tn-hero-item {
+  animation: why-tn-hero-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.why-tn-card-wrap {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  transition-delay: calc(var(--why-i, 0) * 52ms);
+}
+
+.why-tn-section--active .why-tn-card-wrap {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-tn-band {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--why-band, 0) * 70ms);
+}
+
+.why-tn-section--active .why-tn-band {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.why-tn-snapshot-float {
+  animation: why-tn-hero-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.14s;
+}
+
 /* --- Contact page hero visual (brand orbit) --- */
 @keyframes contact-hero-orbit {
   to {
@@ -839,6 +975,34 @@
     animation: none !important;
   }
 
+  .service-hub-tile-enter,
+  .service-hub-lines-enter,
+  .service-hub-portal-enter,
+  .service-hub-portal-edge-breathe,
+  .service-hub-ellipse-breathe,
+  .service-hub-converge-ambient {
+    animation: none !important;
+  }
+
+  .service-hub-tile-enter,
+  .service-hub-lines-enter,
+  .service-hub-portal-enter {
+    opacity: 1;
+    transform: none;
+  }
+
+  .service-hub-portal-edge-breathe {
+    stroke-opacity: 0.6;
+  }
+
+  .service-hub-ellipse-breathe {
+    opacity: 0.4;
+  }
+
+  .service-hub-converge-ambient {
+    opacity: 0.75;
+  }
+
   .contact-hero-visual__glow,
   .contact-hero-visual__ring--outer,
   .contact-hero-visual__ring--mid,
@@ -858,5 +1022,19 @@
   .contact-hero-visual__spark--b {
     opacity: 0.75;
     transform: none;
+  }
+
+  .why-tn-hero-item,
+  .why-tn-snapshot-float {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .why-tn-card-wrap,
+  .why-tn-band {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

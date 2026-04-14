@@ -1,5 +1,4 @@
-import { GenericPipelineVisual } from '../program-hub/GenericPipelineVisual'
-import { InfrastructureNetworkVisual } from '../infrastructure-network/InfrastructureNetworkVisual'
+import type { ProgramHubVisualNode } from '../../data/programHubRegistry'
 import {
   aiSecurityHubConfig,
   applicationSecurityHubConfig,
@@ -9,10 +8,23 @@ import {
   threatSimulationsHubConfig,
   wfhSecurityHubConfig,
 } from '../../data/programHubRegistry'
+import { ServiceHubConvergeVisual } from './ServiceHubConvergeVisual'
 
 type Props = {
   slug: string
 }
+
+const INFRA_NODES = [
+  { t1: 'External', t2: 'ASM / edge' },
+  { t1: 'Perimeter', t2: 'Net test' },
+  { t1: 'Internal', t2: 'Lateral' },
+  { t1: 'Identity', t2: 'AD / hybrid' },
+] as const satisfies readonly [
+  ProgramHubVisualNode,
+  ProgramHubVisualNode,
+  ProgramHubVisualNode,
+  ProgramHubVisualNode,
+]
 
 const PIPELINE_BY_SLUG: Record<string, { visualNodes: typeof applicationSecurityHubConfig.visualNodes; visualAriaLabel: string }> = {
   'technieum-application-security': applicationSecurityHubConfig,
@@ -24,28 +36,36 @@ const PIPELINE_BY_SLUG: Record<string, { visualNodes: typeof applicationSecurity
   'technieum-wfh-security': wfhSecurityHubConfig,
 }
 
-/** Decorative fallback if a slug is missing from the map */
 function FallbackVisual() {
+  const nodes: readonly [
+    ProgramHubVisualNode,
+    ProgramHubVisualNode,
+    ProgramHubVisualNode,
+    ProgramHubVisualNode,
+  ] = [
+    { t1: 'Discover', t2: 'Scope' },
+    { t1: 'Assess', t2: 'Validate' },
+    { t1: 'Report', t2: 'Evidence' },
+    { t1: 'Retest', t2: 'Closure' },
+  ]
   return (
-    <div
-      className="relative mx-auto flex aspect-[4/3] w-full max-w-md items-center justify-center overflow-hidden rounded-2xl border border-border-strong/50 bg-panel/20 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
-      aria-hidden
-    >
-      <div className="absolute inset-0 opacity-[0.06] hero-cyber-scan" />
-      <svg viewBox="0 0 200 160" className="relative z-[1] h-auto w-[85%] text-brand/35" fill="none" aria-hidden>
-        <rect x="24" y="28" width="152" height="104" rx="12" stroke="currentColor" strokeWidth="1" />
-        <path d="M60 70h80M60 90h56M60 110h72" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3 4" />
-        <circle cx="100" cy="52" r="10" stroke="currentColor" strokeWidth="1.2" className="text-brand/55" />
-      </svg>
-    </div>
+    <ServiceHubConvergeVisual
+      nodes={nodes}
+      ariaLabel="Diagram: delivery streams consolidating in the OffSec Management Portal."
+    />
   )
 }
 
 export function ServiceCatalogRowVisual({ slug }: Props) {
   if (slug === 'technieum-infrastructure-network') {
-    return <InfrastructureNetworkVisual />
+    return (
+      <ServiceHubConvergeVisual
+        nodes={INFRA_NODES}
+        ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
+      />
+    )
   }
   const cfg = PIPELINE_BY_SLUG[slug]
   if (!cfg) return <FallbackVisual />
-  return <GenericPipelineVisual nodes={cfg.visualNodes} ariaLabel={cfg.visualAriaLabel} />
+  return <ServiceHubConvergeVisual nodes={cfg.visualNodes} ariaLabel={cfg.visualAriaLabel} />
 }

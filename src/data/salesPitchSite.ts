@@ -30,47 +30,49 @@ export const HOME_CAPABILITIES_HUB = {
 
 /** Standalone /why-technieum page (no longer on home). */
 export const WHY_TECHNIEUM_PAGE = {
-  eyebrow: 'Differentiators',
-  headline: 'Why Technieum',
+  eyebrow: 'Why Technieum',
+  headline: 'One program. Validated findings. Platforms we build in-house.',
   lead:
-    'Same scanners elsewhere. Here: in-house AI tooling, human validation, and 360-degree coverage per engagement.',
+    'Teams come to us when they need adversary-grade coverage without scanner noise: proprietary AI and ASM tooling, senior testers who validate severities, and one OffSec Management Portal so leadership and engineering share the same evidence.',
+  subLead:
+    'Daily visibility, fast critical escalation, and remediation guidance written for your stack—not generic checklist output.',
 } as const
 
 export const WHY_TECHNIEUM = [
   {
     title: 'AI at every layer',
     body:
-      'Agentic recon, RAG-backed intel in ToIP, and AI-assisted remediation guidance. AI amplifies each stage; experts still decide.',
+      'Agentic recon, RAG-backed intelligence in ToIP, and AI-assisted remediation guidance. Automation widens coverage; experts decide what ships to your backlog.',
   },
   {
     title: 'Timely delivery',
     body:
-      'Milestone-driven work, daily updates, weekly reviews, and fast critical escalation. Structured comms so leadership stays aligned.',
+      'Milestone-driven work, daily updates, weekly reviews when you need them, and rapid escalation on criticals. Structured communication keeps security and leadership aligned.',
   },
   {
     title: 'Accurate, actionable remediation',
     body:
-      'Fix guidance tailored to your stack, not generic scanner output. Written so developers and operators can ship changes.',
+      'Fix guidance tailored to your stack and architecture—not anonymous scanner text. Written so developers and operators can ship fixes with confidence.',
   },
   {
-    title: 'In-house R and D',
+    title: 'In-house R&D',
     body:
-      'Researchers hunting zero-days and publishing CVEs. That work feeds our tooling and every client engagement.',
+      'Researchers hunting zero-days and publishing CVEs. That research feeds our platforms and sharpens every client engagement.',
   },
   {
     title: 'Six proprietary AI capabilities',
     body:
-      'ToIP, LLM Attack Suite, AD Suite, AI ASM, AI SAST, and AI SCA, built here and run alongside commercial tools when needed.',
+      'ToIP, LLM Attack Suite, AD Suite, AI ASM, AI SAST, and AI SCA—built at Technieum and run alongside commercial tools when they add value.',
   },
   {
     title: '360 coverage per engagement',
     body:
-      'SAST, SCA, ASM, AD, and AI or LLM testing in one program, cross-correlated across the attack surface you define.',
+      'SAST, SCA, ASM, Active Directory, and AI or LLM testing in one coordinated program, cross-correlated across the attack surface you define.',
   },
   {
     title: 'Zero false positives commitment',
     body:
-      'AI speeds discovery; humans validate every finding. Your backlog stays focused on confirmed risk, not noise.',
+      'AI accelerates discovery; humans validate every finding before it hits your queue. You prioritize confirmed risk, not noise.',
   },
 ] as const
 
@@ -154,6 +156,20 @@ export const OFFSEC_PORTAL = {
     'Typical outcome: roughly 30 to 40 percent reduction in administrative overhead versus ad-hoc reporting.',
   ],
 } as const
+
+/** /why-technieum: hero snapshot (same proof lines as home hero). */
+export const WHY_TECHNIEUM_SNAPSHOT = {
+  title: 'What stakeholders see first',
+  points: HOME_HERO.proofPoints,
+} as const
+
+/** /why-technieum: portal highlights (curated from OFFSEC_PORTAL.bullets). */
+export const WHY_TECHNIEUM_PORTAL_FOCUS = [
+  OFFSEC_PORTAL.bullets[0],
+  OFFSEC_PORTAL.bullets[2],
+  OFFSEC_PORTAL.bullets[3],
+  OFFSEC_PORTAL.bullets[4],
+] as const
 
 export const OFFENSIVE_WORKFLOW = {
   /** Section label (nav / outline); engine name */
