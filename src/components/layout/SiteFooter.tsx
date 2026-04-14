@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import technieumLogo from '../../assets/technieum-logo.png'
 import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
 
@@ -47,9 +48,9 @@ function ColLinks({ items }: { items: { label: string; to: string }[] }) {
     <ul className="mt-0 flex list-none flex-col gap-3.5 p-0">
       {items.map(({ label, to }) => (
         <li key={label}>
-          <a href={to} className={linkClass}>
+          <Link to={to} className={linkClass}>
             {label}
-          </a>
+          </Link>
         </li>
       ))}
     </ul>
@@ -176,7 +177,7 @@ export function Footer() {
           <div className="grid w-full grid-cols-1 items-start gap-y-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:flex lg:flex-row lg:gap-x-8 lg:gap-y-0 xl:gap-x-10">
             {/* Col 1 — logo only */}
             <div className={footerColClass}>
-              <a href="/" aria-label="Technieum home" className="inline-flex self-start pb-8">
+              <Link to="/" aria-label="Technieum home" className="inline-flex self-start pb-8">
                 <img
                   src={technieumLogo}
                   width={148}
@@ -184,7 +185,7 @@ export function Footer() {
                   alt="Technieum"
                   className="block"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className={footerColClass}>

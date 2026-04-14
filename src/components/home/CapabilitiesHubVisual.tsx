@@ -405,7 +405,10 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
         >
           {(isProducts ? HUB_OUTER_PRODUCTS : HUB_OUTER_SERVICES).map((node, i) => {
             const { x1, y1, x2, y2 } = spokeTrimmedEndpoints(i, n, spokeR, trimIn, trimOut)
-            const d = zigzagSpokeD(x2, y2, x1, y1, zigzagAmp)
+            /* Services: flow center → lanes. Products: flow outer capabilities → Portal. */
+            const d = isProducts
+              ? zigzagSpokeD(x2, y2, x1, y1, zigzagAmp)
+              : zigzagSpokeD(x1, y1, x2, y2, zigzagAmp)
             const pathId = `${gid}-spoke-${i}`
             return (
               <g key={`spoke-pack-${node.label}`} className="capabilities-hub-spokes">

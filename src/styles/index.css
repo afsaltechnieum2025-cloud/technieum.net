@@ -508,7 +508,7 @@
   animation: hero-cyber-scan-move 7s ease-in-out infinite;
 }
 
-/* Capabilities hub: bright segment runs along spoke toward Portal (path outer→hub, pathLength=1) */
+/* Capabilities hub: bright segment along spoke (pathLength=1). Direction follows path: services hub→outer, products outer→hub. */
 @keyframes capabilities-hub-spoke-dash-travel {
   to {
     stroke-dashoffset: -1;
