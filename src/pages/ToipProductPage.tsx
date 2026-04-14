@@ -138,31 +138,15 @@ export function ToipProductPage({ doc }: { doc: ProductDocument }) {
 
   const screenshotTour =
     productHasScreenshotFolder(doc.id) && slides.length > 0 ? (
-      <section className="section-zz-b py-14 md:py-20" aria-labelledby="toip-screenshots-heading">
+      <section className="section-zz-b py-4 md:py-8" aria-label={chrome.regionAriaLabel}>
         <div className="container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div>
-              <h2 id="toip-screenshots-heading" className="mb-3 text-xl font-medium text-heading md:text-2xl">
-                {HOME_TOIP.title}
-              </h2>
-              <p className="mb-6 text-base leading-snug text-brand">{HOME_TOIP.subtitle}</p>
-              <p className="mb-8 text-sm leading-relaxed text-muted lg:mb-0">{HOME_TOIP.intro}</p>
-              <ul className="m-0 mt-8 list-none space-y-4 p-0 lg:mt-10">
-                {HOME_TOIP.bullets.map((b) => (
-                  <li key={b} className="flex gap-3 text-sm text-muted">
-                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" aria-hidden />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="lg:sticky lg:top-28">
-              <OffsecPortalSlideshow
-                slides={slides}
-                chromeTitle={chrome.chromeTitle}
-                regionAriaLabel={chrome.regionAriaLabel}
-              />
-            </div>
+          <div className="mx-auto w-full max-w-md">
+            <OffsecPortalSlideshow
+              slides={slides}
+              chromeTitle={chrome.chromeTitle}
+              regionAriaLabel={chrome.regionAriaLabel}
+              compact
+            />
           </div>
         </div>
       </section>
