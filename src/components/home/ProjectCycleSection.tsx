@@ -26,10 +26,13 @@ function nodePosition(index: number, cx: number, cy: number, r: number) {
 type DiagramProps = {
   activeIndex: number
   motion: boolean
+  /** When a numbered node is hovered, align list + highlight with that step. */
+  onNodeHoverEnter?: (index: number) => void
 }
 
 /** Circular eight-step diagram (sales pitch style): outer ring, numbered nodes, center hub. */
-function ProjectCycleDiagram({ activeIndex, motion }: DiagramProps) {
+function ProjectCycleDiagram({ activeIndex, motion, onNodeHoverEnter }: DiagramProps) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const vb = 400
   const cx = vb / 2
   const cy = vb / 2
@@ -42,11 +45,29 @@ function ProjectCycleDiagram({ activeIndex, motion }: DiagramProps) {
     return { x, y, n: i + 1, active: motion && i === activeIndex }
   })
 
+  const connectorD =
+    nodes.length > 0
+      ? `M ${nodes[0].x.toFixed(2)} ${nodes[0].y.toFixed(2)}${nodes
+          .slice(1)
+          .map((node) => ` L ${node.x.toFixed(2)} ${node.y.toFixed(2)}`)
+          .join('')} Z`
+      : ''
+
+  const hoverTitle =
+    hoveredIndex !== null ? PROJECT_CYCLE.phases[hoveredIndex]?.title : null
+
   return (
     <div
       className="relative mx-auto w-full max-w-[min(100%,420px)] shrink-0 p-0"
       aria-hidden={false}
     >
+      <p
+        className="pointer-events-none mb-2 min-h-[2.75rem] px-2 text-center text-[0.8125rem] font-semibold leading-snug text-heading transition-opacity duration-200 md:min-h-[3rem] md:text-sm"
+        style={{ opacity: hoverTitle ? 1 : 0 }}
+        aria-live="polite"
+      >
+        {hoverTitle ?? '\u00a0'}
+      </p>
       <svg
         viewBox={`0 0 ${vb} ${vb}`}
         className="aspect-square w-full overflow-visible"
@@ -67,6 +88,17 @@ function ProjectCycleDiagram({ activeIndex, motion }: DiagramProps) {
           strokeWidth="2.25"
           strokeOpacity="0.55"
           className={motion ? 'project-cycle-outer-ring' : ''}
+        />
+
+        {/* Octagon through step centers — visually links numbered nodes */}
+        <path
+          d={connectorD}
+          fill="none"
+          stroke="var(--color-brand)"
+          strokeWidth="2.1"
+          strokeOpacity="0.62"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
 
         {/* Center hub */}
@@ -96,7 +128,7 @@ function ProjectCycleDiagram({ activeIndex, motion }: DiagramProps) {
         </text>
 
         {/* Step nodes */}
-        {nodes.map((node) => {
+        {nodes.map((node, i) => {
           const r = node.active ? 22 : 17
           const fill = node.active ? 'var(--color-brand)' : 'color-mix(in oklab, var(--color-brand) 35%, transparent)'
           const strokeW = node.active ? 2.5 : 1.5
@@ -108,14 +140,35 @@ function ProjectCycleDiagram({ activeIndex, motion }: DiagramProps) {
                   ? 'project-cycle-node-active transition-all duration-500'
                   : 'transition-all duration-500'
               }
+              style={{ cursor: 'pointer' }}
+              onMouseEnter={() => {
+                setHoveredIndex(i)
+                onNodeHoverEnter?.(i)
+              }}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
+              {/* Large hit target so digits don’t block hover; keyboard shows same title as hover */}
+              <circle
+                cx={node.x}
+                cy={node.y}
+                r={32}
+                fill="transparent"
+                className="outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand/70"
+                tabIndex={0}
+                aria-label={`Step ${node.n}: ${PROJECT_CYCLE.phases[i]?.title ?? ''}`}
+                onFocus={() => {
+                  setHoveredIndex(i)
+                  onNodeHoverEnter?.(i)
+                }}
+                onBlur={() => setHoveredIndex(null)}
+              />
               <circle
                 cx={node.x}
                 cy={node.y}
                 r={r + (node.active ? 6 : 0)}
                 fill="var(--color-brand)"
                 fillOpacity={node.active ? 0.12 : 0}
-                className="transition-all duration-500"
+                className="pointer-events-none transition-all duration-500"
               />
               <circle
                 cx={node.x}
@@ -125,13 +178,14 @@ function ProjectCycleDiagram({ activeIndex, motion }: DiagramProps) {
                 stroke="var(--color-brand)"
                 strokeWidth={strokeW}
                 strokeOpacity={node.active ? 1 : 0.75}
-                className="transition-all duration-500"
+                className="pointer-events-none transition-all duration-500"
               />
               <text
                 x={node.x}
                 y={node.y}
                 dy="0.35em"
                 textAnchor="middle"
+                pointerEvents="none"
                 style={{
                   fontSize: node.active ? 14 : 12,
                   fontWeight: 800,
@@ -186,7 +240,11 @@ export function ProjectCycleSection() {
             <p className="mb-3 text-center text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
               {PROJECT_CYCLE.diagramEyebrow}
             </p>
-            <ProjectCycleDiagram activeIndex={activeIndex} motion={motion} />
+            <ProjectCycleDiagram
+              activeIndex={activeIndex}
+              motion={motion}
+              onNodeHoverEnter={setActiveIndex}
+            />
           </div>
 
           <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center lg:mx-0 lg:max-w-none lg:justify-self-center">
