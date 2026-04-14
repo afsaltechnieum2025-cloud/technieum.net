@@ -3,11 +3,9 @@ import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
 import { OffsecPortalIllustration } from '../components/home/OffsecPortalIllustration'
 import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
-import { HeroCyberVisual } from '../components/home/HeroCyberVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
 import {
   HOME_CAPABILITIES_HUB,
-  HOME_HERO,
   OFFENSIVE_WORKFLOW,
   OFFSEC_PORTAL,
 } from '../data/salesPitchSite'
@@ -15,34 +13,55 @@ import {
 export function HomePage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      {/* Hero */}
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-16 md:py-24 lg:py-28">
-        <div className="hero-color-drift" aria-hidden />
-        <div className="container relative z-10">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-            <div className="text-left">
-              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{HOME_HERO.eyebrow}</p>
-              <h1 className="heading-scale-hero mb-4 max-w-2xl">
-                {HOME_HERO.title}
+      {/* Coverage hub — primary headline */}
+      <section
+        className="section-zz-b section-zz-allow-overflow pt-16 pb-12 md:pt-20 md:pb-14"
+        aria-labelledby="capabilities-hub-heading"
+      >
+        <div className="container">
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+            <div className="min-w-0">
+              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
+                {HOME_CAPABILITIES_HUB.eyebrow}
+              </p>
+              <h1
+                id="capabilities-hub-heading"
+                className="heading-scale-hero mb-5 max-w-xl text-pretty"
+              >
+                {HOME_CAPABILITIES_HUB.headline}
               </h1>
-              <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{HOME_HERO.lead}</p>
-              <p className="mb-8 max-w-2xl text-xs leading-relaxed text-muted md:text-sm">{HOME_HERO.sublead}</p>
-              <div className="flex flex-wrap justify-start gap-3">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center rounded-full border border-border bg-panel px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-[border-color,background-color,color,box-shadow] duration-200 hover:border-brand hover:bg-brand/12 hover:text-brand hover:shadow-[0_0_28px_rgb(232_93_4/0.18)] md:px-7 md:text-sm"
-                >
-                  Services portfolio
-                </Link>
+              <p className="mb-3 max-w-xl text-pretty text-sm leading-relaxed text-muted md:text-base">
+                {HOME_CAPABILITIES_HUB.body}
+              </p>
+              <p className="mb-8 max-w-xl text-pretty text-xs leading-relaxed text-muted md:text-sm">
+                {HOME_CAPABILITIES_HUB.sublead}
+              </p>
+              <Link
+                to={HOME_CAPABILITIES_HUB.primaryCta.to}
+                className="btn-brand-lively inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-6 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft sm:gap-2 sm:px-7 sm:py-3 sm:text-sm"
+              >
+                {HOME_CAPABILITIES_HUB.primaryCta.label}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
+                  <path
+                    d="M3 7h8M8 3l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div className="flex min-w-0 w-full justify-center overflow-visible">
+              <div className="w-full max-w-[min(100%,460px)] overflow-visible">
+                <CapabilitiesHubVisual />
               </div>
             </div>
-
-            <HeroCyberVisual />
           </div>
         </div>
       </section>
 
-      {/* OffSec portal — tight top: hero already has bottom padding; avoid double vertical gap */}
+      {/* OffSec portal */}
       <section className="section-zz-a pt-6 pb-16 md:pb-20" aria-labelledby="portal-heading">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
@@ -103,51 +122,6 @@ export function HomePage() {
       </section>
 
       <ProjectCycleSection />
-
-      {/* Coverage hub: copy + interactive capability diagram (TOIP, ASM, LLM, SAST, AD, Portal) */}
-      <section
-        className="section-zz-b section-zz-allow-overflow py-16 md:py-20"
-        aria-labelledby="capabilities-hub-heading"
-      >
-        <div className="container">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
-            <div className="min-w-0">
-              <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
-                {HOME_CAPABILITIES_HUB.eyebrow}
-              </p>
-              <h2
-                id="capabilities-hub-heading"
-                className="heading-scale-hero mb-5 max-w-xl text-pretty"
-              >
-                {HOME_CAPABILITIES_HUB.headline}
-              </h2>
-              <p className="mb-8 max-w-xl text-pretty text-sm leading-relaxed text-muted md:text-base">
-                {HOME_CAPABILITIES_HUB.body}
-              </p>
-              <Link
-                to={HOME_CAPABILITIES_HUB.primaryCta.to}
-                className="btn-brand-lively inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full border border-brand-strong bg-brand-strong px-6 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft sm:gap-2 sm:px-7 sm:py-3 sm:text-sm"
-              >
-                {HOME_CAPABILITIES_HUB.primaryCta.label}
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden className="shrink-0">
-                  <path
-                    d="M3 7h8M8 3l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="flex min-w-0 w-full justify-center overflow-visible">
-              <div className="w-full max-w-[min(100%,460px)] overflow-visible">
-                <CapabilitiesHubVisual />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <CustomersBelievedSection />
     </main>

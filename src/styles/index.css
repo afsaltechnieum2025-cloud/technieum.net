@@ -486,78 +486,7 @@
   animation: project-cycle-node-glow 2.2s ease-in-out infinite;
 }
 
-/* --- Hero cybersecurity visual (HomePage right rail): calm, product-style motion --- */
-
-@keyframes hero-cyber-orbit-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.hero-cyber-orbit-spin {
-  transform-origin: 0 0;
-  transform-box: fill-box;
-  animation: hero-cyber-orbit-spin 52s linear infinite;
-  will-change: transform;
-}
-
-@keyframes hero-cyber-link-flow {
-  to {
-    stroke-dashoffset: -72;
-  }
-}
-
-.hero-cyber-link-flow {
-  stroke-dasharray: 2 18;
-  animation: hero-cyber-link-flow 16s linear infinite;
-}
-
-@keyframes hero-cyber-hub-pulse {
-
-  0%,
-  100% {
-    stroke-opacity: 0.36;
-  }
-
-  50% {
-    stroke-opacity: 0.52;
-  }
-}
-
-.hero-cyber-hub-ring {
-  animation: hero-cyber-hub-pulse 4.8s ease-in-out infinite;
-}
-
-@keyframes hero-cyber-node-enter {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.hero-cyber-node-wrap {
-  animation: hero-cyber-node-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  opacity: 0;
-}
-
-@keyframes hero-cyber-node-breathe {
-
-  0%,
-  100% {
-    stroke-opacity: 0.38;
-  }
-
-  50% {
-    stroke-opacity: 0.55;
-  }
-}
-
-.hero-cyber-node-ring {
-  animation: hero-cyber-node-breathe 5.5s ease-in-out infinite;
-}
+/* --- Shared scan-line motion (Services hero visual) --- */
 
 @keyframes hero-cyber-scan-move {
   0% {
@@ -894,20 +823,8 @@
     stroke-dashoffset: 0;
   }
 
-  .hero-cyber-orbit-spin,
-  .hero-cyber-link-flow,
-  .hero-cyber-hub-ring,
-  .hero-cyber-node-wrap,
-  .hero-cyber-node-ring,
   .hero-cyber-scan {
     animation: none !important;
-  }
-
-  .hero-cyber-node-wrap {
-    opacity: 1;
-  }
-
-  .hero-cyber-scan {
     transform: none;
     opacity: 0.04;
   }
