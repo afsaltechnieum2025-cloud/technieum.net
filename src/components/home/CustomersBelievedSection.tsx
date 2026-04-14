@@ -227,7 +227,7 @@ export function CustomersBelievedSection() {
   return (
     <section
       id="customers-believed"
-      className="section-zz-a py-16 md:py-24"
+      className="section-zz-b py-16 md:py-24"
       aria-labelledby="customers-believed-heading"
     >
       <div className="container">
