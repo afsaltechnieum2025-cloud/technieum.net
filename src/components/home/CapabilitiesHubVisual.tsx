@@ -187,17 +187,32 @@ export function CapabilitiesHubVisual() {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
-          <radialGradient id="capabilities-hub-vignette" cx="50%" cy="50%" r="55%">
-            <stop offset="0%" stopColor="rgb(232 93 4)" stopOpacity="0.06" />
-            <stop offset="70%" stopColor="rgb(0 0 0)" stopOpacity="0" />
-            <stop offset="100%" stopColor="rgb(0 0 0)" stopOpacity="0.25" />
+          <pattern
+            id="capabilities-hub-chip-grid"
+            width="3.2"
+            height="3.2"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 3.2 0 L 0 0 0 3.2"
+              fill="none"
+              stroke="rgb(148 163 184)"
+              strokeOpacity="0.07"
+              strokeWidth="0.12"
+            />
+          </pattern>
+          <radialGradient id="capabilities-hub-vignette" cx="50%" cy="50%" r="58%">
+            <stop offset="0%" stopColor="rgb(232 93 4)" stopOpacity="0.055" />
+            <stop offset="55%" stopColor="rgb(6 20 14)" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="rgb(2 4 3)" stopOpacity="0.35" />
           </radialGradient>
         </defs>
 
+        <rect width="100" height="100" fill="url(#capabilities-hub-chip-grid)" opacity={0.85} />
         <rect width="100" height="100" fill="url(#capabilities-hub-vignette)" />
 
         {STARFIELD.map((s, i) => (
-          <circle key={`star-${i}`} cx={s.cx} cy={s.cy} r={s.r} className="fill-zinc-500" opacity={s.o} />
+          <circle key={`star-${i}`} cx={s.cx} cy={s.cy} r={s.r} className="fill-teal-200/20" opacity={s.o * 0.55} />
         ))}
 
         {/* Glow under spokes so hub disc does not paint over connector lines (all five must read clearly). */}

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
-import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
+import { CapabilitiesHubInPortalFrame } from '../components/home/CapabilitiesHubInPortalFrame'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
-import { OffsecPortalIllustration } from '../components/home/OffsecPortalIllustration'
 import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
 import {
@@ -53,8 +52,8 @@ export function HomePage() {
               </Link>
             </div>
             <div className="flex min-w-0 w-full justify-center overflow-visible">
-              <div className="w-full max-w-[min(100%,460px)] overflow-visible">
-                <CapabilitiesHubVisual />
+              <div className="w-full max-w-[min(100%,520px)] overflow-visible">
+                <CapabilitiesHubInPortalFrame />
               </div>
             </div>
           </div>
@@ -66,7 +65,7 @@ export function HomePage() {
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div className="min-w-0 lg:sticky lg:top-28">
-              <OffsecPortalIllustration />
+              <CapabilitiesHubInPortalFrame />
             </div>
             <div className="min-w-0">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
