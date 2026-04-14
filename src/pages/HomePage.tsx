@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CapabilitiesHubInPortalFrame } from '../components/home/CapabilitiesHubInPortalFrame'
+import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
 import { CustomersBelievedSection } from '../components/home/CustomersBelievedSection'
 import { OffensiveWorkflowVisual } from '../components/home/OffensiveWorkflowVisual'
 import { ProjectCycleSection } from '../components/home/ProjectCycleSection'
@@ -53,7 +54,7 @@ export function HomePage() {
             </div>
             <div className="flex min-w-0 w-full justify-center overflow-visible">
               <div className="w-full max-w-[min(100%,520px)] overflow-visible">
-                <CapabilitiesHubInPortalFrame />
+                <CapabilitiesHubVisual variant="services" />
               </div>
             </div>
           </div>

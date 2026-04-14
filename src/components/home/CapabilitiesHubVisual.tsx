@@ -27,9 +27,24 @@ function usePrefersReducedMotion() {
   return reduce
 }
 
-const HUB_CENTER = { label: 'Portal', to: '/#portal-heading' as const }
-
 export type CapabilitiesHubVariant = 'services' | 'products'
+
+type HubCenterConfig = { label: string; to: string; tip: string }
+
+function getHubCenter(variant: CapabilitiesHubVariant): HubCenterConfig {
+  if (variant === 'services') {
+    return {
+      label: 'Technieum services',
+      to: '/services',
+      tip: 'Open the services catalog: offensive programs, briefs, and how each delivery stream fits your estate.',
+    }
+  }
+  return {
+    label: 'Portal',
+    to: '/#portal-heading',
+    tip: OFFSEC_PORTAL.headline,
+  }
+}
 
 type HubServiceNode = { label: string; to: string; tip: string }
 type HubProductNode = { label: string; to: string; icon: ProductDocId }
@@ -143,6 +158,21 @@ function ServiceLaneGlyph({ className }: { className?: string }) {
   )
 }
 
+/** Center hub for services variant — reads as catalog / program list, not the OffSec portal tile. */
+function ServicesHubGlyph({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <path
+        d="M5 7h14M5 12h14M5 17h9"
+        stroke="currentColor"
+        strokeWidth="1.45"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function HubNodeIcon({ id }: { id: ProductDocId | 'portal' }) {
   const cn =
     'h-[1.65rem] w-[1.65rem] shrink-0 text-brand sm:h-[1.85rem] sm:w-[1.85rem] [filter:drop-shadow(0_0_5px_rgb(232_93_4/0.45))]'
@@ -150,8 +180,8 @@ function HubNodeIcon({ id }: { id: ProductDocId | 'portal' }) {
   return <CapabilityLogo id={id} className={cn} />
 }
 
-function hubTipForKey(variant: CapabilitiesHubVariant, key: string): string {
-  if (key === HUB_CENTER.label) return OFFSEC_PORTAL.headline
+function hubTipForKey(variant: CapabilitiesHubVariant, key: string, center: HubCenterConfig): string {
+  if (key === center.label) return center.tip
   if (variant === 'services') {
     return HUB_OUTER_SERVICES.find((n) => n.label === key)?.tip ?? ''
   }
@@ -167,6 +197,7 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
   const [tipPos, setTipPos] = useState({ top: 0, left: 0 })
 
   const isProducts = variant === 'products'
+  const center = getHubCenter(variant)
   const n = isProducts ? HUB_OUTER_PRODUCTS.length : HUB_OUTER_SERVICES.length
   const spokeR = isProducts ? 36 : 37.5
   const trimIn = 7.25
@@ -221,7 +252,7 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
     onBlur: hideTip,
   })
 
-  const tipLine = hoverKey ? hubTipForKey(variant, hoverKey) : ''
+  const tipLine = hoverKey ? hubTipForKey(variant, hoverKey, center) : ''
 
   const iconCnServices =
     'h-[1.45rem] w-[1.45rem] shrink-0 text-brand sm:h-[1.6rem] sm:w-[1.6rem] [filter:drop-shadow(0_0_5px_rgb(232_93_4/0.45))]'
@@ -293,19 +324,27 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
 
         <div className="pointer-events-none absolute inset-0 z-[10] overflow-visible">
           <Link
-            to={HUB_CENTER.to}
-            {...hubPointerHandlers(HUB_CENTER.label)}
+            to={center.to}
+            {...hubPointerHandlers(center.label)}
             className="capabilities-hub-node pointer-events-auto absolute left-1/2 top-1/2 z-[20] -translate-x-1/2 -translate-y-1/2 no-underline"
-            aria-label={`${HUB_CENTER.label}: open overview`}
+            aria-label={
+              isProducts ? `${center.label}: open overview` : `${center.label}: open services page`
+            }
           >
             <span className="relative inline-flex flex-col items-center">
               <span
                 className={`flex items-center justify-center rounded-full border border-zinc-600/90 bg-zinc-950/90 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_0_0_1px_rgb(0_0_0/0.5),0_0_24px_rgb(232_93_4/0.2)] backdrop-blur-sm transition-all duration-200 ${isProducts ? 'h-[3.5rem] w-[3.5rem] sm:h-[3.85rem] sm:w-[3.85rem]' : 'h-[3.35rem] w-[3.35rem] sm:h-[3.7rem] sm:w-[3.7rem]'}`}
               >
-                <HubNodeIcon id="portal" />
+                {isProducts ? <HubNodeIcon id="portal" /> : <ServicesHubGlyph className={iconCnServices} />}
               </span>
-              <span className="absolute left-1/2 top-full mt-1.5 -translate-x-1/2 whitespace-nowrap text-[0.625rem] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:mt-2 sm:text-[0.6875rem]">
-                {HUB_CENTER.label}
+              <span
+                className={`absolute left-1/2 top-full z-[21] mt-1.5 -translate-x-1/2 text-center font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:mt-2 ${
+                  isProducts
+                    ? 'whitespace-nowrap text-[0.625rem] sm:text-[0.6875rem]'
+                    : 'max-w-[6.5rem] text-[0.5rem] leading-[1.2] sm:max-w-[7.25rem] sm:text-[0.5625rem]'
+                }`}
+              >
+                {center.label}
               </span>
             </span>
           </Link>

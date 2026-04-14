@@ -39,9 +39,9 @@ export function CapabilitiesHubInPortalFrame({ variant = 'services' }: Props) {
       </div>
       {variant === 'services' ? (
         <figcaption className="sr-only">
-          OffSec Management Portal window: central Portal with eight service lanes—Infrastructure network, Application
-          security, Cloud security, AI security, Threat simulations, ICS OT Security, Security consulting, and WFH
-          security—linked by animated spokes.
+          OffSec Management Portal window: central Technieum services hub linking to the services catalog, with eight
+          service lanes—Infrastructure network, Application security, Cloud security, AI security, Threat simulations, ICS
+          OT Security, Security consulting, and WFH security.
         </figcaption>
       ) : (
         <figcaption className="sr-only">
