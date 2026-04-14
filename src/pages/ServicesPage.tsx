@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { ServicesHeroVisual } from '../components/home/ServicesHeroVisual'
+import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
 import { SERVICE_TOPICS, serviceTopicPdfHref } from '../data/serviceDocuments'
-import { CONTACT_SALES, SALES_PITCH_PDF, STANDARDS_SHOWCASE } from '../data/salesPitchSite'
+import { STANDARDS_SHOWCASE } from '../data/salesPitchSite'
 
 export function ServicesPage() {
   return (
@@ -10,8 +10,10 @@ export function ServicesPage() {
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-            <div className="order-2 flex w-full justify-center lg:order-1 lg:justify-start">
-              <ServicesHeroVisual />
+            <div className="order-2 flex min-w-0 w-full justify-center overflow-visible lg:order-1 lg:justify-start">
+              <div className="w-full max-w-[min(100%,520px)] overflow-visible">
+                <CapabilitiesHubVisual variant="services" />
+              </div>
             </div>
 
             <div className="order-1 text-left lg:order-2">
@@ -19,26 +21,11 @@ export function ServicesPage() {
               <h1 className="heading-scale-hero mb-4 max-w-2xl">
                 Offensive security offerings
               </h1>
-              <p className="mb-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
+              <p className="m-0 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
                 Every service opens a program hub: coverage pillars, delivery rhythm, portal workflow, and a datasheet PDF
                 you can download. Master Offsec and Infrastructure network use tailored visuals; the rest share the pipeline
                 layout. Use the briefs for internal sharing; formal scoping stays on a call with your team.
               </p>
-              <div className="flex flex-wrap justify-start gap-3">
-                <a
-                  href={SALES_PITCH_PDF}
-                  download
-                  className="btn-brand-lively inline-flex items-center justify-center rounded-full border border-brand-strong bg-brand-strong px-6 py-2.5 text-xs font-bold tracking-wide text-white no-underline transition-colors hover:bg-brand-soft md:px-7 md:text-sm"
-                >
-                  Download sales pitch (PDF)
-                </a>
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-full border border-border-strong bg-transparent px-6 py-2.5 text-xs font-bold tracking-wide text-heading no-underline transition-colors hover:border-brand hover:text-brand md:px-7 md:text-sm"
-                >
-                  Contact us
-                </Link>
-              </div>
             </div>
           </div>
         </div>
@@ -191,24 +178,6 @@ export function ServicesPage() {
           </div>
 
           <p className="mt-10 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{STANDARDS_SHOWCASE.closing}</p>
-        </div>
-      </section>
-
-      <section className="section-zz-b py-14 md:py-16">
-        <div className="container flex flex-col items-start justify-between gap-8 rounded-2xl border border-border bg-panel/20 p-8 md:flex-row md:items-center md:p-10">
-          <div>
-            <h2 className="mb-2 text-lg font-medium text-heading">Scope your next program</h2>
-            <p className="m-0 max-w-xl text-sm text-muted">
-              Reach {CONTACT_SALES.offensive.name} for technical scoping or {CONTACT_SALES.commercial.name} for
-              commercial and alliance questions.
-            </p>
-          </div>
-          <Link
-            to="/contact"
-            className="btn-brand-lively inline-flex shrink-0 items-center justify-center rounded-full border border-brand bg-brand px-8 py-3 text-sm font-bold tracking-wide text-white no-underline transition-opacity hover:opacity-90"
-          >
-            View contacts
-          </Link>
         </div>
       </section>
     </main>

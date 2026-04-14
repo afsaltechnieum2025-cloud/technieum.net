@@ -613,46 +613,6 @@
     100% 100%;
 }
 
-/* --- Services page hero visual --- */
-
-@keyframes services-hero-spine-flow {
-  to {
-    stroke-dashoffset: -40;
-  }
-}
-
-.services-hero-spine-flow {
-  stroke-dasharray: 8 12;
-  animation: services-hero-spine-flow 2.2s linear infinite;
-}
-
-@keyframes services-hero-path-flow {
-  to {
-    stroke-dashoffset: -36;
-  }
-}
-
-.services-hero-path-flow {
-  stroke-dasharray: 3 9;
-  animation: services-hero-path-flow 1.25s linear infinite;
-}
-
-@keyframes services-hero-pill-glow {
-
-  0%,
-  100% {
-    stroke-opacity: 0.32;
-  }
-
-  50% {
-    stroke-opacity: 0.82;
-  }
-}
-
-.services-hero-pill {
-  animation: services-hero-pill-glow 4.2s ease-in-out infinite;
-}
-
 /* --- Services catalog category cards (radial glow, SOC-style) --- */
 
 .services-catalog-section {
@@ -896,12 +856,6 @@
     animation: none !important;
     transform: none;
     opacity: 0.04;
-  }
-
-  .services-hero-spine-flow,
-  .services-hero-path-flow,
-  .services-hero-pill {
-    animation: none !important;
   }
 
   .master-offsec-dash,
