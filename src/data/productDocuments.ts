@@ -21,7 +21,7 @@ export type ProductDocument = {
 export const PRODUCT_DOCUMENTS: ProductDocument[] = [
   {
     id: 'toip',
-    name: 'TOIP',
+    name: 'Technieum OffSec Management Portal',
     subtitle: 'Technieum Offsec Intelligence Portal',
     glanceDescription:
       'Grounded answers from a large vulnerability corpus: citations, payloads, and scenarios your testers can run immediately.',
@@ -29,7 +29,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     downloadName: 'Technieum-TOIP-Technical-Overview.pdf',
     tagline: 'Citation-backed vulnerability intelligence for offensive security teams.',
     summary:
-      'TOIP is an enterprise-grade, AI-augmented research capability for penetration testers and disclosure programmes. It combines a curated corpus of tens of thousands of real vulnerability reports with retrieval-augmented generation (RAG) so every answer is grounded in NVD, CISA KEV, Nuclei templates, PayloadsAllTheThings, and disclosed reports, with explicit citations, ready payloads, and attack scenarios drawn from real-world cases.',
+      'The Technieum OffSec Management Portal is an enterprise-grade, AI-augmented research capability for penetration testers and disclosure programmes. It combines a curated corpus of tens of thousands of real vulnerability reports with retrieval-augmented generation (RAG) so every answer is grounded in NVD, CISA KEV, Nuclei templates, PayloadsAllTheThings, and disclosed reports, with explicit citations, ready payloads, and attack scenarios drawn from real-world cases.',
     stats: [
       { value: '90,000+', label: 'Vulnerability reports (typical corpus)' },
       { value: '5', label: 'Parallel intelligence sources' },
@@ -66,7 +66,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
     downloadName: 'Technieum-X-ASM-Overview-v2.pdf',
     tagline: 'One engine to discover, assess, and manage your external attack surface.',
     summary:
-      'Technieum-X orchestrates 50+ industry tools across a ten-phase pipeline: from discovery and OSINT through vulnerability testing, threat intel enrichment, CVE correlation (CVSS, EPSS, KEV), change detection, compliance mapping, and attack-graph analysis. It is designed to feed TOIP: scan, find, prioritize, act, and rescan in a closed loop.',
+      'Technieum-X orchestrates 50+ industry tools across a ten-phase pipeline: from discovery and OSINT through vulnerability testing, threat intel enrichment, CVE correlation (CVSS, EPSS, KEV), change detection, compliance mapping, and attack-graph analysis. It is designed to feed the Technieum OffSec Management Portal: scan, find, prioritize, act, and rescan in a closed loop.',
     stats: [
       { value: '50+', label: 'Integrated security tools' },
       { value: '10', label: 'Scan phases' },
@@ -76,7 +76,7 @@ export const PRODUCT_DOCUMENTS: ProductDocument[] = [
       'Unified view of subdomains, DNS, ports, technologies, and vulnerabilities.',
       'Threat context from GreyNoise, OTX, Abuse.ch, CrowdSec, DeHashed, AbuseIPDB, and more.',
       'Dashboards for assessments, vulnerabilities, attack surface, attack graph, compliance, and reports.',
-      'Webhooks, APIs, and SSE for live progress, ready for TOIP integration.',
+      'Webhooks, APIs, and SSE for live progress, ready for Technieum OffSec Management Portal integration.',
       'Graceful degradation when optional tools or API keys are unavailable.',
     ],
     frameworks: ['NIST CSF', 'PCI-DSS', 'HIPAA', 'GDPR', 'SOC 2'],

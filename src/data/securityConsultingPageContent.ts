@@ -182,7 +182,7 @@ export const SEC_CONS_DELIVERABLE_REPORTS = {
         'Context on adversary paths and control priorities mapped to MITRE ATT&CK and your industry when it informs roadmap choices.',
     },
     {
-      title: 'ToIP playbook document',
+      title: 'Technieum OffSec Management Portal playbook document',
       body:
         'Intelligence playbooks from our RAG-powered engine to ground prioritization in real disclosed weakness patterns.',
     },

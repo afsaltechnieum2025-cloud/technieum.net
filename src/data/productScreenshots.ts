@@ -51,7 +51,7 @@ const SLIDE_MODULES: Record<'toip' | 'asm' | 'llm' | 'sast' | 'ad', Record<strin
 }
 
 const ALT_PREFIX: Record<keyof typeof SLIDE_MODULES, string> = {
-  toip: 'TOIP',
+  toip: 'Technieum OffSec Management Portal',
   asm: 'Technieum-X',
   llm: 'LLM Attack Suite',
   sast: 'AI SAST',
@@ -67,7 +67,10 @@ export const PRODUCT_SCREENSHOT_CHROME: Record<
   keyof typeof SLIDE_MODULES,
   { chromeTitle: string; regionAriaLabel: string }
 > = {
-  toip: { chromeTitle: 'TOIP', regionAriaLabel: 'TOIP product screenshots' },
+  toip: {
+    chromeTitle: 'Technieum OffSec Management Portal',
+    regionAriaLabel: 'Technieum OffSec Management Portal product screenshots',
+  },
   asm: { chromeTitle: 'Technieum-X', regionAriaLabel: 'Technieum-X ASM product screenshots' },
   llm: { chromeTitle: 'LLM Attack Suite', regionAriaLabel: 'LLM Attack Suite product screenshots' },
   sast: { chromeTitle: 'AI SAST', regionAriaLabel: 'AI SAST product screenshots' },

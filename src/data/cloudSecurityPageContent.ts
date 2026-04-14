@@ -113,7 +113,7 @@ export const CLOUD_SEC_EDGE = {
       body: 'Exchange, SharePoint, Teams, and Entra ID — deep assessment.',
     },
     {
-      title: 'ToIP cloud intel',
+      title: 'Technieum OffSec Management Portal cloud intel',
       body: 'RAG-powered playbooks with cloud-specific exploit techniques.',
     },
     {
@@ -143,7 +143,7 @@ export const CLOUD_SEC_METHODOLOGY = {
       step: '2',
       title: 'Analyze',
       body:
-        'CIS benchmark assessment against provider baselines. IAM policy chain analysis for privilege escalation. Cross-account trust mapping. ToIP generates cloud-specific attack playbooks for identified technologies.',
+        'CIS benchmark assessment against provider baselines. IAM policy chain analysis for privilege escalation. Cross-account trust mapping. The Technieum OffSec Management Portal generates cloud-specific attack playbooks for identified technologies.',
     },
     {
       step: '3',
@@ -188,7 +188,7 @@ export const CLOUD_SEC_DELIVERABLE_REPORTS = {
         'Threat landscape analysis for your environment: attack vectors and adversary profiles mapped to MITRE ATT&CK.',
     },
     {
-      title: 'ToIP playbook document',
+      title: 'Technieum OffSec Management Portal playbook document',
       body:
         'Target-specific attack playbooks from 15,000+ real-world disclosed vulnerabilities via our RAG-powered intelligence engine.',
     },

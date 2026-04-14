@@ -596,6 +596,31 @@
   animation: capabilities-hub-spoke-dash-travel 2.35s linear infinite;
 }
 
+/* Products hub only: TOIP label sits above its node and eases up into place */
+@keyframes chub-toip-label-rise-kf {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.chub-toip-label-rise {
+  left: 50%;
+  bottom: calc(100% + 0.32rem);
+  animation: chub-toip-label-rise-kf 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+.chub-toip-label-rise--static {
+  animation: none !important;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 /* Portal window behind capability hub: light silicon / PCB grid (pairs with brand orange accents) */
 .capabilities-hub-portal-chip-bg {
   background-color: rgb(5 8 7);

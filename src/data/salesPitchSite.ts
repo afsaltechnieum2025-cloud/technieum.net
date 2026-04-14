@@ -6,13 +6,13 @@ export const HOME_HERO = {
   eyebrow: 'Offensive security',
   title: '360 coverage. Human-validated. AI where it actually helps.',
   lead:
-    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, ToIP-backed intelligence, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against.',
+    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, Technieum OffSec Management Portal–backed intelligence, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against.',
   sublead:
     'Milestone delivery, daily visibility, and fast escalation on criticals. AI speeds recon and triage; senior testers sign off on what hits your backlog so you prioritize real risk, not scanner noise.',
   proofPoints: [
     'Findings validated by operators, not checklists alone',
     'OffSec Management Portal for scoring, retest, and audit trails',
-    'In-house ASM, ToIP, LLM suite, AD framework, and AI SAST',
+    'In-house ASM, Technieum OffSec Management Portal, LLM suite, AD framework, and AI SAST',
   ],
   primaryCta: { label: 'Talk to our team', to: '/contact' as const },
   tertiaryCta: { label: 'Explore services', to: '/services' as const },
@@ -23,7 +23,7 @@ export const HOME_CAPABILITIES_HUB = {
   eyebrow: 'Offensive security coverage',
   headline: 'Uncover Material Risk Before Adversaries Exploit It',
   body:
-    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, ToIP-backed intelligence, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against.',
+    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, Technieum OffSec Management Portal–backed intelligence, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against.',
   sublead: HOME_HERO.sublead,
   primaryCta: { label: 'Get started', to: '/contact' as const },
 } as const
@@ -42,7 +42,7 @@ export const WHY_TECHNIEUM = [
   {
     title: 'AI at every layer',
     body:
-      'Agentic recon, RAG-backed intelligence in ToIP, and AI-assisted remediation guidance. Automation widens coverage; experts decide what ships to your backlog.',
+      'Agentic recon, RAG-backed intelligence in the Technieum OffSec Management Portal, and AI-assisted remediation guidance. Automation widens coverage; experts decide what ships to your backlog.',
   },
   {
     title: 'Timely delivery',
@@ -62,7 +62,7 @@ export const WHY_TECHNIEUM = [
   {
     title: 'Six proprietary AI capabilities',
     body:
-      'ToIP, LLM Attack Suite, AD Suite, AI ASM, AI SAST, and AI SCA—built at Technieum and run alongside commercial tools when they add value.',
+      'Technieum OffSec Management Portal, LLM Attack Suite, AD Suite, AI ASM, AI SAST, and AI SCA—built at Technieum and run alongside commercial tools when they add value.',
   },
   {
     title: '360 coverage per engagement',
@@ -77,10 +77,10 @@ export const WHY_TECHNIEUM = [
 ] as const
 
 export const HOME_TOIP = {
-  title: 'TOIP (Technieum Offsec Intelligence Portal)',
+  title: 'Technieum OffSec Management Portal',
   subtitle: 'RAG-backed vulnerability intelligence at query speed',
   intro:
-    'ToIP is the research layer behind Technieum engagements: curated disclosure narratives, retrieval-augmented answers with citations, and operator-style playbooks so testers align cases to what broke in the field.',
+    'The Technieum OffSec Management Portal is the research layer behind Technieum engagements: curated disclosure narratives, retrieval-augmented answers with citations, and operator-style playbooks so testers align cases to what broke in the field.',
   bullets: [
     'Semantic search across 15,000+ real-world disclosed vulnerabilities with grounded citations.',
     'Attack playbooks with payloads, bypass notes, and chain logic drawn from disclosed cases.',
@@ -96,7 +96,7 @@ export const HOME_ASM = {
   bullets: [
     '100+ integrated tools sequenced across discovery, analysis, enrichment, and baseline reporting.',
     'CVE, EPSS, and KEV-aware prioritization beside reputation and abuse signals for defensible triage.',
-    'Webhooks, APIs, and live progress streams so ASM events stay tied to owners, retests, and TOIP context.',
+    'Webhooks, APIs, and live progress streams so ASM events stay tied to owners, retests, and Technieum OffSec Management Portal context.',
   ],
 } as const
 
@@ -177,11 +177,11 @@ export const OFFENSIVE_WORKFLOW = {
   eyebrow: 'Your All-in-One Continuous Offensive Security Platform',
   meetHeadline: 'Meet the Technieum Offensive Engine',
   intro:
-    'The Technieum Offensive Engine provides unified offensive coverage by combining attack surface management, vulnerability intelligence and AI-augmented testing, continuous penetration streams, breach and adversary simulation, and Technieum OffSec intelligence portal–backed exploit intelligence into a single coordinated program with portal-native scoring, reporting, and retest.',
+    'The Technieum Offensive Engine provides unified offensive coverage by combining attack surface management, vulnerability intelligence and AI-augmented testing, continuous penetration streams, breach and adversary simulation, and Technieum OffSec Management Portal–backed exploit intelligence into a single coordinated program with portal-native scoring, reporting, and retest.',
   /** Short value props under the intro */
   highlights: [
     'Five coordinated workstreams',
-    'Technieum OffSec intelligence portal–backed exploit intelligence',
+    'Technieum OffSec Management Portal–backed exploit intelligence',
     'Validated into one portal',
   ],
 } as const
@@ -206,7 +206,7 @@ export const PROJECT_CYCLE = {
     {
       step: '3',
       title: 'Intelligence integration',
-      body: 'ToIP scenarios, AI SAST logic, ASM playbooks.',
+      body: 'Technieum OffSec Management Portal scenarios, AI SAST logic, ASM playbooks.',
     },
     {
       step: '4',

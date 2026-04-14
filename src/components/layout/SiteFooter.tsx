@@ -7,7 +7,7 @@ import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const capabilityLinks = [
-  { label: 'TOIP (intelligence portal)', to: '/platform/toip' },
+  { label: 'Technieum OffSec Management Portal', to: '/platform/toip' },
   { label: 'Technieum-X (ASM)', to: '/platform/technieum-x' },
   { label: 'LLM Attack Suite', to: '/platform/llm-suite' },
   { label: 'SAST and SCA', to: '/platform/ai-sast' },

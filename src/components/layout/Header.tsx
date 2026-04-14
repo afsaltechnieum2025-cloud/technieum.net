@@ -20,7 +20,7 @@ const NAV_ITEMS: NavItemType[] = [
       {
         heading: 'Technieum Offensive Security platforms',
         items: [
-          { label: 'TOIP (OffSec intelligence)', to: productPath('toip') },
+          { label: 'Technieum OffSec Management Portal', to: productPath('toip') },
           { label: 'Technieum-X (ASM)', to: productPath('asm') },
           { label: 'LLM Attack Suite', to: productPath('llm') },
           { label: 'SAST and SCA', to: productPath('sast') },

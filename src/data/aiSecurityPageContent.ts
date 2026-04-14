@@ -236,7 +236,7 @@ export const AI_SEC_DELIVERABLE_REPORTS = {
         'Threat landscape analysis for your environment: attack vectors and adversary profiles mapped to MITRE ATT&CK.',
     },
     {
-      title: 'ToIP playbook document',
+      title: 'Technieum OffSec Management Portal playbook document',
       body:
         'Target-specific attack playbooks from 15,000+ real-world disclosed vulnerabilities via our RAG-powered intelligence engine.',
     },

@@ -16,8 +16,8 @@ export type ProductPitchPage = {
 export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
   toip: {
     id: 'toip',
-    heroEyebrow: 'Technieum Offensive Security Intelligence Portal',
-    heroTitle: 'ToIP: RAG-backed vulnerability intelligence at query speed',
+    heroEyebrow: 'Technieum OffSec Management Portal',
+    heroTitle: 'Technieum OffSec Management Portal: RAG-backed vulnerability intelligence at query speed',
     heroLead:
       'Semantic search across 15,000+ real-world disclosed vulnerabilities delivers instant attack playbooks with exact payloads, WAF bypass techniques, and chained exploit sequences. Hours of research collapse into one grounded query.',
     pitchMetrics: [
@@ -26,7 +26,7 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
       { value: 'Playbooks', label: 'Payloads, bypasses, chains' },
     ],
     elevator:
-      'ToIP is the research brain behind Technieum engagements: it frames scenarios, surfaces proven tradecraft, and keeps deliverables aligned to what actually worked in the field.',
+      'The Technieum OffSec Management Portal is the research brain behind Technieum engagements: it frames scenarios, surfaces proven tradecraft, and keeps deliverables aligned to what actually worked in the field.',
     pillars: [
       {
         title: 'Intel that reads like an operator wrote it',
@@ -46,10 +46,10 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
     ],
     deepDive: [
       {
-        title: 'How ToIP shows up on engagements',
+        title: 'How the Technieum OffSec Management Portal shows up on engagements',
         paragraphs: [
-          'During scoping and testing, analysts use ToIP to align test cases to real disclosure patterns: same classes of flaws, same bypass families, same chain logic that showed up in production incidents.',
-          'ToIP complements automated scanning by explaining why a finding matters, how others exploited similar conditions, and which payloads or sequences are most relevant to your stack.',
+          'During scoping and testing, analysts use the Technieum OffSec Management Portal to align test cases to real disclosure patterns: same classes of flaws, same bypass families, same chain logic that showed up in production incidents.',
+          'The Technieum OffSec Management Portal complements automated scanning by explaining why a finding matters, how others exploited similar conditions, and which payloads or sequences are most relevant to your stack.',
         ],
       },
       {
@@ -61,8 +61,9 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
       },
     ],
     portalFit:
-      'ToIP intelligence is designed to plug into the OffSec Management Portal: shared context, consistent CWE and CVSS language, and a single place for testers and stakeholders to consume updates.',
-    ctaLine: 'Pair ToIP with ASM and validation services for end-to-end coverage from surface discovery to grounded exploitation narratives.',
+      'Technieum OffSec Management Portal intelligence is designed to unify shared context, consistent CWE and CVSS language, and a single place for testers and stakeholders to consume updates.',
+    ctaLine:
+      'Pair the Technieum OffSec Management Portal with ASM and validation services for end-to-end coverage from surface discovery to grounded exploitation narratives.',
   },
   asm: {
     id: 'asm',
@@ -73,7 +74,7 @@ export const PRODUCT_PITCH_PAGES: Record<ProductDocId, ProductPitchPage> = {
     pitchMetrics: [
       { value: '100+', label: 'Recon and analysis tools' },
       { value: '4', label: 'Core ASM phases' },
-      { value: 'Intel', label: 'Feeds ToIP and testers' },
+      { value: 'Intel', label: 'Feeds Technieum OffSec Management Portal and testers' },
     ],
     elevator:
       'Technieum-X is the external visibility engine: it tells you what the internet can see, what is weak, and what changed since the last baseline.',
