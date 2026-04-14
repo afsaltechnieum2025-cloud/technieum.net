@@ -3,11 +3,6 @@
  * ASCII-only strings for the UI.
  */
 
-export const TOIP_PAGE_META = {
-  confidentialNote:
-    'Overview for client and stakeholder use. Formal statements of work govern delivery.',
-} as const
-
 export const TOIP_HERO = {
   lead:
     'Technieum OffSec Intelligence Portal is a searchable, AI-assisted vulnerability intelligence platform that draws from tens of thousands of real vulnerability reports and authoritative sources (NVD, CISA KEV, Nuclei, PayloadsAllTheThings) to deliver structured, citation-backed analysis, ready-to-use payloads, and attack scenarios derived from real-world reports, powered by a flexible external LLM integration.',
@@ -123,18 +118,6 @@ export const TOIP_SCALE = {
   ],
 } as const
 
-export const TOIP_RAG = {
-  title: "How it is trained: RAG, not traditional training",
-  intro:
-    "There is no custom training of a model on your data. The system is intelligent because the knowledge base is built from your chosen sources and the pipeline (retrieval plus prompting) is fixed. Improving performance means improving data quality, coverage, and pipeline design, not running gradient updates.",
-  points: [
-    'Embedding model (sentence-transformers): pre-trained all-MiniLM-L6-v2 converts text into 384-dimensional vectors. Used as-is; no fine-tuning in Technieum OffSec Intelligence Portal.',
-    'Reranker (cross-encoder): pre-trained ms-marco-MiniLM-L-6-v2 scores (query, chunk) pairs for relevance. Used as-is.',
-    'Retrieval design: query expansion, HyDE, parallel multi-source search, reranking, and impact and freshness weighting.',
-    'External LLM: state-of-the-art large language model accessed via API provides reasoning; Technieum OffSec Intelligence Portal augments it with retrieved context so every answer is grounded in the intelligence database.',
-  ],
-} as const
-
 export const TOIP_OUTPUTS = {
   title: 'Output quality and what the user sees',
   intro:
@@ -175,19 +158,6 @@ export const TOIP_OUTPUTS = {
   ],
 } as const
 
-export const TOIP_TECH_STACK = {
-  title: 'Technical stack',
-  rows: [
-    { layer: 'Web app', technology: 'Flask (Python), Gunicorn' },
-    { layer: 'Vector database', technology: 'ChromaDB (persistent)' },
-    { layer: 'Embedding', technology: 'Sentence-transformers (all-MiniLM-L6-v2)' },
-    { layer: 'Reranker', technology: 'Cross-encoder (ms-marco-MiniLM-L-6-v2)' },
-    { layer: 'LLM', technology: 'External LLM (API)' },
-    { layer: 'Ingest and chunking', technology: 'LangChain text splitter, payload-aware chunking' },
-    { layer: 'Deployment', technology: 'Docker, optional pre-built ChromaDB image' },
-  ],
-} as const
-
 export const TOIP_USE_CASES = {
   title: 'Example use cases',
   cases: [
@@ -217,9 +187,4 @@ export const TOIP_USE_CASES = {
         'Attack chains for IDOR: suggested progressions (for example IDOR to PII to account takeover) based on real-world reports, plus impact scoring.',
     },
   ],
-} as const
-
-export const TOIP_CLOSING = {
-  paragraph:
-    'Technieum OffSec Intelligence Portal combines a curated multi-source intelligence database with a flexible external LLM and a retrieval pipeline tuned for offensive security and vulnerability research. The platform delivers detailed, citation-backed, actionable answers that analysts can trust and use immediately.',
 } as const
