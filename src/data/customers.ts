@@ -10,6 +10,16 @@ export type CustomerMarqueeEntry = {
   label: string
 }
 
+/** Logo paths tried in order: svg, png, jpg, webp under /images/customers/ */
+export function logoUrlCandidates(id: string): string[] {
+  return [
+    `/images/customers/${id}.svg`,
+    `/images/customers/${id}.png`,
+    `/images/customers/${id}.jpg`,
+    `/images/customers/${id}.webp`,
+  ]
+}
+
 export const CUSTOMERS_MARQUEE: CustomerMarqueeEntry[] = [
   { id: 'etihad', name: 'Etihad Airways', label: 'Etihad Airways' },
   { id: 'adac', name: 'Abu Dhabi Airports Company', label: 'ADAC' },

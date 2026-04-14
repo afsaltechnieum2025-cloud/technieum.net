@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { CUSTOMERS_MARQUEE, type CustomerMarqueeEntry } from '../../data/customers'
+import { CUSTOMERS_MARQUEE, logoUrlCandidates, type CustomerMarqueeEntry } from '../../data/customers'
 
 function usePrefersReducedMotion() {
   const [reduce, setReduce] = useState(
@@ -14,15 +14,6 @@ function usePrefersReducedMotion() {
   return reduce
 }
 
-function logoCandidates(id: string): string[] {
-  return [
-    `/images/customers/${id}.svg`,
-    `/images/customers/${id}.png`,
-    `/images/customers/${id}.jpg`,
-    `/images/customers/${id}.webp`,
-  ]
-}
-
 /** Light tile behind each logo so dark wordmarks read on the dark strip. */
 function CustomerLogoSlot({
   customer,
@@ -33,7 +24,7 @@ function CustomerLogoSlot({
 }) {
   const [candidateIndex, setCandidateIndex] = useState(0)
   const [showText, setShowText] = useState(false)
-  const candidates = logoCandidates(customer.id)
+  const candidates = logoUrlCandidates(customer.id)
   const src = candidates[candidateIndex]
   const isMarquee = variant === 'marquee'
 

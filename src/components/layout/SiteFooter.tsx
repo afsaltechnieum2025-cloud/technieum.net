@@ -1,6 +1,6 @@
 import type { MouseEvent, ReactNode } from 'react'
 import type { To } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import technieumLogo from '../../assets/technieum-logo.png'
 import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
 
@@ -208,9 +208,12 @@ function FooterBottomBar() {
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 export function Footer() {
+  const { pathname } = useLocation()
+  const footerTopPad = pathname === '/contact' ? 'pt-9' : 'pt-[72px]'
+
   return (
     <footer className="bg-bg-inset">
-      <div className="pb-6 pt-[72px]">
+      <div className={`pb-6 ${footerTopPad}`}>
         <div className="container">
           <div className="grid w-full grid-cols-1 items-start gap-y-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:flex lg:flex-row lg:gap-x-8 lg:gap-y-0 xl:gap-x-10">
             {/* Col 1 — logo only */}

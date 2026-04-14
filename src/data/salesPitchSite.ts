@@ -227,28 +227,19 @@ export const CONTACT_SALES = {
 /** Contact page hero and value props (industry-standard intake narrative). */
 export const CONTACT_PAGE = {
   eyebrow: 'Contact',
-  headline: "Let's scope your next offensive security program",
+  /** Primary H1 on the contact layout */
+  headline: 'Contact Us',
   lead:
     'From red-team objectives and cloud attack-surface reviews to application and AI testing under one delivery model, we help you move from question to plan quickly.',
   subLead:
     'Technical programs route to offensive leadership. Commercial, procurement, and alliance topics go to our partnerships desk.',
-  pillars: [
-    {
-      title: 'Structured technical intake',
-      body:
-        'Share goals, environments, and constraints. We map streams, tooling overlap, and reporting so procurement and engineering see the same plan.',
-    },
-    {
-      title: 'Confidential by default',
-      body:
-        'Operate under NDA when you need it. Scoping stays with named stakeholders; we do not circulate details beyond your engagement team.',
-    },
-    {
-      title: 'Clear next steps',
-      body:
-        'Expect a short acknowledgment, clarifying questions where useful, and proposed call times. Formal proposals or SOW drafts follow alignment on scope.',
-    },
-  ],
+  formTitle: 'Reach Our Sales Team',
+  formSubtitle: 'Please provide your contact information',
+  formSubmitLabel: 'Speak with an Expert',
+  formAgreementBeforePrivacy:
+    'By checking this box and submitting, I agree to the',
+  formPrivacyLinkLabel: 'Privacy Policy',
+  formPrivacyHref: '#',
   responseLine: 'We aim to respond within one business day (Gulf timezone).',
   ctaSecondary: 'Browse services',
 } as const
