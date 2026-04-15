@@ -139,7 +139,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
       <section className="section-zz-a relative overflow-hidden bg-bg-inset pt-14 md:pt-20 pb-6 md:pb-8">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-12">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-6 sm:gap-x-6 md:gap-x-7 lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-5 xl:gap-x-10">
             <div className="min-w-0">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">{doc.subtitle}</p>
               <h1 className="heading-scale-hero mb-5 max-w-4xl text-pretty">{pitch.heroTitle}</h1>
@@ -148,7 +148,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
 
               <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{LLM_HERO.lead}</p>
             </div>
-            <div className="mx-auto w-full max-w-lg lg:mx-0 lg:mt-10 lg:justify-self-end xl:mt-12">
+            <div className="mx-auto w-full max-w-md min-w-0 sm:max-w-lg lg:mx-0 lg:w-full lg:max-w-none">
               <PortalPreviewFrame
                 chromeTitle={chrome.chromeTitle}
                 compact
@@ -158,12 +158,12 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
               </PortalPreviewFrame>
             </div>
 
-            <div className="grid gap-6 lg:col-span-2 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-12">
+            <div className="grid gap-5 lg:col-span-2 lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-4 xl:gap-x-10">
               <p className="m-0 min-w-0 text-base leading-relaxed text-muted md:text-lg">{pitch.heroLead}</p>
               <p className="m-0 min-w-0 text-sm leading-relaxed text-muted md:text-base">{pitch.elevator}</p>
             </div>
 
-            <div className="flex flex-col gap-8 lg:col-span-2">
+            <div className="flex flex-col gap-6 lg:col-span-2">
               <div className="grid gap-4 sm:grid-cols-3">
                 {pitch.pitchMetrics.map((m) => (
                   <div

@@ -74,9 +74,7 @@ export function LlmPortalLaunchUI({ loop = true, onComplete, className = '', com
   const progressStatus = atEnd && !loop ? 'Ready.' : 'PROBING.'
 
   return (
-    <div
-      className={`text-center ${compact ? 'px-2 py-2 md:px-2.5 md:py-2.5' : ''} ${className}`}
-    >
+    <div className={`text-center ${compact ? 'px-0 py-1' : ''} ${className}`}>
       <div className={`flex flex-col items-center ${compact ? 'gap-0.5' : 'gap-2'}`}>
         <BrandLogo
           height={compact ? 28 : 52}
@@ -90,13 +88,13 @@ export function LlmPortalLaunchUI({ loop = true, onComplete, className = '', com
       </div>
 
       <h2
-        className={`text-balance font-bold tracking-tight ${compact ? 'mt-2 text-[0.8125rem] leading-snug' : 'mt-8 text-2xl md:mt-10 md:text-4xl'}`}
+        className={`text-balance font-bold tracking-tight ${compact ? 'mt-1.5 text-[0.8125rem] leading-snug' : 'mt-8 text-2xl md:mt-10 md:text-4xl'}`}
       >
         <span className="text-heading">LLM Attack </span>
         <span className="text-brand">Suite</span>
       </h2>
 
-      <div className={`mx-auto w-full ${compact ? 'mt-2 max-w-none px-0' : 'mt-8 max-w-xl md:mt-10'}`}>
+      <div className={`mx-auto w-full ${compact ? 'mt-1.5 max-w-none px-0' : 'mt-8 max-w-xl md:mt-10'}`}>
         <div className={`w-full overflow-hidden rounded-full bg-zinc-800/90 ${compact ? 'h-1' : 'h-1.5'}`}>
           <div
             className="h-full rounded-full bg-gradient-to-r from-brand to-[color-mix(in_oklab,var(--color-brand-strong)_85%,var(--color-brand))] transition-[width] duration-500 ease-out"
@@ -112,7 +110,7 @@ export function LlmPortalLaunchUI({ loop = true, onComplete, className = '', com
         </div>
       </div>
 
-      <div className={`mx-auto w-full text-left ${compact ? 'mt-2' : 'mt-10 max-w-xl md:mt-12'}`}>
+      <div className={`mx-auto w-full text-left ${compact ? 'mt-1.5' : 'mt-10 max-w-xl md:mt-12'}`}>
         <p
           className={`font-bold uppercase text-brand ${compact ? 'mb-1 text-[0.5rem] tracking-[0.15em]' : 'mb-4 text-[0.65rem] tracking-[0.2em] md:text-xs'}`}
         >
@@ -143,7 +141,7 @@ export function LlmPortalLaunchUI({ loop = true, onComplete, className = '', com
       </div>
 
       <nav
-        className={`mx-auto flex flex-wrap justify-center ${compact ? 'mt-2 gap-x-3 gap-y-1' : 'mt-10 gap-x-8 gap-y-3 md:mt-12 md:gap-x-12'}`}
+        className={`mx-auto flex flex-wrap justify-center ${compact ? 'mt-1.5 gap-x-2.5 gap-y-0.5 sm:gap-x-3' : 'mt-10 gap-x-8 gap-y-3 md:mt-12 md:gap-x-12'}`}
         aria-label="LLM Attack Suite launch phases"
       >
         {phases.map((p, i) => {

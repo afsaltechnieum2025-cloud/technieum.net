@@ -42,10 +42,20 @@ export function PortalPreviewFrame({ chromeTitle, compact = false, children, 'ar
           <span className={`shrink-0 ${compact ? 'w-10' : 'w-14'}`} aria-hidden />
         </div>
 
-        <div className="relative aspect-[4/3] bg-black/50">
-          <div className="absolute inset-0 flex min-h-0 flex-col overflow-hidden">
-            <div className="min-h-0 flex-1 overflow-hidden overflow-x-hidden">{children}</div>
-          </div>
+        <div
+          className={
+            compact
+              ? 'relative bg-black/50 px-2 pb-2 pt-1.5 sm:px-3 sm:pb-2.5 sm:pt-2'
+              : 'relative aspect-[4/3] bg-black/50'
+          }
+        >
+          {compact ? (
+            <div className="flex min-h-0 flex-col overflow-hidden overflow-x-hidden">{children}</div>
+          ) : (
+            <div className="absolute inset-0 flex min-h-0 flex-col overflow-hidden">
+              <div className="min-h-0 flex-1 overflow-hidden overflow-x-hidden">{children}</div>
+            </div>
+          )}
         </div>
       </div>
     </div>
