@@ -60,7 +60,7 @@ export function IcsOtSecurityPage() {
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_KEY_BENEFITS.title}</h2>
           <p className="mb-8 text-sm font-medium text-brand">{ICS_OT_KEY_BENEFITS.subtitle}</p>
           <ul className="m-0 grid list-none gap-4 p-0 md:grid-cols-3">
@@ -75,10 +75,11 @@ export function IcsOtSecurityPage() {
             ))}
           </ul>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{ICS_OT_CHALLENGE.title}</h2>
           <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_CHALLENGE.intro}</p>
           <ul className="m-0 mb-10 max-w-3xl list-none space-y-3 p-0">
@@ -92,10 +93,11 @@ export function IcsOtSecurityPage() {
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{ICS_OT_PARTNER.title}</h2>
           <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_PARTNER.body}</p>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_SOLUTION_INTRO.title}</h2>
           <p className="mb-2 text-sm font-medium text-brand">{ICS_OT_SOLUTION_INTRO.subtitle}</p>
           <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_SOLUTION_INTRO.intro}</p>
@@ -119,10 +121,11 @@ export function IcsOtSecurityPage() {
             ))}
           </ol>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">Coverage pillars</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">
             Mix and match pillars to your roadmap. Everything rolls into the same delivery standards, portal scoring, and
@@ -145,10 +148,11 @@ export function IcsOtSecurityPage() {
             ))}
           </ul>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_EDGE.title}</h2>
           <p className="mb-2 text-sm font-medium text-brand">{ICS_OT_EDGE.subtitle}</p>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_EDGE.methodologyLead}</p>
@@ -161,10 +165,11 @@ export function IcsOtSecurityPage() {
             ))}
           </ul>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_METHODOLOGY.subtitle}</h2>
           <p className="mb-2 text-sm font-semibold text-brand">{ICS_OT_METHODOLOGY.title}</p>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_METHODOLOGY.intro}</p>
@@ -186,10 +191,11 @@ export function IcsOtSecurityPage() {
             ))}
           </ol>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{PROJECT_CYCLE.title}</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{PROJECT_CYCLE.intro}</p>
           <ol className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-4">
@@ -210,10 +216,11 @@ export function IcsOtSecurityPage() {
             ))}
           </ol>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
               <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{OFFSEC_PORTAL.title}</h2>
@@ -246,10 +253,11 @@ export function IcsOtSecurityPage() {
             </div>
           </div>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
-        <div className="container max-w-5xl">
+        <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_DELIVERABLE_REPORTS.subtitle}</h2>
           <p className="mb-2 text-sm font-medium text-brand">{ICS_OT_DELIVERABLE_REPORTS.title}</p>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_DELIVERABLE_REPORTS.intro}</p>
@@ -277,18 +285,20 @@ export function IcsOtSecurityPage() {
             ))}
           </ul>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-a bg-bg-inset py-12 md:py-16">
-        <div className="container max-w-3xl">
+        <div className="container"><div className="container-inner-3xl">
           <h2 className="mb-4 text-lg font-semibold text-heading md:text-xl">{ICS_OT_STANDARDS.title}</h2>
           <p className="mb-6 text-sm leading-relaxed text-muted">{ICS_OT_STANDARDS.intro}</p>
           <p className="m-0 text-sm leading-relaxed text-muted">{ICS_OT_STANDARDS.certifications}</p>
         </div>
+        </div>
       </section>
 
       <section className="section-zz-b py-12 md:py-16">
-        <div className="container max-w-3xl">
+        <div className="container"><div className="container-inner-3xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{ICS_OT_CTA.title}</h2>
           <p className="mb-6 text-sm leading-relaxed text-muted">{ICS_OT_CTA.body}</p>
           <div className="mb-8 flex flex-wrap gap-3">
@@ -324,6 +334,7 @@ export function IcsOtSecurityPage() {
               Back to services
             </Link>
           </div>
+        </div>
         </div>
       </section>
     </main>

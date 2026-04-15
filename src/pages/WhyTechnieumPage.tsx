@@ -85,7 +85,7 @@ export function WhyTechnieumPage() {
       <section className="section-zz-a relative overflow-hidden bg-bg-inset pb-16 pt-16 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
         <div className="hero-color-drift" aria-hidden />
         <div className="container relative z-10">
-          <div className="mx-auto grid max-w-site items-start gap-12 lg:grid-cols-[1fr_min(100%,380px)] lg:gap-16 xl:gap-20">
+          <div className="grid w-full min-w-0 items-start gap-12 lg:grid-cols-[1fr_min(100%,380px)] lg:gap-16 xl:gap-20">
             <div className="min-w-0 text-left">
               <p
                 className="text-shimmer-brand why-tn-hero-item mb-3 text-xs font-semibold tracking-wide md:text-sm"

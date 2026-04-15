@@ -44,8 +44,9 @@ export function TopBar({ onHidden }: { onHidden?: () => void }) {
           closing ? '-translate-y-2' : 'translate-y-0'
         }`}
       >
-        <div className="container relative z-10 flex items-center justify-center py-2.5 pl-3 pr-11 text-center text-xs text-white/95 xs:py-3 xs:pl-0 xs:pr-12 xs:text-sm sm:pr-14">
-          <p className="m-0 max-w-2xl leading-snug">
+        <div className="container relative z-10 grid grid-cols-[2.5rem_minmax(0,1fr)_2.5rem] items-center gap-0 py-2.5 text-center text-xs text-white/95 xs:grid-cols-[2.75rem_minmax(0,1fr)_2.75rem] xs:py-3 xs:text-sm sm:grid-cols-[3rem_minmax(0,1fr)_3rem]">
+          <span className="pointer-events-none shrink-0" aria-hidden />
+          <p className="m-0 min-w-0 max-w-2xl justify-self-center leading-snug">
             <span className="font-bold text-white">Welcome to Technieum </span>
             <span className="text-white/95">Explore our platforms and offensive security programs.</span>
           </p>

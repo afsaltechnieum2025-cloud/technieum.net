@@ -66,7 +66,8 @@ export function ServicesPage() {
 
       <section className="section-zz-a relative overflow-hidden py-10 md:py-12 lg:py-14">
         <div className="hero-color-drift" aria-hidden />
-        <div className="container relative z-10 max-w-5xl">
+        <div className="container relative z-10">
+          <div className="container-inner-5xl">
           <h2 className="mb-3 max-w-3xl text-xl font-medium leading-snug tracking-tight text-heading md:mb-4 md:text-2xl">
             {STANDARDS_SHOWCASE.title}
           </h2>
@@ -106,6 +107,7 @@ export function ServicesPage() {
           </div>
 
           <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted md:mt-8 md:text-base">{STANDARDS_SHOWCASE.closing}</p>
+          </div>
         </div>
       </section>
     </main>
