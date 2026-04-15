@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { Fragment, useCallback, useEffect, useState } from 'react'
+import { Fragment, useCallback, useEffect, useId, useState } from 'react'
 
 type Phase = {
   readonly step: string
@@ -14,7 +14,8 @@ type Content = {
   readonly phases: readonly Phase[]
 }
 
-export function InfrastructureMethodologySection({ content }: { content: Content }) {
+export function ProgramMethodologySection({ content }: { content: Content }) {
+  const headingId = useId()
   const { title, subtitle, intro, phases } = content
   const [rootEl, setRootEl] = useState<HTMLElement | null>(null)
   const [visible, setVisible] = useState(false)
@@ -50,11 +51,11 @@ export function InfrastructureMethodologySection({ content }: { content: Content
     <section
       ref={setSectionRef}
       className={`section-zz-a section-zz-wash-tl bg-bg-inset py-8 md:py-12${activeClass}`}
-      aria-labelledby="infra-methodology-heading"
+      aria-labelledby={headingId}
     >
       <div className="container min-w-0">
         <div className="container-inner-5xl min-w-0">
-          <h2 id="infra-methodology-heading" className="mb-2 text-lg font-semibold text-heading md:text-xl">
+          <h2 id={headingId} className="mb-2 text-lg font-semibold text-heading md:text-xl">
             {subtitle}
           </h2>
           <p className="mb-1.5 text-sm font-semibold text-brand">{title}</p>

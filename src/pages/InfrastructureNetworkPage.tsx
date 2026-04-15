@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ServiceProgramHeroVisual } from '../components/program-hub/ServiceProgramHeroVisual'
-import { InfrastructureMethodologySection } from '../components/infrastructure-network/InfrastructureMethodologySection'
+import { ProgramMethodologySection } from '../components/program-hub/ProgramMethodologySection'
 import { InfrastructureNetworkVisual } from '../components/infrastructure-network/InfrastructureNetworkVisual'
 import {
   INFRA_NETWORK_CHALLENGE,
@@ -239,7 +239,7 @@ export function InfrastructureNetworkPage() {
         </div>
       </section>
 
-      <InfrastructureMethodologySection content={INFRA_NETWORK_METHODOLOGY} />
+      <ProgramMethodologySection content={INFRA_NETWORK_METHODOLOGY} />
 
       <section className="relative overflow-hidden bg-black py-6 md:py-8">
         <div className="container min-w-0">
