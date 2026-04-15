@@ -136,8 +136,8 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset pt-14 md:pt-20 pb-6 md:pb-8">
-        <div className="hero-color-drift" aria-hidden />
+      <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset pt-14 md:pt-20 pb-6 md:pb-8">
+        <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid grid-cols-1 gap-x-5 gap-y-6 sm:gap-x-6 md:gap-x-7 lg:grid-cols-2 lg:items-start lg:gap-x-8 lg:gap-y-5 xl:gap-x-10">
             <div className="min-w-0">
@@ -198,7 +198,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b pt-8 md:pt-10 pb-14 md:pb-20">
+      <section className="section-zz-b section-zz-wash-br pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
           <div className="toip-reveal mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
             <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_EXECUTIVE.title}</h2>
@@ -247,7 +247,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-a bg-panel/15 pt-14 md:pt-20 pb-8 md:pb-10">
+      <section className="section-zz-a section-zz-wash-tl bg-panel/15 pt-14 md:pt-20 pb-8 md:pb-10">
         <div className="container">
           <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_INTERACTION.title}</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{LLM_INTERACTION.intro}</p>
@@ -273,7 +273,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b pt-8 md:pt-10 pb-14 md:pb-20">
+      <section className="section-zz-b section-zz-wash-br pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-2 text-xl font-medium text-heading md:text-2xl">{LLM_PIPELINE.title}</h2>
@@ -283,7 +283,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-a py-14 md:py-20">
+      <section className="section-zz-a section-zz-wash-tl py-14 md:py-20">
         <div className="container">
           <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_DATA_MODEL.title}</h2>
           <p className="mb-10 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{LLM_DATA_MODEL.intro}</p>
@@ -305,7 +305,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b py-8 md:py-10">
+      <section className="section-zz-b section-zz-wash-br py-8 md:py-10">
         <div className="container">
           <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_SCALE.title}</h2>
           <p className="mb-10 max-w-3xl text-sm text-muted md:text-base">{LLM_SCALE.intro}</p>
@@ -324,7 +324,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-a bg-panel/15 pt-8 md:pt-10 pb-14 md:pb-20">
+      <section className="section-zz-a section-zz-wash-tl bg-panel/15 pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
           <div className="toip-reveal mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
             <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_AI.title}</h2>
@@ -373,7 +373,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b pt-8 md:pt-10 pb-14 md:pb-20">
+      <section className="section-zz-b section-zz-wash-br pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
           <div className="toip-reveal mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
             <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_OUTPUTS.title}</h2>
@@ -425,7 +425,7 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
         </div>
       </section>
 
-      <section className="section-zz-b py-14 md:py-20">
+      <section className="section-zz-b section-zz-wash-tl py-14 md:py-20">
         <div className="container">
           <h2 className="mb-10 text-xl font-medium text-heading md:text-2xl">{LLM_USE_CASES.title}</h2>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

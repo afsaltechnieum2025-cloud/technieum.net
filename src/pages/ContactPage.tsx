@@ -6,10 +6,10 @@ export function ContactPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page text-muted">
       <section
-        className="section-zz-a relative overflow-hidden bg-bg-inset pt-14 pb-7 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12"
+        className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset pt-14 pb-7 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12"
         aria-labelledby="contact-hero-heading"
       >
-        <div className="hero-color-drift" aria-hidden />
+        <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
             <div className="max-w-xl lg:max-w-none">

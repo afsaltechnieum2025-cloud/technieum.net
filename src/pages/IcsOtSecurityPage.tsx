@@ -23,8 +23,8 @@ export function IcsOtSecurityPage() {
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-14 md:py-20">
-        <div className="hero-color-drift" aria-hidden />
+      <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset py-14 md:py-20">
+        <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
@@ -59,7 +59,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-b py-12 md:py-16">
+      <section className="section-zz-b section-zz-wash-br py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_KEY_BENEFITS.title}</h2>
           <p className="mb-8 text-sm font-medium text-brand">{ICS_OT_KEY_BENEFITS.subtitle}</p>
@@ -78,7 +78,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset py-12 md:py-16">
+      <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{ICS_OT_CHALLENGE.title}</h2>
           <p className="mb-6 max-w-3xl text-sm leading-relaxed text-muted">{ICS_OT_CHALLENGE.intro}</p>
@@ -96,7 +96,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-b py-12 md:py-16">
+      <section className="section-zz-b section-zz-wash-br py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_SOLUTION_INTRO.title}</h2>
           <p className="mb-2 text-sm font-medium text-brand">{ICS_OT_SOLUTION_INTRO.subtitle}</p>
@@ -124,7 +124,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset py-12 md:py-16">
+      <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">Coverage pillars</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">
@@ -151,7 +151,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-b py-12 md:py-16">
+      <section className="section-zz-b section-zz-wash-br py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_EDGE.title}</h2>
           <p className="mb-2 text-sm font-medium text-brand">{ICS_OT_EDGE.subtitle}</p>
@@ -168,7 +168,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset py-12 md:py-16">
+      <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_METHODOLOGY.subtitle}</h2>
           <p className="mb-2 text-sm font-semibold text-brand">{ICS_OT_METHODOLOGY.title}</p>
@@ -194,7 +194,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-b py-12 md:py-16">
+      <section className="section-zz-b section-zz-wash-br py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{PROJECT_CYCLE.title}</h2>
           <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted">{PROJECT_CYCLE.intro}</p>
@@ -219,7 +219,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset py-12 md:py-16">
+      <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
@@ -256,7 +256,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-b py-12 md:py-16">
+      <section className="section-zz-b section-zz-wash-br py-12 md:py-16">
         <div className="container"><div className="container-inner-5xl">
           <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{ICS_OT_DELIVERABLE_REPORTS.subtitle}</h2>
           <p className="mb-2 text-sm font-medium text-brand">{ICS_OT_DELIVERABLE_REPORTS.title}</p>
@@ -288,7 +288,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-a bg-bg-inset py-12 md:py-16">
+      <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-12 md:py-16">
         <div className="container"><div className="container-inner-3xl">
           <h2 className="mb-4 text-lg font-semibold text-heading md:text-xl">{ICS_OT_STANDARDS.title}</h2>
           <p className="mb-6 text-sm leading-relaxed text-muted">{ICS_OT_STANDARDS.intro}</p>
@@ -297,7 +297,7 @@ export function IcsOtSecurityPage() {
         </div>
       </section>
 
-      <section className="section-zz-b py-12 md:py-16">
+      <section className="section-zz-b section-zz-wash-br py-12 md:py-16">
         <div className="container"><div className="container-inner-3xl">
           <h2 className="mb-3 text-lg font-semibold text-heading md:text-xl">{ICS_OT_CTA.title}</h2>
           <p className="mb-6 text-sm leading-relaxed text-muted">{ICS_OT_CTA.body}</p>

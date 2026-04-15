@@ -15,10 +15,10 @@ export function HomePage() {
     <main id="main-content" className="flex flex-col bg-page">
       {/* Coverage hub — primary headline */}
       <section
-        className="section-zz-b section-zz-allow-overflow pt-16 pb-12 md:pt-20 md:pb-14"
+        className="section-zz-b section-zz-allow-overflow section-zz-wash-tl pt-16 pb-12 md:pt-20 md:pb-14"
         aria-labelledby="capabilities-hub-heading"
       >
-        <div className="hero-color-drift" aria-hidden />
+        <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
             <div className="min-w-0">
@@ -63,7 +63,7 @@ export function HomePage() {
       </section>
 
       {/* OffSec portal */}
-      <section className="section-zz-a pt-6 pb-16 md:pb-20" aria-labelledby="portal-heading">
+      <section className="section-zz-a section-zz-wash-br pt-6 pb-16 md:pb-20" aria-labelledby="portal-heading">
         <div className="container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <div className="min-w-0 lg:sticky lg:top-28">
@@ -98,7 +98,7 @@ export function HomePage() {
       {/* Workflow */}
       <section
         id="offensive-workflow"
-        className="section-zz-b bg-bg-inset py-10 md:py-14"
+        className="section-zz-b section-zz-wash-tl bg-bg-inset py-10 md:py-14"
         aria-labelledby="workflow-heading"
       >
         <div className="container">

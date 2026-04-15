@@ -7,8 +7,8 @@ import { STANDARDS_SHOWCASE } from '../data/salesPitchSite'
 export function ServicesPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset py-12 md:py-16 lg:py-20">
-        <div className="hero-color-drift" aria-hidden />
+      <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset py-12 md:py-16 lg:py-20">
+        <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
             <div className="order-2 flex min-w-0 w-full justify-center overflow-visible lg:order-1 lg:justify-start">
@@ -33,7 +33,7 @@ export function ServicesPage() {
       </section>
 
       <section
-        className="section-zz-b services-catalog-section relative overflow-hidden py-8 md:py-10 lg:py-12"
+        className="section-zz-b section-zz-wash-br services-catalog-section relative overflow-hidden py-8 md:py-10 lg:py-12"
         aria-labelledby="service-topics-heading"
       >
         <div className="container">
@@ -64,8 +64,7 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="section-zz-a relative overflow-hidden py-10 md:py-12 lg:py-14">
-        <div className="hero-color-drift" aria-hidden />
+      <section className="relative overflow-hidden py-10 md:py-12 lg:py-14">
         <div className="container relative z-10">
           <div className="container-inner-5xl">
           <h2 className="mb-3 max-w-3xl text-xl font-medium leading-snug tracking-tight text-heading md:mb-4 md:text-2xl">

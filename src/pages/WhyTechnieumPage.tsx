@@ -82,8 +82,8 @@ function CheckMini({ className }: { className?: string }) {
 export function WhyTechnieumPage() {
   return (
     <main id="main-content" className="flex flex-col bg-page">
-      <section className="section-zz-a relative overflow-hidden bg-bg-inset pb-16 pt-16 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
-        <div className="hero-color-drift" aria-hidden />
+      <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset pb-16 pt-16 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
+        <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid w-full min-w-0 items-start gap-12 lg:grid-cols-[1fr_min(100%,380px)] lg:gap-16 xl:gap-20">
             <div className="min-w-0 text-left">
@@ -177,11 +177,7 @@ export function WhyTechnieumPage() {
         </div>
       </section>
 
-      <ScrollRevealSection className="section-zz-b relative w-full overflow-hidden pt-8 pb-14 md:pt-10 md:pb-20" ariaLabelledBy="why-points-heading">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_18%_12%,rgb(232_93_4/0.12),transparent_58%)] opacity-95"
-          aria-hidden
-        />
+      <ScrollRevealSection className="section-zz-b section-zz-wash-br relative w-full overflow-hidden pt-8 pb-14 md:pt-10 md:pb-20" ariaLabelledBy="why-points-heading">
         <div className="container relative z-10 min-w-0">
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <h2 id="why-points-heading" className="heading-scale-hero mb-3 text-pretty">
@@ -241,7 +237,7 @@ export function WhyTechnieumPage() {
       </ScrollRevealSection>
 
       <ScrollRevealSection
-        className="section-zz-a border-y border-white/[0.06] bg-bg-inset py-14 md:py-20"
+        className="section-zz-a section-zz-wash-tl border-y border-white/[0.06] bg-bg-inset py-14 md:py-20"
         ariaLabelledBy="why-operating-heading"
       >
         <div className="container min-w-0">
@@ -292,7 +288,7 @@ export function WhyTechnieumPage() {
       </ScrollRevealSection>
 
       <ScrollRevealSection
-        className="section-zz-b w-full pb-16 pt-14 md:pb-24 md:pt-20"
+        className="relative w-full overflow-hidden pb-16 pt-14 md:pb-24 md:pt-20"
         ariaLabelledBy="why-trust-heading"
       >
         <div className="container min-w-0">

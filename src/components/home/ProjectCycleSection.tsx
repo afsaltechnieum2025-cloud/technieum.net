@@ -225,7 +225,7 @@ export function ProjectCycleSection() {
   }, [motion, paused, advance])
 
   return (
-    <section className="section-zz-a py-10 md:py-12" aria-labelledby="cycle-heading">
+    <section className="section-zz-a section-zz-wash-br py-10 md:py-12" aria-labelledby="cycle-heading">
       <div className="container">
         <div
           className="grid grid-cols-1 items-center justify-items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16"

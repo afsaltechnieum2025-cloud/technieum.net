@@ -170,6 +170,15 @@
     animation-duration: 20s;
   }
 
+  /* One accent blob only: avoids a second glow in the opposite corner of the same section */
+  .hero-color-drift.hero-color-drift--accent-tl-only::after {
+    display: none;
+  }
+
+  .hero-color-drift.hero-color-drift--accent-br-only::before {
+    display: none;
+  }
+
   .text-shimmer-brand {
     background: linear-gradient(100deg,
         var(--color-brand-soft) 0%,
@@ -336,6 +345,31 @@
   .section-zz-a.section-zz-allow-overflow,
   .section-zz-b.section-zz-allow-overflow {
     overflow: visible;
+  }
+
+  /*
+   * Single-corner section wash (site-wide): alternate `section-zz-wash-tl` / `section-zz-wash-br` down the page.
+   * Default .section-zz-*::before stacks a center wash + side wash — these overrides keep one anchor per band.
+   */
+  .section-zz-a.section-zz-wash-tl::before,
+  .section-zz-b.section-zz-wash-tl::before {
+    background: radial-gradient(ellipse min(88%, 640px) min(72%, 480px) at 10% 18%,
+        rgb(232 93 4 / 0.3) 0%,
+        rgb(220 38 38 / 0.16) 38%,
+        rgb(249 115 22 / 0.09) 55%,
+        transparent 72%);
+    animation: technieum-zz-shift 18s ease-in-out infinite;
+    animation-delay: -9s;
+  }
+
+  .section-zz-a.section-zz-wash-br::before,
+  .section-zz-b.section-zz-wash-br::before {
+    background: radial-gradient(ellipse min(88%, 640px) min(72%, 480px) at 90% 82%,
+        rgb(220 38 38 / 0.28) 0%,
+        rgb(234 88 12 / 0.18) 36%,
+        rgb(232 93 4 / 0.1) 54%,
+        transparent 72%);
+    animation: technieum-zz-shift 18s ease-in-out infinite;
   }
 
   /* Customer logo marquee */
