@@ -277,6 +277,58 @@
     animation: toip-pipeline-march-v 0.95s linear infinite;
   }
 
+  /*
+   * Infrastructure network — methodology row: marching connectors + staggered phase cards.
+   * Grid uses interleaved minmax/max-content columns; list items use display:contents (DOM stays ol > li > …).
+   */
+  @keyframes infra-methodology-phase-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .infra-methodology-track {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  @media (min-width: 1024px) {
+    .infra-methodology-track {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr) max-content minmax(0, 1fr) max-content minmax(0, 1fr) max-content minmax(0, 1fr) max-content
+        minmax(0, 1fr);
+      align-items: stretch;
+      gap: 0;
+    }
+  }
+
+  .infra-methodology-phase {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    will-change: opacity, transform;
+  }
+
+  .infra-methodology--visible .infra-methodology-phase {
+    animation: infra-methodology-phase-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--infra-i, 0) * 72ms);
+  }
+
+  .infra-methodology-between {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
   /* Zigzag section color wash: A = glow from right, B = glow from left */
   .section-zz-a,
   .section-zz-b {
@@ -1108,6 +1160,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+  .infra-methodology-phase,
+  .infra-methodology--visible .infra-methodology-phase {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 
   .hero-color-drift::before,
   .hero-color-drift::after,
