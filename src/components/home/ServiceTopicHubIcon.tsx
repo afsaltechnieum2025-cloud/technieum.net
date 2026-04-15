@@ -1,8 +1,9 @@
-import { getServiceHeroLogoSrc } from '../../data/serviceHeroLogos'
+import { getServiceProgramHeroLogoSrc } from '../../data/serviceHeroLogos'
 
 /**
  * Distinct hub glyphs for each service lane (capabilities hub — services variant only).
- * When a marketing SVG exists in `public/serviceslogo/`, it is shown instead of the stroke glyph.
+ * Uses the same artwork as program heroes (`public/serviceslogo/`), including temporary PNG placeholders.
+ * When no file is mapped, falls back to the inline stroke glyph for that slug.
  */
 type Props = {
   slug: string
@@ -10,7 +11,7 @@ type Props = {
 }
 
 export function ServiceTopicHubIcon({ slug, className = 'h-11 w-11' }: Props) {
-  const logoSrc = getServiceHeroLogoSrc(slug)
+  const logoSrc = getServiceProgramHeroLogoSrc(slug)
   if (logoSrc) {
     return (
       <img

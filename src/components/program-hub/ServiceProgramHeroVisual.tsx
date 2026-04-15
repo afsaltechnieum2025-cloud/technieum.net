@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { getServiceHeroLogoSrc } from '../../data/serviceHeroLogos'
+import { getServiceProgramHeroLogoSrc } from '../../data/serviceHeroLogos'
 
 type Props = {
   serviceSlug: string
@@ -8,11 +8,11 @@ type Props = {
 }
 
 /**
- * When a hero SVG exists for the service, show it in the program hub hero column;
+ * When hero artwork exists for the service (SVG or temporary PNG), show it in the program hub hero column;
  * otherwise render the shared pipeline diagram (or other fallback).
  */
 export function ServiceProgramHeroVisual({ serviceSlug, ariaLabel, pipelineFallback }: Props) {
-  const src = getServiceHeroLogoSrc(serviceSlug)
+  const src = getServiceProgramHeroLogoSrc(serviceSlug)
   if (!src) return pipelineFallback
 
   return (
