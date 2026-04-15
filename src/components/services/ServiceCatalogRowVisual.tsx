@@ -1,3 +1,4 @@
+import { ServiceProgramHeroVisual } from '../program-hub/ServiceProgramHeroVisual'
 import type { ProgramHubVisualNode } from '../../data/programHubRegistry'
 import {
   aiSecurityHubConfig,
@@ -59,13 +60,25 @@ function FallbackVisual() {
 export function ServiceCatalogRowVisual({ slug }: Props) {
   if (slug === 'technieum-infrastructure-network') {
     return (
-      <ServiceHubConvergeVisual
-        nodes={INFRA_NODES}
+      <ServiceProgramHeroVisual
+        serviceSlug={slug}
         ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
+        pipelineFallback={
+          <ServiceHubConvergeVisual
+            nodes={INFRA_NODES}
+            ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
+          />
+        }
       />
     )
   }
   const cfg = PIPELINE_BY_SLUG[slug]
   if (!cfg) return <FallbackVisual />
-  return <ServiceHubConvergeVisual nodes={cfg.visualNodes} ariaLabel={cfg.visualAriaLabel} />
+  return (
+    <ServiceProgramHeroVisual
+      serviceSlug={slug}
+      ariaLabel={cfg.visualAriaLabel}
+      pipelineFallback={<ServiceHubConvergeVisual nodes={cfg.visualNodes} ariaLabel={cfg.visualAriaLabel} />}
+    />
+  )
 }

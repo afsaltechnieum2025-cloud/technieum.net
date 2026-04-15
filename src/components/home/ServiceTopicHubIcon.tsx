@@ -1,6 +1,8 @@
+import { getServiceHeroLogoSrc } from '../../data/serviceHeroLogos'
+
 /**
  * Distinct hub glyphs for each service lane (capabilities hub — services variant only).
- * Style matches CapabilityLogo: 44×44, stroke-based, currentColor.
+ * When a marketing SVG exists in `public/serviceslogo/`, it is shown instead of the stroke glyph.
  */
 type Props = {
   slug: string
@@ -8,6 +10,18 @@ type Props = {
 }
 
 export function ServiceTopicHubIcon({ slug, className = 'h-11 w-11' }: Props) {
+  const logoSrc = getServiceHeroLogoSrc(slug)
+  if (logoSrc) {
+    return (
+      <img
+        src={logoSrc}
+        alt=""
+        className={`${className} max-h-full max-w-full object-contain [filter:drop-shadow(0_0_5px_rgb(232_93_4/0.35))]`}
+        draggable={false}
+      />
+    )
+  }
+
   const common = {
     className: `${className} shrink-0 text-brand`,
     viewBox: '0 0 44 44',

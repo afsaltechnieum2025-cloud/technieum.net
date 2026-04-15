@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ServiceProgramHeroVisual } from '../components/program-hub/ServiceProgramHeroVisual'
 import { GenericPipelineVisual } from '../components/program-hub/GenericPipelineVisual'
 import {
   ICS_OT_CHALLENGE,
@@ -54,7 +55,11 @@ export function IcsOtSecurityPage() {
                 </Link>
               </div>
             </div>
-            <GenericPipelineVisual nodes={visualNodes} ariaLabel={visualAriaLabel} />
+            <ServiceProgramHeroVisual
+              serviceSlug="technieum-ics-ot-security"
+              ariaLabel={visualAriaLabel}
+              pipelineFallback={<GenericPipelineVisual nodes={visualNodes} ariaLabel={visualAriaLabel} />}
+            />
           </div>
         </div>
       </section>

@@ -24,8 +24,8 @@ export function ServicesPage() {
               </h1>
               <p className="m-0 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
                 Every service opens a program hub: coverage pillars, delivery rhythm, portal workflow, and a datasheet PDF
-                you can download. Infrastructure network uses a tailored visual; the rest share the pipeline
-                layout. Use the briefs for internal sharing; formal scoping stays on a call with your team.
+                you can download. Lanes with artwork use their service hero illustration in the hub and on the program page.
+                Use the briefs for internal sharing; formal scoping stays on a call with your team.
               </p>
             </div>
           </div>

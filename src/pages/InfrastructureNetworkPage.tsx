@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { ServiceProgramHeroVisual } from '../components/program-hub/ServiceProgramHeroVisual'
 import { InfrastructureNetworkVisual } from '../components/infrastructure-network/InfrastructureNetworkVisual'
 import {
   INFRA_NETWORK_CHALLENGE,
@@ -53,7 +54,11 @@ export function InfrastructureNetworkPage() {
                 </Link>
               </div>
             </div>
-            <InfrastructureNetworkVisual />
+            <ServiceProgramHeroVisual
+              serviceSlug="technieum-infrastructure-network"
+              ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
+              pipelineFallback={<InfrastructureNetworkVisual />}
+            />
           </div>
         </div>
       </section>
