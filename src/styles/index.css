@@ -372,6 +372,91 @@
     animation: technieum-zz-shift 18s ease-in-out infinite;
   }
 
+  /* Home hero — right column service grid + surface motif */
+  .home-coverage-grid > li {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+    animation: home-coverage-card-in 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--hccv-i, 0) * 70ms);
+  }
+
+  .home-coverage-link {
+    transition:
+      border-color 0.35s ease,
+      background-color 0.35s ease,
+      box-shadow 0.45s ease,
+      transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-coverage-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .home-coverage-link:active {
+    transform: translateY(0);
+  }
+
+  .home-coverage-icon {
+    transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+  }
+
+  .home-coverage-link:hover .home-coverage-icon {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 10px rgb(232 93 4 / 0.45));
+  }
+
+  .home-coverage-surface {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+    animation: home-coverage-surface-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.42s forwards;
+  }
+
+  .home-coverage-surface path,
+  .home-coverage-surface circle {
+    opacity: 0;
+    animation: home-coverage-path-in 0.55s ease-out forwards;
+  }
+
+  .home-coverage-surface path:nth-of-type(1) {
+    animation-delay: 0.48s;
+  }
+
+  .home-coverage-surface path:nth-of-type(2) {
+    animation-delay: 0.58s;
+  }
+
+  .home-coverage-surface path:nth-of-type(3) {
+    animation-delay: 0.68s;
+  }
+
+  .home-coverage-surface path:nth-of-type(4) {
+    animation-delay: 0.78s;
+  }
+
+  .home-coverage-surface path:nth-of-type(5) {
+    animation-delay: 0.86s;
+  }
+
+  .home-coverage-surface circle:nth-of-type(1) {
+    animation-delay: 0.94s;
+  }
+
+  .home-coverage-surface circle:nth-of-type(2) {
+    animation-delay: 0.99s;
+  }
+
+  .home-coverage-surface circle:nth-of-type(3) {
+    animation-delay: 1.04s;
+  }
+
+  .home-coverage-surface circle:nth-of-type(4) {
+    animation-delay: 1.09s;
+  }
+
+  .home-coverage-surface circle:nth-of-type(5) {
+    animation-delay: 1.14s;
+  }
+
   /* Customer logo marquee */
   .customers-marquee-row-outer {
     contain: layout paint;
@@ -396,6 +481,26 @@
 
   .customers-marquee-track--reverse {
     animation-direction: reverse;
+  }
+}
+
+@keyframes home-coverage-card-in {
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes home-coverage-surface-in {
+  to {
+    opacity: 0.95;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes home-coverage-path-in {
+  to {
+    opacity: 1;
   }
 }
 
@@ -1012,6 +1117,26 @@
   .technieum-topbar-glow::after,
   .btn-brand-lively {
     animation: none !important;
+  }
+
+  .home-coverage-grid > li,
+  .home-coverage-surface,
+  .home-coverage-surface path,
+  .home-coverage-surface circle {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .home-coverage-link,
+  .home-coverage-link:hover,
+  .home-coverage-link:active {
+    transform: none;
+  }
+
+  .home-coverage-link:hover .home-coverage-icon {
+    transform: none;
+    filter: none;
   }
 
   .section-zz-a::before,

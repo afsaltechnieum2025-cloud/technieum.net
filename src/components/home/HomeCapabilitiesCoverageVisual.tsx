@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { useId } from 'react'
 import { Link } from 'react-router-dom'
 import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
@@ -70,17 +71,20 @@ export function HomeCapabilitiesCoverageVisual() {
 
   return (
     <div className="relative w-full select-none">
-      <ul className="m-0 grid list-none grid-cols-2 gap-2 p-0 sm:gap-2.5">
-        {SERVICE_TOPICS.map((topic) => (
-          <li key={topic.slug} className="min-w-0">
+      <ul className="home-coverage-grid m-0 grid list-none grid-cols-2 gap-2 p-0 sm:gap-2.5">
+        {SERVICE_TOPICS.map((topic, index) => (
+          <li
+            key={topic.slug}
+            className="min-w-0"
+            style={{ '--hccv-i': index } as CSSProperties}
+          >
             <Link
               to={serviceTopicNavHref(topic)}
-              className="group flex min-h-[3.25rem] items-center gap-2.5 rounded-xl border border-white/[0.07] bg-zinc-950/25 px-2.5 py-2 no-underline shadow-[inset_0_1px_0_rgb(255_255_255/0.04)] backdrop-blur-sm transition-[border-color,background-color,box-shadow] hover:border-brand/35 hover:bg-zinc-900/35 hover:shadow-[0_0_24px_-8px_rgb(232_93_4/0.35)] sm:min-h-0 sm:gap-3 sm:px-3 sm:py-2.5"
+              className="home-coverage-link group flex min-h-[3.25rem] items-center gap-2.5 rounded-xl border border-white/[0.07] bg-zinc-950/25 px-2.5 py-2 no-underline shadow-[inset_0_1px_0_rgb(255_255_255/0.04)] backdrop-blur-sm hover:border-brand/35 hover:bg-zinc-900/35 hover:shadow-[0_0_24px_-8px_rgb(232_93_4/0.35)] sm:min-h-0 sm:gap-3 sm:px-3 sm:py-2.5"
             >
-              <ServiceTopicHubIcon
-                slug={topic.slug}
-                className="h-9 w-9 shrink-0 text-brand sm:h-10 sm:w-10 [filter:drop-shadow(0_0_6px_rgb(232_93_4/0.35))]"
-              />
+              <span className="home-coverage-icon inline-flex shrink-0 [filter:drop-shadow(0_0_6px_rgb(232_93_4/0.35))]">
+                <ServiceTopicHubIcon slug={topic.slug} className="h-9 w-9 text-brand sm:h-10 sm:w-10" />
+              </span>
               <span className="min-w-0 text-left text-[0.6875rem] font-semibold leading-snug tracking-tight text-zinc-100 sm:text-xs">
                 {topic.title}
               </span>
@@ -91,7 +95,7 @@ export function HomeCapabilitiesCoverageVisual() {
 
       <CoverageSurfaceArt
         edgeGradientId={edgeGradientId}
-        className="pointer-events-none mt-4 h-auto w-full max-h-[7.5rem] opacity-95 sm:mt-5 sm:max-h-[8.5rem]"
+        className="home-coverage-surface pointer-events-none mt-4 h-auto w-full max-h-[7.5rem] sm:mt-5 sm:max-h-[8.5rem]"
       />
     </div>
   )
