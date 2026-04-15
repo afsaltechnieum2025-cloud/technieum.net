@@ -9,10 +9,12 @@ import {
   type MouseEvent,
 } from 'react'
 import { Link } from 'react-router-dom'
+import { BrandLogo } from '../BrandLogo'
 import { getProductById, productPath, type ProductDocId } from '../../data/productDocuments'
 import { OFFSEC_PORTAL } from '../../data/salesPitchSite'
 import { SERVICE_TOPICS, serviceTopicNavHref } from '../../data/serviceDocuments'
 import { CapabilityLogo } from './CapabilityLogo'
+import { ServiceTopicHubIcon } from './ServiceTopicHubIcon'
 
 function usePrefersReducedMotion() {
   const [reduce, setReduce] = useState(
@@ -46,7 +48,7 @@ function getHubCenter(variant: CapabilitiesHubVariant): HubCenterConfig {
   }
 }
 
-type HubServiceNode = { label: string; to: string; tip: string }
+type HubServiceNode = { slug: string; label: string; to: string; tip: string }
 type HubProductNode = {
   /** Stable key for tooltips and React keys (full product name). */
   label: string
@@ -70,7 +72,7 @@ const HUB_SERVICE_SLUGS = [
 const HUB_OUTER_SERVICES: HubServiceNode[] = HUB_SERVICE_SLUGS.map((slug) => {
   const t = SERVICE_TOPICS.find((x) => x.slug === slug)
   if (!t) throw new Error(`Missing service topic: ${slug}`)
-  return { label: t.title, to: serviceTopicNavHref(t), tip: t.summary }
+  return { slug: t.slug, label: t.title, to: serviceTopicNavHref(t), tip: t.summary }
 })
 
 /** Clockwise from top — product capability hub (OffSec portal section). */
@@ -135,6 +137,18 @@ function zigzagSpokeD(x1: number, y1: number, x2: number, y2: number, amp: numbe
   return parts.join(' ')
 }
 
+/** Services hub: smooth arc spokes (no zig-zag “circuit” look). */
+function smoothSpokeD(x1: number, y1: number, x2: number, y2: number, bend: number) {
+  const mx = (x1 + x2) * 0.5
+  const my = (y1 + y2) * 0.5
+  const dx = x2 - x1
+  const dy = y2 - y1
+  const len = Math.hypot(dx, dy) || 1
+  const cx = mx + (-dy / len) * bend
+  const cy = my + (dx / len) * bend
+  return `M ${x1.toFixed(2)} ${y1.toFixed(2)} Q ${cx.toFixed(2)} ${cy.toFixed(2)} ${x2.toFixed(2)} ${y2.toFixed(2)}`
+}
+
 const STARFIELD = Array.from({ length: 28 }, (_, i) => {
   const a = i * 17.3
   return {
@@ -152,35 +166,6 @@ function PortalGlyph({ className }: { className?: string }) {
       <rect x="23" y="10" width="11" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
       <rect x="10" y="23" width="11" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
       <rect x="23" y="23" width="11" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.6" />
-    </svg>
-  )
-}
-
-function ServiceLaneGlyph({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      <path
-        d="M12 2 4 5.2v5.1c0 4.35 2.95 8.45 8 10.7 5.05-2.25 8-6.35 8-10.7V5.2L12 2Z"
-        stroke="currentColor"
-        strokeWidth="1.35"
-        strokeLinejoin="round"
-      />
-      <path d="M9.2 12.3 11 14.1l3.9-3.9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
-/** Center hub for services variant — reads as catalog / program list, not the OffSec portal tile. */
-function ServicesHubGlyph({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-      <path
-        d="M5 7h14M5 12h14M5 17h9"
-        stroke="currentColor"
-        strokeWidth="1.45"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
     </svg>
   )
 }
@@ -226,6 +211,9 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
   const filterGlow = `${gid}-glow`
   const patternGrid = `${gid}-chip-grid`
   const gradVignette = `${gid}-vignette`
+  const gradEmber = `${gid}-ember`
+  const gradBloom = `${gid}-bloom`
+  const servicesSpokeBend = 2.35
 
   const updateTipPosition = useCallback(() => {
     const el = tipAnchorRef.current
@@ -291,28 +279,74 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                 <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
-            <pattern id={patternGrid} width="3.2" height="3.2" patternUnits="userSpaceOnUse">
-              <path
-                d="M 3.2 0 L 0 0 0 3.2"
-                fill="none"
-                stroke="rgb(148 163 184)"
-                strokeOpacity="0.11"
-                strokeWidth="0.12"
-              />
-            </pattern>
-            <radialGradient id={gradVignette} cx="50%" cy="50%" r="58%">
-              <stop offset="0%" stopColor="rgb(232 93 4)" stopOpacity="0.095" />
-              <stop offset="55%" stopColor="rgb(6 20 14)" stopOpacity="0.14" />
-              <stop offset="100%" stopColor="rgb(2 4 3)" stopOpacity="0.38" />
-            </radialGradient>
+            {isProducts ? (
+              <>
+                <pattern id={patternGrid} width="3.2" height="3.2" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 3.2 0 L 0 0 0 3.2"
+                    fill="none"
+                    stroke="rgb(148 163 184)"
+                    strokeOpacity="0.11"
+                    strokeWidth="0.12"
+                  />
+                </pattern>
+                <radialGradient id={gradVignette} cx="50%" cy="50%" r="58%">
+                  <stop offset="0%" stopColor="rgb(232 93 4)" stopOpacity="0.095" />
+                  <stop offset="55%" stopColor="rgb(6 20 14)" stopOpacity="0.14" />
+                  <stop offset="100%" stopColor="rgb(2 4 3)" stopOpacity="0.38" />
+                </radialGradient>
+              </>
+            ) : (
+              <>
+                <radialGradient id={gradEmber} cx="50%" cy="50%" r="52%">
+                  <stop offset="0%" stopColor="rgb(232 93 4)" stopOpacity="0.22" />
+                  <stop offset="38%" stopColor="rgb(180 70 20)" stopOpacity="0.06" />
+                  <stop offset="100%" stopColor="transparent" />
+                </radialGradient>
+                <radialGradient id={gradBloom} cx="72%" cy="28%" r="40%">
+                  <stop offset="0%" stopColor="rgb(251 191 36)" stopOpacity="0.08" />
+                  <stop offset="100%" stopColor="transparent" />
+                </radialGradient>
+              </>
+            )}
           </defs>
 
-          <rect width="100" height="100" fill={`url(#${patternGrid})`} opacity={0.92} />
-          <rect width="100" height="100" fill={`url(#${gradVignette})`} />
-
-          {STARFIELD.map((s, i) => (
-            <circle key={`star-${i}`} cx={s.cx} cy={s.cy} r={s.r} className="fill-teal-200/20" opacity={s.o * 0.55} />
-          ))}
+          {isProducts ? (
+            <>
+              <rect width="100" height="100" fill={`url(#${patternGrid})`} opacity={0.92} />
+              <rect width="100" height="100" fill={`url(#${gradVignette})`} />
+              {STARFIELD.map((s, i) => (
+                <circle key={`star-${i}`} cx={s.cx} cy={s.cy} r={s.r} className="fill-teal-200/20" opacity={s.o * 0.55} />
+              ))}
+            </>
+          ) : (
+            <>
+              <ellipse cx="50" cy="51" rx="46" ry="42" fill={`url(#${gradEmber})`} opacity={0.48}>
+                {!reduceMotion ? (
+                  <animate
+                    attributeName="opacity"
+                    values="0.38;0.58;0.38"
+                    dur="5.5s"
+                    repeatCount="indefinite"
+                    calcMode="spline"
+                    keySplines="0.4 0 0.2 1;0.4 0 0.2 1"
+                    keyTimes="0;0.5;1"
+                  />
+                ) : null}
+              </ellipse>
+              <ellipse cx="50" cy="50" rx="58" ry="54" fill={`url(#${gradBloom})`} opacity={0.85} />
+              <circle
+                cx={50}
+                cy={50}
+                r={41}
+                className="stroke-brand/18 [vector-effect:non-scaling-stroke]"
+                strokeWidth={0.26}
+                strokeDasharray="0.55 1.05"
+                fill="none"
+                opacity={0.75}
+              />
+            </>
+          )}
 
           <g filter={`url(#${filterGlow})`}>
             <circle
@@ -339,25 +373,23 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
             to={center.to}
             {...hubPointerHandlers(center.label)}
             className="capabilities-hub-node pointer-events-auto absolute left-1/2 top-1/2 z-[20] -translate-x-1/2 -translate-y-1/2 no-underline"
-            aria-label={
-              isProducts ? `${center.label}: open overview` : `${center.label}: open services page`
-            }
+            aria-label={isProducts ? `${center.label}: open overview` : 'Open the services catalog'}
           >
             <span className="relative inline-flex flex-col items-center">
               <span
                 className={`flex items-center justify-center rounded-full border border-zinc-600/90 bg-zinc-950/90 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_0_0_1px_rgb(0_0_0/0.5),0_0_24px_rgb(232_93_4/0.2)] backdrop-blur-sm transition-all duration-200 ${isProducts ? 'h-[3.5rem] w-[3.5rem] sm:h-[3.85rem] sm:w-[3.85rem]' : 'h-[3.35rem] w-[3.35rem] sm:h-[3.7rem] sm:w-[3.7rem]'}`}
               >
-                {isProducts ? <HubNodeIcon id="portal" /> : <ServicesHubGlyph className={iconCnServices} />}
+                {isProducts ? (
+                  <HubNodeIcon id="portal" />
+                ) : (
+                  <BrandLogo height={30} className="h-[1.75rem] w-auto object-contain sm:h-8" alt="" />
+                )}
               </span>
-              <span
-                className={`absolute left-1/2 top-full z-[21] mt-1.5 -translate-x-1/2 text-center font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:mt-2 ${
-                  isProducts
-                    ? 'whitespace-nowrap text-[0.625rem] sm:text-[0.6875rem]'
-                    : 'max-w-[6.5rem] text-[0.5rem] leading-[1.2] sm:max-w-[7.25rem] sm:text-[0.5625rem]'
-                }`}
-              >
-                {center.label}
-              </span>
+              {isProducts ? (
+                <span className="absolute left-1/2 top-full z-[21] mt-1.5 -translate-x-1/2 whitespace-nowrap text-center text-[0.625rem] font-semibold tracking-wide text-zinc-200 drop-shadow-sm sm:mt-2 sm:text-[0.6875rem]">
+                  {center.label}
+                </span>
+              ) : null}
             </span>
           </Link>
 
@@ -397,7 +429,7 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                 const { x, y } = polarPct(i, n, spokeR)
                 return (
                   <Link
-                    key={node.label}
+                    key={node.slug}
                     to={node.to}
                     {...hubPointerHandlers(node.label)}
                     className="capabilities-hub-node pointer-events-auto absolute z-[20] -translate-x-1/2 -translate-y-1/2 no-underline"
@@ -406,7 +438,7 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                   >
                     <span className="relative inline-flex flex-col items-center">
                       <span className="flex h-[2.85rem] w-[2.85rem] items-center justify-center rounded-full border border-zinc-600/90 bg-zinc-950/85 shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_0_0_1px_rgb(0_0_0/0.5)] backdrop-blur-sm transition-all duration-200 sm:h-[3.15rem] sm:w-[3.15rem]">
-                        <ServiceLaneGlyph className={iconCnServices} />
+                        <ServiceTopicHubIcon slug={node.slug} className={iconCnServices} />
                       </span>
                       <span className="absolute left-1/2 top-full z-[21] mt-1 max-w-[5.25rem] -translate-x-1/2 text-center text-[0.5rem] font-semibold leading-[1.15] tracking-wide text-zinc-200 drop-shadow-sm sm:mt-1.5 sm:max-w-[6rem] sm:text-[0.5625rem]">
                         {node.label}
@@ -429,16 +461,16 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
             /* Services: flow center → lanes. Products: flow outer capabilities → Portal. */
             const d = isProducts
               ? zigzagSpokeD(x2, y2, x1, y1, zigzagAmp)
-              : zigzagSpokeD(x1, y1, x2, y2, zigzagAmp)
+              : smoothSpokeD(x1, y1, x2, y2, servicesSpokeBend)
             const pathId = `${gid}-spoke-${i}`
             return (
               <g key={`spoke-pack-${node.label}`} className="capabilities-hub-spokes">
                 <path
                   d={d}
-                  className="stroke-brand/35"
+                  className={isProducts ? 'stroke-brand/35' : 'stroke-brand/22'}
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={0.48}
+                  strokeWidth={isProducts ? 0.48 : 0.42}
                 />
                 {!reduceMotion ? (
                   <path
@@ -447,8 +479,11 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                     className="capabilities-hub-spoke-travel stroke-brand"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={0.82}
-                    style={{ animationDelay: `${i * travelDelayStep}s` }}
+                    strokeWidth={isProducts ? 0.82 : 0.68}
+                    style={{
+                      animationDelay: `${i * travelDelayStep}s`,
+                      ...(isProducts ? {} : { animationDuration: '2.85s' }),
+                    }}
                   />
                 ) : (
                   <path
