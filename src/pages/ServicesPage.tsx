@@ -1,8 +1,7 @@
-import { CapabilitiesHubVisual } from '../components/home/CapabilitiesHubVisual'
+import { ServicesPageHeroGraphic } from '../components/services/ServicesPageHeroGraphic'
 import { ServiceCatalogRow } from '../components/services/ServiceCatalogRow'
 import { SERVICE_TOPICS } from '../data/serviceDocuments'
 import { SERVICES_CATALOG_INTRO, SERVICE_CATALOG_ROW_META } from '../data/servicesCatalogRowContent'
-import { STANDARDS_SHOWCASE } from '../data/salesPitchSite'
 
 export function ServicesPage() {
   return (
@@ -11,13 +10,7 @@ export function ServicesPage() {
         <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
           <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-            <div className="order-2 flex min-w-0 w-full justify-center overflow-visible lg:order-1 lg:justify-start">
-              <div className="w-full max-w-[min(100%,520px)] overflow-visible">
-                <CapabilitiesHubVisual variant="services" />
-              </div>
-            </div>
-
-            <div className="order-1 text-left lg:order-2">
+            <div className="min-w-0 text-left">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">Services</p>
               <h1 className="heading-scale-hero mb-4 max-w-2xl">
                 Offensive security offerings
@@ -27,6 +20,17 @@ export function ServicesPage() {
                 you can download. Lanes with artwork use their service hero illustration in the hub and on the program page.
                 Use the briefs for internal sharing; formal scoping stays on a call with your team.
               </p>
+              <p className="mt-5 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
+                Every service opens a program hub: coverage pillars, delivery rhythm, portal workflow, and a datasheet PDF
+                you can download. Lanes with artwork use their service hero illustration in the hub and on the program page.
+                Use the briefs for internal sharing; formal scoping stays on a call with your team.
+              </p>
+            </div>
+
+            <div className="min-w-0 w-full overflow-visible">
+              <div className="mx-auto w-full max-w-[min(100%,680px)] lg:ml-auto lg:mr-0">
+                <ServicesPageHeroGraphic />
+              </div>
             </div>
           </div>
         </div>
@@ -60,52 +64,6 @@ export function ServicesPage() {
               }
               return <ServiceCatalogRow key={topic.slug} topic={topic} meta={meta} index={index} />
             })}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden py-10 md:py-12 lg:py-14">
-        <div className="container relative z-10">
-          <div className="container-inner-5xl">
-          <h2 className="mb-3 max-w-3xl text-xl font-medium leading-snug tracking-tight text-heading md:mb-4 md:text-2xl">
-            {STANDARDS_SHOWCASE.title}
-          </h2>
-          <p className="mb-6 max-w-2xl text-sm leading-relaxed text-muted md:mb-8 md:text-base">{STANDARDS_SHOWCASE.lead}</p>
-
-          <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-            <div>
-              <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand">
-                <span className="h-px w-8 bg-brand/70" aria-hidden />
-                {STANDARDS_SHOWCASE.frameworksLabel}
-              </p>
-              <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-                {STANDARDS_SHOWCASE.frameworks.map((item) => (
-                  <li key={item}>
-                    <span className="inline-flex items-center rounded-full border border-border/80 bg-panel/25 px-3.5 py-1.5 text-xs font-medium text-heading md:text-[0.8125rem]">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand">
-                <span className="h-px w-8 bg-brand/70" aria-hidden />
-                {STANDARDS_SHOWCASE.teamLabel}
-              </p>
-              <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-                {STANDARDS_SHOWCASE.teamCerts.map((item) => (
-                  <li key={item}>
-                    <span className="inline-flex items-center rounded-full border border-border/80 bg-panel/25 px-3.5 py-1.5 text-xs font-medium text-heading md:text-[0.8125rem]">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-muted md:mt-8 md:text-base">{STANDARDS_SHOWCASE.closing}</p>
           </div>
         </div>
       </section>
