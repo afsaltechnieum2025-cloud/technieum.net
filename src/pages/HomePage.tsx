@@ -54,7 +54,7 @@ export function HomePage() {
               </Link>
             </div>
             <div className="flex min-w-0 w-full justify-center overflow-visible">
-              <div className="w-full max-w-[min(100%,520px)] overflow-visible">
+              <div className="w-full max-w-[min(100%,680px)] overflow-visible">
                 <HomeCapabilitiesCoverageVisual />
               </div>
             </div>
