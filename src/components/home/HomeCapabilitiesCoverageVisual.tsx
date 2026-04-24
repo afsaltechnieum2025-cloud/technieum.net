@@ -83,7 +83,7 @@ export function HomeCapabilitiesCoverageVisual() {
               className="home-coverage-link group flex min-h-[3.25rem] items-center gap-2.5 rounded-xl border border-white/[0.07] bg-zinc-950/25 px-2.5 py-2 no-underline shadow-[inset_0_1px_0_rgb(255_255_255/0.04)] backdrop-blur-sm hover:border-brand/35 hover:bg-zinc-900/35 hover:shadow-[0_0_24px_-8px_rgb(232_93_4/0.35)] sm:min-h-0 sm:gap-3 sm:px-3 sm:py-2.5"
             >
               <span className="home-coverage-icon inline-flex shrink-0 [filter:drop-shadow(0_0_6px_rgb(232_93_4/0.35))]">
-                <ServiceTopicHubIcon slug={topic.slug} className="h-10 w-10 text-brand sm:h-11 sm:w-11" />
+                <ServiceTopicHubIcon slug={topic.slug} className="h-11 w-11 text-brand sm:h-12 sm:w-12" />
               </span>
               <span className="min-w-0 text-left text-[0.6875rem] font-semibold leading-snug tracking-tight text-zinc-100 sm:text-xs">
                 {topic.title}

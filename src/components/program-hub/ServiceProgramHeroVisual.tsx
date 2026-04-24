@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * When hero artwork exists for the service (PNG or shared SVG), show it in the program hub hero column;
+ * When hero artwork exists for the service (PNG), show it in the program hub hero column;
  * otherwise render the shared pipeline diagram (or other fallback).
  */
 export function ServiceProgramHeroVisual({ serviceSlug, ariaLabel, pipelineFallback }: Props) {
@@ -17,14 +17,14 @@ export function ServiceProgramHeroVisual({ serviceSlug, ariaLabel, pipelineFallb
 
   return (
     <div
-      className="master-offsec-visual-wrap relative mx-auto w-full max-w-[min(100%,580px)]"
+      className="master-offsec-visual-wrap relative mx-auto w-full max-w-[min(100%,640px)]"
       role="img"
       aria-label={ariaLabel}
     >
       <img
         src={src}
         alt=""
-        className="mx-auto block h-auto w-full max-h-[min(58vh,380px)] object-contain object-center md:max-h-[min(54vh,400px)]"
+        className="mx-auto block h-auto w-full max-h-[min(62vh,420px)] object-contain object-center md:max-h-[min(58vh,440px)]"
       />
     </div>
   )

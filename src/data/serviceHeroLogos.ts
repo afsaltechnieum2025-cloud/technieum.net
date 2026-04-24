@@ -1,32 +1,31 @@
 /**
- * Hero / hub artwork for service lanes. Most marks live in `public/png/`; ICS/OT and a few shared lanes still use `public/serviceslogo/`.
+ * Hero / hub artwork for service lanes. Marks live in `public/png/` (URL-encoded filenames where needed).
  */
 
 function png(name: string): string {
   return `/png/${encodeURIComponent(name)}`
 }
 
-/** Standalone red line-art mark (same asset as ICS / OT program hero). No matching PNG in `public/png/` yet. */
-const ICS_OT_LINE_MARK = '/serviceslogo/iot-3-2.svg' as const
+/** Shared artwork for threat-style lanes until each has its own mark. */
+const THREAT_SIMULATIONS_PNG = png('Threat simulations.png')
 
 const BY_SLUG: Partial<Record<string, string>> = {
   'technieum-infrastructure-network': png('Infrastructure network.png'),
   'technieum-application-security': png('Application security.png'),
   'technieum-cloud-security': png('Cloud security.png'),
   'technieum-ai-security': png('AI security.png'),
-  'technieum-ics-ot-security': ICS_OT_LINE_MARK,
+  'technieum-ics-ot-security': THREAT_SIMULATIONS_PNG,
 }
 
-/** Lanes without a dedicated PNG yet: reuse ICS/OT line-art so hub + heroes match that treatment. */
+/** Program-only slugs or aliases mapped to shared hero art. */
 const PROGRAM_HERO_EXTRA: Partial<Record<string, string>> = {
-  'technieum-threat-simulations': png('Threat simulations.png'),
-  'technieum-security-consulting': ICS_OT_LINE_MARK,
-  'technieum-wfh-security': ICS_OT_LINE_MARK,
+  'technieum-threat-simulations': THREAT_SIMULATIONS_PNG,
+  'technieum-security-consulting': THREAT_SIMULATIONS_PNG,
+  'technieum-wfh-security': THREAT_SIMULATIONS_PNG,
 }
 
 /**
- * Program hero, services catalog column, and capabilities hub icons:
- * PNG marks in `public/png/` where available; otherwise shared SVG in `public/serviceslogo/`.
+ * Program hero, services catalog column, and capabilities hub icons.
  */
 export function getServiceProgramHeroLogoSrc(slug: string): string | undefined {
   return PROGRAM_HERO_EXTRA[slug] ?? BY_SLUG[slug]
