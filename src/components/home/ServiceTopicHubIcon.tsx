@@ -2,7 +2,7 @@ import { getServiceProgramHeroLogoSrc } from '../../data/serviceHeroLogos'
 
 /**
  * Distinct hub glyphs for each service lane (capabilities hub — services variant only).
- * Uses the same artwork as program heroes (`public/serviceslogo/`), including temporary PNG placeholders.
+ * Uses the same artwork as program heroes (`public/png/` and `public/serviceslogo/`).
  * When no file is mapped, falls back to the inline stroke glyph for that slug.
  */
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
   className?: string
 }
 
-export function ServiceTopicHubIcon({ slug, className = 'h-11 w-11' }: Props) {
+export function ServiceTopicHubIcon({ slug, className = 'h-12 w-12' }: Props) {
   const logoSrc = getServiceProgramHeroLogoSrc(slug)
   if (logoSrc) {
     return (

@@ -1,5 +1,4 @@
 import { Fragment, useEffect, useState, type CSSProperties } from 'react'
-import { OffsecPortalSlideshow } from '../components/home/OffsecPortalSlideshow'
 import type { ProductDocument } from '../data/productDocuments'
 import {
   AD_DATA_MODEL,
@@ -14,11 +13,6 @@ import {
   AD_USE_CASES,
 } from '../data/adPageContent'
 import { PRODUCT_PITCH_PAGES } from '../data/productPitchPages'
-import {
-  getProductScreenshotSlides,
-  productHasScreenshotFolder,
-  PRODUCT_SCREENSHOT_CHROME,
-} from '../data/productScreenshots'
 import { HOME_AD } from '../data/salesPitchSite'
 
 function pdfHref(file: string) {
@@ -136,24 +130,6 @@ export function AdProductPage({ doc }: { doc: ProductDocument }) {
   const pdf = pdfHref(doc.pdfFile)
   const reduceMotion = useReducedMotion()
   const motion = !reduceMotion
-  const slides = getProductScreenshotSlides(doc.id)
-  const chrome = PRODUCT_SCREENSHOT_CHROME.ad
-
-  const screenshotTour =
-    productHasScreenshotFolder(doc.id) && slides.length > 0 ? (
-      <section className="section-zz-b section-zz-wash-tl py-4 md:py-8" aria-label={chrome.regionAriaLabel}>
-        <div className="container">
-          <div className="mx-auto w-full max-w-md">
-            <OffsecPortalSlideshow
-              slides={slides}
-              chromeTitle={chrome.chromeTitle}
-              regionAriaLabel={chrome.regionAriaLabel}
-              compact
-            />
-          </div>
-        </div>
-      </section>
-    ) : null
 
   return (
     <main id="main-content" className="flex flex-col bg-page">
@@ -494,8 +470,6 @@ export function AdProductPage({ doc }: { doc: ProductDocument }) {
           </div>
         </div>
       </section>
-
-      {screenshotTour}
     </main>
   )
 }

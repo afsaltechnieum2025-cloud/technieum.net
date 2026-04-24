@@ -255,7 +255,7 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
   const tipLine = hoverKey ? hubTipForKey(variant, hoverKey, center) : ''
 
   const iconCnServices =
-    'h-[1.45rem] w-[1.45rem] shrink-0 text-brand sm:h-[1.6rem] sm:w-[1.6rem] [filter:drop-shadow(0_0_5px_rgb(232_93_4/0.45))]'
+    'h-[1.65rem] w-[1.65rem] shrink-0 text-brand sm:h-[1.85rem] sm:w-[1.85rem] [filter:drop-shadow(0_0_5px_rgb(232_93_4/0.45))]'
   const iconCnProducts =
     'h-[1.65rem] w-[1.65rem] shrink-0 text-brand sm:h-[1.85rem] sm:w-[1.85rem] [filter:drop-shadow(0_0_5px_rgb(232_93_4/0.45))]'
 
