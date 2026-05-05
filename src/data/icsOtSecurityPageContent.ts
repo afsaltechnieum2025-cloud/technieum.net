@@ -1,10 +1,10 @@
 /**
  * ICS / OT security program page.
- * PDF: public/servicedocumentfolder/technieum-ict-ot-security.pdf
+ * PDF: public/servicedocumentfolder/technieum-ics-ot-security.pdf
  * Route slug: technieum-ics-ot-security
  */
 
-export const ICS_OT_PDF_HREF = '/servicedocumentfolder/technieum-ict-ot-security.pdf' as const
+export const ICS_OT_PDF_HREF = '/servicedocumentfolder/technieum-ics-ot-security.pdf' as const
 
 export const ICS_OT_HERO = {
   eyebrow: 'ICS and OT',

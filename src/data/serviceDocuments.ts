@@ -56,7 +56,7 @@ export const SERVICE_TOPICS: readonly ServiceTopic[] = [
     title: 'ICS OT Security',
     summary:
       'Industrial and OT-focused assessments with safety-aware methods, segmentation and access review, and resilience priorities for control-system environments.',
-    pdfFile: 'technieum-ict-ot-security.pdf',
+    pdfFile: 'technieum-ics-ot-security.pdf',
     detailPath: serviceProgramPath('technieum-ics-ot-security'),
   },
   {
