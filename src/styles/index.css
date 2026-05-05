@@ -115,16 +115,15 @@
   }
 
   /*
-   * Narrow column inside .container — keeps horizontal gutters identical to every other section.
-   * Never combine max-w-* on the same element as .container: that shrinks the padded box and
-   * misaligns content edges vs full-width .container sections.
+   * Full content width inside .container (same horizontal padding as the site shell).
+   * Prose line length stays comfortable via max-w-3xl / max-w-xl on headings and paragraphs.
    */
   .container-inner-5xl {
-    @apply mx-auto w-full min-w-0 max-w-5xl;
+    @apply w-full min-w-0;
   }
 
   .container-inner-3xl {
-    @apply mx-auto w-full min-w-0 max-w-3xl;
+    @apply w-full min-w-0 max-w-3xl;
   }
 
   /* Same scale as home hero headline ("360 coverage..."); overrides base h1/h2 font sizes */

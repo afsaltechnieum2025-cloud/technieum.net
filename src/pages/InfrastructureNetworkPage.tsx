@@ -23,12 +23,12 @@ export function InfrastructureNetworkPage() {
       <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset py-10 md:py-14">
         <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
-            <div>
+          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+            <div className="min-w-0 lg:pr-2">
               <p className="text-shimmer-brand mb-2 text-xs font-semibold tracking-wide md:text-sm">{INFRA_NETWORK_HERO.eyebrow}</p>
-              <h1 className="heading-scale-hero mb-3 max-w-xl text-pretty">{INFRA_NETWORK_HERO.title}</h1>
-              <p className="mb-2 max-w-xl text-sm font-medium leading-relaxed text-zinc-200 md:text-base">{INFRA_NETWORK_HERO.lead}</p>
-              <p className="mb-5 max-w-xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_HERO.sub}</p>
+              <h1 className="heading-scale-hero mb-3 max-w-xl text-pretty lg:max-w-2xl">{INFRA_NETWORK_HERO.title}</h1>
+              <p className="mb-2 max-w-xl text-sm font-medium leading-relaxed text-zinc-200 md:text-base lg:max-w-2xl">{INFRA_NETWORK_HERO.lead}</p>
+              <p className="mb-5 max-w-xl text-sm leading-relaxed text-muted lg:max-w-2xl">{INFRA_NETWORK_HERO.sub}</p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   to="/contact"
@@ -38,11 +38,13 @@ export function InfrastructureNetworkPage() {
                 </Link>
               </div>
             </div>
-            <ServiceProgramHeroVisual
-              serviceSlug="technieum-infrastructure-network"
-              ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
-              pipelineFallback={<InfrastructureNetworkVisual />}
-            />
+            <div className="min-w-0 w-full lg:flex lg:items-start lg:justify-end">
+              <ServiceProgramHeroVisual
+                serviceSlug="technieum-infrastructure-network"
+                ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
+                pipelineFallback={<InfrastructureNetworkVisual />}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -54,7 +56,7 @@ export function InfrastructureNetworkPage() {
               {INFRA_NETWORK_KEY_BENEFITS.title}
             </h2>
             <p className="mb-4 text-sm font-medium text-zinc-500 sm:mb-5">{INFRA_NETWORK_KEY_BENEFITS.subtitle}</p>
-            <ul className="m-0 grid min-w-0 list-none grid-cols-1 gap-3 p-0 md:grid-cols-2 md:gap-4">
+            <ul className="m-0 grid min-w-0 list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-4">
               {INFRA_NETWORK_KEY_BENEFITS.items.map((b, index) => {
                 const watermark = String(index + 1).padStart(2, '0')
                 return (
@@ -95,20 +97,21 @@ export function InfrastructureNetworkPage() {
       </section>
 
       <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-8 md:py-12">
-        <div className="container"><div className="container-inner-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_CHALLENGE.title}</h2>
-          <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_CHALLENGE.intro}</p>
-          <ul className="m-0 mb-6 max-w-3xl list-none space-y-2.5 p-0">
-            {INFRA_NETWORK_CHALLENGE.bullets.map((line) => (
-              <li key={line} className="flex gap-3 text-sm leading-relaxed text-muted">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_PARTNER.title}</h2>
-          <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_PARTNER.body}</p>
-        </div>
+        <div className="container">
+          <div className="container-inner-5xl">
+            <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_CHALLENGE.title}</h2>
+            <p className="mb-4 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_CHALLENGE.intro}</p>
+            <ul className="m-0 mb-6 max-w-3xl list-none space-y-2.5 p-0">
+              {INFRA_NETWORK_CHALLENGE.bullets.map((line) => (
+                <li key={line} className="flex gap-3 text-sm leading-relaxed text-muted">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+            <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">{INFRA_NETWORK_PARTNER.title}</h2>
+            <p className="m-0 max-w-3xl text-sm leading-relaxed text-muted">{INFRA_NETWORK_PARTNER.body}</p>
+          </div>
         </div>
       </section>
 
@@ -163,29 +166,30 @@ export function InfrastructureNetworkPage() {
       </section>
 
       <section className="section-zz-a section-zz-wash-tl bg-bg-inset py-8 md:py-12">
-        <div className="container"><div className="container-inner-5xl">
-          <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">Coverage pillars</h2>
-          <p className="mb-5 max-w-3xl text-sm leading-relaxed text-muted">
-            Combine lanes to match your estate: external-only, internal assumed-breach, full identity review, or a phased
-            rollout, all under one program desk.
-          </p>
-          <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
-            {INFRA_NETWORK_PILLARS.map((s) => (
-              <li
-                key={s.id}
-                className="rounded-xl border border-border bg-panel/30 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
-              >
-                <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-sm font-bold text-heading">{s.title}</h3>
-                  <span className="rounded-full border border-brand/35 bg-brand/10 px-2.5 py-0.5 text-[0.625rem] font-bold uppercase tracking-wider text-brand">
-                    {s.accent}
-                  </span>
-                </div>
-                <p className="m-0 text-sm leading-relaxed text-muted">{s.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="container">
+          <div className="container-inner-5xl">
+            <h2 className="mb-2 text-lg font-semibold text-heading md:text-xl">Coverage pillars</h2>
+            <p className="mb-5 max-w-3xl text-sm leading-relaxed text-muted">
+              Combine lanes to match your estate: external-only, internal assumed-breach, full identity review, or a phased
+              rollout, all under one program desk.
+            </p>
+            <ul className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
+              {INFRA_NETWORK_PILLARS.map((s) => (
+                <li
+                  key={s.id}
+                  className="rounded-xl border border-border bg-panel/30 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.04)]"
+                >
+                  <div className="mb-2 flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="text-sm font-bold text-heading">{s.title}</h3>
+                    <span className="rounded-full border border-brand/35 bg-brand/10 px-2.5 py-0.5 text-[0.625rem] font-bold uppercase tracking-wider text-brand">
+                      {s.accent}
+                    </span>
+                  </div>
+                  <p className="m-0 text-sm leading-relaxed text-muted">{s.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
