@@ -28,7 +28,7 @@ export function ServicesPage() {
             </div>
 
             <div className="min-w-0 w-full overflow-visible">
-              <div className="mx-auto w-full max-w-[min(100%,680px)] lg:ml-auto lg:mr-0">
+              <div className="mx-auto w-full max-w-[min(100%,480px)] lg:ml-auto lg:mr-0">
                 <ServicesPageHeroGraphic />
               </div>
             </div>

@@ -24,7 +24,7 @@ function CustomerLogoSlot({
 }) {
   const [candidateIndex, setCandidateIndex] = useState(0)
   const [showText, setShowText] = useState(false)
-  const candidates = logoUrlCandidates(customer.id)
+  const candidates = logoUrlCandidates(customer)
   const src = candidates[candidateIndex]
   const isMarquee = variant === 'marquee'
 

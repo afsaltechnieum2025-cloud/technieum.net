@@ -89,22 +89,12 @@ function Node({
   )
 }
 
-function Lane({
-  label,
-  laneNum,
-  children,
-}: {
-  label: string
-  laneNum: string
-  children: ReactNode
-}) {
+function Lane({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div className="w-full min-w-0">
-      <p className="mb-1 flex items-baseline gap-1.5 text-[0.5625rem] font-bold uppercase tracking-[0.14em] text-brand md:text-[0.625rem]">
-        <span className="font-mono text-[0.5625rem] font-bold tabular-nums text-brand/55 md:text-[0.625rem]">
-          {laneNum}
-        </span>
-        <span>{label}</span>
+      <p className="mb-1 text-center text-[0.5625rem] font-bold uppercase tracking-[0.14em] text-brand md:text-[0.625rem]">
+        {'- '}
+        {label}
       </p>
       <div className="flex items-stretch">{children}</div>
     </div>
@@ -165,7 +155,7 @@ export function OffensiveWorkflowVisual() {
             focusedLane={focusedLane}
             onFocus={setFocusedLane}
           >
-            <Lane label="Business logic" laneNum="01">
+            <Lane label="Business logic">
                 <Node title="Source code" sub="SAST intel" tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
                 <Node title="Logic extraction" sub="Auth / txn" tone="default" motion={motion} />
@@ -190,7 +180,7 @@ export function OffensiveWorkflowVisual() {
             focusedLane={focusedLane}
             onFocus={setFocusedLane}
           >
-            <Lane label="SAST validation" laneNum="02">
+            <Lane label="SAST validation">
                 <Node title="SAST findings" sub="SQLi, XSS, etc." tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
                 <Node
@@ -213,7 +203,7 @@ export function OffensiveWorkflowVisual() {
             focusedLane={focusedLane}
             onFocus={setFocusedLane}
           >
-            <Lane label="Attack surface intel" laneNum="03">
+            <Lane label="Attack surface intel">
                 <Node title="ASM intel" sub="Subs / APIs" tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
                 <Node
@@ -236,7 +226,7 @@ export function OffensiveWorkflowVisual() {
             focusedLane={focusedLane}
             onFocus={setFocusedLane}
           >
-            <Lane label="Tech stack scan" laneNum="04">
+            <Lane label="Tech stack scan">
                 <Node title="Tech stack" sub="ASM / SAST out" tone="default" motion={motion} />
                 <Arrow variant="cyan" motion={motion} />
                 <Node title="Nuclei" sub="Curated templates" tone="cyan" pulse motion={motion} />
@@ -251,7 +241,7 @@ export function OffensiveWorkflowVisual() {
             focusedLane={focusedLane}
             onFocus={setFocusedLane}
           >
-            <Lane label="AI / LLM security" laneNum="05">
+            <Lane label="AI / LLM security">
                 <Node title="Endpoints" sub="LLM APIs" tone="default" motion={motion} />
                 <Arrow variant="brand" motion={motion} />
                 <Node title="LLM Attack Suite" sub="1005+ prompts" tone="brand" pulse motion={motion} />
