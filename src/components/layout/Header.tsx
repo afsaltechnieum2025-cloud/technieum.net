@@ -429,8 +429,8 @@ export function Header({ padSafeTop = false }: { padSafeTop?: boolean }) {
             className="inline-flex min-w-0 flex-1 items-center no-underline sm:flex-none"
           >
             <BrandLogo
-              className="block h-8 w-auto max-w-[9.5rem] object-contain object-left sm:h-9 sm:max-w-none md:h-10"
-              height={40}
+              className="block h-7 w-auto max-w-[8.5rem] object-contain object-left sm:h-8 sm:max-w-none md:h-9"
+              height={34}
             />
           </Link>
 

@@ -77,7 +77,7 @@ export function ToipPortalLaunchUI({ loop = true, onComplete, className = '', co
     <div className={`text-center ${compact ? 'px-0 py-1' : ''} ${className}`}>
       <div className={`flex flex-col items-center ${compact ? 'gap-0.5' : 'gap-2'}`}>
         <BrandLogo
-          height={compact ? 28 : 52}
+          height={compact ? 24 : 46}
           className={compact ? 'h-7 w-auto' : 'h-[52px] w-auto md:h-14'}
         />
         <p

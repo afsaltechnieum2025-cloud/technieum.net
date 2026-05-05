@@ -8,7 +8,7 @@ type BrandLogoProps = {
   alt?: string
 }
 
-export function BrandLogo({ className, height = 36, alt = 'Technieum' }: BrandLogoProps) {
+export function BrandLogo({ className, height = 32, alt = 'Technieum' }: BrandLogoProps) {
   return (
     <img
       src={logoUrl}

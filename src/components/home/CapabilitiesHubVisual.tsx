@@ -382,7 +382,7 @@ export function CapabilitiesHubVisual({ variant = 'services' }: { variant?: Capa
                 {isProducts ? (
                   <HubNodeIcon id="portal" />
                 ) : (
-                  <BrandLogo height={30} className="h-[1.75rem] w-auto object-contain sm:h-8" alt="" />
+                  <BrandLogo height={26} className="h-[1.5rem] w-auto object-contain sm:h-7" alt="" />
                 )}
               </span>
               {isProducts ? (

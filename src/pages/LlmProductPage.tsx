@@ -1,4 +1,5 @@
-import { Fragment, useEffect, useState, type CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
+import { ProductPipelinePhases } from '../components/product/ProductPipelinePhases'
 import { PortalPreviewFrame } from '../components/home/PortalPreviewFrame'
 import { LlmPortalLaunchUI } from '../components/home/LlmPortalLaunchUI'
 import type { ProductDocument } from '../data/productDocuments'
@@ -36,95 +37,6 @@ function useReducedMotion() {
 function revealStyle(index: number, reduce: boolean): CSSProperties | undefined {
   if (reduce) return undefined
   return { animationDelay: `${index * 70}ms` }
-}
-
-function LlmPipeline({ motion }: { motion: boolean }) {
-  const phases = LLM_PIPELINE.phases
-  const connH = motion ? 'toip-pipeline-dash' : 'h-0.5 w-full min-w-[2.25rem] rounded-full bg-border-strong'
-  const connV = motion ? 'toip-pipeline-dash--vertical' : 'h-10 w-0.5 shrink-0 rounded-full bg-border-strong'
-
-  const cardSurface =
-    'rounded-xl border border-white/[0.08] bg-gradient-to-br from-[#0c0c0c] via-[color-mix(in_oklab,var(--color-panel)_88%,black)] to-[#050505] shadow-[inset_0_1px_0_rgb(255_255_255/0.06)]'
-
-  const stepBadge =
-    'flex shrink-0 items-center justify-center rounded-full border border-brand/45 bg-gradient-to-br from-brand/28 to-brand/10 text-sm font-bold text-brand shadow-[0_0_22px_-5px_color-mix(in_oklab,var(--color-brand)_42%,transparent)]'
-
-  const desktopCard = (p: (typeof phases)[number], i: number, textLtr?: boolean) => (
-    <div
-      className={`toip-reveal flex min-h-[220px] flex-col ${cardSurface} p-5 md:p-6`}
-      dir={textLtr ? 'ltr' : undefined}
-      style={revealStyle(i, !motion)}
-    >
-      <div className="mb-4 flex flex-col items-center text-center">
-        <span className={`${stepBadge} mb-3 h-11 w-11 text-[0.8125rem]`} aria-hidden>
-          {p.step}
-        </span>
-        <h3 className="m-0 text-sm font-semibold leading-snug text-heading">{p.name}</h3>
-      </div>
-      <p className="m-0 mt-auto text-center text-xs leading-relaxed text-muted">{p.detail}</p>
-    </div>
-  )
-
-  const renderConnH = (ltr?: boolean) => (
-    <div
-      className={`flex w-10 items-center justify-center md:w-11 xl:w-12 ${ltr ? '[direction:ltr]' : ''}`}
-      aria-hidden
-    >
-      <div className={connH} />
-    </div>
-  )
-
-  return (
-    <div
-      className="mt-6 md:mt-7"
-      role="region"
-      aria-label="LLM Attack Suite pipeline from configuration to framework-mapped deliverables"
-    >
-      <div className="flex flex-col gap-0 md:hidden">
-        {phases.map((p, i) => (
-          <Fragment key={p.step}>
-            <div className={`toip-reveal ${cardSurface} p-5`} style={revealStyle(i, !motion)}>
-              <div className="mb-3 flex items-start gap-3">
-                <span className={`${stepBadge} h-10 w-10`} aria-hidden>
-                  {p.step}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <h3 className="m-0 text-base font-semibold leading-snug text-heading">{p.name}</h3>
-                </div>
-              </div>
-              <p className="m-0 text-sm leading-relaxed text-muted">{p.detail}</p>
-            </div>
-            {i < phases.length - 1 ? (
-              <div className="flex justify-center py-2.5" aria-hidden>
-                <div className={connV} />
-              </div>
-            ) : null}
-          </Fragment>
-        ))}
-      </div>
-
-      <div className="hidden md:mx-auto md:mt-0 md:block md:max-w-5xl">
-        <div className="grid grid-cols-[1fr_auto_1fr] items-stretch">
-          {desktopCard(phases[0], 0)}
-          {renderConnH()}
-          {desktopCard(phases[1], 1)}
-
-          <div className="col-span-2 min-h-0" aria-hidden />
-          <div className="flex justify-center py-2.5" aria-hidden>
-            <div className={connV} />
-          </div>
-
-          <div className="col-span-3 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-stretch" dir="rtl">
-            {desktopCard(phases[2], 2, true)}
-            {renderConnH(true)}
-            {desktopCard(phases[3], 3, true)}
-            {renderConnH(true)}
-            {desktopCard(phases[4], 4, true)}
-          </div>
-        </div>
-      </div>
-    </div>
-  )
 }
 
 export function LlmProductPage({ doc }: { doc: ProductDocument }) {
@@ -250,8 +162,8 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
       <section className="section-zz-a section-zz-wash-tl bg-panel/15 pt-14 md:pt-20 pb-8 md:pb-10">
         <div className="container">
           <h2 className="mb-6 text-xl font-medium text-heading md:text-2xl">{LLM_INTERACTION.title}</h2>
-          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-muted md:text-base">{LLM_INTERACTION.intro}</p>
-          <ol className="m-0 mb-10 max-w-3xl list-decimal space-y-4 pl-5 text-sm leading-relaxed text-muted marker:text-brand md:text-base">
+          <p className="mb-8 text-sm leading-relaxed text-muted md:text-base">{LLM_INTERACTION.intro}</p>
+          <ol className="m-0 mb-10 list-decimal space-y-4 pl-5 text-sm leading-relaxed text-muted marker:text-brand md:text-base lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-5 lg:space-y-0">
             {LLM_INTERACTION.steps.map((s, i) => (
               <li key={i} className="toip-reveal pl-1" style={revealStyle(i, !motion)}>
                 {s}
@@ -275,11 +187,12 @@ export function LlmProductPage({ doc }: { doc: ProductDocument }) {
 
       <section className="section-zz-b section-zz-wash-br pt-8 md:pt-10 pb-14 md:pb-20">
         <div className="container">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="mb-2 text-xl font-medium text-heading md:text-2xl">{LLM_PIPELINE.title}</h2>
-            <p className="mb-0 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{LLM_PIPELINE.subtitle}</p>
-            <LlmPipeline motion={motion} />
-          </div>
+          <h2 className="mb-2 text-xl font-medium text-heading md:text-2xl">{LLM_PIPELINE.title}</h2>
+          <p className="mb-0 text-sm leading-relaxed text-muted md:text-base">{LLM_PIPELINE.subtitle}</p>
+          <ProductPipelinePhases
+            phases={LLM_PIPELINE.phases}
+            ariaLabel="LLM Attack Suite pipeline from configuration to framework-mapped deliverables"
+          />
         </div>
       </section>
 

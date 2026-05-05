@@ -158,7 +158,7 @@ function FooterBottomBar() {
           </nav>
           {/* Copyright line — gap-3 above separates it clearly */}
           <p className="m-0 text-sm leading-snug text-muted/60">
-            Copyright © {new Date().getFullYear()}. All Rights Reserved.
+            Copyright © 2023 - {new Date().getFullYear()}. All Rights Reserved.
           </p>
         </div>
 
@@ -221,8 +221,8 @@ export function Footer() {
               <FooterInternalLink to="/" aria-label="Technieum home" className="inline-flex self-start pb-8">
                 <img
                   src={technieumLogo}
-                  width={148}
-                  height={30}
+                  width={128}
+                  height={26}
                   alt="Technieum"
                   className="block"
                 />
