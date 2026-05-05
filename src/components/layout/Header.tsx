@@ -69,18 +69,6 @@ const NAV_ITEMS: NavItemType[] = [
     to: '/why-technieum',
     accentBrand: true,
   },
-  {
-    kind: 'menu',
-    label: 'Company',
-    columns: [
-      {
-        items: [
-          { label: 'Overview', to: '/' },
-          { label: 'Contact', to: '/contact' },
-        ],
-      },
-    ],
-  },
 ]
 
 function ChevronDown({ open }: { open: boolean }) {
