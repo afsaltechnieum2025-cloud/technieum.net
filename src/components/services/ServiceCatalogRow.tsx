@@ -35,23 +35,23 @@ export function ServiceCatalogRow({ topic, meta, index }: Props) {
   return (
     <article
       id={topic.slug}
-      className="services-catalog-row scroll-mt-28 border-b border-border/45 py-8 md:py-10 lg:py-12 last:border-b-0"
+      className="services-catalog-row scroll-mt-28 border-b border-border/45 py-7 md:py-9 lg:py-10 last:border-b-0"
     >
-      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+      <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
         <div
-          className={`flex min-w-0 w-full justify-center overflow-visible ${visualOnLeft ? 'lg:order-1' : 'lg:order-2'}`}
+          className={`flex min-w-0 w-full justify-center overflow-visible ${visualOnLeft ? 'lg:order-1 lg:justify-start' : 'lg:order-2 lg:justify-end'}`}
         >
-          <div className="w-full max-w-[min(100%,480px)] lg:max-w-[min(100%,520px)]">
+          <div className="w-full max-w-[min(100%,440px)]">
             <ServiceCatalogRowVisual slug={topic.slug} />
           </div>
         </div>
 
-        <div className={`min-w-0 ${visualOnLeft ? 'lg:order-2' : 'lg:order-1'}`}>
-          <p className="mb-2 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-brand md:text-xs">{meta.eyebrow}</p>
-          <h3 className="mb-3 text-xl font-semibold tracking-tight text-heading md:text-2xl">{topic.title}</h3>
-          <p className="mb-4 max-w-xl text-sm leading-relaxed text-muted md:text-base">{topic.summary}</p>
+        <div className={`min-w-0 lg:max-w-xl ${visualOnLeft ? 'lg:order-2' : 'lg:order-1'}`}>
+          <p className="mb-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-brand md:text-xs">{meta.eyebrow}</p>
+          <h3 className="mb-2 text-xl font-semibold tracking-tight text-heading md:mb-2.5 md:text-2xl">{topic.title}</h3>
+          <p className="mb-4 text-sm leading-relaxed text-muted md:text-base">{topic.summary}</p>
 
-          <ul className="m-0 mb-6 flex list-none flex-wrap gap-2 p-0" aria-label={`${topic.title} focus areas`}>
+          <ul className="m-0 mb-5 flex list-none flex-wrap gap-2 p-0" aria-label={`${topic.title} focus areas`}>
             {meta.tags.map((tag) => (
               <li key={tag}>
                 <span className="inline-flex items-center rounded-lg border border-border/70 bg-zinc-900/80 px-3 py-1.5 text-xs font-medium text-zinc-300 md:text-[0.8125rem]">

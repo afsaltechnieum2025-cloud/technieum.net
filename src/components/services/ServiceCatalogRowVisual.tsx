@@ -61,6 +61,7 @@ export function ServiceCatalogRowVisual({ slug }: Props) {
   if (slug === 'technieum-infrastructure-network') {
     return (
       <ServiceProgramHeroVisual
+        layout="catalog"
         serviceSlug={slug}
         ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
         pipelineFallback={
@@ -76,6 +77,7 @@ export function ServiceCatalogRowVisual({ slug }: Props) {
   if (!cfg) return <FallbackVisual />
   return (
     <ServiceProgramHeroVisual
+      layout="catalog"
       serviceSlug={slug}
       ariaLabel={cfg.visualAriaLabel}
       pipelineFallback={<ServiceHubConvergeVisual nodes={cfg.visualNodes} ariaLabel={cfg.visualAriaLabel} />}
