@@ -23,7 +23,7 @@ export function InfrastructureNetworkPage() {
       <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset py-10 md:py-14">
         <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
             <div className="min-w-0 lg:pr-2">
               <p className="text-shimmer-brand mb-2 text-xs font-semibold tracking-wide md:text-sm">{INFRA_NETWORK_HERO.eyebrow}</p>
               <h1 className="heading-scale-hero mb-3 max-w-xl text-pretty lg:max-w-2xl">{INFRA_NETWORK_HERO.title}</h1>
@@ -38,13 +38,11 @@ export function InfrastructureNetworkPage() {
                 </Link>
               </div>
             </div>
-            <div className="min-w-0 w-full lg:flex lg:items-start lg:justify-end">
-              <ServiceProgramHeroVisual
-                serviceSlug="technieum-infrastructure-network"
-                ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
-                pipelineFallback={<InfrastructureNetworkVisual />}
-              />
-            </div>
+            <ServiceProgramHeroVisual
+              serviceSlug="technieum-infrastructure-network"
+              ariaLabel="Diagram: external attack surface through perimeter and internal testing into identity, consolidating in the OffSec Management Portal."
+              pipelineFallback={<InfrastructureNetworkVisual />}
+            />
           </div>
         </div>
       </section>

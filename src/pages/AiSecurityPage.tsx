@@ -27,7 +27,7 @@ export function AiSecurityPage() {
       <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset py-10 md:py-14">
         <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid items-start gap-6 lg:grid-cols-2 lg:gap-8">
+          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
             <div>
               <p className="text-shimmer-brand mb-2 text-xs font-semibold tracking-wide md:text-sm">{AI_SEC_HERO.eyebrow}</p>
               <h1 className="heading-scale-hero mb-3 max-w-xl text-pretty">{AI_SEC_HERO.title}</h1>

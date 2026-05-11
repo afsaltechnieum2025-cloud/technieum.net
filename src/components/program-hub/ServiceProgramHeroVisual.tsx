@@ -24,13 +24,13 @@ export function ServiceProgramHeroVisual({
 
   const wrapClass =
     layout === 'catalog'
-      ? 'master-offsec-visual-wrap relative w-full max-w-full'
-      : 'master-offsec-visual-wrap relative w-full max-w-full lg:max-w-[min(100%,720px)]'
+      ? 'master-offsec-visual-wrap relative min-w-0 w-full max-w-full'
+      : 'master-offsec-visual-wrap relative mx-auto min-w-0 w-full max-w-full lg:max-w-[min(100%,720px)]'
 
   const imgClass =
     layout === 'catalog'
       ? 'mx-auto block h-auto w-full max-h-[min(48vh,320px)] object-contain object-center md:max-h-[min(44vh,340px)]'
-      : 'block h-auto w-full max-h-[min(62vh,420px)] object-contain object-center md:max-h-[min(58vh,440px)] lg:ml-auto lg:mr-0 lg:object-right'
+      : 'mx-auto block h-auto w-full max-h-[min(62vh,420px)] object-contain object-center md:max-h-[min(58vh,440px)]'
 
   return (
     <div className={wrapClass} role="img" aria-label={ariaLabel}>
