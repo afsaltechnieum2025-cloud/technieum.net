@@ -15,12 +15,12 @@ export function HomePage() {
     <main id="main-content" className="flex flex-col bg-page">
       {/* Coverage hub — primary headline */}
       <section
-        className="section-zz-b section-zz-allow-overflow section-zz-wash-tl pt-16 pb-12 md:pt-20 md:pb-14"
+        className="section-zz-b section-zz-allow-overflow section-zz-wash-tl pt-16 pb-10 md:pt-20 md:pb-12"
         aria-labelledby="capabilities-hub-heading"
       >
         <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-14 xl:gap-16">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
             <div className="min-w-0">
               <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
                 {HOME_CAPABILITIES_HUB.eyebrow}
@@ -54,7 +54,7 @@ export function HomePage() {
               </Link>
             </div>
             <div className="flex min-w-0 w-full justify-center overflow-visible">
-              <div className="w-full max-w-[min(100%,680px)] overflow-visible">
+              <div className="w-full max-w-xl min-w-0">
                 <HomeCapabilitiesCoverageVisual />
               </div>
             </div>
@@ -63,9 +63,9 @@ export function HomePage() {
       </section>
 
       {/* OffSec portal */}
-      <section className="section-zz-a section-zz-wash-br pt-6 pb-16 md:pb-20" aria-labelledby="portal-heading">
+      <section className="section-zz-a section-zz-wash-br py-10 md:py-12" aria-labelledby="portal-heading">
         <div className="container">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10">
             <div className="min-w-0 lg:sticky lg:top-28">
               <CapabilitiesHubInPortalFrame variant="products" />
             </div>
@@ -82,7 +82,7 @@ export function HomePage() {
               <p className="mb-8 max-w-3xl text-pretty text-sm leading-relaxed text-muted md:text-base lg:mb-0">
                 {OFFSEC_PORTAL.body}
               </p>
-              <ul className="m-0 mt-8 space-y-4 p-0 list-none lg:mt-10">
+              <ul className="m-0 mt-6 space-y-4 p-0 list-none lg:mt-8">
                 {OFFSEC_PORTAL.bullets.map((b) => (
                   <li key={b} className="flex gap-3 text-sm text-muted">
                     <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" aria-hidden />
@@ -98,37 +98,39 @@ export function HomePage() {
       {/* Workflow */}
       <section
         id="offensive-workflow"
-        className="section-zz-b section-zz-wash-tl bg-bg-inset py-10 md:py-14"
+        className="section-zz-b section-zz-wash-tl bg-bg-inset py-10 md:py-12"
         aria-labelledby="workflow-heading"
       >
         <div className="container">
-          <div className="mb-8 max-w-3xl md:mb-10">
+          <div className="mb-6 w-full min-w-0 md:mb-8">
             <p className="text-shimmer-brand mb-3 text-xs font-semibold tracking-wide md:text-sm">
               {OFFENSIVE_WORKFLOW.eyebrow}
             </p>
-            <h2 id="workflow-heading" className="heading-scale-hero mb-5 text-pretty">
+            <h2 id="workflow-heading" className="heading-scale-hero mb-5 w-full min-w-0 text-pretty">
               {OFFENSIVE_WORKFLOW.meetHeadline}
             </h2>
-            <p className="m-0 text-pretty text-sm leading-relaxed text-muted md:text-base">
-              {OFFENSIVE_WORKFLOW.intro}
-            </p>
-            <ul
-              className="mt-6 flex list-none flex-wrap gap-2 p-0 md:mt-7 md:gap-2.5"
-              aria-label="Engine highlights"
-            >
-              {OFFENSIVE_WORKFLOW.highlights.map((text) => (
-                <li
-                  key={text}
-                  className="rounded-full border border-border-strong/55 bg-[color-mix(in_oklab,var(--color-panel)_75%,transparent)] px-3 py-1.5 text-xs font-semibold tracking-tight text-heading shadow-sm backdrop-blur-sm md:px-3.5 md:text-[0.8125rem]"
-                >
-                  {text}
-                </li>
-              ))}
-            </ul>
+            <div className="grid gap-6 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+              <p className="m-0 text-pretty text-sm leading-relaxed text-muted md:text-base lg:col-span-7 lg:min-w-0 xl:col-span-6">
+                {OFFENSIVE_WORKFLOW.intro}
+              </p>
+              <ul
+                className="m-0 flex list-none flex-wrap gap-2 p-0 lg:col-span-5 lg:flex-col lg:flex-nowrap lg:items-stretch lg:gap-2.5 lg:self-start xl:col-span-6"
+                aria-label="Engine highlights"
+              >
+                {OFFENSIVE_WORKFLOW.highlights.map((text) => (
+                  <li
+                    key={text}
+                    className="min-w-0 max-w-full rounded-full border border-brand/45 bg-[color-mix(in_oklab,var(--color-brand)_14%,var(--color-panel))] px-3 py-1.5 text-center text-xs font-semibold tracking-tight text-heading shadow-[inset_0_1px_0_rgb(255_255_255/0.06)] md:px-3.5 md:text-[0.8125rem] lg:w-full transition-[border-color,background-color] duration-200 hover:border-brand/70 hover:bg-[color-mix(in_oklab,var(--color-brand)_20%,var(--color-panel))]"
+                  >
+                    {text}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
-            <div className="min-w-[640px] md:min-w-0">
+          <div className="w-full min-w-0 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
+            <div className="w-full min-w-[640px] md:min-w-0">
               <OffensiveWorkflowVisual />
             </div>
           </div>

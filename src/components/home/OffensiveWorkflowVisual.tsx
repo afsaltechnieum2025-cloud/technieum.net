@@ -96,7 +96,7 @@ function Lane({ label, children }: { label: string; children: ReactNode }) {
         {'- '}
         {label}
       </p>
-      <div className="flex items-stretch">{children}</div>
+      <div className="flex w-full min-w-0 items-stretch">{children}</div>
     </div>
   )
 }
@@ -117,11 +117,11 @@ function LaneRow({
   const dimmed = focusedLane !== null && focusedLane !== index
   return (
     <div
-      className={`offensive-workflow-lane-row transition-opacity duration-300 ease-out ${dimmed ? 'opacity-[0.38]' : 'opacity-100'}`}
+      className={`offensive-workflow-lane-row w-full min-w-0 transition-opacity duration-300 ease-out ${dimmed ? 'opacity-[0.38]' : 'opacity-100'}`}
       onPointerEnter={() => onFocus(index)}
     >
       <div
-        className={motion ? 'offensive-workflow-lane-enter' : undefined}
+        className={`w-full min-w-0 ${motion ? 'offensive-workflow-lane-enter' : ''}`}
         style={motion ? { animationDelay: `${index * 85}ms` } : undefined}
       >
         {children}
@@ -136,9 +136,9 @@ export function OffensiveWorkflowVisual() {
   const [focusedLane, setFocusedLane] = useState<number | null>(null)
 
   return (
-    <div className="offensive-workflow-stage rounded-2xl p-px shadow-[0_0_48px_-16px_rgb(232_93_4/0.35)] md:shadow-[0_0_64px_-18px_rgb(232_93_4/0.38)]">
+    <div className="offensive-workflow-stage w-full min-w-0 rounded-2xl p-px shadow-[0_0_48px_-16px_rgb(232_93_4/0.35)] md:shadow-[0_0_64px_-18px_rgb(232_93_4/0.38)]">
       <div
-        className={`offensive-workflow-stage__inner relative overflow-hidden rounded-[calc(1rem-1px)] border border-border-strong/50 bg-[color-mix(in_oklab,var(--color-panel)_88%,black)] p-3 shadow-inner md:p-4 ${motion ? 'offensive-workflow-stage__inner--ambient' : ''}`}
+        className={`offensive-workflow-stage__inner relative w-full min-w-0 overflow-hidden rounded-[calc(1rem-1px)] border border-border-strong/50 bg-[color-mix(in_oklab,var(--color-panel)_88%,black)] p-3 shadow-inner md:p-4 ${motion ? 'offensive-workflow-stage__inner--ambient' : ''}`}
         role="img"
         aria-label="Diagram: five offensive workstreams from intel and scanning through Technieum OffSec Intelligence Portal and tooling into validated findings, above the OffSec Management Portal."
         onPointerLeave={() => setFocusedLane(null)}
@@ -148,7 +148,7 @@ export function OffensiveWorkflowVisual() {
           aria-hidden
         />
 
-        <div className="relative space-y-2.5 md:space-y-3">
+        <div className="relative w-full min-w-0 space-y-2.5 md:space-y-3">
           <LaneRow
             index={0}
             motion={motion}
@@ -253,7 +253,7 @@ export function OffensiveWorkflowVisual() {
           </LaneRow>
         </div>
 
-        <div className="offensive-workflow-portal relative mt-3 rounded-lg border border-brand/40 bg-[color-mix(in_oklab,var(--color-brand)_12%,black)] px-3 py-2.5 text-center md:mt-4">
+        <div className="offensive-workflow-portal relative mt-3 w-full min-w-0 rounded-lg border border-brand/40 bg-[color-mix(in_oklab,var(--color-brand)_12%,black)] px-3 py-2.5 text-center md:mt-4">
           <p className="text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
             OffSec Management Portal
           </p>

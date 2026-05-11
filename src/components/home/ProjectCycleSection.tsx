@@ -32,7 +32,6 @@ type DiagramProps = {
 
 /** Circular eight-step diagram (sales pitch style): outer ring, numbered nodes, center hub. */
 function ProjectCycleDiagram({ activeIndex, motion, onNodeHoverEnter }: DiagramProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const vb = 400
   const cx = vb / 2
   const cy = vb / 2
@@ -53,24 +52,11 @@ function ProjectCycleDiagram({ activeIndex, motion, onNodeHoverEnter }: DiagramP
           .join('')} Z`
       : ''
 
-  const hoverTitle =
-    hoveredIndex !== null ? PROJECT_CYCLE.phases[hoveredIndex]?.title : null
-
   return (
-    <div
-      className="relative mx-auto w-full max-w-[min(100%,420px)] shrink-0 p-0"
-      aria-hidden={false}
-    >
-      <p
-        className="pointer-events-none mb-2 min-h-[2.75rem] px-2 text-center text-[0.8125rem] font-semibold leading-snug text-heading transition-opacity duration-200 md:min-h-[3rem] md:text-sm"
-        style={{ opacity: hoverTitle ? 1 : 0 }}
-        aria-live="polite"
-      >
-        {hoverTitle ?? '\u00a0'}
-      </p>
+    <div className="relative w-full min-w-0 shrink-0 p-0" aria-hidden={false}>
       <svg
         viewBox={`0 0 ${vb} ${vb}`}
-        className="aspect-square w-full overflow-visible"
+        className="mx-auto block aspect-square h-auto w-full max-w-full overflow-visible object-contain"
         role="img"
         aria-label={
           motion
@@ -142,10 +128,8 @@ function ProjectCycleDiagram({ activeIndex, motion, onNodeHoverEnter }: DiagramP
               }
               style={{ cursor: 'pointer' }}
               onMouseEnter={() => {
-                setHoveredIndex(i)
                 onNodeHoverEnter?.(i)
               }}
-              onMouseLeave={() => setHoveredIndex(null)}
             >
               {/* Large hit target so digits don’t block hover; keyboard shows same title as hover */}
               <circle
@@ -157,10 +141,8 @@ function ProjectCycleDiagram({ activeIndex, motion, onNodeHoverEnter }: DiagramP
                 tabIndex={0}
                 aria-label={`Step ${node.n}: ${PROJECT_CYCLE.phases[i]?.title ?? ''}`}
                 onFocus={() => {
-                  setHoveredIndex(i)
                   onNodeHoverEnter?.(i)
                 }}
-                onBlur={() => setHoveredIndex(null)}
               />
               <circle
                 cx={node.x}
@@ -228,27 +210,31 @@ export function ProjectCycleSection() {
     <section className="section-zz-a section-zz-wash-br py-10 md:py-12" aria-labelledby="cycle-heading">
       <div className="container">
         <div
-          className="grid grid-cols-1 items-center justify-items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16"
+          className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:items-center lg:gap-10 xl:gap-12"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
           <div
-            className="flex w-full max-w-[420px] flex-col items-center justify-center justify-self-center lg:max-w-[440px] lg:sticky lg:top-28"
+            className="flex w-full min-w-0 flex-col items-center lg:sticky lg:top-28"
             role="region"
             aria-label="Project cycle animation"
           >
-            <p className="mb-3 text-center text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
+            <p className="mb-3 w-full max-w-xl text-center text-[0.625rem] font-bold uppercase tracking-[0.18em] text-brand md:text-[0.6875rem]">
               {PROJECT_CYCLE.diagramEyebrow}
             </p>
-            <ProjectCycleDiagram
-              activeIndex={activeIndex}
-              motion={motion}
-              onNodeHoverEnter={setActiveIndex}
-            />
+            <div className="flex w-full min-w-0 justify-center overflow-visible">
+              <div className="w-full max-w-xl min-w-0">
+                <ProjectCycleDiagram
+                  activeIndex={activeIndex}
+                  motion={motion}
+                  onNodeHoverEnter={setActiveIndex}
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="mx-auto flex w-full max-w-xl flex-col items-center justify-center lg:mx-0 lg:max-w-none lg:justify-self-center">
-            <header className="mb-6 w-full text-center lg:mb-8">
+          <div className="flex w-full min-w-0 flex-col items-center text-center">
+            <header className="mx-auto mb-6 w-full max-w-xl lg:mb-8">
               <h2
                 id="cycle-heading"
                 className="mb-1.5 text-base font-medium tracking-tight text-heading md:text-lg"
@@ -259,7 +245,7 @@ export function ProjectCycleSection() {
               <p className="m-0 text-xs leading-relaxed text-muted md:text-sm">{PROJECT_CYCLE.intro}</p>
             </header>
 
-            <ul className="m-0 grid w-full max-w-xl list-none gap-2.5 p-0 sm:max-w-2xl sm:grid-cols-2 lg:max-w-none">
+            <ul className="m-0 mx-auto grid w-full max-w-xl min-w-0 list-none grid-cols-1 justify-items-stretch gap-2.5 p-0 sm:grid-cols-2 sm:gap-3">
               {PROJECT_CYCLE.phases.map((ph, i) => {
                 const active = i === activeIndex && motion
                 return (
@@ -273,9 +259,9 @@ export function ProjectCycleSection() {
                     onMouseEnter={() => setActiveIndex(i)}
                     onFocus={() => setActiveIndex(i)}
                   >
-                    <div className="grid grid-cols-[auto_1fr] items-start gap-x-2.5 gap-y-0.5">
+                    <div className="flex flex-col items-center gap-2 text-center">
                       <span
-                        className={`row-span-2 mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded text-[0.5625rem] font-bold tabular-nums md:h-6 md:w-6 md:text-[0.625rem] ${
+                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-[0.5625rem] font-bold tabular-nums md:h-6 md:w-6 md:text-[0.625rem] ${
                           active
                             ? 'bg-brand text-white'
                             : 'bg-brand/15 text-brand group-hover:bg-brand/25'
@@ -284,10 +270,10 @@ export function ProjectCycleSection() {
                       >
                         {ph.step}
                       </span>
-                      <h3 className="min-w-0 text-left text-[0.8125rem] font-semibold leading-snug text-heading md:text-sm">
+                      <h3 className="min-w-0 text-[0.8125rem] font-semibold leading-snug text-heading md:text-sm">
                         {ph.title}
                       </h3>
-                      <p className="min-w-0 text-left text-[0.625rem] leading-relaxed text-muted md:text-[0.6875rem] md:leading-snug">
+                      <p className="min-w-0 text-[0.625rem] leading-relaxed text-muted md:text-[0.6875rem] md:leading-snug">
                         {ph.body}
                       </p>
                     </div>
