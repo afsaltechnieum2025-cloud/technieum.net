@@ -85,7 +85,7 @@ export function WhyTechnieumPage() {
       <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset pb-16 pt-16 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
         <div className="hero-color-drift hero-color-drift--accent-tl-only" aria-hidden />
         <div className="container relative z-10">
-          <div className="grid w-full min-w-0 items-start gap-12 lg:grid-cols-[1fr_min(100%,380px)] lg:gap-16 xl:gap-20">
+          <div className="grid w-full min-w-0 items-start gap-10 lg:grid-cols-[1fr_min(100%,380px)] lg:items-center lg:gap-12 xl:gap-16">
             <div className="min-w-0 text-left">
               <p
                 className="text-shimmer-brand why-tn-hero-item mb-3 text-xs font-semibold tracking-wide md:text-sm"
@@ -140,7 +140,7 @@ export function WhyTechnieumPage() {
             </div>
 
             <aside
-              className="why-tn-snapshot-float relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
+              className="why-tn-snapshot-float relative mx-auto w-full min-w-0 max-w-md lg:mx-0 lg:max-w-none lg:justify-self-stretch"
               aria-label={WHY_TECHNIEUM_SNAPSHOT.title}
             >
               <div className="rounded-2xl border border-border/80 bg-[linear-gradient(165deg,rgb(14_14_14)_0%,rgb(8_8_8)_50%,rgb(5_5_5)_100%)] p-6 shadow-[0_28px_64px_-32px_rgba(0,0,0,0.9),inset_0_1px_0_rgb(255_255_255/0.05)] md:p-7">
@@ -189,7 +189,7 @@ export function WhyTechnieumPage() {
             </p>
           </div>
 
-          <ul className="m-0 grid min-w-0 list-none grid-cols-1 gap-4 p-0 md:grid-cols-2 md:gap-5 lg:gap-6">
+          <ul className="m-0 grid w-full min-w-0 list-none grid-cols-1 justify-items-stretch gap-4 p-0 md:grid-cols-2 md:gap-5 lg:gap-6">
             {WHY_TECHNIEUM.map((item, index) => {
               const isFeatured = index === WHY_TECHNIEUM.length - 1
               const watermark = String(index + 1).padStart(2, '0')
@@ -240,18 +240,18 @@ export function WhyTechnieumPage() {
         className="section-zz-a section-zz-wash-tl border-y border-white/[0.06] bg-bg-inset py-14 md:py-20"
         ariaLabelledBy="why-operating-heading"
       >
-        <div className="container min-w-0">
+        <div className="container relative z-10 min-w-0">
           <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <p className="text-shimmer-brand mb-2 text-xs font-semibold tracking-wide md:text-sm">Operating model</p>
             <h2 id="why-operating-heading" className="heading-scale-hero mb-3 text-pretty">
               Portal, cadence, and traceability
             </h2>
-            <p className="m-0 text-pretty text-sm text-muted md:text-base">
+            <p className="m-0 text-pretty text-sm leading-relaxed text-muted md:text-base">
               The same themes we reinforce across the home page—now in one place for procurement and technical sponsors.
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2 lg:gap-8">
+          <div className="grid w-full min-w-0 grid-cols-1 items-stretch gap-4 p-0 md:grid-cols-2 md:gap-5 lg:gap-6">
             <div
               className="why-tn-band rounded-xl border border-border/75 bg-panel/25 p-6 md:p-7"
               style={{ '--why-band': 0 } as CSSProperties}
@@ -291,8 +291,8 @@ export function WhyTechnieumPage() {
         className="relative w-full overflow-hidden pb-16 pt-14 md:pb-24 md:pt-20"
         ariaLabelledBy="why-trust-heading"
       >
-        <div className="container min-w-0">
-          <div className="mx-auto max-w-3xl text-center">
+        <div className="container relative z-10 min-w-0">
+          <div className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
             <h2 id="why-trust-heading" className="heading-scale-hero mb-3 text-pretty">
               {STANDARDS_SHOWCASE.title}
             </h2>
@@ -302,7 +302,7 @@ export function WhyTechnieumPage() {
           </div>
 
           <div
-            className="why-tn-band mx-auto mt-8 max-w-4xl md:mt-10"
+            className="why-tn-band mx-auto w-full min-w-0"
             style={{ '--why-band': 1 } as CSSProperties}
           >
             <p className="m-0 mb-2 text-center text-[0.6875rem] font-bold uppercase tracking-wider text-zinc-500">
@@ -337,7 +337,7 @@ export function WhyTechnieumPage() {
           </div>
 
           <div
-            className="why-tn-band mx-auto mt-12 flex max-w-lg flex-col items-stretch justify-center gap-3 sm:mt-14 sm:flex-row sm:gap-4"
+            className="why-tn-band mx-auto mt-10 flex w-full min-w-0 max-w-lg flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4 md:mt-12"
             style={{ '--why-band': 3 } as CSSProperties}
           >
             <Link
