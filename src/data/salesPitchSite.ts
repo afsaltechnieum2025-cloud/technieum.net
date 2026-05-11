@@ -23,7 +23,7 @@ export const HOME_CAPABILITIES_HUB = {
   eyebrow: 'Offensive security coverage',
   headline: 'Uncover Material Risk Before Adversaries Exploit It',
   body:
-    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, intelligence from the Technieum OffSec Intelligence Portal, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against. We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, intelligence from the Technieum OffSec Intelligence Portal, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against.',
+    'We run adversary-grade testing across applications, cloud, identity, and AI-enabled systems with tooling most firms only resell. One program can combine ASM, intelligence from the Technieum OffSec Intelligence Portal, LLM red teaming, AD assessments, and AI-validated SAST and SCA so leadership sees one story and engineering gets evidence they can ship against. ',
   sublead: HOME_HERO.sublead,
   primaryCta: { label: 'Get started', to: '/contact' as const },
 } as const
