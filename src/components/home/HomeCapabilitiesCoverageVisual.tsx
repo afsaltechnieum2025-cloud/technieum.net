@@ -11,7 +11,9 @@ export function HomeCapabilitiesCoverageVisual() {
         src="/png/mainpage.png"
         alt="Technieum services hub: infrastructure, application, cloud, AI, threat simulations, ICS OT, security consulting, and WFH security around a central Technieum mark."
         className="mx-auto block h-auto w-full max-w-full object-contain"
+        sizes="(max-width: 1024px) 100vw, 36rem"
         loading="eager"
+        fetchPriority="high"
         decoding="async"
         draggable={false}
       />

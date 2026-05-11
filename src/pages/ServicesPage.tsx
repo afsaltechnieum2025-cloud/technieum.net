@@ -1,9 +1,12 @@
+import { useImgPreload } from '../hooks/useImgPreload'
 import { ServicesPageHeroGraphic } from '../components/services/ServicesPageHeroGraphic'
 import { ServiceCatalogRow } from '../components/services/ServiceCatalogRow'
 import { SERVICE_TOPICS } from '../data/serviceDocuments'
 import { SERVICES_CATALOG_INTRO, SERVICE_CATALOG_ROW_META } from '../data/servicesCatalogRowContent'
 
 export function ServicesPage() {
+  useImgPreload('/png/Servicemain.png', 'preload-services-catalog-hero')
+
   return (
     <main id="main-content" className="flex flex-col bg-page">
       <section className="section-zz-a section-zz-wash-tl relative overflow-hidden bg-bg-inset py-10 md:py-14 lg:py-16">

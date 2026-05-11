@@ -1,3 +1,4 @@
+import { useImgPreload } from '../hooks/useImgPreload'
 import { Link } from 'react-router-dom'
 import { CapabilitiesHubInPortalFrame } from '../components/home/CapabilitiesHubInPortalFrame'
 import { HomeCapabilitiesCoverageVisual } from '../components/home/HomeCapabilitiesCoverageVisual'
@@ -11,6 +12,8 @@ import {
 } from '../data/salesPitchSite'
 
 export function HomePage() {
+  useImgPreload('/png/mainpage.png', 'preload-home-capabilities-hub')
+
   return (
     <main id="main-content" className="flex flex-col bg-page">
       {/* Coverage hub — primary headline */}

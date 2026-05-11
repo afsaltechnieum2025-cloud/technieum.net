@@ -32,9 +32,24 @@ export function ServiceProgramHeroVisual({
       ? 'mx-auto block h-auto w-full max-h-[min(48vh,320px)] object-contain object-center md:max-h-[min(44vh,340px)]'
       : 'mx-auto block h-auto w-full max-h-[min(62vh,420px)] object-contain object-center md:max-h-[min(58vh,440px)]'
 
+  const loading = layout === 'catalog' ? 'lazy' : 'eager'
+  const fetchPriority = layout === 'catalog' ? 'low' : 'high'
+  const sizes =
+    layout === 'catalog'
+      ? '(max-width: 1024px) 100vw, 440px'
+      : '(max-width: 1024px) 100vw, min(100vw, 720px)'
+
   return (
     <div className={wrapClass} role="img" aria-label={ariaLabel}>
-      <img src={src} alt="" className={imgClass} />
+      <img
+        src={src}
+        alt=""
+        className={imgClass}
+        loading={loading}
+        fetchPriority={fetchPriority}
+        decoding="async"
+        sizes={sizes}
+      />
     </div>
   )
 }

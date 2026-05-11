@@ -1,5 +1,8 @@
 /**
  * Hero / hub artwork for service lanes. Marks live in `public/png/` (URL-encoded filenames where needed).
+ *
+ * For faster loads: compress PNGs (e.g. oxipng, TinyPNG), export WebP/AVIF alongside and serve via
+ * `<picture>` or a CDN with automatic format negotiation; keep display dimensions modest vs. file pixels.
  */
 
 function png(name: string): string {
